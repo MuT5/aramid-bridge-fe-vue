@@ -1,0 +1,923 @@
+{
+  "addresses": {
+    "config": "ARAMICOCHLHSX3G5KCKK23M72ETI537GK5VGLOVHXAGPIELWYJKIMGKK6I",
+    "escrow": "ARAMIDM6O7ZKTXWMY2KEVLLFTOLRXK6IEKEG53IMXUJOT3EAJJQ3AQBBAQ",
+    "proofs": "TOAXG6V7GPK5KJE4AUCFBBUZI35WVWH52A2DCZLFU3CSDHCWAVTV3Z3W2Y",
+    "claims": "TZAMHDDRFFAA7C7ZW6B3EEJ2FHUKBO5IMWBOTP3REZOA6CC32JX6QAZTEY",
+    "roundOracle": "ARAMIDXXYOGENNKBIXUS7GTZR3FNV7S7JFE7K5Y7B66AVKNV5IQSUTFAO4"
+  },
+  "chains": {
+    "4": {
+      "chainId": 4,
+      "name": "Rinkeby",
+      "type": "eth",
+      "folder": "rinkeby",
+      "address": "0x3AA27c3175917ac839f9c5135dD822857B6609Ba",
+      "tokens": {
+        "0x0000000000000000000000000000000000000000": {
+          "tokenId": "0x0000000000000000000000000000000000000000",
+          "name": "Rinkeby Ethereum",
+          "symbol": "rinETH",
+          "decimals": 18,
+          "chainId": 4,
+          "type": "eth",
+          "isPremium": false,
+          "logo": "eth"
+        },
+        "0xe52845e7FB389A673FB9cF9E5e51d66Bb298176e": {
+          "tokenId": "0xe52845e7FB389A673FB9cF9E5e51d66Bb298176e",
+          "name": "AramidDaoToken",
+          "symbol": "aDAO",
+          "decimals": 18,
+          "chainId": 4,
+          "type": "eth",
+          "isPremium": true,
+          "logo": "aramid-dao"
+        },
+        "0xBD400546C636a3b6d1F79D5f53032eD6b6311eaf": {
+          "tokenId": "0xBD400546C636a3b6d1F79D5f53032eD6b6311eaf",
+          "name": "AramidUSDToken",
+          "symbol": "aUSD",
+          "decimals": 18,
+          "chainId": 4,
+          "type": "eth",
+          "isPremium": true,
+          "logo": "aramid-usd"
+        }
+      },
+      "logo": "eth",
+      "blockExplorers": [
+        "https://rinkeby.etherscan.io/tx/"
+      ],
+      "soldiersByRound": [
+        {
+          "validFrom": 0,
+          "validUntil": 999999999,
+          "signThreshold": 2,
+          "sendThreshold": 3,
+          "soldiers": {
+            "newton": "0x4F8240A5513C4C6A020B5bd352cdE785e8db47A9",
+            "goethe": "0xc65255c9B69d2CC195041D7D27D5730d01Fa36A6",
+            "einstein": "0x006FCfA66616A91aFD990905F16D4CcCBAcec3e3"
+          }
+        }
+      ]
+    },
+    "80001": {
+      "chainId": 80001,
+      "name": "Polygon Mumbai",
+      "type": "eth",
+      "folder": "polygon",
+      "address": "0xc11e35435Cf2C09E06DB78E4cB01B599A722422D",
+      "tokens": {
+        "0x0000000000000000000000000000000000000000": {
+          "tokenId": "0x0000000000000000000000000000000000000000",
+          "name": "Matic Polygon",
+          "symbol": "matic",
+          "decimals": 18,
+          "chainId": 80001,
+          "type": "eth",
+          "isPremium": false,
+          "logo": "polygon"
+        },
+        "0x3255a727dae0141bAb989A3fd5710955055b879f": {
+          "tokenId": "0x3255a727dae0141bAb989A3fd5710955055b879f",
+          "name": "AramidDaoToken",
+          "symbol": "aDAO",
+          "decimals": 18,
+          "chainId": 80001,
+          "type": "eth",
+          "isPremium": true,
+          "logo": "aramid-dao"
+        },
+        "0x1086a532a26f62b185b6DcD15CE7519024912A09": {
+          "tokenId": "0x1086a532a26f62b185b6DcD15CE7519024912A09",
+          "name": "AramidUSDToken",
+          "symbol": "aUSD",
+          "decimals": 18,
+          "chainId": 80001,
+          "type": "eth",
+          "isPremium": true,
+          "logo": "aramid-usd"
+        }
+      },
+      "logo": "polygon",
+      "blockExplorers": [
+        "https://mumbai.polygonscan.com/tx/"
+      ],
+      "soldiersByRound": [
+        {
+          "validFrom": 0,
+          "validUntil": 999999999,
+          "signThreshold": 2,
+          "sendThreshold": 3,
+          "soldiers": {
+            "newton": "0x4F8240A5513C4C6A020B5bd352cdE785e8db47A9",
+            "goethe": "0xc65255c9B69d2CC195041D7D27D5730d01Fa36A6",
+            "einstein": "0x006FCfA66616A91aFD990905F16D4CcCBAcec3e3"
+          }
+        }
+      ]
+    },
+    "101001": {
+      "chainId": 101001,
+      "name": "Algorand testnet",
+      "type": "algo",
+      "folder": "algo",
+      "address": "ARAMIDM6O7ZKTXWMY2KEVLLFTOLRXK6IEKEG53IMXUJOT3EAJJQ3AQBBAQ",
+      "logo": "algo",
+      "blockExplorers": [
+        "https://testnet.algoexplorer.io/tx/"
+      ],
+      "tokens": {
+        "37074699": {
+          "tokenId": "37074699",
+          "name": "USDC Testnet",
+          "symbol": "USDC",
+          "decimals": 6,
+          "chainId": 101001,
+          "type": "algo",
+          "isPremium": true,
+          "logo": "usdc"
+        },
+        "76234765": {
+          "tokenId": "76234765",
+          "name": "Aramid DAO Token",
+          "symbol": "aDAO",
+          "decimals": 6,
+          "chainId": 101001,
+          "type": "algo",
+          "isPremium": true,
+          "logo": "aramid-dao"
+        },
+        "76238324": {
+          "tokenId": "76238324",
+          "name": "Aramid USD Token",
+          "symbol": "aUSD",
+          "decimals": 6,
+          "chainId": 101001,
+          "type": "algo",
+          "isPremium": false,
+          "logo": "aramid-usd"
+        },
+        "76854782": {
+          "tokenId": "76854782",
+          "name": "Aramid Rinkeby Token",
+          "symbol": "rinETH",
+          "decimals": 6,
+          "chainId": 101001,
+          "type": "algo",
+          "isPremium": false,
+          "logo": "eth"
+        },
+        "76854931": {
+          "tokenId": "76854931",
+          "name": "Aramid Matic Token",
+          "symbol": "matic",
+          "decimals": 6,
+          "chainId": 101001,
+          "type": "algo",
+          "isPremium": false,
+          "logo": "polygon"
+        }
+      },
+      "soldiersByRound": [
+        {
+          "validFrom": 0,
+          "validUntil": 999999999,
+          "signThreshold": 2,
+          "sendThreshold": 3,
+          "soldiers": {
+            "newton": "L4ARCVDL6NMHXCGF43S6N6GEXVAIMTG5URY6DV43FLUMQNJLSIGQJZUPXY",
+            "einstein": "GTFOQ6TGLGGI4SKZVWM5OSAQXKTOD6CBHAZXVHCXO3NORELOF3ZUFIOFD4",
+            "goethe": "CFI2ZKHZR7FMP3GXS2SFGDQSEB7X5KF6GDO7SXSYKMF4OADIANBHPQ33W4"
+          }
+        }
+      ]
+    }
+  },
+  "chains2tokens": {
+    "4": {
+      "80001": {
+        "0xe52845e7FB389A673FB9cF9E5e51d66Bb298176e": {
+          "0x3255a727dae0141bAb989A3fd5710955055b879f": {
+            "sourceName": "AramidDaoToken",
+            "sourceSymbol": "aDAO",
+            "sourceDecimals": 18,
+            "sourceType": "eth",
+            "sourceAcceptRounds": 300,
+            "sourceTokenLogo": "aramid-dao",
+            "destinationName": "AramidDaoToken",
+            "destinationSymbol": "aDAO",
+            "destinationDecimals": 18,
+            "destinationType": "eth",
+            "destinationTokenLogo": "aramid-dao",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "100000000000000000",
+                "maximumAmount": "999999999000000000000000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "999999999000000000000000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          }
+        },
+        "0xBD400546C636a3b6d1F79D5f53032eD6b6311eaf": {
+          "0x1086a532a26f62b185b6DcD15CE7519024912A09": {
+            "sourceName": "AramidUSDToken",
+            "sourceSymbol": "aUSD",
+            "sourceDecimals": 18,
+            "sourceType": "eth",
+            "sourceAcceptRounds": 300,
+            "sourceTokenLogo": "aramid-usd",
+            "destinationName": "AramidUSDToken",
+            "destinationSymbol": "aUSD",
+            "destinationDecimals": 18,
+            "destinationType": "eth",
+            "destinationTokenLogo": "aramid-usd",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "100000000000000000",
+                "maximumAmount": "999999999000000000000000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "999999999000000000000000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          }
+        }
+      },
+      "101001": {
+        "0x0000000000000000000000000000000000000000": {
+          "76854782": {
+            "sourceName": "Rinkeby Ethereum",
+            "sourceSymbol": "rinETH",
+            "sourceDecimals": 18,
+            "sourceType": "eth",
+            "sourceAcceptRounds": 300,
+            "sourceTokenLogo": "eth",
+            "destinationName": "Aramid Rinkeby Token",
+            "destinationSymbol": "rinETH",
+            "destinationDecimals": 6,
+            "destinationType": "algo",
+            "destinationTokenLogo": "eth",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "100000000000000000",
+                "maximumAmount": "999999999000000000000000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "999999999000000000000000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          }
+        },
+        "0xe52845e7FB389A673FB9cF9E5e51d66Bb298176e": {
+          "76234765": {
+            "sourceName": "AramidDaoToken",
+            "sourceSymbol": "aDAO",
+            "sourceDecimals": 18,
+            "sourceType": "eth",
+            "sourceAcceptRounds": 300,
+            "sourceTokenLogo": "aramid-dao",
+            "destinationName": "Aramid DAO Token",
+            "destinationSymbol": "aDAO",
+            "destinationDecimals": 6,
+            "destinationType": "algo",
+            "destinationTokenLogo": "aramid-dao",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "100000000000000000",
+                "maximumAmount": "999999999000000000000000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "999999999000000000000000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          }
+        },
+        "0xBD400546C636a3b6d1F79D5f53032eD6b6311eaf": {
+          "76238324": {
+            "sourceName": "AramidUSDToken",
+            "sourceSymbol": "aUSD",
+            "sourceDecimals": 18,
+            "sourceType": "eth",
+            "sourceAcceptRounds": 300,
+            "sourceTokenLogo": "aramid-usd",
+            "destinationName": "Aramid USD Token",
+            "destinationSymbol": "aUSD",
+            "destinationDecimals": 6,
+            "destinationType": "algo",
+            "destinationTokenLogo": "aramid-usd",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "100000000000000000",
+                "maximumAmount": "999999999000000000000000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "999999999000000000000000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          }
+        }
+      }
+    },
+    "80001": {
+      "4": {
+        "0x3255a727dae0141bAb989A3fd5710955055b879f": {
+          "0xe52845e7FB389A673FB9cF9E5e51d66Bb298176e": {
+            "sourceName": "AramidDaoToken",
+            "sourceSymbol": "aDAO",
+            "sourceDecimals": 18,
+            "sourceType": "eth",
+            "sourceAcceptRounds": 2000,
+            "sourceTokenLogo": "aramid-dao",
+            "destinationName": "AramidDaoToken",
+            "destinationSymbol": "aDAO",
+            "destinationDecimals": 18,
+            "destinationType": "eth",
+            "destinationTokenLogo": "aramid-dao",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "100000000000000000",
+                "maximumAmount": "999999999000000000000000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "999999999000000000000000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          }
+        },
+        "0x1086a532a26f62b185b6DcD15CE7519024912A09": {
+          "0xBD400546C636a3b6d1F79D5f53032eD6b6311eaf": {
+            "sourceName": "AramidUSDToken",
+            "sourceSymbol": "aUSD",
+            "sourceDecimals": 18,
+            "sourceType": "eth",
+            "sourceAcceptRounds": 2000,
+            "sourceTokenLogo": "aramid-usd",
+            "destinationName": "AramidUSDToken",
+            "destinationSymbol": "aUSD",
+            "destinationDecimals": 18,
+            "destinationType": "eth",
+            "destinationTokenLogo": "aramid-usd",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "100000000000000000",
+                "maximumAmount": "999999999000000000000000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "999999999000000000000000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          }
+        }
+      },
+      "101001": {
+        "0x0000000000000000000000000000000000000000": {
+          "76854931": {
+            "sourceName": "Matic Polygon",
+            "sourceSymbol": "matic",
+            "sourceDecimals": 18,
+            "sourceType": "eth",
+            "sourceAcceptRounds": 2000,
+            "sourceTokenLogo": "polygon",
+            "destinationName": "Aramid Matic Token",
+            "destinationSymbol": "matic",
+            "destinationDecimals": 6,
+            "destinationType": "algo",
+            "destinationTokenLogo": "polygon",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "100000000000000000",
+                "maximumAmount": "999999999000000000000000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "999999999000000000000000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          }
+        },
+        "0x3255a727dae0141bAb989A3fd5710955055b879f": {
+          "76234765": {
+            "sourceName": "AramidDaoToken",
+            "sourceSymbol": "aDAO",
+            "sourceDecimals": 18,
+            "sourceType": "eth",
+            "sourceAcceptRounds": 2000,
+            "sourceTokenLogo": "aramid-dao",
+            "destinationName": "Aramid DAO Token",
+            "destinationSymbol": "aDAO",
+            "destinationDecimals": 6,
+            "destinationType": "algo",
+            "destinationTokenLogo": "aramid-dao",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "100000000000000000",
+                "maximumAmount": "999999999000000000000000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "999999999000000000000000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          }
+        },
+        "0x1086a532a26f62b185b6DcD15CE7519024912A09": {
+          "76238324": {
+            "sourceName": "AramidUSDToken",
+            "sourceSymbol": "aUSD",
+            "sourceDecimals": 18,
+            "sourceType": "eth",
+            "sourceAcceptRounds": 2000,
+            "sourceTokenLogo": "aramid-usd",
+            "destinationName": "Aramid USD Token",
+            "destinationSymbol": "aUSD",
+            "destinationDecimals": 6,
+            "destinationType": "algo",
+            "destinationTokenLogo": "aramid-usd",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "100000000000000000",
+                "maximumAmount": "999999999000000000000000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "999999999000000000000000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          }
+        }
+      }
+    },
+    "101001": {
+      "4": {
+        "76234765": {
+          "0xe52845e7FB389A673FB9cF9E5e51d66Bb298176e": {
+            "sourceName": "Aramid DAO Token",
+            "sourceSymbol": "aDAO",
+            "sourceDecimals": 6,
+            "sourceType": "algo",
+            "sourceAcceptRounds": 1000,
+            "sourceTokenLogo": "aramid-dao",
+            "destinationName": "AramidDaoToken",
+            "destinationSymbol": "aDAO",
+            "destinationDecimals": 18,
+            "destinationType": "eth",
+            "destinationTokenLogo": "aramid-dao",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "100000",
+                "maximumAmount": "999999999000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "999999999000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          }
+        },
+        "76238324": {
+          "0xBD400546C636a3b6d1F79D5f53032eD6b6311eaf": {
+            "sourceName": "Aramid USD Token",
+            "sourceSymbol": "aUSD",
+            "sourceDecimals": 6,
+            "sourceType": "algo",
+            "sourceAcceptRounds": 1000,
+            "sourceTokenLogo": "aramid-usd",
+            "destinationName": "AramidUSDToken",
+            "destinationSymbol": "aUSD",
+            "destinationDecimals": 18,
+            "destinationType": "eth",
+            "destinationTokenLogo": "aramid-usd",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "100000",
+                "maximumAmount": "999999999000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "999999999000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          }
+        },
+        "76854782": {
+          "0x0000000000000000000000000000000000000000": {
+            "sourceName": "Aramid Rinkeby Token",
+            "sourceSymbol": "rinETH",
+            "sourceDecimals": 6,
+            "sourceType": "algo",
+            "sourceAcceptRounds": 1000,
+            "sourceTokenLogo": "eth",
+            "destinationName": "Rinkeby Ethereum",
+            "destinationSymbol": "rinETH",
+            "destinationDecimals": 18,
+            "destinationType": "eth",
+            "destinationTokenLogo": "eth",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "100000",
+                "maximumAmount": "999999999000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "999999999000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          }
+        }
+      },
+      "80001": {
+        "76234765": {
+          "0x3255a727dae0141bAb989A3fd5710955055b879f": {
+            "sourceName": "Aramid DAO Token",
+            "sourceSymbol": "aDAO",
+            "sourceDecimals": 6,
+            "sourceType": "algo",
+            "sourceAcceptRounds": 1000,
+            "sourceTokenLogo": "aramid-dao",
+            "destinationName": "AramidDaoToken",
+            "destinationSymbol": "aDAO",
+            "destinationDecimals": 18,
+            "destinationType": "eth",
+            "destinationTokenLogo": "aramid-dao",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "100000",
+                "maximumAmount": "999999999000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "999999999000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          }
+        },
+        "76238324": {
+          "0x1086a532a26f62b185b6DcD15CE7519024912A09": {
+            "sourceName": "Aramid USD Token",
+            "sourceSymbol": "aUSD",
+            "sourceDecimals": 6,
+            "sourceType": "algo",
+            "sourceAcceptRounds": 1000,
+            "sourceTokenLogo": "aramid-usd",
+            "destinationName": "AramidUSDToken",
+            "destinationSymbol": "aUSD",
+            "destinationDecimals": 18,
+            "destinationType": "eth",
+            "destinationTokenLogo": "aramid-usd",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "100000",
+                "maximumAmount": "999999999000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "999999999000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          }
+        },
+        "76854931": {
+          "0x0000000000000000000000000000000000000000": {
+            "sourceName": "Aramid Matic Token",
+            "sourceSymbol": "matic",
+            "sourceDecimals": 6,
+            "sourceType": "algo",
+            "sourceAcceptRounds": 1000,
+            "sourceTokenLogo": "polygon",
+            "destinationName": "Matic Polygon",
+            "destinationSymbol": "matic",
+            "destinationDecimals": 18,
+            "destinationType": "eth",
+            "destinationTokenLogo": "polygon",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "100000",
+                "maximumAmount": "999999999000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "999999999000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          }
+        }
+      },
+      "101001": {
+        "37074699": {
+          "76238324": {
+            "sourceName": "USDC Testnet",
+            "sourceSymbol": "USDC",
+            "sourceDecimals": 6,
+            "sourceType": "algo",
+            "sourceAcceptRounds": 1000,
+            "sourceTokenLogo": "usdc",
+            "destinationName": "Aramid USD Token",
+            "destinationSymbol": "aUSD",
+            "destinationDecimals": 6,
+            "destinationType": "algo",
+            "destinationTokenLogo": "aramid-usd",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "100000",
+                "maximumAmount": "999999999000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "999999999000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          }
+        },
+        "76238324": {
+          "37074699": {
+            "sourceName": "Aramid USD Token",
+            "sourceSymbol": "aUSD",
+            "sourceDecimals": 6,
+            "sourceType": "algo",
+            "sourceAcceptRounds": 1000,
+            "sourceTokenLogo": "aramid-usd",
+            "destinationName": "USDC Testnet",
+            "destinationSymbol": "USDC",
+            "destinationDecimals": 6,
+            "destinationType": "algo",
+            "destinationTokenLogo": "usdc",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "100000",
+                "maximumAmount": "999999999000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "999999999000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          }
+        }
+      }
+    }
+  }
+}

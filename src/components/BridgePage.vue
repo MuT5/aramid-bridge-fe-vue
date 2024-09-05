@@ -1,0 +1,338 @@
+<script setup lang="ts">
+import MainBox from './ui/MainBox.vue'
+import ChainSelectionSource from './ChainSelectionSource.vue'
+import AssetSelectionSource from './AssetSelectionSource.vue'
+import AssetSelectionDestination from './AssetSelectionDestination.vue'
+import WalletSource from './WalletSource.vue'
+import WalletDestination from './WalletDestination.vue'
+import AmountSource from './AmountSource.vue'
+import SwitchButton from './SwitchButton.vue'
+import ChainSelectionDestination from './ChainSelectionDestination.vue'
+import AmountDestination from './AmountDestination.vue'
+import MainActionButton from './ui/MainActionButton.vue'
+import { onMounted, reactive, watch } from 'vue'
+import { useAppStore } from '@/stores/app'
+import { useRouter, useRoute } from 'vue-router'
+import getPublicConfiguration from '@/scripts/common/getPublicConfiguration'
+import { resetDestinationChainIfNotMatched } from '@/scripts/events/resetDestinationChainIfNotMatched'
+import { fillDestinationChainConfiguration } from '@/scripts/events/fillDestinationChainConfiguration'
+import { resetSourceTokenIfNotMatched } from '@/scripts/events/resetSourceTokenIfNotMatched'
+import { fillSourceTokenConfiguration } from '@/scripts/events/fillSourceTokenConfiguration'
+import SimpleLabel from './ui/SimpleLabel.vue'
+import base64url from 'base64url'
+import { useToast } from 'primevue/usetoast'
+import { makeNoteField } from '@/scripts/aramid/makeNoteField'
+import BigNumber from 'bignumber.js'
+import { ethers } from 'ethers'
+import Message from 'primevue/message'
+
+const store = useAppStore()
+const route = useRoute()
+const router = useRouter()
+const toast = useToast()
+const state = reactive({
+  mounted: false,
+  error: ''
+})
+const fillInRoute = () => {
+  if (!state.mounted) return
+  if (
+    store.state.sourceChainConfiguration &&
+    store.state.destinationChainConfiguration &&
+    store.state.sourceTokenConfiguration &&
+    store.state.destinationTokenConfiguration &&
+    store.state.sourceAddress &&
+    store.state.destinationAddress &&
+    store.state.sourceAmount &&
+    store.state.memo
+  ) {
+    router.push({
+      name: 'bridge-sc-dc-st-dt-sa-da-a-n',
+      params: {
+        sourceChain: store.state.sourceChainConfiguration.name,
+        destinationChain: store.state.destinationChainConfiguration.name,
+        sourceToken: store.state.sourceTokenConfiguration.name,
+        destinationToken: store.state.destinationTokenConfiguration.name,
+        sourceAddress: store.state.sourceAddress,
+        destinationAddress: store.state.destinationAddress,
+        sourceAmount: store.state.sourceAmount,
+        note: base64url(store.state.memo)
+      }
+    })
+  } else if (
+    store.state.sourceChainConfiguration &&
+    store.state.destinationChainConfiguration &&
+    store.state.sourceTokenConfiguration &&
+    store.state.destinationTokenConfiguration &&
+    store.state.sourceAddress &&
+    store.state.destinationAddress &&
+    store.state.sourceAmount
+  ) {
+    router.push({
+      name: 'bridge-sc-dc-st-dt-sa-da-a',
+      params: {
+        sourceChain: store.state.sourceChainConfiguration.name,
+        destinationChain: store.state.destinationChainConfiguration.name,
+        sourceToken: store.state.sourceTokenConfiguration.name,
+        destinationToken: store.state.destinationTokenConfiguration.name,
+        sourceAddress: store.state.sourceAddress,
+        destinationAddress: store.state.destinationAddress,
+        sourceAmount: store.state.sourceAmount
+      }
+    })
+  } else if (
+    store.state.sourceChainConfiguration &&
+    store.state.destinationChainConfiguration &&
+    store.state.sourceTokenConfiguration &&
+    store.state.destinationTokenConfiguration &&
+    store.state.sourceAmount &&
+    store.state.memo
+  ) {
+    router.push({
+      name: 'bridge-sc-dc-st-dt-a-n',
+      params: {
+        sourceChain: store.state.sourceChainConfiguration.name,
+        destinationChain: store.state.destinationChainConfiguration.name,
+        sourceToken: store.state.sourceTokenConfiguration.name,
+        destinationToken: store.state.destinationTokenConfiguration.name,
+        sourceAmount: store.state.sourceAmount,
+        note: base64url(store.state.memo)
+      }
+    })
+  } else if (
+    store.state.sourceChainConfiguration &&
+    store.state.destinationChainConfiguration &&
+    store.state.sourceTokenConfiguration &&
+    store.state.destinationTokenConfiguration &&
+    store.state.sourceAmount
+  ) {
+    router.push({
+      name: 'bridge-sc-dc-st-dt-a',
+      params: {
+        sourceChain: store.state.sourceChainConfiguration.name,
+        destinationChain: store.state.destinationChainConfiguration.name,
+        sourceToken: store.state.sourceTokenConfiguration.name,
+        destinationToken: store.state.destinationTokenConfiguration.name,
+        sourceAmount: store.state.sourceAmount
+      }
+    })
+  } else if (store.state.sourceChainConfiguration && store.state.destinationChainConfiguration && store.state.sourceTokenConfiguration && store.state.destinationTokenConfiguration) {
+    router.push({
+      name: 'bridge-sc-dc-st-dt',
+      params: {
+        sourceChain: store.state.sourceChainConfiguration.name,
+        destinationChain: store.state.destinationChainConfiguration.name,
+        sourceToken: store.state.sourceTokenConfiguration.name,
+        destinationToken: store.state.destinationTokenConfiguration.name
+      }
+    })
+  }
+}
+
+const doValidation = (): boolean => {
+  // called when the review button is pressed, right after confirmNetworksAndDestinationAddress
+  try {
+    if (!store.state.sourceAddress) {
+      throw Error('Please select the address from which you will bridge the assets by connecting source chain wallet')
+    } else if (!store.state.destinationAddress) {
+      throw Error('Please select the address where you want to send the assets')
+    } else if (!store.state.sourceToken) {
+      throw Error('A source asset must be selected before continuing.')
+    } else if (!store.state.destinationToken) {
+      throw Error('A destination asset must be selected before continuing.')
+    } else if (store.state.sourceChainConfiguration?.type == 'eth' && store.state.sourceChainConfiguration.chainId != store.state.currentMetamaskChain) {
+      throw Error(`Please Switch the chain to ${store.state.sourceChainConfiguration.name} network in your connected wallet`)
+    } else if (new BigNumber(store.state.sourceAmount).lte(0) || store.state.sourceAmount === 'NaN') {
+      throw Error('Amount entered is near or equal to zero.')
+    } else if (!store.state.sourceAddressBalance || new BigNumber(store.state.sourceAmount).gt(new BigNumber(store.state.sourceAddressBalance))) {
+      throw Error('Amount requested to bridge is greater than your account balance.')
+    } else if (!store.state.sourceTokenConfiguration) {
+      throw Error('sourceTokenConfiguration is empty.')
+    } else if (!store.state.destinationTokenConfiguration) {
+      throw Error('destinationTokenConfiguration is empty.')
+    } else if (!store.state.escrowBalanceIsSufficient) {
+      throw Error('Insufficient liquidity to fulfill bridge request, please try again later.')
+    } else if (store.state.destinationChainConfiguration && store.state.destinationChainConfiguration.type == 'algo' && !store.state.destinationAccountOptedIn && store.state.destinationToken != '0') {
+      throw Error(`Destination account is not opted in to the ASA ${store.state.destinationToken}.`)
+    } else if (
+      !store.state.destinationBridgeBalance ||
+      !store.state.destinationAddressBalance ||
+      new BigNumber(store.state.destinationBridgeBalance).lt(new BigNumber(store.state.destinationAddressBalance))
+    ) {
+      throw Error('Amount requested to bridge is greater than destination bridge account balance.')
+    }
+    const memoWhiteList = /^[\p{L}\p{N}\s\.,\-_\/@\*\+\$%]*$/u
+    if (!store.state.memo.match(memoWhiteList)) {
+      throw Error('Memo contains invalid characters. Please use alphanumerical characters only please.')
+    }
+    // else if (disabled && store.state.destinationChainConfiguration && store.state.destinationChainConfiguration.type == 'near') {
+    //   throw Error('Please Pay token storage fee to continue.')
+    // }
+
+    if (
+      store.state.routeConfig &&
+      store.state.routeConfig.feeAlternatives &&
+      store.state.routeConfig.feeAlternatives[0] &&
+      new BigNumber(store.state.sourceAmount).lt(store.state.routeConfig.feeAlternatives[0].minimumAmount)
+    ) {
+      throw Error(
+        `Source Asset amount should be at least ${Number(ethers.formatUnits(store.state.routeConfig.feeAlternatives[0].minimumAmount, store.state.sourceTokenConfiguration.decimals)).toFixed(2)}.`
+      )
+    }
+    if (
+      store.state.routeConfig &&
+      store.state.routeConfig.feeAlternatives &&
+      store.state.routeConfig.feeAlternatives[0] &&
+      new BigNumber(store.state.sourceAmount).gt(store.state.routeConfig.feeAlternatives[0].maximumAmount)
+    ) {
+      throw Error(
+        `Source Asset amount should be less than ${Number(ethers.formatUnits(store.state.routeConfig.feeAlternatives[0].maximumAmount, store.state.sourceTokenConfiguration.decimals)).toFixed(2)}.`
+      )
+    }
+
+    if (Math.abs(Number(store.state.sourceAmountFormatted) - Number(store.state.feeAmountFormatted) - Number(store.state.destinationAmountFormatted)) > 0.001) {
+      throw Error(
+        `Source and Destination Amount (${store.state.sourceAmountFormatted} - ${store.state.feeAmountFormatted}, ${store.state.destinationAmountFormatted}) are not compatible, Please re-enter the Amount.`
+      )
+    }
+    return true
+  } catch (e: any) {
+    console.error(e)
+    state.error = e.message ?? e
+    toast.add({
+      severity: 'error',
+      detail: state.error,
+      life: 3000
+    })
+    return false
+  }
+}
+
+const reviewButtonClick = () => {
+  if (!doValidation()) return
+
+  if (
+    store.state.sourceChainConfiguration &&
+    store.state.destinationChainConfiguration &&
+    store.state.sourceTokenConfiguration &&
+    store.state.destinationTokenConfiguration &&
+    store.state.sourceAmount &&
+    store.state.memo
+  ) {
+    router.push({
+      name: 'review-sc-dc-st-dt-a-n',
+      params: {
+        sourceChain: store.state.sourceChainConfiguration.name,
+        destinationChain: store.state.destinationChainConfiguration.name,
+        sourceToken: store.state.sourceTokenConfiguration.name,
+        destinationToken: store.state.destinationTokenConfiguration.name,
+        sourceAmount: store.state.sourceAmount,
+        note: base64url(store.state.memo)
+      }
+    })
+  } else if (
+    store.state.sourceChainConfiguration &&
+    store.state.destinationChainConfiguration &&
+    store.state.sourceTokenConfiguration &&
+    store.state.destinationTokenConfiguration &&
+    store.state.sourceAmount
+  ) {
+    router.push({
+      name: 'review-sc-dc-st-dt-a',
+      params: {
+        sourceChain: store.state.sourceChainConfiguration.name,
+        destinationChain: store.state.destinationChainConfiguration.name,
+        sourceToken: store.state.sourceTokenConfiguration.name,
+        destinationToken: store.state.destinationTokenConfiguration.name,
+        sourceAmount: store.state.sourceAmount
+      }
+    })
+  }
+}
+
+onMounted(async () => {
+  await getPublicConfiguration(false)
+  resetDestinationChainIfNotMatched()
+  if (!store.state.destinationChain) fillDestinationChainConfiguration()
+  resetSourceTokenIfNotMatched()
+  if (!store.state.sourceToken) fillSourceTokenConfiguration()
+  if (route.params['sourceAmount']) {
+    store.state.sourceAmount = route.params['sourceAmount'] as string
+  }
+  if (route.params['note']) {
+    try {
+      const parsedMemo = base64url.decode(route.params['note'] as string)
+      console.log('parsedMemo', parsedMemo)
+      store.state.memo = parsedMemo
+    } catch (e: any) {
+      console.error(e)
+      toast.add({
+        severity: 'error',
+        detail: e.message ?? e,
+        life: 3000
+      })
+    }
+  }
+  state.mounted = true
+  fillInRoute()
+})
+
+watch(
+  () => store.state.destinationTokenConfiguration,
+  () => {
+    fillInRoute()
+  }
+)
+watch(
+  () => store.state.sourceAmount,
+  () => {
+    fillInRoute()
+  }
+)
+watch(
+  () => store.state.memo,
+  () => {
+    fillInRoute()
+    makeNoteField()
+  }
+)
+watch(
+  () => store.state.destinationAddress,
+  () => {
+    fillInRoute()
+  }
+)
+</script>
+<template>
+  <MainBox>
+    <div class="flex flex-row w-full">
+      <div class="text-left font-extrabold text-xl w-full grow flex-1">Bridge your assets <span class="text-[#FB7EFF]">cross-chain</span></div>
+      <img src="../assets/images/aramid-logo.svg" alt="Aramid" width="150" class="align-right text-right self-right" />
+    </div>
+    <div class="flex flex-col md:flex-row w-full gap-2">
+      <ChainSelectionSource></ChainSelectionSource>
+      <AssetSelectionSource></AssetSelectionSource>
+      <WalletSource></WalletSource>
+      <AmountSource></AmountSource>
+    </div>
+    <div class="w-full"><SwitchButton></SwitchButton></div>
+    <div class="flex flex-col md:flex-row w-full gap-2">
+      <ChainSelectionDestination></ChainSelectionDestination>
+      <AssetSelectionDestination></AssetSelectionDestination>
+      <WalletDestination></WalletDestination>
+      <AmountDestination></AmountDestination>
+    </div>
+    <div class="mt-4 w-full">
+      <SimpleLabel>Cross chain Note/Memo/Payment reference</SimpleLabel>
+      <input :maxlength="50" class="bg-white-rgba rounded-[10px] focus:outline-none w-full mt-1 3xl:mt-3 4xl:mt-6 p-1 3xl:p-3 4xl:p-6 text-base w-full" type="text" v-model="store.state.memo" />
+    </div>
+    <Message severity="error" v-if="state.error" class="mt-4 w-full">{{ state.error }}</Message>
+    <Message severity="error" v-if="!store.state.escrowBalanceIsSufficient" class="mt-4 w-full">
+      Insufficient balance in bridge balance, please reduce your transfer amount or try a different destination token.
+    </Message>
+    <Message severity="warn" v-else-if="!store.state.escrowBalanceIsSufficient10x" class="mt-4 w-full">
+      The bridge balance has less than 10x your transfer amount and your request may potentially not be fulfilled.
+    </Message>
+    <MainActionButton @click="reviewButtonClick">Review your transation</MainActionButton>
+  </MainBox>
+</template>

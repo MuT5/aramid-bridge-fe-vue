@@ -1,0 +1,61 @@
+/* ./src/index.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background: url('images/background.webp');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.roundedButton {
+  border: 1px solid rgba(246, 246, 246, 0.16);
+  background: rgba(246, 246, 246, 0.16);
+}
+
+@font-face {
+  font-family: 'Satoshi';
+  src: url('/fonts/Satoshi-Variable.ttf');
+}
+
+#WEB3_CONNECT_MODAL_ID {
+  z-index: 1000;
+  position: absolute;
+}
+
+body {
+  overflow: hidden;
+}
+
+wcm-modal,
+#wcm-modal,
+.wcm-active,
+#wcm-modal .wcm-container {
+  z-index: 100000 !important;
+}
+
+@font-face {
+  font-family: 'Satoshi';
+  src: url('/fonts/Satoshi-Variable.ttf');
+}
+@layer components {
+  /* Chrome, Safari, Edge, Opera */
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  /* Firefox */
+  input[type='number'] {
+    -moz-appearance: textfield;
+  }
+
+  input:-webkit-autofill,
+  input:-webkit-autofill:focus {
+    transition:
+      background-color 900000s 0s,
+      color 600000s 0s;
+  }
+}
