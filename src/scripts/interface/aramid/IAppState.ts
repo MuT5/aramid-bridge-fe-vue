@@ -45,6 +45,7 @@ export interface IAppState {
   sourceAddress?: string // sender address
   sourceChain?: number // currently selected chain
   sourceChainConfiguration?: ChainItem // currently selected network
+  sourceChainGenesis?: string // the network id for qr code
   sourceToken?: string // currently selected token.
   sourceTokenConfiguration?: TokenItem // currently selected token.
   connectedSourceChain?: number
@@ -61,6 +62,7 @@ export interface IAppState {
   destinationAddress?: string // receiver address
   destinationChain?: number // currently selected network
   destinationChainConfiguration?: ChainItem // currently selected network
+  destinationChainGenesis?: string // the network id for qr code
   destinationToken?: string //currently selected token.
   destinationTokenConfiguration?: TokenItem // currently selected network
   destinationAmount: string //base destination amount
@@ -120,10 +122,9 @@ export interface IAppState {
   BridgeTxStatus?: ITxStatus
   claimTxStatus?: ITxStatus
 
-  approveTx?: TransactionBase
-
-  bridgeTx?: TransactionBase
-  claimTx?: TransactionBase
+  approveTx?: string
+  bridgeTx?: string
+  claimTx?: string
 
   isNearTxPending?: boolean
   swapTrigger?: boolean

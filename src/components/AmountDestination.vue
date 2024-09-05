@@ -1,17 +1,16 @@
 <script setup lang="ts">
 import SimpleLabel from './ui/SimpleLabel.vue'
-import shortenAddress from '@/scripts/common/shortenAddress'
 import { useAppStore } from '@/stores/app'
 import getPublicConfiguration from '@/scripts/common/getPublicConfiguration'
 import type { PublicConfigurationRoot } from '@/scripts/interface/mapping/PublicConfigurationRoot'
 import type { ChainItem } from '@/scripts/interface/mapping/ChainItem'
 import { onMounted, reactive, watch } from 'vue'
 import { useToast } from 'primevue/usetoast'
-import getChainConfigurationSync from '@/scripts/common/getChainConfigurationSync'
 import { viewAmount } from '@/scripts/common/viewAmount'
 import BigNumber from 'bignumber.js'
 import calculateFeeAndDestinationAmount from '@/scripts/common/calculateFeeAndDestinationAmount'
 import { makeNoteField } from '@/scripts/aramid/makeNoteField'
+import { fillSourceChainConfiguration } from '@/scripts/events/fillSourceChainConfiguration'
 const toast = useToast()
 const store = useAppStore()
 
@@ -31,15 +30,7 @@ const fillInState = () => {
     if (!state.publicConfiguration) return
 
     if (!store.state.sourceChainConfiguration) {
-      var keys = Object.keys(state.publicConfiguration.chains2tokens)
-      keys.sort()
-      var chain = Number(keys[0])
-      var chainObj = getChainConfigurationSync(chain, state.publicConfiguration)
-      if (chain && chainObj) {
-        console.log('store.state.sourceChain', 'source.amount', chain, chainObj.name)
-        store.state.sourceChain = chain
-        store.state.sourceChainConfiguration = chainObj
-      }
+      fillSourceChainConfiguration()
     }
   } catch (e: any) {
     console.error(e)

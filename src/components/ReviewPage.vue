@@ -40,6 +40,8 @@ onMounted(() => {
     // route back to bridge screen
     routeToBridgeScreen()
   }
+  store.state.bridgeTx = undefined
+  store.state.claimTx = undefined
 })
 
 const signButtonClick = () => {

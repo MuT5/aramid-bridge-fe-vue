@@ -2,7 +2,7 @@
 import { useAppStore } from '@/stores/app'
 import ChainButton from '../ui/ChainButton.vue'
 import getPublicConfiguration from '@/scripts/common/getPublicConfiguration'
-import { onMounted, reactive } from 'vue'
+import { onMounted, reactive, watch } from 'vue'
 import type { PublicConfigurationRoot } from '@/scripts/interface/mapping/PublicConfigurationRoot'
 import type { ChainItem } from '@/scripts/interface/mapping/ChainItem'
 import { fillDestinationChainConfiguration } from '@/scripts/events/fillDestinationChainConfiguration'
@@ -14,6 +14,7 @@ import { resetDestinationTokenIfNotMatched } from '@/scripts/events/resetDestina
 import { fillDestinationTokenConfiguration } from '@/scripts/events/fillDestinationTokenConfiguration'
 import DialogTitle from '../ui/DialogTitle.vue'
 import { fillRouteInfo } from '@/scripts/events/fillRouteInfo'
+import { fillDestinationChainGenesis } from '@/scripts/events/fillDestinationChainGenesis'
 
 const store = useAppStore()
 
@@ -36,6 +37,13 @@ const chainButtonClick = (newDestChainId: number) => {
   }
   fillRouteInfo()
 }
+
+watch(
+  () => store.state.sourceChainConfiguration,
+  async () => {
+    await fillDestinationChainGenesis()
+  }
+)
 
 interface IState {
   publicConfiguration: PublicConfigurationRoot | null

@@ -13,6 +13,7 @@ export const fillDestinationChainConfiguration = (chainId: number | undefined = 
       console.log('fillDestinationChainConfiguration', newDestChainId, newDestChainObj.name)
       store.state.destinationChain = newDestChainId
       store.state.destinationChainConfiguration = newDestChainObj
+      store.state.destinationChainGenesis = undefined
     }
   } else if (paramValue) {
     let chainFromPath = Object.values(store.state.publicConfiguration.chains).find((c) => c.name == paramValue)?.chainId
@@ -27,6 +28,7 @@ export const fillDestinationChainConfiguration = (chainId: number | undefined = 
       console.log('fillDestinationChainConfiguration', newDestChainId, newDestChainObj.name)
       store.state.destinationChain = newDestChainId
       store.state.destinationChainConfiguration = newDestChainObj
+      store.state.destinationChainGenesis = undefined
     }
   } else {
     const keys = Object.keys(store.state.publicConfiguration.chains2tokens[store.state.sourceChain])
@@ -37,6 +39,7 @@ export const fillDestinationChainConfiguration = (chainId: number | undefined = 
       console.log('fillDestinationChainConfiguration', newDestChainId, newDestChainObj.name)
       store.state.destinationChain = newDestChainId
       store.state.destinationChainConfiguration = newDestChainObj
+      store.state.destinationChainGenesis = undefined
     }
   }
 

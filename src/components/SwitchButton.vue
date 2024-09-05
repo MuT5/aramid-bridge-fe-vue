@@ -25,6 +25,10 @@ const switchClick = () => {
   store.state.connectedSourceChain = store.state.connectedDestinationChain
   store.state.connectedDestinationChain = currConnectedChain
 
+  const currSourceChainGenesis = store.state.sourceChainGenesis
+  store.state.sourceChainGenesis = store.state.destinationChainGenesis
+  store.state.destinationChainGenesis = currSourceChainGenesis
+
   calculateFeeAndDestinationAmount()
 }
 </script>

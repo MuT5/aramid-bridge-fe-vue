@@ -12,6 +12,7 @@ export const fillSourceChainConfiguration = (chainId: number | undefined = undef
       console.log('fillSourceChainConfiguration', chain, chainObj.name)
       store.state.sourceChain = chain
       store.state.sourceChainConfiguration = chainObj
+      store.state.sourceChainGenesis = undefined
     }
   } else if (!store.state.destinationChain && paramValue) {
     console.log("route.params['sourceChain']", paramValue)
@@ -28,6 +29,7 @@ export const fillSourceChainConfiguration = (chainId: number | undefined = undef
       console.log('fillSourceChainConfiguration', chain, chainObj.name)
       store.state.sourceChain = chain
       store.state.sourceChainConfiguration = chainObj
+      store.state.sourceChainGenesis = undefined
     }
   } else if (!store.state.destinationChain) {
     const keys = Object.keys(store.state.publicConfiguration.chains2tokens)
@@ -38,6 +40,7 @@ export const fillSourceChainConfiguration = (chainId: number | undefined = undef
       console.log('fillSourceChainConfiguration', chain, chainObj.name)
       store.state.sourceChain = chain
       store.state.sourceChainConfiguration = chainObj
+      store.state.sourceChainGenesis = undefined
     }
   } else {
     // we have already destination chain defined, so we should match to it
@@ -49,6 +52,7 @@ export const fillSourceChainConfiguration = (chainId: number | undefined = undef
       console.log('fillSourceChainConfiguration', chain, chainObj.name)
       store.state.sourceChain = chain
       store.state.sourceChainConfiguration = chainObj
+      store.state.sourceChainGenesis = undefined
     }
   }
   fillRouteInfo()

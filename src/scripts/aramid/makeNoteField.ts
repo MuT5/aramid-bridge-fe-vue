@@ -21,7 +21,7 @@ export const makeNoteField = () => {
     destinationToken: store.state.destinationToken,
     feeAmount: tosendFee,
     destinationAmount: netDestAmt,
-    note: 'aramid-fe',
+    note: store.state.memo ?? 'aramid-fe',
     sourceAmount: netDestAmt
   }
   console.log('note', note)
@@ -29,7 +29,7 @@ export const makeNoteField = () => {
   store.state.sourceTxNote = algorandNote
 
   const addAsset = store.state.sourceToken && Number(store.state.sourceToken) > 0 ? `&asset=${store.state.sourceToken}` : ''
-  const addNetwork = '' // `&network=${store.state.sourceChainConfiguration..genesisID}`;
+  const addNetwork = `&network=${store.state.sourceChainGenesis}`
   store.state.qrContent = `algorand://${store.state.sourceBridgeAddress}?amount=${store.state.sourceAmount}${addAsset}${addNetwork}&note=${algorandNote}`
   console.log('store.state.qrContent', store.state.qrContent)
 }

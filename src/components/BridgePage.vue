@@ -273,6 +273,7 @@ onMounted(async () => {
       })
     }
   }
+  store.state.bridgeTx = ''
   state.mounted = true
   fillInRoute()
 })
