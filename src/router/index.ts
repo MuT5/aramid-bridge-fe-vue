@@ -71,8 +71,13 @@ const router = createRouter({
       component: ReviewView
     },
     {
-      path: '/sign/:sourceChain/:destinationChain/:sourceToken/:destinationToken/:sourceAddress/:destinationAddress/:sourceAmount/:note',
+      path: '/sign/:sourceChain/:destinationChain/:sourceToken/:destinationToken/:sourceAddress/:destinationAddress/:sourceAmount',
       name: 'sign',
+      component: () => import('../views/SignView.vue')
+    },
+    {
+      path: '/sign/:sourceChain/:destinationChain/:sourceToken/:destinationToken/:sourceAddress/:destinationAddress/:sourceAmount/:note',
+      name: 'sign-n',
       component: () => import('../views/SignView.vue')
     }
     // {

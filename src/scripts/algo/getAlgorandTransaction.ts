@@ -1,5 +1,5 @@
-import asyncdelay from '../common/asyncDelay';
-import getIndexerClientByChainId from './getIndexerClientByChainId';
+import asyncdelay from '../common/asyncDelay'
+import getIndexerClientByChainId from './getIndexerClientByChainId'
 
 /**
  * Loads algorand transaction from the network
@@ -8,25 +8,26 @@ import getIndexerClientByChainId from './getIndexerClientByChainId';
  */
 const getAlgorandTransaction = async (txId: string, chainId: number) => {
   try {
-    let tries = 5;
+    let tries = 5
     while (tries > 0) {
-      tries--;
+      tries--
       try {
-        await asyncdelay(50);
-        const indexer = await getIndexerClientByChainId(chainId);
-        await asyncdelay(100);
-        return await indexer.lookupTransactionByID(txId).do();
+        await asyncdelay(50)
+        const indexer = await getIndexerClientByChainId(chainId)
+        if (!indexer) throw Error('Indexer was not initialized properly')
+        await asyncdelay(100)
+        return await indexer.lookupTransactionByID(txId).do()
       } catch (e) {
-        await asyncdelay(5000);
+        await asyncdelay(5000)
         if (tries <= 0) {
-          throw e;
+          throw e
         }
       }
-      throw `Too many attempts to load tx ${txId}`;
+      throw `Too many attempts to load tx ${txId}`
     }
   } catch (e) {
-    console.error(`Unable to load tx from algo chain ${chainId} ${txId}`, e);
-    return null;
+    console.error(`Unable to load tx from algo chain ${chainId} ${txId}`, e)
+    return null
   }
-};
-export default getAlgorandTransaction;
+}
+export default getAlgorandTransaction

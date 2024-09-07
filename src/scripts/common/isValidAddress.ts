@@ -1,8 +1,9 @@
-import algosdk from 'algosdk';
-import { IState } from '../../context/AppContext';
-import { ethers } from 'ethers';
+import { useAppStore } from '@/stores/app'
+import algosdk from 'algosdk'
+import { ethers } from 'ethers'
 
-export const isValidAddress = (address: string, appData: IState): Boolean => {
-  if (!appData.sourceChainConfiguration) return false;
-  return (appData.sourceChainConfiguration.type === 'algo' && algosdk.isValidAddress(address)) || (appData.sourceChainConfiguration.type === 'eth' && ethers.isAddress(address));
-};
+export const isValidAddress = (address: string): Boolean => {
+  const state = useAppStore()
+  if (!state.state.sourceChainConfiguration) return false
+  return (state.state.sourceChainConfiguration.type === 'algo' && algosdk.isValidAddress(address)) || (state.state.sourceChainConfiguration.type === 'eth' && ethers.isAddress(address))
+}

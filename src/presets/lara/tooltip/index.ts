@@ -1,5 +1,5 @@
 export default {
-  root: ({ context }) => ({
+  root: ({ context }: any) => ({
     class: [
       // Position and Shadows
       'absolute',
@@ -12,7 +12,7 @@ export default {
       }
     ]
   }),
-  arrow: ({ context }) => ({
+  arrow: ({ context }: any) => ({
     class: [
       // Position
 

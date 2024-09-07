@@ -47,7 +47,7 @@ onMounted(() => {
 const signButtonClick = () => {
   if (store.state.sourceChainConfiguration?.type == 'algo' && store.state.sourceAlgoConnectorType == AlgoConnectorType.QRCode) {
     router.push({
-      name: 'sign',
+      name: store.state.memo ? 'sign-n' : 'sign',
       params: {
         sourceChain: store.state.sourceChainConfiguration.name,
         destinationChain: store.state.destinationChainConfiguration?.name,
@@ -62,14 +62,14 @@ const signButtonClick = () => {
   }
   if (store.state.sourceChainConfiguration?.type == 'algo' && store.state.sourceAlgoConnectorType == AlgoConnectorType.UseWallet) {
     router.push({
-      name: 'sign',
+      name: store.state.memo ? 'sign-n' : 'sign',
       params: {
         sourceChain: store.state.sourceChainConfiguration.name,
         destinationChain: store.state.destinationChainConfiguration?.name,
         sourceToken: store.state.sourceTokenConfiguration?.name,
         destinationToken: store.state.destinationTokenConfiguration?.name,
         sourceAmount: store.state.sourceAmount,
-        note: base64url(store.state.memo),
+        note: base64url(store.state.memo ?? 'aramid-fe'),
         sourceAddress: store.state.sourceAddress,
         destinationAddress: store.state.destinationAddress
       }

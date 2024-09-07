@@ -1,13 +1,13 @@
 import BigNumber from 'bignumber.js'
-import Web3 from 'web3'
+import Web3, { type ContractAbi } from 'web3'
 import getSecureConfiguration from '../common/getSecureConfiguration'
-import { EthPrivateConfiguration } from '../interface/eth/EthPrivateConfiguration'
-import erc20abi from '@/utils/ethereum/erc20abi'
-import { AbiItem } from 'web3-utils'
+import type { EthPrivateConfiguration } from '../interface/eth/EthPrivateConfiguration'
+import erc20abi from './erc20abi'
 
-const getEthAccountTokenBalance = async (chainId: number, walletAddress: string, tokenAddress: string): Promise<BigNumber> => {
+const getEthAccountTokenBalance = async (chainId: number, walletAddress: string, tokenAddress: string): Promise<BigNumber | null> => {
   const secureConfiguration = await getSecureConfiguration()
-  if (!secureConfiguration.chains || !secureConfiguration.chains[chainId]) return null
+
+  if (!secureConfiguration || !secureConfiguration.chains || !secureConfiguration.chains[chainId]) return null
   const config = secureConfiguration.chains[chainId] as EthPrivateConfiguration
   if (!config || config.type !== 'eth') {
     console.error('wrong configuration', config)
@@ -19,13 +19,14 @@ const getEthAccountTokenBalance = async (chainId: number, walletAddress: string,
   console.log('config.providerUrl', config.providerUrl)
   const web3 = new Web3(config.providerUrl)
   console.log('web3', web3)
-  let balance: string
+  let balance: string | null = null
 
   if (/^0x([0-1]{40})$/.test(tokenAddress)) {
     // native token
     try {
       console.log('web3.eth.getBalance', walletAddress)
-      balance = await web3.eth.getBalance(walletAddress)
+      const bal = await web3.eth.getBalance(walletAddress)
+      balance = bal.toString()
       console.log('web3.eth.getBalance=balance asdasdasdasd', walletAddress, balance)
       if (balance === undefined || balance === null) {
         throw 'undefined or null balance'
@@ -35,14 +36,16 @@ const getEthAccountTokenBalance = async (chainId: number, walletAddress: string,
       try {
         if ((balance === undefined || balance === null || balance === 'NaN') && config.providerUrl2) {
           console.log('trying secondary RPC')
-          balance = await new Web3(config.providerUrl2).eth.getBalance(walletAddress)
+          const bal = await new Web3(config.providerUrl2).eth.getBalance(walletAddress)
+          balance = bal.toString()
         }
       } catch (e) {
         console.log('error fetching balance from secondary RPC:', e)
         try {
           if ((balance === undefined || balance === null || balance === 'NaN') && config.providerUrl3) {
             console.log('trying tertiary RPC')
-            balance = await new Web3(config.providerUrl3).eth.getBalance(walletAddress)
+            const bal = await new Web3(config.providerUrl3).eth.getBalance(walletAddress)
+            balance = bal.toString()
           }
         } catch (e) {
           console.log('error fetching balance from tertiary RPC:', e)
@@ -53,7 +56,7 @@ const getEthAccountTokenBalance = async (chainId: number, walletAddress: string,
   } else {
     // The minimum ABI to get ERC20 Token balance
     console.log('/^0x([0-1]{40})$/.test(tokenAddress)', false, tokenAddress)
-    const abi: AbiItem = JSON.parse(JSON.stringify(erc20abi))
+    const abi: ContractAbi = JSON.parse(JSON.stringify(erc20abi))
 
     let contract = new web3.eth.Contract(abi, tokenAddress)
     try {
@@ -86,8 +89,8 @@ const getEthAccountTokenBalance = async (chainId: number, walletAddress: string,
     }
   }
 
-  console.log('eth.balance', balance, new BigNumber(balance))
-  return new BigNumber(balance)
+  console.log('eth.balance', balance, new BigNumber(balance ?? '0'))
+  return new BigNumber(balance ?? '0')
 }
 
 export default getEthAccountTokenBalance

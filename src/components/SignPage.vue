@@ -167,7 +167,7 @@ const reset = () => {
         <div class="text-center">
           <p>Scan the QR Code with your wallet, or tap it to use the wallet on the same device.</p>
           <a v-if="store.state.qrContent" :href="`web+${store.state.qrContent}`" class="m-auto my-2" style="width: 200px; height: 200px; display: inline-block">
-            <QRCodeVue3 :width="200" :height="200" :value="store.state.qrContent" class="m-auto" />
+            <QRCodeVue3 :width="200" :height="200" :value="store.state.qrContent" myclass="m-auto" />
           </a>
         </div>
         <div class="text-center font-bold m-4">

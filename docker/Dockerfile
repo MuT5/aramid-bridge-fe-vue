@@ -10,7 +10,7 @@ COPY . .
 RUN npm audit fix --force --save &>/dev/null
 RUN npm install
 RUN npm run build
-RUN cd /src/build && ls
+RUN cd /src/dist && ls
 
 FROM nginxinc/nginx-unprivileged:latest
 USER root
@@ -19,7 +19,7 @@ RUN apt update && apt dist-upgrade -y && apt install -y bc mc wget telnet git cu
 RUN mkdir /app
 RUN chown nginx:nginx /app -R
 USER nginx
-COPY --from=build /src/build /app
+COPY --from=build /src/dist /app
 COPY docker/default.conf /etc/nginx/conf.d/default.conf
 USER root
 RUN chown nginx:nginx /app -R

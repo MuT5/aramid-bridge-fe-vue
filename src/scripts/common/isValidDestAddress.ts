@@ -1,14 +1,15 @@
-import { IState } from '../../context/AppContext';
-import { isValidAddress } from './isValidSourceAddress';
+import { useAppStore } from '@/stores/app'
+import { isValidAddress } from './isValidSourceAddress'
 
-const isValidDestAddress = (appData: IState, toValidate?: string): boolean => {
-  const toCheck = toValidate ? toValidate : appData.destinationAddress;
+const isValidDestAddress = (toValidate?: string): boolean => {
+  const store = useAppStore()
+  const toCheck = toValidate ? toValidate : store.state.destinationAddress
   // address is address to be checked for the destination address purpose
-  console.debug('isValidDestAddress.1', appData.destinationChainConfiguration, toCheck);
-  if (!appData.destinationChainConfiguration) return false;
-  if (!toCheck) return false;
+  console.debug('isValidDestAddress.1', store.state.destinationChainConfiguration, toCheck)
+  if (!store.state.destinationChainConfiguration) return false
+  if (!toCheck) return false
 
-  return isValidAddress(appData.destinationChainConfiguration, toCheck);
-};
+  return isValidAddress(store.state.destinationChainConfiguration, toCheck)
+}
 
-export default isValidDestAddress;
+export default isValidDestAddress
