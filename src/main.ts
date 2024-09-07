@@ -1,5 +1,5 @@
 import './assets/main.css'
-import { NetworkId, WalletId, WalletManagerPlugin } from '@txnlab/use-wallet-vue'
+import { NetworkId, WalletId, WalletManagerPlugin } from 'avm-wallet-vue'
 
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
@@ -31,6 +31,18 @@ app.use(WalletManagerPlugin, {
     WalletId.PERA,
     WalletId.EXODUS,
     WalletId.KIBISIS,
+    {
+      id: WalletId.BIATEC,
+      options: {
+        projectId: '54958e07dbb79eedf5cd5564bf16d817',
+        metadata: {
+          name: 'Aramid Finance Dapp',
+          description: 'Aramid Finance Bridge between Algorand, Voi, Near, Ethereum, Polygon and Aurora',
+          url: 'https://aramid.finance',
+          icons: ['https://beta.k8s.aramid.finance/aramid-logo.svg']
+        }
+      }
+    },
     {
       id: WalletId.WALLETCONNECT,
       options: {

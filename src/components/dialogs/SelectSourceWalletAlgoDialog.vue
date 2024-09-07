@@ -5,12 +5,12 @@ import getPublicConfiguration from '@/scripts/common/getPublicConfiguration'
 import { onMounted, reactive } from 'vue'
 import type { PublicConfigurationRoot } from '@/scripts/interface/mapping/PublicConfigurationRoot'
 import type { ChainItem } from '@/scripts/interface/mapping/ChainItem'
-import { useWallet, type Wallet } from '@txnlab/use-wallet-vue'
+import { useWallet, type Wallet } from 'avm-wallet-vue'
 import algosdk from 'algosdk'
 import { useToast } from 'primevue/usetoast'
 import { AlgoConnectorType } from '@/scripts/interface/algo/AlgoConnectorType'
-import { watch } from 'fs'
 import DialogTitle from '../ui/DialogTitle.vue'
+import { isWalletForChain } from '@/scripts/algo/isWalletForChain'
 
 const toast = useToast()
 
@@ -23,6 +23,8 @@ const walletButtonClick = async (wallet: Wallet) => {
   await wallet.connect()
   if (activeAccount.value?.address) {
     store.state.sourceAddress = activeAccount.value?.address
+    store.state.sourceAlgoConnectorType = AlgoConnectorType.UseWallet
+    store.state.connectedSourceChain = store.state.sourceChain
   }
   store.state.dialogSelectSourceWalletAVMIsOpen = false
 }
@@ -65,13 +67,19 @@ const qrUrl = () => {
 }
 </script>
 <template>
-  <div :class="store.state.dialogSelectSourceWalletAVMIsOpen ? '' : 'hidden'">
+  <div v-if="store.state.sourceChain" :class="store.state.dialogSelectSourceWalletAVMIsOpen ? '' : 'hidden'">
     <div class="fixed w-screen h-screen backdrop-blur-sm z-[100]" style="top: 50%; left: 50%; transform: translate(-50%, -50%)" @click="store.state.dialogSelectSourceWalletAVMIsOpen = false"></div>
     <div class="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex flex-col z-[101]">
       <ul class="bg-gradient-to-r from-topleft-purple to-bottomright-purple drop-shadow-menu-default rounded-[26px] p-3">
         <DialogTitle>Connect AVM source wallet</DialogTitle>
 
-        <WalletButton v-for="wallet in wallets" :key="wallet.id" :img="wallet.metadata.icon" :text="wallet.metadata.name" @click="walletButtonClick(wallet)" />
+        <WalletButton
+          v-for="wallet in wallets.filter((w) => isWalletForChain(w.id, store.state.sourceChain ?? 0))"
+          :key="wallet.id"
+          :img="wallet.metadata.icon"
+          :text="wallet.metadata.name"
+          @click="walletButtonClick(wallet)"
+        />
         <div>
           <div>Or enter your AVM address for QR payment</div>
           <textarea

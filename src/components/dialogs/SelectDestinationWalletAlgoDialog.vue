@@ -5,12 +5,13 @@ import getPublicConfiguration from '@/scripts/common/getPublicConfiguration'
 import { onMounted, reactive } from 'vue'
 import type { PublicConfigurationRoot } from '@/scripts/interface/mapping/PublicConfigurationRoot'
 import type { ChainItem } from '@/scripts/interface/mapping/ChainItem'
-import { useWallet, type Wallet } from '@txnlab/use-wallet-vue'
+import { useWallet, type Wallet } from 'avm-wallet-vue'
 import algosdk from 'algosdk'
 import { useToast } from 'primevue/usetoast'
 import WalletAddress from '../ui/WalletAddress.vue'
 import DialogTitle from '../ui/DialogTitle.vue'
 import DialogButton from '../ui/DialogButton.vue'
+import { isWalletForChain } from '@/scripts/algo/isWalletForChain'
 
 const toast = useToast()
 
@@ -91,7 +92,13 @@ const closeDialog = () => {
         </div>
         <div v-else>
           <div v-if="store.state.sourceChainConfiguration?.type != store.state.sourceChainConfiguration?.type || !store.state.connectedSourceChain">
-            <WalletButton v-for="wallet in wallets" :key="wallet.id" :img="wallet.metadata.icon" :text="wallet.metadata.name" @click="walletButtonClick(wallet)" />
+            <WalletButton
+              v-for="wallet in wallets.filter((w) => isWalletForChain(w.id, store.state.sourceChain ?? 0))"
+              :key="wallet.id"
+              :img="wallet.metadata.icon"
+              :text="wallet.metadata.name"
+              @click="walletButtonClick(wallet)"
+            />
           </div>
           <div>
             <div>Or enter your AVM address</div>

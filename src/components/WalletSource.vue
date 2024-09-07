@@ -12,6 +12,10 @@ import { AlgoConnectorType } from '@/scripts/interface/algo/AlgoConnectorType'
 import { useToast } from 'primevue/usetoast'
 import { fillSourceTokenConfiguration } from '@/scripts/events/fillSourceTokenConfiguration'
 import getAlgoAccountTokenBalance from '@/scripts/algo/getAlgoAccountTokenBalance'
+import { NetworkId, useWallet } from 'avm-wallet-vue'
+
+const { setActiveNetwork, activeWallet, activeAccount } = useWallet()
+
 const toast = useToast()
 const store = useAppStore()
 
@@ -55,6 +59,18 @@ const onSourceAddressChange = async () => {
 onMounted(async () => {
   state.publicConfiguration = await getPublicConfiguration(false)
   fillInState()
+
+  if (activeWallet.value && activeAccount.value?.address) {
+    store.state.sourceAddress = activeAccount.value?.address
+    store.state.sourceAlgoConnectorType = AlgoConnectorType.UseWallet
+    store.state.connectedSourceChain = store.state.sourceChain
+  }
+
+  state.connected = !!store.state.connectedSourceChain && !!store.state.sourceAddress
+
+  if (store.state.sourceAddress) {
+    onSourceAddressChange()
+  }
 })
 
 watch(
@@ -67,6 +83,23 @@ watch(
   () => store.state.sourceChainConfiguration,
   () => {
     fillInState()
+    if (store.state.sourceChainConfiguration?.type == 'algo') {
+      console.log('setActiveNetwork', store.state.sourceChainConfiguration.name)
+      switch (store.state.sourceChainConfiguration.name) {
+        case 'Algorand':
+          setActiveNetwork(NetworkId.MAINNET)
+          break
+        case 'Testnet':
+          setActiveNetwork(NetworkId.TESTNET)
+          break
+        case 'AramidChain':
+          setActiveNetwork(NetworkId.ARAMIDMAIN)
+          break
+        case 'VoiTest':
+          setActiveNetwork(NetworkId.VOITEST)
+          break
+      }
+    }
   }
 )
 
@@ -82,6 +115,12 @@ watch(
     await onSourceAddressChange()
   }
 )
+watch(
+  () => store.state.sourceToken,
+  async () => {
+    await onSourceAddressChange()
+  }
+)
 const buttonClick = () => {
   if (state.connected) {
     // disconnect
@@ -89,6 +128,20 @@ const buttonClick = () => {
       case AlgoConnectorType.QRCode:
         store.state.connectedSourceChain = undefined
         store.state.sourceAddress = ''
+        break
+      case AlgoConnectorType.UseWallet:
+        store.state.connectedSourceChain = undefined
+        store.state.sourceAddress = ''
+        try {
+          activeWallet.value?.disconnect()
+        } catch (e: any) {
+          console.error(e)
+          toast.add({
+            severity: 'error',
+            detail: e.message ?? e,
+            life: 3000
+          })
+        }
         break
     }
   } else {

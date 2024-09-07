@@ -77,6 +77,18 @@ watch(
     fillInState()
   }
 )
+watch(
+  () => store.state.sourceAddress,
+  () => {
+    fillInState()
+  }
+)
+watch(
+  () => store.state.sourceToken,
+  () => {
+    fillInState()
+  }
+)
 const setMax = () => {
   if (!store.state.sourceAddressBalance) return
   if (!store.state.sourceTokenConfiguration) return

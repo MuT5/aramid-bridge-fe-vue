@@ -26,7 +26,6 @@ const options = ref<FireworksOptions>({
   opacity: 0.5,
   traceSpeed: 1,
   intensity: 20,
-  traceLength: 20,
   delay: {
     min: 30,
     max: 60
@@ -36,7 +35,12 @@ const options = ref<FireworksOptions>({
     max: 100
   },
   sound: {
-    enabled: true
+    enabled: true,
+    files: ['/sound/explosion0.mp3', 'sound/explosion1.mp3', 'sound/explosion2.mp3'],
+    volume: {
+      min: 2,
+      max: 4
+    }
   }
 })
 const mounted = ref(true)

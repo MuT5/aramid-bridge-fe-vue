@@ -301,6 +301,7 @@ watch(
   () => store.state.destinationAddress,
   () => {
     fillInRoute()
+    state.error = ''
   }
 )
 </script>

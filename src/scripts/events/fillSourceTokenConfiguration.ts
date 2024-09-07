@@ -39,7 +39,13 @@ export const fillSourceTokenConfiguration = (tokenId: string | undefined = undef
   } else if (paramValue) {
     let tokenFromPath = Object.values(store.state.publicConfiguration.chains[store.state.sourceChain.toString()].tokens).find((c) => c.name == paramValue)?.tokenId
     if (!tokenFromPath) {
-      const sourceTokens = Object.keys(store.state.publicConfiguration.chains2tokens[store.state.sourceChain.toString()][store.state.destinationChain])
+      if (
+        !store.state.publicConfiguration.chains2tokens[store.state.sourceChain.toString()] ||
+        !store.state.publicConfiguration.chains2tokens[store.state.sourceChain.toString()][store.state.destinationChain.toString()]
+      ) {
+        return
+      }
+      const sourceTokens = Object.keys(store.state.publicConfiguration.chains2tokens[store.state.sourceChain.toString()][store.state.destinationChain.toString()])
       sourceTokens.sort()
       tokenFromPath = sourceTokens[0]
     }
