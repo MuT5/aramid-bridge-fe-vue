@@ -26,4 +26,4 @@ jobs:
           SSH_HOST: ${{ secrets.SSH_HOST }}
 
       - name: Deploy
-        run: ssh staging 'cd ~/web/aramid-bridge-fe-vue && ./deploy-vue.sh'
+        run: ssh staging 'cd ~/web && ./deploy-vue.sh'
