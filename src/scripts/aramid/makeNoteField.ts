@@ -21,7 +21,7 @@ export const makeNoteField = () => {
     destinationToken: store.state.destinationToken,
     feeAmount: tosendFee,
     destinationAmount: netDestAmt,
-    note: store.state.memo ?? 'aramid-fe',
+    note: store.state.memo ?? 'aramid-fe-2',
     sourceAmount: netDestAmt
   }
   console.log('note', note)

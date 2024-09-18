@@ -13,6 +13,11 @@ import { useToast } from 'primevue/usetoast'
 import { fillSourceTokenConfiguration } from '@/scripts/events/fillSourceTokenConfiguration'
 import getAlgoAccountTokenBalance from '@/scripts/algo/getAlgoAccountTokenBalance'
 import { NetworkId, useWallet } from 'avm-wallet-vue'
+import getWeb3Modal from '@/scripts/eth/getWeb3Modal'
+import { useDisconnect, useWeb3ModalAccount } from '@web3modal/ethers/vue'
+import { useSwitchNetwork } from '@web3modal/ethers/vue'
+import asyncdelay from '@/scripts/common/asyncDelay'
+import getEthAccountTokenBalance from '@/scripts/eth/getEthAccountTokenBalance'
 
 const { setActiveNetwork, activeWallet, activeAccount } = useWallet()
 
@@ -49,6 +54,13 @@ const onSourceAddressChange = async () => {
   if (!store.state.sourceAddress) return
   if (store.state.sourceChainConfiguration.type == 'algo') {
     const balance = await getAlgoAccountTokenBalance(store.state.sourceChain, store.state.sourceAddress, Number(store.state.sourceToken))
+    if (balance !== null) {
+      store.state.sourceAddressBalance = balance.toString()
+      console.log('onSourceAddressChange.balance', store.state.sourceAddressBalance, store.state.sourceChain, store.state.sourceAddress, Number(store.state.sourceToken))
+    }
+  }
+  if (store.state.sourceChainConfiguration.type == 'eth' && store.state.sourceToken) {
+    const balance = await getEthAccountTokenBalance(store.state.sourceChain, store.state.sourceAddress, store.state.sourceToken)
     if (balance !== null) {
       store.state.sourceAddressBalance = balance.toString()
       console.log('onSourceAddressChange.balance', store.state.sourceAddressBalance, store.state.sourceChain, store.state.sourceAddress, Number(store.state.sourceToken))
@@ -121,31 +133,96 @@ watch(
     await onSourceAddressChange()
   }
 )
-const buttonClick = () => {
-  if (state.connected) {
-    // disconnect
-    switch (store.state.sourceAlgoConnectorType) {
-      case AlgoConnectorType.QRCode:
-        store.state.connectedSourceChain = undefined
-        store.state.sourceAddress = ''
-        break
-      case AlgoConnectorType.UseWallet:
-        store.state.connectedSourceChain = undefined
-        store.state.sourceAddress = ''
-        try {
-          activeWallet.value?.disconnect()
-        } catch (e: any) {
-          console.error(e)
-          toast.add({
-            severity: 'error',
-            detail: e.message ?? e,
-            life: 3000
-          })
-        }
-        break
+const buttonClick = async () => {
+  if (store.state.sourceChainConfiguration?.type == 'algo') {
+    if (state.connected) {
+      // disconnect
+      switch (store.state.sourceAlgoConnectorType) {
+        case AlgoConnectorType.QRCode:
+          store.state.connectedSourceChain = undefined
+          store.state.sourceAddress = ''
+          break
+        case AlgoConnectorType.UseWallet:
+          store.state.connectedSourceChain = undefined
+          store.state.sourceAddress = ''
+          try {
+            activeWallet.value?.disconnect()
+          } catch (e: any) {
+            console.error(e)
+            toast.add({
+              severity: 'error',
+              detail: e.message ?? e,
+              life: 3000
+            })
+          }
+          break
+      }
+    } else {
+      store.state.dialogSelectSourceWalletIsOpen = true
     }
-  } else {
-    store.state.dialogSelectSourceWalletAVMIsOpen = true
+  }
+  if (store.state.sourceChainConfiguration?.type == 'eth') {
+    if (state.connected) {
+      // disconnect
+      //await modal?.close()
+      const { disconnect } = useDisconnect()
+      disconnect()
+
+      store.state.connectedSourceChain = undefined
+      store.state.sourceAddress = ''
+    } else {
+      const modal = getWeb3Modal()
+      const { address, chainId, isConnected } = useWeb3ModalAccount()
+      if (store.state.sourceChain && chainId.value != store.state.sourceChain) {
+        const { switchNetwork } = useSwitchNetwork()
+        switchNetwork(store.state.sourceChain)
+        await asyncdelay(500)
+      }
+
+      console.log('0x1 address is ', isConnected.value, address.value, new Date())
+      if (isConnected.value && address.value) {
+        store.state.connectedSourceChain = store.state.sourceChain
+        store.state.sourceAddress = address.value
+      } else {
+        await modal?.open()
+        console.log('0x2 address is ', isConnected.value, address.value, new Date())
+        if (isConnected.value && address.value) {
+          store.state.connectedSourceChain = store.state.sourceChain
+          store.state.sourceAddress = address.value
+          return
+        }
+        await asyncdelay(1000)
+        console.log('0x3 address is ', isConnected.value, address.value, new Date())
+        if (isConnected.value && address.value) {
+          store.state.connectedSourceChain = store.state.sourceChain
+          store.state.sourceAddress = address.value
+          return
+        }
+        await asyncdelay(5000)
+        console.log('0x4 address is ', isConnected.value, address.value, new Date())
+        if (isConnected.value && address.value) {
+          store.state.connectedSourceChain = store.state.sourceChain
+          store.state.sourceAddress = address.value
+          return
+        }
+        await asyncdelay(10000)
+        console.log('0x5 address is ', isConnected.value, address.value, new Date())
+        if (isConnected.value && address.value) {
+          store.state.connectedSourceChain = store.state.sourceChain
+          store.state.sourceAddress = address.value
+          return
+        }
+      }
+
+      //if (!address) {
+      // await modal?.open({ view: 'Account' })
+      // address = await modal?.getAddress()
+      // console.log('address after open is ', address)
+      // //}
+
+      // if (address) {
+      // }
+    }
   }
 }
 const getImageUrl = () => {
@@ -171,9 +248,16 @@ const getImageUrl = () => {
       @click="buttonClick"
     >
       <img alt="wallet" loading="lazy" width="20" height="20" decoding="async" data-nimg="1" class="3xl:w-14 3xl:h-14" :src="getImageUrl()" style="color: transparent" />
-      <div class="mx-auto self-center text-[14px] font-bold text-center 3xl:text-xl 4xl:text-2xl truncate" v-if="state.connected">Source wallet connected</div>
+      <div
+        class="mx-auto self-center text-[14px] font-bold text-center 3xl:text-xl 4xl:text-2xl truncate"
+        v-if="store.state.sourceChainConfiguration?.type == 'algo' && store.state.sourceAlgoConnectorType == AlgoConnectorType.QRCode"
+      >
+        QR Code
+      </div>
+
+      <div class="mx-auto self-center text-[14px] font-bold text-center 3xl:text-xl 4xl:text-2xl truncate" v-else-if="state.connected">Source wallet connected</div>
       <div class="mx-auto self-center text-[14px] font-bold text-center 3xl:text-xl 4xl:text-2xl truncate" v-else>Connect source wallet</div>
     </RoundButton>
-    <SelectSourceWalletAlgoDialog></SelectSourceWalletAlgoDialog>
+    <SelectSourceWalletAlgoDialog v-if="store.state.sourceChainConfiguration?.type == 'algo'"></SelectSourceWalletAlgoDialog>
   </div>
 </template>

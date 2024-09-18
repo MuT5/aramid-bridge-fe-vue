@@ -1,4 +1,5 @@
 export type AppConfiguration = {
+  loading: boolean
   debug: boolean
   soldierId: string
   mainNetwork: number
@@ -12,4 +13,5 @@ export type AppConfiguration = {
   initTokenFrom: string
   initTokenTo: string
   showClaimButton: boolean
+  wcProjectId: string
 }

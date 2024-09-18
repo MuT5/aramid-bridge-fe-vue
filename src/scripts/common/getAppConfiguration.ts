@@ -1,16 +1,28 @@
 import axios from 'axios'
 import type { AppConfiguration } from '../interface/configuration/AppConfiguration'
-
-let config: AppConfiguration | null = null
+import { useConfigStore } from '@/stores/config'
+import asyncdelay from './asyncDelay'
+let loading: boolean | null = null
 
 const getAppConfiguration = async () => {
-  if (config !== null) return config
+  if (loading === true) {
+    for (let i = 0; i <= 1000; i++) {
+      if (loading) {
+        await asyncdelay(10)
+      }
+    }
+  }
+  if (loading === null) loading = true
+  const configStore = useConfigStore()
+  if (loading === false) return configStore.state
   const response = await axios.get('/config.json')
   if (response.status !== 200) {
     console.error(`Request to /config.json did not returned status 200 (${response.status})`)
     return null
   }
-  config = response.data as AppConfiguration
+  const config = response.data as AppConfiguration
+  configStore.state = config
+  loading = false
   return config
 }
 export default getAppConfiguration

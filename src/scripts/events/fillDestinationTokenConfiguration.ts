@@ -18,7 +18,12 @@ export const fillDestinationTokenConfiguration = (tokenId: string | undefined = 
       store.state.destinationToken = destToken
       store.state.destinationTokenConfiguration = destTokenObj
     }
-  } else if (paramValue) {
+  } else if (
+    paramValue &&
+    store.state.publicConfiguration.chains2tokens[store.state.sourceChain.toString()] &&
+    store.state.publicConfiguration.chains2tokens[store.state.sourceChain.toString()][store.state.destinationChain.toString()] &&
+    store.state.publicConfiguration.chains2tokens[store.state.sourceChain.toString()][store.state.destinationChain.toString()][store.state.sourceToken]
+  ) {
     if (!store.state.destinationToken || !store.state.destinationTokenConfiguration) {
       let tokenFromPath = Object.values(store.state.publicConfiguration.chains[store.state.destinationChain.toString()].tokens).find((c) => c.name == paramValue)?.tokenId
       if (!tokenFromPath) {
@@ -36,15 +41,21 @@ export const fillDestinationTokenConfiguration = (tokenId: string | undefined = 
     }
   } else {
     if (!store.state.destinationToken || !store.state.destinationTokenConfiguration) {
-      const destTokens = Object.keys(store.state.publicConfiguration.chains2tokens[store.state.sourceChain.toString()][store.state.destinationChain.toString()][store.state.sourceToken])
-      destTokens.sort()
-      const destToken = destTokens[0]
-      const destTokenObj = getToken(store.state.destinationChain, destToken, store.state.publicConfiguration)
+      if (
+        store.state.publicConfiguration.chains2tokens[store.state.sourceChain.toString()] &&
+        store.state.publicConfiguration.chains2tokens[store.state.sourceChain.toString()][store.state.destinationChain.toString()] &&
+        store.state.publicConfiguration.chains2tokens[store.state.sourceChain.toString()][store.state.destinationChain.toString()][store.state.sourceToken]
+      ) {
+        const destTokens = Object.keys(store.state.publicConfiguration.chains2tokens[store.state.sourceChain.toString()][store.state.destinationChain.toString()][store.state.sourceToken])
+        destTokens.sort()
+        const destToken = destTokens[0]
+        const destTokenObj = getToken(store.state.destinationChain, destToken, store.state.publicConfiguration)
 
-      if (destToken && destTokenObj) {
-        console.log('fillDestinationTokenConfiguration', destToken, destTokenObj.name)
-        store.state.destinationToken = destToken
-        store.state.destinationTokenConfiguration = destTokenObj
+        if (destToken && destTokenObj) {
+          console.log('fillDestinationTokenConfiguration', destToken, destTokenObj.name)
+          store.state.destinationToken = destToken
+          store.state.destinationTokenConfiguration = destTokenObj
+        }
       }
     }
   }

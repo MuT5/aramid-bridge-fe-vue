@@ -33,7 +33,6 @@ const useAddressClick = () => {
     store.state.destinationAddress = state.addressInput
     store.state.connectedDestinationChain = store.state.destinationChainConfiguration?.chainId
     store.state.dialogSelectDestinationWalletAVMIsOpen = false
-    state.step2 = false
   } catch (e) {
     console.error(`AVM address ${state.addressInput} is not valid`, e)
     toast.add({
@@ -48,13 +47,11 @@ interface IState {
   publicConfiguration: PublicConfigurationRoot | null
   chains: ChainItem[] | null
   addressInput: string
-  step2: boolean
 }
 const state: IState = reactive({
   publicConfiguration: null,
   chains: null,
-  addressInput: '',
-  step2: false
+  addressInput: ''
 })
 onMounted(async () => {
   state.publicConfiguration = await getPublicConfiguration(false)
@@ -74,7 +71,6 @@ const sameAddressYesClick = () => {
 
 const closeDialog = () => {
   store.state.dialogSelectDestinationWalletAVMIsOpen = false
-  state.step2 = false
 }
 </script>
 <template>
@@ -83,32 +79,22 @@ const closeDialog = () => {
     <div class="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex flex-col z-[101]">
       <ul class="bg-gradient-to-r from-topleft-purple to-bottomright-purple drop-shadow-menu-default rounded-[26px] p-3">
         <DialogTitle>Choose AVM destination wallet</DialogTitle>
-        <div v-if="!state.step2 && store.state.sourceAddress">
-          <div v-if="store.state.sourceAddress">
-            <div>Do you want to use address <WalletAddress :address="store.state.sourceAddress"></WalletAddress>?</div>
-            <DialogButton @click="sameAddressYesClick">Yes</DialogButton>
-            <DialogButton @click="state.step2 = true">No</DialogButton>
-          </div>
-        </div>
-        <div v-else>
-          <div v-if="store.state.sourceChainConfiguration?.type != store.state.sourceChainConfiguration?.type || !store.state.connectedSourceChain">
-            <WalletButton
-              v-for="wallet in wallets.filter((w) => isWalletForChain(w.id, store.state.sourceChain ?? 0))"
-              :key="wallet.id"
-              :img="wallet.metadata.icon"
-              :text="wallet.metadata.name"
-              @click="walletButtonClick(wallet)"
-            />
-          </div>
-          <div>
-            <div>Or enter your AVM address</div>
-            <textarea
-              v-model="state.addressInput"
-              class="bg-white-rgba rounded-[10px] focus:outline-none w-full mt-1 3xl:mt-3 4xl:mt-6 p-1 3xl:p-3 4xl:p-6 text-base h-[80px] 3xl:h-[112px] 4xl:h-[157px] w-full"
-              rows="3"
-            ></textarea>
-            <DialogButton @click="useAddressClick">Use this address</DialogButton>
-          </div>
+
+        <WalletButton
+          v-for="wallet in wallets.filter((w) => isWalletForChain(w.id, store.state.destinationChain ?? 0))"
+          :key="wallet.id"
+          :img="wallet.metadata.icon"
+          :text="wallet.metadata.name"
+          @click="walletButtonClick(wallet)"
+        />
+        <div>
+          <div>Or enter your AVM address</div>
+          <textarea
+            v-model="state.addressInput"
+            class="bg-white-rgba rounded-[10px] focus:outline-none w-full mt-1 3xl:mt-3 4xl:mt-6 p-1 3xl:p-3 4xl:p-6 text-base h-[80px] 3xl:h-[112px] 4xl:h-[157px] w-full"
+            rows="3"
+          ></textarea>
+          <DialogButton @click="useAddressClick">Use this address</DialogButton>
         </div>
       </ul>
     </div>

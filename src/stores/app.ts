@@ -30,13 +30,14 @@ export const useAppStore = defineStore('app', () => {
     escrowBalance: '0',
     dialogSelectSourceChainIsOpen: false,
     dialogSelectSourceAssetIsOpen: false,
-    dialogSelectSourceWalletAVMIsOpen: false,
+    dialogSelectSourceWalletIsOpen: false,
     dialogSelectDestinationChainIsOpen: false,
     dialogSelectDestinationAssetIsOpen: false,
     dialogSelectDestinationWalletAVMIsOpen: false,
     sourceBridgeAddress: '',
     memo: '',
-    destinationBridgeAddress: ''
+    destinationBridgeAddress: '',
+    dialogSelectDestinationWalletIsOpen: false
   })
 
   return { state }

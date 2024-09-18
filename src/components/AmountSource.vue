@@ -13,6 +13,7 @@ import formatBaseAmount from '@/scripts/common/formatBaseAmount'
 import { useRoute } from 'vue-router'
 import { makeNoteField } from '@/scripts/aramid/makeNoteField'
 import { viewAmount } from '@/scripts/common/viewAmount'
+import { sanitizeTokenName } from '@/scripts/common/sanitizeTokenName'
 
 const toast = useToast()
 const store = useAppStore()
@@ -125,7 +126,7 @@ const setMax = () => {
         v-if="store.state.sourceTokenConfiguration?.symbol"
         class="ml-2 flex items-center bg-transparent h-[40px] text-2xl font-bold rounded-[2px] focus:outline-none text-center md:text-right justify-center md:justify-end mt-5 md:mt-0"
       >
-        {{ store.state.sourceTokenConfiguration?.name }}
+        {{ sanitizeTokenName(store.state.sourceTokenConfiguration?.name) }}
       </span>
       <div
         v-if="store.state.sourceAddress"
