@@ -170,7 +170,7 @@ const resetButtonClick = () => {
         Back
       </div>
       <div v-if="!store.state.bridgeTx" class="font-bold text-xl">Sign the transaction</div>
-      <div v-else-if="store.state.bridgeTx && !store.state.claimTx" class="font-bold text-xl">Bridging is in the process</div>
+      <div v-else-if="store.state.bridgeTx && !store.state.claimTx" class="font-bold text-xl">The bridging process is underway</div>
       <div v-else-if="store.state.claimTx" class="font-bold text-xl">Successful bridging</div>
     </div>
 
@@ -199,13 +199,13 @@ const resetButtonClick = () => {
       </div>
     </div>
     <div v-else-if="store.state.bridgeTx && !store.state.claimTx">
-      <img :src="loader" alt="Loading" height="18" width="18" class="inline-block" /> Bridging is in the process. This step takes usually less then 3 minutes. Your transaction id:
+      <img :src="loader" alt="Loading" height="18" width="18" class="inline-block" /> The bridging process is underway. This step takes usually less then 3 minutes. Your transaction id:
       <ShortTx :txId="store.state.bridgeTx" :length="6" :chain="store.state.sourceChain"></ShortTx>
     </div>
     <div v-else-if="store.state.claimTx && store.state.destinationChainConfiguration?.type == 'algo'">
-      <p>Bridging has been successful. The assets are at the destination account. Tx information: <ShortTx :txId="store.state.claimTx" :length="6" :chain="store.state.destinationChain"></ShortTx></p>
+      <p>Bridging Bridging successful! The assets are at the destination account. Tx information: <ShortTx :txId="store.state.claimTx" :length="6" :chain="store.state.destinationChain"></ShortTx></p>
       <FireworksEffect></FireworksEffect>
-      <MainActionButton @click="resetButtonClick">Bridge next transaction</MainActionButton>
+      <MainActionButton @click="resetButtonClick">Bridge again</MainActionButton>
     </div>
     <div v-else>
       <img :src="loader" alt="Loading" height="18" width="18" class="inline-block" /> Please wait a minute.

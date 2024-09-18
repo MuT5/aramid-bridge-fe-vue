@@ -319,7 +319,7 @@ watch(
 <template>
   <MainBox>
     <div class="flex flex-row w-full">
-      <div class="text-left font-extrabold text-xl w-full grow flex-1">Bridge your assets <span class="text-[#FB7EFF]">cross-chain</span></div>
+      <div class="text-left font-extrabold text-xl w-full grow flex-1 hidden md:block">Bridge your assets <span class="text-[#FB7EFF]">cross-chain</span></div>
       <img src="../assets/images/aramid-logo.svg" alt="Aramid" width="150" class="align-right text-right self-right" />
     </div>
     <div class="flex flex-col md:flex-row w-full gap-2">

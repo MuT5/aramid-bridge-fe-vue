@@ -22,6 +22,8 @@ const getImageUrl = (name: string | undefined) => {
       <img alt="Algorand" loading="lazy" width="59" height="59" decoding="async" data-nimg="1" :src="getImageUrl(props.img)" style="color: transparent" />
     </div>
     <div class="mr-2.5"></div>
-    <div class="text-center flex flex-col justify-center">{{ sanitizeTokenName(props.text ?? '') }} ({{ props.id }})</div>
+    <div class="text-center flex flex-col justify-center">
+      {{ sanitizeTokenName(props.text ?? '') }}<span class="hidden md:block"> ({{ props.id }})</span>
+    </div>
   </div>
 </template>

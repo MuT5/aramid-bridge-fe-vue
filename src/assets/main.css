@@ -7,6 +7,7 @@ body {
   background: url('images/background.webp');
   background-repeat: no-repeat;
   background-size: cover;
+  background-color: blueviolet;
 }
 
 .roundedButton {
@@ -22,10 +23,6 @@ body {
 #WEB3_CONNECT_MODAL_ID {
   z-index: 1000;
   position: absolute;
-}
-
-body {
-  overflow: hidden;
 }
 
 wcm-modal,
@@ -58,4 +55,28 @@ wcm-modal,
       background-color 900000s 0s,
       color 600000s 0s;
   }
+}
+
+/* scroll bar modification */
+
+/* width */
+::-webkit-scrollbar {
+  width: 16px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #888;
+  border-radius: 8px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #2d084e;
+  border-radius: 8px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }

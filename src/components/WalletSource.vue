@@ -18,6 +18,7 @@ import { useDisconnect, useWeb3ModalAccount } from '@web3modal/ethers/vue'
 import { useSwitchNetwork } from '@web3modal/ethers/vue'
 import asyncdelay from '@/scripts/common/asyncDelay'
 import getEthAccountTokenBalance from '@/scripts/eth/getEthAccountTokenBalance'
+import WalletAddress from './ui/WalletAddress.vue'
 
 const { setActiveNetwork, activeWallet, activeAccount } = useWallet()
 
@@ -255,7 +256,9 @@ const getImageUrl = () => {
         QR Code
       </div>
 
-      <div class="mx-auto self-center text-[14px] font-bold text-center 3xl:text-xl 4xl:text-2xl truncate" v-else-if="state.connected">Source wallet connected</div>
+      <div class="mx-auto self-center text-[14px] font-bold text-center 3xl:text-xl 4xl:text-2xl truncate" v-else-if="state.connected">
+        <WalletAddress :address="store.state.sourceAddress"></WalletAddress>
+      </div>
       <div class="mx-auto self-center text-[14px] font-bold text-center 3xl:text-xl 4xl:text-2xl truncate" v-else>Connect source wallet</div>
     </RoundButton>
     <SelectSourceWalletAlgoDialog v-if="store.state.sourceChainConfiguration?.type == 'algo'"></SelectSourceWalletAlgoDialog>
