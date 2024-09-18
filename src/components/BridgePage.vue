@@ -25,6 +25,8 @@ import { makeNoteField } from '@/scripts/aramid/makeNoteField'
 import BigNumber from 'bignumber.js'
 import { ethers } from 'ethers'
 import Message from 'primevue/message'
+import { AlgoConnectorType } from '@/scripts/interface/algo/AlgoConnectorType'
+import getWeb3Modal from '@/scripts/eth/getWeb3Modal'
 
 const store = useAppStore()
 const route = useRoute()
@@ -56,7 +58,7 @@ const fillInRoute = () => {
         sourceAddress: store.state.sourceAddress,
         destinationAddress: store.state.destinationAddress,
         sourceAmount: store.state.sourceAmount,
-        note: base64url(store.state.memo)
+        note: base64url(store.state.memo ?? '')
       }
     })
   } else if (
@@ -96,7 +98,7 @@ const fillInRoute = () => {
         sourceToken: store.state.sourceTokenConfiguration.name,
         destinationToken: store.state.destinationTokenConfiguration.name,
         sourceAmount: store.state.sourceAmount,
-        note: base64url(store.state.memo)
+        note: base64url(store.state.memo ?? '')
       }
     })
   } else if (
@@ -134,14 +136,19 @@ const doValidation = (): boolean => {
   try {
     if (!store.state.sourceAddress) {
       throw Error('Please select the address from which you will bridge the assets by connecting source chain wallet')
+    } else if (
+      store.state.sourceChainConfiguration?.type == 'algo' &&
+      store.state.sourceAlgoConnectorType !== AlgoConnectorType.QRCode &&
+      store.state.sourceAlgoConnectorType !== AlgoConnectorType.UseWallet
+    ) {
+      console.log('store.state.sourceAlgoConnectorType', store.state.sourceAlgoConnectorType)
+      throw Error('Please select if you want to sign the AVM tx using the QR code or wallet connector')
     } else if (!store.state.destinationAddress) {
       throw Error('Please select the address where you want to send the assets')
     } else if (!store.state.sourceToken) {
       throw Error('A source asset must be selected before continuing.')
     } else if (!store.state.destinationToken) {
       throw Error('A destination asset must be selected before continuing.')
-    } else if (store.state.sourceChainConfiguration?.type == 'eth' && store.state.sourceChainConfiguration.chainId != store.state.currentMetamaskChain) {
-      throw Error(`Please Switch the chain to ${store.state.sourceChainConfiguration.name} network in your connected wallet`)
     } else if (new BigNumber(store.state.sourceAmount).lte(0) || store.state.sourceAmount === 'NaN') {
       throw Error('Amount entered is near or equal to zero.')
     } else if (!store.state.sourceAddressBalance || new BigNumber(store.state.sourceAmount).gt(new BigNumber(store.state.sourceAddressBalance))) {
@@ -162,7 +169,7 @@ const doValidation = (): boolean => {
       throw Error('Amount requested to bridge is greater than destination bridge account balance.')
     }
     const memoWhiteList = /^[\p{L}\p{N}\s\.,\-_\/@\*\+\$%]*$/u
-    if (!store.state.memo.match(memoWhiteList)) {
+    if (store.state.memo && !store.state.memo.match(memoWhiteList)) {
       throw Error('Memo contains invalid characters. Please use alphanumerical characters only please.')
     }
     // else if (disabled && store.state.destinationChainConfiguration && store.state.destinationChainConfiguration.type == 'near') {
@@ -173,10 +180,10 @@ const doValidation = (): boolean => {
       store.state.routeConfig &&
       store.state.routeConfig.feeAlternatives &&
       store.state.routeConfig.feeAlternatives[0] &&
-      new BigNumber(store.state.sourceAmount).lt(store.state.routeConfig.feeAlternatives[0].minimumAmount)
+      new BigNumber(store.state.sourceAmount).minus(store.state.feeAmount).lt(store.state.routeConfig.feeAlternatives[0].minimumAmount)
     ) {
       throw Error(
-        `Source Asset amount should be at least ${Number(ethers.formatUnits(store.state.routeConfig.feeAlternatives[0].minimumAmount, store.state.sourceTokenConfiguration.decimals)).toFixed(2)}.`
+        `Source asset amount after fees are substracted should be at least ${Number(ethers.formatUnits(store.state.routeConfig.feeAlternatives[0].minimumAmount, store.state.sourceTokenConfiguration.decimals)).toFixed(2)}.`
       )
     }
     if (
@@ -227,7 +234,7 @@ const reviewButtonClick = () => {
         sourceToken: store.state.sourceTokenConfiguration.name,
         destinationToken: store.state.destinationTokenConfiguration.name,
         sourceAmount: store.state.sourceAmount,
-        note: base64url(store.state.memo)
+        note: base64url(store.state.memo ?? '')
       }
     })
   } else if (
@@ -251,7 +258,8 @@ const reviewButtonClick = () => {
 }
 
 onMounted(async () => {
-  await getPublicConfiguration(false)
+  await getPublicConfiguration(true)
+  console.log('store.state.publicConfiguration', store.state.publicConfiguration)
   resetDestinationChainIfNotMatched()
   if (!store.state.destinationChain) fillDestinationChainConfiguration()
   resetSourceTokenIfNotMatched()
@@ -276,6 +284,9 @@ onMounted(async () => {
   store.state.bridgeTx = ''
   state.mounted = true
   fillInRoute()
+
+  const modal = getWeb3Modal()
+  console.log('modal', modal)
 })
 
 watch(
@@ -329,10 +340,7 @@ watch(
       <input :maxlength="50" class="bg-white-rgba rounded-[10px] focus:outline-none w-full mt-1 3xl:mt-3 4xl:mt-6 p-1 3xl:p-3 4xl:p-6 text-base w-full" type="text" v-model="store.state.memo" />
     </div>
     <Message severity="error" v-if="state.error" class="mt-4 w-full">{{ state.error }}</Message>
-    <Message severity="error" v-if="!store.state.escrowBalanceIsSufficient" class="mt-4 w-full">
-      Insufficient balance in bridge balance, please reduce your transfer amount or try a different destination token.
-    </Message>
-    <Message severity="warn" v-else-if="!store.state.escrowBalanceIsSufficient10x" class="mt-4 w-full">
+    <Message severity="warn" v-if="store.state.escrowBalanceIsSufficient && !store.state.escrowBalanceIsSufficient10x" class="mt-4 w-full">
       The bridge balance has less than 10x your transfer amount and your request may potentially not be fulfilled.
     </Message>
     <MainActionButton @click="reviewButtonClick">Review your transation</MainActionButton>

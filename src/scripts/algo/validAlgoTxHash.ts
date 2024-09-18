@@ -4,6 +4,6 @@
  * @returns
  */
 const validAlgoTxHash = (hash: string) => {
-  return /^([A-Z0-9]{52})$/.test(hash); // every capital letter and number
-};
-export default validAlgoTxHash;
+  return /^([A-Z0-9]{52})$/.test(hash) // every capital letter and number
+}
+export default validAlgoTxHash

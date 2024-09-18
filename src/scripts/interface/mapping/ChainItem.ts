@@ -12,4 +12,5 @@ export type ChainItem = {
   tokens: TokenId2TokenItem
   blockExplorers: Array<string>
   soldiersByRound: Array<SoldierByRoundItem>
+  confirmationCount: number
 }

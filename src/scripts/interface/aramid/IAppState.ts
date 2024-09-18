@@ -32,10 +32,11 @@ export interface IAppState {
 
   dialogSelectSourceChainIsOpen: boolean
   dialogSelectSourceAssetIsOpen: boolean
-  dialogSelectSourceWalletAVMIsOpen: boolean
+  dialogSelectSourceWalletIsOpen: boolean
   dialogSelectDestinationChainIsOpen: boolean
   dialogSelectDestinationAssetIsOpen: boolean
   dialogSelectDestinationWalletAVMIsOpen: boolean
+  dialogSelectDestinationWalletIsOpen: boolean
 
   // app
 

@@ -26,12 +26,12 @@ const walletButtonClick = async (wallet: Wallet) => {
     store.state.sourceAlgoConnectorType = AlgoConnectorType.UseWallet
     store.state.connectedSourceChain = store.state.sourceChain
   }
-  store.state.dialogSelectSourceWalletAVMIsOpen = false
+  store.state.dialogSelectSourceWalletIsOpen = false
 }
 const qrPaymentClick = () => {
   try {
     algosdk.decodeAddress(state.addressInput)
-    store.state.dialogSelectSourceWalletAVMIsOpen = false
+    store.state.dialogSelectSourceWalletIsOpen = false
     store.state.sourceAddress = state.addressInput
     store.state.sourceAlgoConnectorType = AlgoConnectorType.QRCode
     store.state.connectedSourceChain = store.state.sourceChainConfiguration?.chainId
@@ -67,8 +67,8 @@ const qrUrl = () => {
 }
 </script>
 <template>
-  <div v-if="store.state.sourceChain" :class="store.state.dialogSelectSourceWalletAVMIsOpen ? '' : 'hidden'">
-    <div class="fixed w-screen h-screen backdrop-blur-sm z-[100]" style="top: 50%; left: 50%; transform: translate(-50%, -50%)" @click="store.state.dialogSelectSourceWalletAVMIsOpen = false"></div>
+  <div v-if="store.state.sourceChain" :class="store.state.dialogSelectSourceWalletIsOpen ? '' : 'hidden'">
+    <div class="fixed w-screen h-screen backdrop-blur-sm z-[100]" style="top: 50%; left: 50%; transform: translate(-50%, -50%)" @click="store.state.dialogSelectSourceWalletIsOpen = false"></div>
     <div class="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex flex-col z-[101]">
       <ul class="bg-gradient-to-r from-topleft-purple to-bottomright-purple drop-shadow-menu-default rounded-[26px] p-3">
         <DialogTitle>Connect AVM source wallet</DialogTitle>

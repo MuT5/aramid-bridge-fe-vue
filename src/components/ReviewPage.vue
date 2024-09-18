@@ -1,17 +1,36 @@
+CopyIcon
 <script setup lang="ts">
 import { useAppStore } from '@/stores/app'
 import CopyIcon from './ui/CopyIcon.vue'
 import MainBox from './ui/MainBox.vue'
 import WalletAddress from './ui/WalletAddress.vue'
-import { onMounted } from 'vue'
+import { onMounted, reactive } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import StatusBar from './status/StatusBar.vue'
 import MainActionButton from './ui/MainActionButton.vue'
 import { AlgoConnectorType } from '@/scripts/interface/algo/AlgoConnectorType'
 import base64url from 'base64url'
+import getWeb3Modal from '@/scripts/eth/getWeb3Modal'
+import { useSwitchNetwork, useWeb3ModalAccount, useWeb3ModalProvider } from '@web3modal/ethers/vue'
+import { useToast } from 'primevue/usetoast'
+import { executeEthApproveTx } from '@/scripts/eth/executeEthApproveTx'
+import { executeEthLockTokensTx } from '@/scripts/eth/executeEthLockTokensTx'
+import loader from '@/assets/images/loading-buffering.gif'
+import ShortTx from './ui/ShortTx.vue'
 const store = useAppStore()
 const route = useRoute()
 const router = useRouter()
+const toast = useToast()
+
+const state = reactive({
+  inApproval: false,
+  inApprovalMinting: false,
+  approvalHash: '',
+  approved: false,
+  inSign: false,
+  inSignMinting: false,
+  signHash: ''
+})
 
 const getSourceChainImageUrl = () => {
   const ret = new URL(`../assets/logos/chains/${store.state.sourceChainConfiguration?.logo}.png`, import.meta.url)
@@ -30,12 +49,21 @@ const routeToBridgeScreen = () => {
   if (route.name == 'review-sc-dc-st-dt-a') {
     router.push({ name: 'bridge-sc-dc-st-dt-a' })
   }
+  if (route.name == 'review-sc-dc-st-dt-sa-da-a') {
+    router.push({ name: 'bridge-sc-dc-st-dt-sa-da-a' })
+  }
   if (route.name == 'review-sc-dc-st-dt-sa-da-a-n') {
-    router.push({ name: 'bridge-sc-dc-st-dt-sa-da-a-n' })
+    if (store.state.memo) {
+      router.push({ name: 'bridge-sc-dc-st-dt-sa-da-a-n' })
+    } else {
+      router.push({ name: 'bridge-sc-dc-st-dt-sa-da-a' })
+    }
   }
 }
 
 onMounted(() => {
+  const modal = getWeb3Modal()
+  console.log('modal', modal)
   if (!store.state.publicConfiguration || !store.state.sourceAmount) {
     // route back to bridge screen
     routeToBridgeScreen()
@@ -44,9 +72,11 @@ onMounted(() => {
   store.state.claimTx = undefined
 })
 
-const signButtonClick = () => {
-  if (store.state.sourceChainConfiguration?.type == 'algo' && store.state.sourceAlgoConnectorType == AlgoConnectorType.QRCode) {
-    router.push({
+const signButtonClick = async () => {
+  try {
+    if (!store.state.sourceChainConfiguration) throw Error('store.state.sourceChainConfiguration is missing')
+
+    await router.push({
       name: store.state.memo ? 'sign-n' : 'sign',
       params: {
         sourceChain: store.state.sourceChainConfiguration.name,
@@ -54,25 +84,115 @@ const signButtonClick = () => {
         sourceToken: store.state.sourceTokenConfiguration?.name,
         destinationToken: store.state.destinationTokenConfiguration?.name,
         sourceAmount: store.state.sourceAmount,
-        note: base64url(store.state.memo),
+        note: base64url(store.state.memo ?? 'aramid-fe-2'),
         sourceAddress: store.state.sourceAddress,
         destinationAddress: store.state.destinationAddress
       }
     })
+  } catch (e: any) {
+    console.error(e)
+    toast.add({
+      severity: 'error',
+      detail: e.message ?? e,
+      life: 10000
+    })
   }
-  if (store.state.sourceChainConfiguration?.type == 'algo' && store.state.sourceAlgoConnectorType == AlgoConnectorType.UseWallet) {
-    router.push({
-      name: store.state.memo ? 'sign-n' : 'sign',
-      params: {
-        sourceChain: store.state.sourceChainConfiguration.name,
-        destinationChain: store.state.destinationChainConfiguration?.name,
-        sourceToken: store.state.sourceTokenConfiguration?.name,
-        destinationToken: store.state.destinationTokenConfiguration?.name,
-        sourceAmount: store.state.sourceAmount,
-        note: base64url(store.state.memo ?? 'aramid-fe'),
-        sourceAddress: store.state.sourceAddress,
-        destinationAddress: store.state.destinationAddress
+}
+
+const approveButtonClick = async () => {
+  try {
+    console.log('approveButtonClick')
+    if (!store.state.sourceChainConfiguration) throw Error('store.state.sourceChainConfiguration is missing')
+    state.inApproval = true
+    const web3ModalProvider = useWeb3ModalProvider()
+    const { switchNetwork } = useSwitchNetwork()
+    const { address, chainId, isConnected } = useWeb3ModalAccount()
+    if (!web3ModalProvider.walletProvider.value) {
+      const modal = getWeb3Modal()
+      console.log('modal', modal)
+      await modal?.open()
+    }
+    if (!web3ModalProvider.walletProvider.value) {
+      throw Error(`Please connect ${store.state.sourceChainConfiguration?.name} in your wallet`)
+    }
+    if (store.state.sourceChain) {
+      console.log('chainId.value ? store.state.sourceChain', chainId.value, store.state.sourceChain)
+      if (chainId.value != store.state.sourceChain) {
+        //provider.open()
+        toast.add({
+          severity: 'warn',
+          detail: `Please switch to ${store.state.sourceChainConfiguration?.name} in your wallet`,
+          life: 10000
+        })
+        await switchNetwork(store.state.sourceChain)
       }
+    }
+
+    const approveInfo = await executeEthApproveTx()
+    console.log('approveInfo', approveInfo)
+    state.approvalHash = approveInfo.hash
+    state.inApproval = false
+    state.inApprovalMinting = true
+    await approveInfo.wait()
+    state.inApprovalMinting = false
+
+    if (approveInfo.hash) {
+      state.approved = true
+    } else {
+      return
+    }
+    await lockButtonClick()
+  } catch (e: any) {
+    state.inApproval = false
+    state.inApprovalMinting = false
+    state.inSign = false
+    console.error(e)
+    toast.add({
+      severity: 'error',
+      detail: e.message ?? e,
+      life: 10000
+    })
+  }
+}
+
+const lockButtonClick = async () => {
+  try {
+    console.log('lockButtonClick')
+    if (!store.state.sourceChainConfiguration) throw Error('store.state.sourceChainConfiguration is missing')
+    state.inSign = true
+    const signInfo = await executeEthLockTokensTx()
+    state.inSign = false
+    state.signHash = signInfo.hash
+    state.inSignMinting = true
+    console.log('signInfo', signInfo)
+    await signInfo.wait()
+    state.inSignMinting = false
+    if (signInfo.hash) {
+      store.state.bridgeTx = signInfo.hash
+
+      await router.push({
+        name: 'bridging',
+        params: {
+          sourceChain: store.state.sourceChainConfiguration.name,
+          destinationChain: store.state.destinationChainConfiguration?.name,
+          sourceToken: store.state.sourceTokenConfiguration?.name,
+          destinationToken: store.state.destinationTokenConfiguration?.name,
+          sourceAmount: store.state.sourceAmount,
+          note: base64url(store.state.memo ?? 'aramid-fe-2'),
+          sourceAddress: store.state.sourceAddress,
+          destinationAddress: store.state.destinationAddress
+        }
+      })
+      return
+    }
+  } catch (e: any) {
+    state.inSign = false
+    state.inSignMinting = false
+    console.error(e)
+    toast.add({
+      severity: 'error',
+      detail: e.message ?? e,
+      life: 10000
     })
   }
 }
@@ -233,6 +353,26 @@ const signButtonClick = () => {
       </div>
     </div>
     <StatusBar></StatusBar>
-    <MainActionButton @click="signButtonClick">Sign</MainActionButton>
+    <MainActionButton @click="signButtonClick" v-if="store.state.sourceChainConfiguration?.type == 'algo'">Sign</MainActionButton>
+
+    <div v-if="state.inApproval">
+      <img :src="loader" alt="Loading" height="18" width="18" class="inline-block" /> Please check your wallet for approval transaction so that the bridge transaction is approved deduct from your
+      account {{ store.state.sourceAmountFormatted }} {{ store.state.sourceTokenConfiguration?.name }}
+    </div>
+    <div v-if="state.inApprovalMinting">
+      <img :src="loader" alt="Loading" height="18" width="18" class="inline-block" /> Your approval transaction is being minted at {{ store.state.sourceChainConfiguration?.name }}
+      <span v-if="state.approvalHash"><ShortTx :txId="state.approvalHash" :length="6" :chain="store.state.sourceChain"></ShortTx></span>
+    </div>
+    <div v-if="state.inSign">
+      <img :src="loader" alt="Loading" height="18" width="18" class="inline-block" /> Please check your wallet for bridge transaction so that the bridge can transfer
+      {{ store.state.sourceAmountFormatted }} {{ store.state.sourceTokenConfiguration?.name }} to {{ store.state.destinationChainConfiguration?.name }}
+      <span v-if="state.signHash"><ShortTx :txId="state.signHash" :length="6" :chain="store.state.sourceChain"></ShortTx></span>
+    </div>
+    <div v-if="state.inSignMinting">
+      <img :src="loader" alt="Loading" height="18" width="18" class="inline-block" /> Your bridge transaction is being minted at {{ store.state.sourceChainConfiguration?.name }}
+    </div>
+
+    <MainActionButton @click="approveButtonClick" v-if="store.state.sourceChainConfiguration?.type == 'eth' && !state.approved">Approve</MainActionButton>
+    <MainActionButton @click="lockButtonClick" v-if="store.state.sourceChainConfiguration?.type == 'eth' && state.approved">Sign bridge tx</MainActionButton>
   </MainBox>
 </template>

@@ -10,7 +10,12 @@ export const fillSourceTokenConfiguration = (tokenId: string | undefined = undef
   if (!store.state.sourceChainConfiguration) return
   if (!store.state.publicConfiguration.chains2tokens) return
 
-  if (store.state.destinationToken && !store.state.publicConfiguration.chains2tokens[store.state.destinationChain.toString()][store.state.sourceChain][store.state.destinationToken]) {
+  if (
+    store.state.destinationToken &&
+    (!store.state.publicConfiguration.chains2tokens[store.state.destinationChain.toString()] ||
+      !store.state.publicConfiguration.chains2tokens[store.state.destinationChain.toString()][store.state.sourceChain] ||
+      !store.state.publicConfiguration.chains2tokens[store.state.destinationChain.toString()][store.state.sourceChain][store.state.destinationToken])
+  ) {
     store.state.destinationToken = undefined
     store.state.destinationTokenConfiguration = undefined
   }
@@ -58,15 +63,20 @@ export const fillSourceTokenConfiguration = (tokenId: string | undefined = undef
       store.state.sourceTokenConfiguration = tokenConfiguration
     }
   } else {
-    const sourceTokens = Object.keys(store.state.publicConfiguration.chains2tokens[store.state.sourceChain.toString()][store.state.destinationChain])
-    sourceTokens.sort()
-    const newSourceTokenId = sourceTokens[0]
-    const tokenConfiguration = getToken(store.state.sourceChain, newSourceTokenId, store.state.publicConfiguration)
-    if (tokenConfiguration) {
-      console.log('fillInSourceTokenConfiguration', store.state.sourceChain, store.state.destinationChain)
+    if (
+      store.state.publicConfiguration.chains2tokens[store.state.sourceChain.toString()] &&
+      store.state.publicConfiguration.chains2tokens[store.state.sourceChain.toString()][store.state.destinationChain]
+    ) {
+      const sourceTokens = Object.keys(store.state.publicConfiguration.chains2tokens[store.state.sourceChain.toString()][store.state.destinationChain])
+      sourceTokens.sort()
+      const newSourceTokenId = sourceTokens[0]
+      const tokenConfiguration = getToken(store.state.sourceChain, newSourceTokenId, store.state.publicConfiguration)
+      if (tokenConfiguration) {
+        console.log('fillInSourceTokenConfiguration', store.state.sourceChain, store.state.destinationChain)
 
-      store.state.sourceToken = newSourceTokenId
-      store.state.sourceTokenConfiguration = tokenConfiguration
+        store.state.sourceToken = newSourceTokenId
+        store.state.sourceTokenConfiguration = tokenConfiguration
+      }
     }
   }
   fillRouteInfo()

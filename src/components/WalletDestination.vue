@@ -10,6 +10,11 @@ import RoundButton from './ui/RoundButton.vue'
 import WalletAddress from './ui/WalletAddress.vue'
 import getAlgoAccountTokenBalance from '@/scripts/algo/getAlgoAccountTokenBalance'
 import getAlgoAccountTokenOptedIn from '@/scripts/algo/getAlgoAccountTokenOptedIn'
+import SelectDestinationWalletDialog from './dialogs/SelectDestinationWalletDialog.vue'
+import getEthAccountTokenBalance from '@/scripts/eth/getEthAccountTokenBalance'
+import getWeb3Modal from '@/scripts/eth/getWeb3Modal'
+import asyncdelay from '@/scripts/common/asyncDelay'
+import { useWeb3ModalAccount } from '@web3modal/ethers/vue'
 const store = useAppStore()
 
 interface IState {
@@ -36,12 +41,54 @@ watch(
     fillInState()
   }
 )
-const buttonClick = () => {
+const buttonClick = async () => {
   if (state.connected) {
     // disconnect
     store.state.destinationAddress = ''
   } else {
-    store.state.dialogSelectDestinationWalletAVMIsOpen = true
+    if (store.state.sourceChainConfiguration?.type && store.state.sourceChainConfiguration?.type == store.state.destinationChainConfiguration?.type) {
+      store.state.dialogSelectDestinationWalletIsOpen = true
+    } else if (store.state.destinationChainConfiguration?.type == 'algo') {
+      store.state.dialogSelectDestinationWalletAVMIsOpen = true
+    } else if (store.state.destinationChainConfiguration?.type == 'eth') {
+      // select address from wc
+      const modal = getWeb3Modal()
+      const { address, chainId, isConnected } = useWeb3ModalAccount()
+
+      if (isConnected.value && address.value) {
+        store.state.connectedDestinationChain = store.state.destinationChain
+        store.state.destinationAddress = address.value
+      } else {
+        await modal?.open()
+        console.log('0x2 address is ', isConnected.value, address.value, new Date())
+        if (isConnected.value && address.value) {
+          store.state.connectedDestinationChain = store.state.destinationChain
+          store.state.destinationAddress = address.value
+          return
+        }
+        await asyncdelay(1000)
+        console.log('0x3 address is ', isConnected.value, address.value, new Date())
+        if (isConnected.value && address.value) {
+          store.state.connectedDestinationChain = store.state.destinationChain
+          store.state.destinationAddress = address.value
+          return
+        }
+        await asyncdelay(5000)
+        console.log('0x4 address is ', isConnected.value, address.value, new Date())
+        if (isConnected.value && address.value) {
+          store.state.connectedDestinationChain = store.state.destinationChain
+          store.state.destinationAddress = address.value
+          return
+        }
+        await asyncdelay(10000)
+        console.log('0x5 address is ', isConnected.value, address.value, new Date())
+        if (isConnected.value && address.value) {
+          store.state.connectedDestinationChain = store.state.destinationChain
+          store.state.destinationAddress = address.value
+          return
+        }
+      }
+    }
   }
 }
 const getImageUrl = () => {
@@ -83,6 +130,25 @@ const onDestinationAddressChange = async () => {
       store.state.destinationBridgeBalance = '0'
     }
   }
+  if (store.state.destinationChainConfiguration.type == 'eth' && store.state.destinationToken) {
+    const balance = await getEthAccountTokenBalance(store.state.destinationChain, store.state.destinationAddress, store.state.destinationToken)
+    if (balance !== null) {
+      store.state.destinationAddressBalance = balance.toString()
+      console.log('onDestinationAddressChange.balance', store.state.destinationAddressBalance, store.state.destinationChain, store.state.destinationAddress, store.state.destinationToken)
+    } else {
+      store.state.destinationAccountOptedIn = true
+      store.state.destinationAddressBalance = '0'
+    }
+
+    // check the bridge account
+    const bridgeBalance = await getEthAccountTokenBalance(store.state.destinationChain, store.state.destinationBridgeAddress, store.state.destinationToken)
+    console.log('onDestinationAddressChange', bridgeBalance)
+    if (bridgeBalance) {
+      store.state.destinationBridgeBalance = bridgeBalance.toFixed(0, 1)
+    } else {
+      store.state.destinationBridgeBalance = '0'
+    }
+  }
 }
 
 watch(
@@ -110,6 +176,7 @@ watch(
       </div>
       <div class="mx-auto self-center text-[14px] font-bold text-center 3xl:text-xl 4xl:text-2xl truncate" v-else>Select dest. address</div>
     </RoundButton>
-    <SelectDestinationWalletAlgoDialog></SelectDestinationWalletAlgoDialog>
+    <SelectDestinationWalletDialog></SelectDestinationWalletDialog>
+    <SelectDestinationWalletAlgoDialog v-if="store.state.destinationChainConfiguration?.type == 'algo'"></SelectDestinationWalletAlgoDialog>
   </div>
 </template>

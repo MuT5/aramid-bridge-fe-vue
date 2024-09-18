@@ -79,6 +79,21 @@ const router = createRouter({
       path: '/sign/:sourceChain/:destinationChain/:sourceToken/:destinationToken/:sourceAddress/:destinationAddress/:sourceAmount/:note',
       name: 'sign-n',
       component: () => import('../views/SignView.vue')
+    },
+    {
+      path: '/bridging/:sourceChain/:destinationChain/:sourceToken/:destinationToken/:sourceAddress/:destinationAddress/:sourceAmount/:note',
+      name: 'bridging',
+      component: () => import('../views/SignView.vue')
+    },
+    {
+      path: '/claim/',
+      name: 'claim',
+      component: () => import('../views/ClaimView.vue')
+    },
+    {
+      path: '/claim/:sourceTxId',
+      name: 'claim-t',
+      component: () => import('../views/ClaimView.vue')
     }
     // {
     //   path: '/about',

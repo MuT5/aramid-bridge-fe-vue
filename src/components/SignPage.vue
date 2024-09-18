@@ -19,6 +19,8 @@ import algosdk from 'algosdk'
 import getAlgodClientByChainId from '@/scripts/algo/getAlgodClientByChainId'
 import { useToast } from 'primevue/usetoast'
 import MainActionButton from './ui/MainActionButton.vue'
+import { getClaimTx } from '@/scripts/aramid/getClaimTx'
+import { getTxClaimData } from '@/scripts/aramid/getTxClaimData'
 
 const store = useAppStore()
 const route = useRoute()
@@ -26,22 +28,18 @@ const router = useRouter()
 const toast = useToast()
 const { activeWallet } = useWallet()
 
-const getSourceChainImageUrl = () => {
-  const ret = new URL(`../assets/logos/chains/${store.state.sourceChainConfiguration?.logo}.png`, import.meta.url)
-  return ret.toString()
-}
-const getDestinationChainImageUrl = () => {
-  const ret = new URL(`../assets/logos/chains/${store.state.destinationChainConfiguration?.logo}.png`, import.meta.url)
-  return ret.toString()
-}
-
 const routeToReviewScreen = () => {
+  console.log('routeToReviewScreen')
   console.log('route', route)
-  router.push({ name: 'review-sc-dc-st-dt-sa-da-a-n' })
+  if (store.state.memo) {
+    router.push({ name: 'review-sc-dc-st-dt-sa-da-a-n' })
+  } else {
+    router.push({ name: 'review-sc-dc-st-dt-sa-da-a' })
+  }
 }
 
 const checkSourceTx = async () => {
-  console.log('checkSourceTx')
+  console.log('checkSourceTx', store.state.claimTx, store.state.bridgeTx)
   if (!store.state.bridgeTx) {
     if (store.state.sourceChainConfiguration?.type == 'algo') {
       const txId = await checkSourceAlgoTx()
@@ -50,7 +48,20 @@ const checkSourceTx = async () => {
       }
     }
   }
-  if (!store.state.claimTx) {
+  if (!store.state.claimTx && store.state.bridgeTx) {
+    if (store.state.destinationChainConfiguration?.type == 'eth') {
+      const claimTx = await getClaimTx(store.state.bridgeTx)
+      if (claimTx) {
+        store.state.claimTx = claimTx
+        console.log('claimTx', claimTx)
+        const claimData = await getTxClaimData(claimTx)
+        console.log('claimData', claimData)
+        if (claimData) {
+          store.state.claimData = claimData
+        }
+        router.push('/claim/' + store.state.bridgeTx)
+      }
+    }
     if (store.state.destinationChainConfiguration?.type == 'algo') {
       const txId = await checkDestinationAlgoTx()
       if (txId) {
@@ -64,8 +75,11 @@ const timerInterval = ref()
 
 onMounted(async () => {
   makeNoteField()
-  if (!store.state.publicConfiguration || !store.state.sourceAmount || !store.state.sourceTxNote) {
+  if (!store.state.publicConfiguration || !store.state.sourceAmount) {
     // route back to bridge screen
+    routeToReviewScreen()
+  }
+  if (store.state.sourceChainConfiguration?.type == 'algo' && !store.state.sourceTxNote) {
     routeToReviewScreen()
   }
 
@@ -130,8 +144,14 @@ onBeforeUnmount(() => {
   }
 })
 
-const reset = () => {
-  router.push({ name: 'bridge-sc-dc-st-dt-sa-da-a-n' })
+const resetButtonClick = () => {
+  console.log('resetButtonClick')
+  store.state.claimData = undefined
+  if (store.state.memo) {
+    router.push({ name: 'bridge-sc-dc-st-dt-sa-da-a-n' })
+  } else {
+    router.push({ name: 'bridge-sc-dc-st-dt-sa-da-a' })
+  }
 }
 </script>
 
@@ -182,10 +202,14 @@ const reset = () => {
       <img :src="loader" alt="Loading" height="18" width="18" class="inline-block" /> Bridging is in the process. This step takes usually less then 3 minutes. Your transaction id:
       <ShortTx :txId="store.state.bridgeTx" :length="6" :chain="store.state.sourceChain"></ShortTx>
     </div>
-    <div v-else-if="store.state.claimTx">
+    <div v-else-if="store.state.claimTx && store.state.destinationChainConfiguration?.type == 'algo'">
       <p>Bridging has been successful. The assets are at the destination account. Tx information: <ShortTx :txId="store.state.claimTx" :length="6" :chain="store.state.destinationChain"></ShortTx></p>
       <FireworksEffect></FireworksEffect>
-      <MainActionButton @click="reset">Bridge next transaction</MainActionButton>
+      <MainActionButton @click="resetButtonClick">Bridge next transaction</MainActionButton>
+    </div>
+    <div v-else>
+      <img :src="loader" alt="Loading" height="18" width="18" class="inline-block" /> Please wait a minute.
+      <span v-if="store.state.bridgeTx">Your transaction id: <ShortTx :txId="store.state.bridgeTx" :length="6" :chain="store.state.sourceChain"></ShortTx></span>
     </div>
   </MainBox>
 </template>

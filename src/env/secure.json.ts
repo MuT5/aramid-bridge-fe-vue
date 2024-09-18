@@ -42,6 +42,12 @@ const config: SecureConfiguration = {
       providerUrl2: '',
       providerUrl3: ''
     },
+    '17000': {
+      type: 'eth',
+      providerUrl: 'https://ethereum-holesky-rpc.publicnode.com',
+      providerUrl2: '',
+      providerUrl3: ''
+    },
     '1313161555': {
       type: 'eth',
       providerUrl: 'https://testnet.aurora.dev/',
