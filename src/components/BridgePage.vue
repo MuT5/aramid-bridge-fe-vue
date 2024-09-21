@@ -27,6 +27,7 @@ import { ethers } from 'ethers'
 import Message from 'primevue/message'
 import { AlgoConnectorType } from '@/scripts/interface/algo/AlgoConnectorType'
 import getWeb3Modal from '@/scripts/eth/getWeb3Modal'
+import algosdk from 'algosdk'
 
 const store = useAppStore()
 const route = useRoute()
@@ -175,6 +176,28 @@ const doValidation = (): boolean => {
     // else if (disabled && store.state.destinationChainConfiguration && store.state.destinationChainConfiguration.type == 'near') {
     //   throw Error('Please Pay token storage fee to continue.')
     // }
+
+    if (store.state.sourceChainConfiguration?.type == 'algo') {
+      if (!algosdk.isValidAddress(store.state.sourceAddress)) {
+        throw Error('Source address is in invalid format')
+      }
+    }
+    if (store.state.sourceChainConfiguration?.type == 'eth') {
+      if (!ethers.isAddress(store.state.sourceAddress)) {
+        throw Error('Source address is in invalid format')
+      }
+    }
+
+    if (store.state.destinationChainConfiguration?.type == 'algo') {
+      if (!algosdk.isValidAddress(store.state.destinationAddress)) {
+        throw Error('Destination address is in invalid format')
+      }
+    }
+    if (store.state.destinationChainConfiguration?.type == 'eth') {
+      if (!ethers.isAddress(store.state.destinationAddress)) {
+        throw Error('Destination address is in invalid format')
+      }
+    }
 
     if (
       store.state.routeConfig &&
