@@ -9,21 +9,13 @@ import validEthTxHash from '@/scripts/eth/validEthTxHash'
 import { getClaimTx } from '@/scripts/aramid/getClaimTx'
 import { getTxClaimData } from '@/scripts/aramid/getTxClaimData'
 import validAlgoTxHash from '@/scripts/algo/validAlgoTxHash'
-import getChainConfiguration from '@/scripts/common/getChainConfiguration'
-import getTokenAsync from '@/scripts/common/getTokenAsync'
-import formatBaseAmount from '@/scripts/common/formatBaseAmount'
 import CopyIcon from './ui/CopyIcon.vue'
 import MainActionButton from './ui/MainActionButton.vue'
-import { redeemEthTokens } from '@/scripts/eth/redeemEthTokens'
 import { useToast } from 'primevue/usetoast'
 import getWeb3Modal from '@/scripts/eth/getWeb3Modal'
 import { useSwitchNetwork, useWeb3ModalAccount, useWeb3ModalProvider } from '@web3modal/ethers/vue'
 import FireworksEffect from './ui/FireworksEffect.vue'
 import ShortTx from './ui/ShortTx.vue'
-import getBridgeContractAddressAsync from '@/scripts/common/getBridgeContractAddressAsync'
-import chainId2Bridge from '@/scripts/eth/chainId2Bridge'
-import { BrowserProvider } from 'ethers/providers'
-import { Contract } from 'ethers/contract'
 import getPublicConfiguration from '@/scripts/common/getPublicConfiguration'
 import { executeEthRedeemTx } from '@/scripts/eth/executeEthRedeemTx'
 import { fillInStateFromClaimData } from '@/scripts/events/fillInStateFromClaimData'
@@ -39,6 +31,7 @@ const state = reactive({
   claiming: false,
   claimErrorMessage: ''
 })
+const { chainId } = useWeb3ModalAccount()
 
 const setIsSearching = (val: boolean) => {
   state.isSearching = val
@@ -155,7 +148,6 @@ const claimButtonClick = async () => {
 
     const web3ModalProvider = useWeb3ModalProvider()
     const { switchNetwork } = useSwitchNetwork()
-    const { address, chainId, isConnected } = useWeb3ModalAccount()
     if (!web3ModalProvider.walletProvider.value) {
       const modal = getWeb3Modal()
       console.log('modal', modal)
@@ -178,7 +170,7 @@ const claimButtonClick = async () => {
         state.claiming = false
         await switchNetwork(store.state.destinationChain)
         console.log('after switching network to', store.state.destinationChain)
-        return
+        //return
       }
     }
     const releaseInfo = await executeEthRedeemTx()
@@ -201,51 +193,6 @@ const claimButtonClick = async () => {
     })
   }
 }
-
-// const executeEthRedeemTx = async () => {
-//   const provider = useWeb3ModalProvider()
-//   const { switchNetwork } = useSwitchNetwork()
-//   const { address, chainId, isConnected } = useWeb3ModalAccount()
-
-//   const store = useAppStore()
-//   console.log('claim data:', store.state.claimData)
-//   if (!store.state.claimData) throw Error('store.state.claimData is empty')
-//   if (!store.state.destinationChain) throw Error('store.state.destinationChain is empty')
-//   const maxReleaseRound = store.state.claimData.maxClaimRound
-//   const sourceTransactionId = store.state.claimData.sourceTransactionId
-//   const sourceChainData = store.state.claimData.sourceChainData
-//   const destinationChainData = store.state.claimData.destinationChainData
-//   const note = store.state.claimData.note
-//   const signatures = store.state.claimData.signatures
-//   console.log(`
-//   maxReleaseRound: ${maxReleaseRound}
-//   sourceTransactionId: ${sourceTransactionId}
-//   sourceChainData: ${sourceChainData}
-//   destinationChainData: ${destinationChainData}
-//   note: ${note}
-//   signatures: ${signatures}
-//     `)
-
-//   const bridgeContractAddress = await getBridgeContractAddressAsync(destinationChainData.chainId)
-//   if (!bridgeContractAddress) throw Error('Destination chain escrow address not found')
-//   const bridge = chainId2Bridge(store.state.destinationChain)
-//   console.log('bridge contract address:', bridgeContractAddress)
-//   console.log('bridge contract:', bridge)
-
-//   console.log('provider:', provider, store.state.destinationChain)
-//   if (!provider.walletProvider.value) throw Error('provider.walletProvider.value is empty')
-//   const walletProvider = new BrowserProvider(provider.walletProvider.value, store.state.destinationChain)
-//   console.log('walletProvider:', walletProvider, store.state.destinationChain)
-//   const signer = await walletProvider.getSigner()
-//   console.log('signer:', signer)
-
-//   const bridgeContract = new Contract(bridgeContractAddress, bridge.abi, signer)
-//   console.log('bridgeContract:', bridgeContract)
-//   const tokenRelease = await bridgeContract.releaseTokens(maxReleaseRound, sourceTransactionId, sourceChainData, destinationChainData, note, signatures)
-//   console.log('tokenRelease:', tokenRelease)
-//   state.resultTx = tokenRelease.hash
-//   return tokenRelease
-// }
 
 const resetButtonClick = async () => {
   store.state.claimData = undefined
@@ -397,7 +344,8 @@ const resetButtonClick = async () => {
         <MainActionButton @click="state.claiming = false">Cancel</MainActionButton>
       </div>
       <div class="w-full" v-else-if="!state.claimed">
-        <MainActionButton @click="claimButtonClick">Claim</MainActionButton>
+        <MainActionButton v-if="chainId == store.state.destinationChain" @click="claimButtonClick">Claim</MainActionButton>
+        <MainActionButton v-else @click="claimButtonClick">Switch your wallet to {{ store.state.destinationChainConfiguration?.name }}</MainActionButton>
       </div>
       <div v-else-if="state.claimed">
         <p>
