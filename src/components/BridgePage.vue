@@ -46,8 +46,7 @@ const fillInRoute = () => {
     store.state.destinationTokenConfiguration &&
     store.state.sourceAddress &&
     store.state.destinationAddress &&
-    store.state.sourceAmount &&
-    store.state.memo
+    store.state.sourceAmount
   ) {
     router.push({
       name: 'bridge-sc-dc-st-dt-sa-da-a-n',
@@ -59,7 +58,7 @@ const fillInRoute = () => {
         sourceAddress: store.state.sourceAddress,
         destinationAddress: store.state.destinationAddress,
         sourceAmount: store.state.sourceAmount,
-        note: base64url(store.state.memo ?? '')
+        note: base64url(store.state.memo ? store.state.memo : 'aramid')
       }
     })
   } else if (
@@ -67,29 +66,7 @@ const fillInRoute = () => {
     store.state.destinationChainConfiguration &&
     store.state.sourceTokenConfiguration &&
     store.state.destinationTokenConfiguration &&
-    store.state.sourceAddress &&
-    store.state.destinationAddress &&
     store.state.sourceAmount
-  ) {
-    router.push({
-      name: 'bridge-sc-dc-st-dt-sa-da-a',
-      params: {
-        sourceChain: store.state.sourceChainConfiguration.name,
-        destinationChain: store.state.destinationChainConfiguration.name,
-        sourceToken: store.state.sourceTokenConfiguration.name,
-        destinationToken: store.state.destinationTokenConfiguration.name,
-        sourceAddress: store.state.sourceAddress,
-        destinationAddress: store.state.destinationAddress,
-        sourceAmount: store.state.sourceAmount
-      }
-    })
-  } else if (
-    store.state.sourceChainConfiguration &&
-    store.state.destinationChainConfiguration &&
-    store.state.sourceTokenConfiguration &&
-    store.state.destinationTokenConfiguration &&
-    store.state.sourceAmount &&
-    store.state.memo
   ) {
     router.push({
       name: 'bridge-sc-dc-st-dt-a-n',
@@ -99,24 +76,7 @@ const fillInRoute = () => {
         sourceToken: store.state.sourceTokenConfiguration.name,
         destinationToken: store.state.destinationTokenConfiguration.name,
         sourceAmount: store.state.sourceAmount,
-        note: base64url(store.state.memo ?? '')
-      }
-    })
-  } else if (
-    store.state.sourceChainConfiguration &&
-    store.state.destinationChainConfiguration &&
-    store.state.sourceTokenConfiguration &&
-    store.state.destinationTokenConfiguration &&
-    store.state.sourceAmount
-  ) {
-    router.push({
-      name: 'bridge-sc-dc-st-dt-a',
-      params: {
-        sourceChain: store.state.sourceChainConfiguration.name,
-        destinationChain: store.state.destinationChainConfiguration.name,
-        sourceToken: store.state.sourceTokenConfiguration.name,
-        destinationToken: store.state.destinationTokenConfiguration.name,
-        sourceAmount: store.state.sourceAmount
+        note: base64url(store.state.memo ? store.state.memo : 'aramid')
       }
     })
   } else if (store.state.sourceChainConfiguration && store.state.destinationChainConfiguration && store.state.sourceTokenConfiguration && store.state.destinationTokenConfiguration) {
@@ -225,6 +185,7 @@ const doValidation = (): boolean => {
         `Source and Destination Amount (${store.state.sourceAmountFormatted} - ${store.state.feeAmountFormatted}, ${store.state.destinationAmountFormatted}) are not compatible, Please re-enter the Amount.`
       )
     }
+
     return true
   } catch (e: any) {
     console.error(e)
@@ -240,14 +201,12 @@ const doValidation = (): boolean => {
 
 const reviewButtonClick = () => {
   if (!doValidation()) return
-
   if (
     store.state.sourceChainConfiguration &&
     store.state.destinationChainConfiguration &&
     store.state.sourceTokenConfiguration &&
     store.state.destinationTokenConfiguration &&
-    store.state.sourceAmount &&
-    store.state.memo
+    store.state.sourceAmount
   ) {
     router.push({
       name: 'review-sc-dc-st-dt-a-n',
@@ -257,24 +216,7 @@ const reviewButtonClick = () => {
         sourceToken: store.state.sourceTokenConfiguration.name,
         destinationToken: store.state.destinationTokenConfiguration.name,
         sourceAmount: store.state.sourceAmount,
-        note: base64url(store.state.memo ?? '')
-      }
-    })
-  } else if (
-    store.state.sourceChainConfiguration &&
-    store.state.destinationChainConfiguration &&
-    store.state.sourceTokenConfiguration &&
-    store.state.destinationTokenConfiguration &&
-    store.state.sourceAmount
-  ) {
-    router.push({
-      name: 'review-sc-dc-st-dt-a',
-      params: {
-        sourceChain: store.state.sourceChainConfiguration.name,
-        destinationChain: store.state.destinationChainConfiguration.name,
-        sourceToken: store.state.sourceTokenConfiguration.name,
-        destinationToken: store.state.destinationTokenConfiguration.name,
-        sourceAmount: store.state.sourceAmount
+        note: base64url(store.state.memo ? store.state.memo : 'aramid')
       }
     })
   }

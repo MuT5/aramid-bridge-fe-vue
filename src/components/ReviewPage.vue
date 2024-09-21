@@ -46,18 +46,8 @@ const routeToBridgeScreen = () => {
   if (route.name == 'review-sc-dc-st-dt-a-n') {
     router.push({ name: 'bridge-sc-dc-st-dt-a-n' })
   }
-  if (route.name == 'review-sc-dc-st-dt-a') {
-    router.push({ name: 'bridge-sc-dc-st-dt-a' })
-  }
-  if (route.name == 'review-sc-dc-st-dt-sa-da-a') {
-    router.push({ name: 'bridge-sc-dc-st-dt-sa-da-a' })
-  }
   if (route.name == 'review-sc-dc-st-dt-sa-da-a-n') {
-    if (store.state.memo) {
-      router.push({ name: 'bridge-sc-dc-st-dt-sa-da-a-n' })
-    } else {
-      router.push({ name: 'bridge-sc-dc-st-dt-sa-da-a' })
-    }
+    router.push({ name: 'bridge-sc-dc-st-dt-sa-da-a-n' })
   }
 }
 
@@ -70,6 +60,7 @@ onMounted(() => {
   }
   store.state.bridgeTx = undefined
   store.state.claimTx = undefined
+  if (!store.state.memo) store.state.memo = 'aramid'
 })
 
 const signButtonClick = async () => {
@@ -77,7 +68,7 @@ const signButtonClick = async () => {
     if (!store.state.sourceChainConfiguration) throw Error('store.state.sourceChainConfiguration is missing')
 
     await router.push({
-      name: store.state.memo ? 'sign-n' : 'sign',
+      name: 'sign-n',
       params: {
         sourceChain: store.state.sourceChainConfiguration.name,
         destinationChain: store.state.destinationChainConfiguration?.name,

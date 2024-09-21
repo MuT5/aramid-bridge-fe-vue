@@ -31,11 +31,7 @@ const { activeWallet } = useWallet()
 const routeToReviewScreen = () => {
   console.log('routeToReviewScreen')
   console.log('route', route)
-  if (store.state.memo) {
-    router.push({ name: 'review-sc-dc-st-dt-sa-da-a-n' })
-  } else {
-    router.push({ name: 'review-sc-dc-st-dt-sa-da-a' })
-  }
+  router.push({ name: 'review-sc-dc-st-dt-sa-da-a-n' })
 }
 
 const checkSourceTx = async () => {
@@ -147,11 +143,7 @@ onBeforeUnmount(() => {
 const resetButtonClick = () => {
   console.log('resetButtonClick')
   store.state.claimData = undefined
-  if (store.state.memo) {
-    router.push({ name: 'bridge-sc-dc-st-dt-sa-da-a-n' })
-  } else {
-    router.push({ name: 'bridge-sc-dc-st-dt-sa-da-a' })
-  }
+  router.push({ name: 'bridge-sc-dc-st-dt-sa-da-a-n' })
 }
 </script>
 

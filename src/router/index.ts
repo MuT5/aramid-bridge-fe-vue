@@ -31,11 +31,6 @@ const router = createRouter({
       component: HomeView
     },
     {
-      path: '/bridge/:sourceChain/:destinationChain/:sourceToken/:destinationToken/:sourceAmount',
-      name: 'bridge-sc-dc-st-dt-a',
-      component: HomeView
-    },
-    {
       path: '/bridge/:sourceChain/:destinationChain/:sourceToken/:destinationToken/:sourceAmount/:note',
       name: 'bridge-sc-dc-st-dt-a-n',
       component: HomeView
@@ -46,34 +41,14 @@ const router = createRouter({
       component: HomeView
     },
     {
-      path: '/bridge-a/:sourceChain/:destinationChain/:sourceToken/:destinationToken/:sourceAddress/:destinationAddress/:sourceAmount',
-      name: 'bridge-sc-dc-st-dt-sa-da-a',
-      component: HomeView
-    },
-    {
-      path: '/review/:sourceChain/:destinationChain/:sourceToken/:destinationToken/:sourceAmount',
-      name: 'review-sc-dc-st-dt-a',
-      component: ReviewView
-    },
-    {
       path: '/review/:sourceChain/:destinationChain/:sourceToken/:destinationToken/:sourceAmount/:note',
       name: 'review-sc-dc-st-dt-a-n',
-      component: ReviewView
-    },
-    {
-      path: '/review-a/:sourceChain/:destinationChain/:sourceToken/:destinationToken/:sourceAddress/:destinationAddress/:sourceAmount',
-      name: 'review-sc-dc-st-dt-sa-da-a',
       component: ReviewView
     },
     {
       path: '/review-a/:sourceChain/:destinationChain/:sourceToken/:destinationToken/:sourceAddress/:destinationAddress/:sourceAmount/:note',
       name: 'review-sc-dc-st-dt-sa-da-a-n',
       component: ReviewView
-    },
-    {
-      path: '/sign/:sourceChain/:destinationChain/:sourceToken/:destinationToken/:sourceAddress/:destinationAddress/:sourceAmount',
-      name: 'sign',
-      component: () => import('../views/SignView.vue')
     },
     {
       path: '/sign/:sourceChain/:destinationChain/:sourceToken/:destinationToken/:sourceAddress/:destinationAddress/:sourceAmount/:note',
