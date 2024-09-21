@@ -7,8 +7,12 @@ import type { ChainItem } from '@/scripts/interface/mapping/ChainItem'
 import WalletAddress from '../ui/WalletAddress.vue'
 import DialogTitle from '../ui/DialogTitle.vue'
 import DialogButton from '../ui/DialogButton.vue'
+import algosdk from 'algosdk'
+import { ethers } from 'ethers'
+import { useToast } from 'primevue/usetoast'
 
 const store = useAppStore()
+const toast = useToast()
 
 interface IState {
   publicConfiguration: PublicConfigurationRoot | null
@@ -48,6 +52,32 @@ const differentAddressClick = () => {
 const closeDialog = () => {
   store.state.dialogSelectDestinationWalletIsOpen = false
 }
+const useAddressClick = () => {
+  try {
+    state.addressInput = state.addressInput.trim()
+    if (store.state.sourceChainConfiguration?.type == 'algo') {
+      if (!algosdk.isValidAddress(state.addressInput ?? '')) {
+        throw new Error('Address is invalid')
+      }
+    }
+    if (store.state.sourceChainConfiguration?.type == 'eth') {
+      if (!ethers.isAddress(state.addressInput ?? '')) {
+        throw new Error('Address is invalid')
+      }
+    }
+
+    store.state.destinationAddress = state.addressInput
+    store.state.connectedDestinationChain = store.state.destinationChainConfiguration?.chainId
+    store.state.dialogSelectDestinationWalletIsOpen = false
+  } catch (e: any) {
+    console.error(e)
+    toast.add({
+      severity: 'error',
+      detail: e.message ?? e,
+      life: 3000
+    })
+  }
+}
 </script>
 <template>
   <div :class="store.state.dialogSelectDestinationWalletIsOpen ? '' : 'hidden'">
@@ -61,6 +91,15 @@ const closeDialog = () => {
           <DialogButton @click="differentAddressClick">No</DialogButton>
         </div>
         <div v-else>Please select the source address first</div>
+        <div>
+          <div>Or enter third party address</div>
+          <textarea
+            v-model="state.addressInput"
+            class="bg-white-rgba rounded-[10px] focus:outline-none w-full mt-1 3xl:mt-3 4xl:mt-6 p-1 3xl:p-3 4xl:p-6 text-base h-[80px] 3xl:h-[112px] 4xl:h-[157px] w-full"
+            rows="3"
+          ></textarea>
+          <DialogButton @click="useAddressClick">Use this address</DialogButton>
+        </div>
       </ul>
     </div>
   </div>
