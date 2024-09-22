@@ -328,7 +328,7 @@ const lockButtonClick = async () => {
 
     <div v-if="state.inApproval"><img :src="loader" alt="Loading" height="18" width="18" class="inline-block" /> Please check your wallet for the approval transaction to sign.</div>
     <div v-if="state.inApprovalMinting">
-      <img :src="loader" alt="Loading" height="18" width="18" class="inline-block" /> Your approval transaction is being minted at {{ store.state.sourceChainConfiguration?.name }}
+      <img :src="loader" alt="Loading" height="18" width="18" class="inline-block" /> Your approval transaction is being submitted to {{ store.state.sourceChainConfiguration?.name }}
       <span v-if="state.approvalHash"><ShortTx :txId="state.approvalHash" :length="6" :chain="store.state.sourceChain"></ShortTx></span>
     </div>
     <div v-if="state.inSign">
@@ -337,7 +337,7 @@ const lockButtonClick = async () => {
       <span v-if="state.signHash"><ShortTx :txId="state.signHash" :length="6" :chain="store.state.sourceChain"></ShortTx></span>
     </div>
     <div v-if="state.inSignMinting">
-      <img :src="loader" alt="Loading" height="18" width="18" class="inline-block" /> Your bridge transaction is being minted at {{ store.state.sourceChainConfiguration?.name }}
+      <img :src="loader" alt="Loading" height="18" width="18" class="inline-block" /> Your bridge transaction is being submitted to {{ store.state.sourceChainConfiguration?.name }}
     </div>
 
     <MainActionButton @click="approveButtonClick" v-if="store.state.sourceChainConfiguration?.type == 'eth' && !state.approved">Approve</MainActionButton>
