@@ -216,54 +216,48 @@ const lockButtonClick = async () => {
         <hr class="h-[1px] my-6 w-full bg-[#F6F6F629] border-0 dark:bg-gray-700" />
       </div>
       <div class="flex flex-col md:flex-row mt-2 text-center md:text-left">
-        <div class="min-w-20 hidden md:block text-center">
-          <CopyIcon :text="store.state.sourceAmountFormatted" :title="`Copy amount: ${store.state.sourceAmountFormatted}`"></CopyIcon>
-        </div>
         <div class="md:min-w-44 font-bold">Amount to send</div>
         <div class="w-full" :title="`Base amount: ${store.state.sourceAmount}`">{{ store.state.sourceAmountFormatted }}</div>
       </div>
       <div class="flex flex-col md:flex-row mt-2 text-center md:text-left">
-        <div class="min-w-20 hidden md:block text-center">
-          <CopyIcon :text="store.state.sourceTokenConfiguration?.name" :title="`Copy token name: ${store.state.sourceTokenConfiguration?.name}`"></CopyIcon>
-        </div>
         <div class="md:min-w-44 font-bold">Token name</div>
         <div class="w-full">{{ store.state.sourceTokenConfiguration?.name }}</div>
       </div>
       <div class="flex flex-col md:flex-row mt-2 text-center md:text-left">
-        <div class="min-w-20 hidden md:block text-center">
+        <div class="md:min-w-44 font-bold">Token id</div>
+        <div class="w-full">
+          {{ store.state.sourceTokenConfiguration?.tokenId }}
           <CopyIcon :text="store.state.sourceTokenConfiguration?.tokenId" :title="`Copy token id: ${store.state.sourceTokenConfiguration?.tokenId}`"></CopyIcon>
         </div>
-        <div class="md:min-w-44 font-bold">Token id</div>
-        <div class="w-full">{{ store.state.sourceTokenConfiguration?.tokenId }}</div>
       </div>
       <div class="flex flex-col md:flex-row mt-2 text-center md:text-left">
-        <div class="min-w-20 hidden md:block text-center">
-          <CopyIcon :text="store.state.sourceAddress" :title="`Copy source address: ${store.state.sourceAddress}`"></CopyIcon>
-        </div>
-        <div class="md:min-w-44 font-bold">Bridge from address</div>
+        <div class="md:min-w-44 font-bold">Source address</div>
         <div class="w-full block md:hidden">
           <WalletAddress :address="store.state.sourceAddress" :length="4"></WalletAddress>
+          <CopyIcon :text="store.state.sourceAddress" :title="`Copy source address: ${store.state.sourceAddress}`"></CopyIcon>
         </div>
         <div class="w-full hidden md:block lg:hidden">
           <WalletAddress :address="store.state.sourceAddress" :length="6"></WalletAddress>
+          <CopyIcon :text="store.state.sourceAddress" :title="`Copy source address: ${store.state.sourceAddress}`"></CopyIcon>
         </div>
         <div class="w-full hidden lg:block">
           <WalletAddress :address="store.state.sourceAddress" :length="30"></WalletAddress>
+          <CopyIcon :text="store.state.sourceAddress" :title="`Copy source address: ${store.state.sourceAddress}`"></CopyIcon>
         </div>
       </div>
       <div class="flex flex-col md:flex-row mt-2 text-center md:text-left">
-        <div class="min-w-20 hidden md:block text-center">
-          <CopyIcon :text="store.state.sourceBridgeAddress" :title="`Copy source chain bridge address: ${store.state.sourceBridgeAddress}`"></CopyIcon>
-        </div>
         <div class="md:min-w-44 font-bold">Bridge address</div>
         <div class="w-full block md:hidden">
           <WalletAddress :address="store.state.sourceBridgeAddress" :length="4"></WalletAddress>
+          <CopyIcon :text="store.state.sourceBridgeAddress" :title="`Copy source chain bridge address: ${store.state.sourceBridgeAddress}`"></CopyIcon>
         </div>
         <div class="w-full hidden md:block lg:hidden">
           <WalletAddress :address="store.state.sourceBridgeAddress" :length="6"></WalletAddress>
+          <CopyIcon :text="store.state.sourceBridgeAddress" :title="`Copy source chain bridge address: ${store.state.sourceBridgeAddress}`"></CopyIcon>
         </div>
         <div class="w-full hidden lg:block">
           <WalletAddress :address="store.state.sourceBridgeAddress" :length="30"></WalletAddress>
+          <CopyIcon :text="store.state.sourceBridgeAddress" :title="`Copy source chain bridge address: ${store.state.sourceBridgeAddress}`"></CopyIcon>
         </div>
       </div>
 
@@ -280,63 +274,52 @@ const lockButtonClick = async () => {
       </div>
 
       <div class="flex flex-col md:flex-row mt-2 text-center md:text-left">
-        <div class="min-w-20 hidden md:block text-center">
-          <CopyIcon :text="store.state.destinationAmountFormatted" :title="`Copy amount: ${store.state.destinationAmountFormatted}`"></CopyIcon>
-        </div>
         <div class="md:min-w-44 font-bold">Amount to receive</div>
         <div class="w-full" :title="`Base amount: ${store.state.destinationAmount}`">{{ store.state.destinationAmountFormatted }}</div>
       </div>
       <div class="flex flex-col md:flex-row mt-2 text-center md:text-left">
-        <div class="min-w-20 hidden md:block text-center">
-          <CopyIcon :text="store.state.destinationTokenConfiguration?.name" :title="`Copy token name: ${store.state.destinationTokenConfiguration?.name}`"></CopyIcon>
-        </div>
         <div class="md:min-w-44 font-bold">Receive token</div>
         <div class="w-full">{{ store.state.destinationTokenConfiguration?.name }}</div>
       </div>
       <div class="flex flex-col md:flex-row mt-2 text-center md:text-left">
-        <div class="min-w-20 hidden md:block text-center">
+        <div class="md:min-w-44 font-bold">Token id</div>
+        <div class="w-full">
+          {{ store.state.destinationTokenConfiguration?.tokenId }}
           <CopyIcon :text="store.state.destinationTokenConfiguration?.tokenId" :title="`Copy token id: ${store.state.destinationTokenConfiguration?.tokenId}`"></CopyIcon>
         </div>
-        <div class="md:min-w-44 font-bold">Token id</div>
-        <div class="w-full">{{ store.state.destinationTokenConfiguration?.tokenId }}</div>
       </div>
       <div class="flex flex-col md:flex-row mt-2 text-center md:text-left">
-        <div class="min-w-20 hidden md:block text-center">
-          <CopyIcon :text="store.state.destinationAddress" :title="`Copy source address: ${store.state.destinationAddress}`"></CopyIcon>
-        </div>
-        <div class="md:min-w-44 font-bold">Receive assets to address</div>
+        <div class="md:min-w-44 font-bold">Destination address</div>
         <div class="w-full block md:hidden">
           <WalletAddress :address="store.state.destinationAddress" :length="4"></WalletAddress>
+          <CopyIcon :text="store.state.destinationAddress" :title="`Copy source address: ${store.state.destinationAddress}`"></CopyIcon>
         </div>
         <div class="w-full hidden md:block lg:hidden">
           <WalletAddress :address="store.state.destinationAddress" :length="6"></WalletAddress>
+          <CopyIcon :text="store.state.destinationAddress" :title="`Copy source address: ${store.state.destinationAddress}`"></CopyIcon>
         </div>
         <div class="w-full hidden lg:block">
           <WalletAddress :address="store.state.destinationAddress" :length="30"></WalletAddress>
+          <CopyIcon :text="store.state.destinationAddress" :title="`Copy source address: ${store.state.destinationAddress}`"></CopyIcon>
         </div>
       </div>
-      <div class="flex flex-col md:flex-row mt-2 text-center md:text-left" v-if="store.state.memo">
-        <div class="min-w-20 hidden md:block text-center">
-          <CopyIcon :text="store.state.memo" :title="`Copy source address: ${store.state.memo}`"></CopyIcon>
-        </div>
+      <div class="flex flex-col md:flex-row mt-2 text-center md:text-left" v-if="store.state.memo && store.state.memo != 'aramid'">
         <div class="md:min-w-44 font-bold">Data transfer</div>
-        <div class="w-full">
-          {{ store.state.memo }}
-        </div>
+        <div class="w-full">{{ store.state.memo }} <CopyIcon :text="store.state.memo" :title="`Copy source address: ${store.state.memo}`"></CopyIcon></div>
       </div>
       <div class="flex flex-col md:flex-row mt-2 text-center md:text-left">
-        <div class="min-w-20 hidden md:block text-center">
-          <CopyIcon :text="store.state.destinationBridgeAddress" :title="`Copy destination chain bridge address: ${store.state.destinationBridgeAddress}`"></CopyIcon>
-        </div>
         <div class="md:min-w-44 font-bold">Bridge address</div>
         <div class="w-full block md:hidden">
           <WalletAddress :address="store.state.destinationBridgeAddress" :length="4"></WalletAddress>
+          <CopyIcon :text="store.state.destinationBridgeAddress" :title="`Copy destination chain bridge address: ${store.state.destinationBridgeAddress}`"></CopyIcon>
         </div>
         <div class="w-full hidden md:block lg:hidden">
           <WalletAddress :address="store.state.destinationBridgeAddress" :length="6"></WalletAddress>
+          <CopyIcon :text="store.state.destinationBridgeAddress" :title="`Copy destination chain bridge address: ${store.state.destinationBridgeAddress}`"></CopyIcon>
         </div>
         <div class="w-full hidden lg:block">
           <WalletAddress :address="store.state.destinationBridgeAddress" :length="30"></WalletAddress>
+          <CopyIcon :text="store.state.destinationBridgeAddress" :title="`Copy destination chain bridge address: ${store.state.destinationBridgeAddress}`"></CopyIcon>
         </div>
       </div>
     </div>

@@ -329,7 +329,7 @@ const resetButtonClick = async () => {
           <div class="w-full">{{ store.state.destinationTokenConfiguration?.tokenId }}</div>
         </div>
 
-        <div class="flex flex-col md:flex-row mt-2 text-center md:text-left" v-if="store.state.memo">
+        <div class="flex flex-col md:flex-row mt-2 text-center md:text-left" v-if="store.state.memo && store.state.memo != 'aramid'">
           <div class="min-w-20 hidden md:block text-center">
             <CopyIcon :text="store.state.memo" :title="`Copy source address: ${store.state.memo}`"></CopyIcon>
           </div>
