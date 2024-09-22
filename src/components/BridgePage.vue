@@ -268,6 +268,8 @@ onMounted(async () => {
 
   const modal = getWeb3Modal()
   console.log('modal', modal)
+
+  if (store.state.memo == 'aramid') store.state.memo = ''
 })
 
 watch(
