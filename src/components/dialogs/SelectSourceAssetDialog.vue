@@ -37,8 +37,17 @@ const state: IState = reactive({
 const fillInState = () => {
   if (!state.publicConfiguration) return
   if (!store.state.sourceChain) return
+  if (!store.state.destinationChain) return
 
-  state.assets = Object.values(state.publicConfiguration.chains[store.state.sourceChain.toString()].tokens)
+  if (
+    state.publicConfiguration.chains2tokens[store.state.sourceChain.toString()] &&
+    state.publicConfiguration.chains2tokens[store.state.sourceChain.toString()][store.state.destinationChain.toString()]
+  ) {
+    const allowedRoutes = Object.keys(state.publicConfiguration.chains2tokens[store.state.sourceChain.toString()][store.state.destinationChain.toString()])
+    state.assets = Object.values(state.publicConfiguration.chains[store.state.sourceChain.toString()].tokens).filter((c) => allowedRoutes.includes(c.tokenId))
+  } else {
+    state.assets = Object.values(state.publicConfiguration.chains[store.state.sourceChain.toString()].tokens)
+  }
 }
 onMounted(async () => {
   state.publicConfiguration = await getPublicConfiguration(false)
