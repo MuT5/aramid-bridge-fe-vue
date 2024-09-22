@@ -190,7 +190,7 @@ const resetButtonClick = () => {
       </div>
     </div>
     <div v-else-if="store.state.bridgeTx && !store.state.claimTx">
-      <img :src="loader" alt="Loading" height="18" width="18" class="inline-block" /> The bridging process is underway. This step takes usually less then 3 minutes. Your transaction id:
+      <img :src="loader" alt="Loading" height="18" width="18" class="inline-block" /> This step usually takes less then 3 minutes. Your transaction ID:
       <ShortTx :txId="store.state.bridgeTx" :length="6" :chain="store.state.sourceChain"></ShortTx>
     </div>
     <div v-else-if="store.state.claimTx && store.state.destinationChainConfiguration?.type == 'algo'">
@@ -200,7 +200,7 @@ const resetButtonClick = () => {
     </div>
     <div v-else>
       <img :src="loader" alt="Loading" height="18" width="18" class="inline-block" /> Please wait a minute.
-      <span v-if="store.state.bridgeTx">Your transaction id: <ShortTx :txId="store.state.bridgeTx" :length="6" :chain="store.state.sourceChain"></ShortTx></span>
+      <span v-if="store.state.bridgeTx">Your transaction ID: <ShortTx :txId="store.state.bridgeTx" :length="6" :chain="store.state.sourceChain"></ShortTx></span>
     </div>
   </MainBox>
 </template>
