@@ -105,7 +105,6 @@ watch(
       v-if="store.state.destinationTokenConfiguration"
     >
       {{ viewAmount(store.state.destinationAmount, store.state.destinationTokenConfiguration?.decimals) }}
-      {{ store.state.destinationTokenConfiguration.name }}
     </div>
 
     <div
@@ -113,7 +112,7 @@ watch(
       class="text-white-0.6 my-3 text-center md:text-right md:justify-end w-full text-base 3xl:text-xl 4xl:text-3xl"
       title="Click to refresh source balance"
     >
-      Destination balance: {{ viewAmount(store.state.destinationAddressBalance, store.state.destinationTokenConfiguration?.decimals) }}
+      Balance: {{ viewAmount(store.state.destinationAddressBalance, store.state.destinationTokenConfiguration?.decimals) }} {{ store.state.destinationTokenConfiguration.name }}
     </div>
   </div>
 </template>
