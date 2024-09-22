@@ -95,6 +95,16 @@ const fillInRoute = () => {
 const doValidation = (): boolean => {
   // called when the review button is pressed, right after confirmNetworksAndDestinationAddress
   try {
+    if (store.state.loadingDestinationAddressBalance) {
+      throw Error('Loading the balance of the destination address, please try again later')
+    }
+    if (store.state.loadingSourceAddressBalance) {
+      throw Error('Loading the balance of the source address, please try again later')
+    }
+    if (store.state.loadingDestinationEscrowAddressBalance) {
+      throw Error('Loading the balance of the destination escrow address, please try again later')
+    }
+
     if (!store.state.sourceAddress) {
       throw Error('Please select the address from which you will bridge the assets by connecting source chain wallet')
     } else if (
@@ -158,7 +168,6 @@ const doValidation = (): boolean => {
         throw Error('Destination address is in invalid format')
       }
     }
-
     if (
       store.state.routeConfig &&
       store.state.routeConfig.feeAlternatives &&

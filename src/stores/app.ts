@@ -37,7 +37,11 @@ export const useAppStore = defineStore('app', () => {
     sourceBridgeAddress: '',
     memo: '',
     destinationBridgeAddress: '',
-    dialogSelectDestinationWalletIsOpen: false
+    dialogSelectDestinationWalletIsOpen: false,
+
+    loadingSourceAddressBalance: false,
+    loadingDestinationAddressBalance: false,
+    loadingDestinationEscrowAddressBalance: false
   })
 
   return { state }

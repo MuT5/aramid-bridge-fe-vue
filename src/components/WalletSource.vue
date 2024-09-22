@@ -49,23 +49,38 @@ const fillInState = () => {
 }
 
 const onSourceAddressChange = async () => {
-  // refresh balance of source account
-  if (!store.state.sourceChain) return
-  if (!store.state.sourceChainConfiguration) return
-  if (!store.state.sourceAddress) return
-  if (store.state.sourceChainConfiguration.type == 'algo') {
-    const balance = await getAlgoAccountTokenBalance(store.state.sourceChain, store.state.sourceAddress, Number(store.state.sourceToken))
-    if (balance !== null) {
-      store.state.sourceAddressBalance = balance.toString()
-      console.log('onSourceAddressChange.balance', store.state.sourceAddressBalance, store.state.sourceChain, store.state.sourceAddress, Number(store.state.sourceToken))
+  try {
+    // refresh balance of source account
+    if (!store.state.sourceChain) return
+    if (!store.state.sourceChainConfiguration) return
+    if (!store.state.sourceAddress) return
+    if (store.state.sourceChainConfiguration.type == 'algo') {
+      store.state.loadingSourceAddressBalance = true
+      const balance = await getAlgoAccountTokenBalance(store.state.sourceChain, store.state.sourceAddress, Number(store.state.sourceToken))
+      if (balance !== null) {
+        store.state.sourceAddressBalance = balance.toString()
+        store.state.loadingSourceAddressBalance = false
+        console.log('onSourceAddressChange.balance', store.state.sourceAddressBalance, store.state.sourceChain, store.state.sourceAddress, Number(store.state.sourceToken))
+      }
     }
-  }
-  if (store.state.sourceChainConfiguration.type == 'eth' && store.state.sourceToken) {
-    const balance = await getEthAccountTokenBalance(store.state.sourceChain, store.state.sourceAddress, store.state.sourceToken)
-    if (balance !== null) {
-      store.state.sourceAddressBalance = balance.toString()
-      console.log('onSourceAddressChange.balance', store.state.sourceAddressBalance, store.state.sourceChain, store.state.sourceAddress, Number(store.state.sourceToken))
+    if (store.state.sourceChainConfiguration.type == 'eth' && store.state.sourceToken) {
+      store.state.loadingSourceAddressBalance = true
+      const balance = await getEthAccountTokenBalance(store.state.sourceChain, store.state.sourceAddress, store.state.sourceToken)
+      if (balance !== null) {
+        store.state.sourceAddressBalance = balance.toString()
+        store.state.loadingSourceAddressBalance = false
+        console.log('onSourceAddressChange.balance', store.state.sourceAddressBalance, store.state.sourceChain, store.state.sourceAddress, Number(store.state.sourceToken))
+      }
     }
+  } catch (e: any) {
+    store.state.loadingSourceAddressBalance = false
+    console.error(e)
+    toast.add({
+      severity: 'error',
+      detail: e.message,
+      life: 3000
+    })
+    return false
   }
 }
 

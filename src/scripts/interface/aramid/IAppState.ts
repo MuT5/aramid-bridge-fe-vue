@@ -139,4 +139,8 @@ export interface IAppState {
   nearTokenDepositedFee?: boolean
   approvalUpdated?: boolean
   escrowBalance?: string
+
+  loadingSourceAddressBalance: boolean
+  loadingDestinationAddressBalance: boolean
+  loadingDestinationEscrowAddressBalance: boolean
 }

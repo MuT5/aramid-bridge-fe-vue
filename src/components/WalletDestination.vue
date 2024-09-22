@@ -15,8 +15,9 @@ import getEthAccountTokenBalance from '@/scripts/eth/getEthAccountTokenBalance'
 import getWeb3Modal from '@/scripts/eth/getWeb3Modal'
 import asyncdelay from '@/scripts/common/asyncDelay'
 import { useWeb3ModalAccount } from '@web3modal/ethers/vue'
+import { useToast } from 'primevue/usetoast'
 const store = useAppStore()
-
+const toast = useToast()
 interface IState {
   connected: boolean
   publicConfiguration: PublicConfigurationRoot | null
@@ -107,46 +108,101 @@ const onDestinationAddressChange = async () => {
   if (!store.state.destinationChainConfiguration) return
   if (!store.state.destinationAddress) return
   if (store.state.destinationChainConfiguration.type == 'algo') {
-    const optin = await getAlgoAccountTokenOptedIn(store.state.destinationChain, store.state.destinationAddress, Number(store.state.destinationToken))
-    if (optin !== null) {
-      store.state.destinationAccountOptedIn = optin
+    try {
+      store.state.loadingDestinationAddressBalance = true
+      const optin = await getAlgoAccountTokenOptedIn(store.state.destinationChain, store.state.destinationAddress, Number(store.state.destinationToken))
+      if (optin !== null) {
+        store.state.destinationAccountOptedIn = optin
 
-      const balance = await getAlgoAccountTokenBalance(store.state.destinationChain, store.state.destinationAddress, Number(store.state.destinationToken))
-      if (balance !== null) {
-        store.state.destinationAddressBalance = balance.toString()
-        console.log('onDestinationAddressChange.balance', store.state.destinationAddressBalance, store.state.destinationChain, store.state.destinationAddress, Number(store.state.destinationToken))
+        const balance = await getAlgoAccountTokenBalance(store.state.destinationChain, store.state.destinationAddress, Number(store.state.destinationToken))
+        if (balance !== null) {
+          store.state.destinationAddressBalance = balance.toString()
+          console.log('onDestinationAddressChange.balance', store.state.destinationAddressBalance, store.state.destinationChain, store.state.destinationAddress, Number(store.state.destinationToken))
+        }
+      } else {
+        store.state.destinationAccountOptedIn = false
+        store.state.destinationAddressBalance = '0'
       }
-    } else {
-      store.state.destinationAccountOptedIn = false
+      store.state.loadingDestinationAddressBalance = true
+    } catch (e: any) {
+      store.state.loadingDestinationAddressBalance = false
       store.state.destinationAddressBalance = '0'
+      console.error(e)
+      toast.add({
+        severity: 'error',
+        detail: e.message,
+        life: 3000
+      })
+      return false
     }
-
-    // check the bridge account
-    const balance = await getAlgoAccountTokenBalance(store.state.destinationChain, store.state.destinationBridgeAddress, Number(store.state.destinationToken))
-    console.log('onDestinationAddressChange', balance)
-    if (balance) {
-      store.state.destinationBridgeBalance = balance.toFixed(0, 1)
-    } else {
+    try {
+      // check the bridge account
+      store.state.loadingDestinationEscrowAddressBalance = true
+      const balance = await getAlgoAccountTokenBalance(store.state.destinationChain, store.state.destinationBridgeAddress, Number(store.state.destinationToken))
+      console.log('onDestinationAddressChange', balance)
+      if (balance) {
+        store.state.destinationBridgeBalance = balance.toFixed(0, 1)
+      } else {
+        store.state.destinationBridgeBalance = '0'
+      }
+      store.state.loadingDestinationEscrowAddressBalance = false
+    } catch (e: any) {
       store.state.destinationBridgeBalance = '0'
+      store.state.loadingDestinationEscrowAddressBalance = false
+      console.error(e)
+      toast.add({
+        severity: 'error',
+        detail: e.message,
+        life: 3000
+      })
+      return false
     }
   }
   if (store.state.destinationChainConfiguration.type == 'eth' && store.state.destinationToken) {
-    const balance = await getEthAccountTokenBalance(store.state.destinationChain, store.state.destinationAddress, store.state.destinationToken)
-    if (balance !== null) {
-      store.state.destinationAddressBalance = balance.toString()
-      console.log('onDestinationAddressChange.balance', store.state.destinationAddressBalance, store.state.destinationChain, store.state.destinationAddress, store.state.destinationToken)
-    } else {
-      store.state.destinationAccountOptedIn = true
+    try {
+      store.state.loadingDestinationAddressBalance = true
+      const balance = await getEthAccountTokenBalance(store.state.destinationChain, store.state.destinationAddress, store.state.destinationToken)
+      if (balance !== null) {
+        store.state.destinationAddressBalance = balance.toString()
+        console.log('onDestinationAddressChange.balance', store.state.destinationAddressBalance, store.state.destinationChain, store.state.destinationAddress, store.state.destinationToken)
+      } else {
+        store.state.destinationAccountOptedIn = true
+        store.state.destinationAddressBalance = '0'
+      }
+      store.state.loadingDestinationAddressBalance = false
+    } catch (e: any) {
+      store.state.loadingDestinationAddressBalance = false
       store.state.destinationAddressBalance = '0'
+      console.error(e)
+      toast.add({
+        severity: 'error',
+        detail: e.message,
+        life: 3000
+      })
+      return false
     }
 
     // check the bridge account
-    const bridgeBalance = await getEthAccountTokenBalance(store.state.destinationChain, store.state.destinationBridgeAddress, store.state.destinationToken)
-    console.log('onDestinationAddressChange', bridgeBalance)
-    if (bridgeBalance) {
-      store.state.destinationBridgeBalance = bridgeBalance.toFixed(0, 1)
-    } else {
+    try {
+      store.state.loadingDestinationEscrowAddressBalance = true
+      const bridgeBalance = await getEthAccountTokenBalance(store.state.destinationChain, store.state.destinationBridgeAddress, store.state.destinationToken)
+      console.log('onDestinationAddressChange', bridgeBalance)
+      if (bridgeBalance) {
+        store.state.destinationBridgeBalance = bridgeBalance.toFixed(0, 1)
+      } else {
+        store.state.destinationBridgeBalance = '0'
+      }
+      store.state.loadingDestinationEscrowAddressBalance = false
+    } catch (e: any) {
       store.state.destinationBridgeBalance = '0'
+      store.state.loadingDestinationEscrowAddressBalance = false
+      console.error(e)
+      toast.add({
+        severity: 'error',
+        detail: e.message,
+        life: 3000
+      })
+      return false
     }
   }
 }
