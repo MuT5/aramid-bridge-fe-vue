@@ -122,12 +122,6 @@ const setMax = () => {
         class="bg-transparent placeholder-current text-2xl font-bold rounded-[2px] focus:outline-none text-center md:text-right w-full border-b-2 border-indigo-500/50"
         v-model="state.sourceAmount"
       />
-      <span
-        v-if="store.state.sourceTokenConfiguration?.symbol"
-        class="ml-2 flex items-center bg-transparent h-[40px] text-2xl font-bold rounded-[2px] focus:outline-none text-center md:text-right justify-center md:justify-end mt-5 md:mt-0"
-      >
-        {{ sanitizeTokenName(store.state.sourceTokenConfiguration?.name) }}
-      </span>
       <div
         v-if="store.state.sourceAddress"
         @click="setMax"
@@ -142,7 +136,7 @@ const setMax = () => {
       class="text-white-0.6 my-1 text-center md:text-right md:justify-end w-full text-sm 3xl:text-xl 4xl:text-3xl"
       title="Click to refresh source balance"
     >
-      {{ shortenAddress(store.state.sourceAddress, 4) }} balance: {{ viewAmount(store.state.sourceAddressBalance, store.state.sourceTokenConfiguration.decimals) }}
+      Balance: {{ viewAmount(store.state.sourceAddressBalance, store.state.sourceTokenConfiguration.decimals) }}
       {{ store.state.sourceTokenConfiguration.name }}
     </div>
   </div>
