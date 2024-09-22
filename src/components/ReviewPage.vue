@@ -331,11 +331,7 @@ const lockButtonClick = async () => {
       <img :src="loader" alt="Loading" height="18" width="18" class="inline-block" /> Your approval transaction is being submitted to {{ store.state.sourceChainConfiguration?.name }}
       <span v-if="state.approvalHash"><ShortTx :txId="state.approvalHash" :length="6" :chain="store.state.sourceChain"></ShortTx></span>
     </div>
-    <div v-if="state.inSign">
-      <img :src="loader" alt="Loading" height="18" width="18" class="inline-block" /> Please check your wallet for bridge transaction so that the bridge can transfer
-      {{ store.state.sourceAmountFormatted }} {{ store.state.sourceTokenConfiguration?.name }} to {{ store.state.destinationChainConfiguration?.name }}
-      <span v-if="state.signHash"><ShortTx :txId="state.signHash" :length="6" :chain="store.state.sourceChain"></ShortTx></span>
-    </div>
+    <div v-if="state.inSign"><img :src="loader" alt="Loading" height="18" width="18" class="inline-block" /> Please check your wallet for the bridge transaction to sign.</div>
     <div v-if="state.inSignMinting">
       <img :src="loader" alt="Loading" height="18" width="18" class="inline-block" /> Your bridge transaction is being submitted to {{ store.state.sourceChainConfiguration?.name }}
     </div>
