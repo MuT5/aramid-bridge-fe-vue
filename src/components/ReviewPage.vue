@@ -326,10 +326,7 @@ const lockButtonClick = async () => {
     <StatusBar></StatusBar>
     <MainActionButton @click="signButtonClick" v-if="store.state.sourceChainConfiguration?.type == 'algo'">Sign</MainActionButton>
 
-    <div v-if="state.inApproval">
-      <img :src="loader" alt="Loading" height="18" width="18" class="inline-block" /> Please check your wallet for approval transaction so that the bridge transaction is approved deduct from your
-      account {{ store.state.sourceAmountFormatted }} {{ store.state.sourceTokenConfiguration?.name }}
-    </div>
+    <div v-if="state.inApproval"><img :src="loader" alt="Loading" height="18" width="18" class="inline-block" /> Please check your wallet for the approval transaction to sign.</div>
     <div v-if="state.inApprovalMinting">
       <img :src="loader" alt="Loading" height="18" width="18" class="inline-block" /> Your approval transaction is being minted at {{ store.state.sourceChainConfiguration?.name }}
       <span v-if="state.approvalHash"><ShortTx :txId="state.approvalHash" :length="6" :chain="store.state.sourceChain"></ShortTx></span>
