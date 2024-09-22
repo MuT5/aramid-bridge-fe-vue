@@ -38,6 +38,7 @@ const state: IState = reactive({
 const fillInState = () => {
   try {
     fillSourceTokenConfiguration()
+    state.connected = !!store.state.connectedSourceChain && !!store.state.sourceAddress
   } catch (e: any) {
     console.error(e)
     toast.add({
@@ -93,9 +94,6 @@ onMounted(async () => {
     store.state.sourceAlgoConnectorType = AlgoConnectorType.UseWallet
     store.state.connectedSourceChain = store.state.sourceChain
   }
-
-  state.connected = !!store.state.connectedSourceChain && !!store.state.sourceAddress
-
   if (store.state.sourceAddress) {
     onSourceAddressChange()
   }
@@ -103,10 +101,19 @@ onMounted(async () => {
 
 watch(
   () => store.state.sourceChain,
-  () => {
+  async () => {
     fillInState()
+    await onSourceAddressChange()
   }
 )
+watch(
+  () => store.state.sourceAddress,
+  async () => {
+    fillInState()
+    await onSourceAddressChange()
+  }
+)
+
 watch(
   () => store.state.sourceChainConfiguration,
   () => {
@@ -133,13 +140,8 @@ watch(
 
 watch(
   () => store.state.connectedSourceChain,
-  () => {
-    state.connected = !!store.state.connectedSourceChain && !!store.state.sourceAddress
-  }
-)
-watch(
-  () => store.state.sourceAddress,
   async () => {
+    fillInState()
     await onSourceAddressChange()
   }
 )
