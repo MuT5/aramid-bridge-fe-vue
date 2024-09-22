@@ -224,10 +224,10 @@ const lockButtonClick = async () => {
         <div class="w-full">{{ store.state.sourceTokenConfiguration?.name }}</div>
       </div>
       <div class="flex flex-col md:flex-row mt-2 text-center md:text-left">
-        <div class="md:min-w-44 font-bold">Token id</div>
+        <div class="md:min-w-44 font-bold">Token ID</div>
         <div class="w-full">
           {{ store.state.sourceTokenConfiguration?.tokenId }}
-          <CopyIcon :text="store.state.sourceTokenConfiguration?.tokenId" :title="`Copy token id: ${store.state.sourceTokenConfiguration?.tokenId}`"></CopyIcon>
+          <CopyIcon :text="store.state.sourceTokenConfiguration?.tokenId" :title="`Copy token ID: ${store.state.sourceTokenConfiguration?.tokenId}`"></CopyIcon>
         </div>
       </div>
       <div class="flex flex-col md:flex-row mt-2 text-center md:text-left">
@@ -282,10 +282,10 @@ const lockButtonClick = async () => {
         <div class="w-full">{{ store.state.destinationTokenConfiguration?.name }}</div>
       </div>
       <div class="flex flex-col md:flex-row mt-2 text-center md:text-left">
-        <div class="md:min-w-44 font-bold">Token id</div>
+        <div class="md:min-w-44 font-bold">Token ID</div>
         <div class="w-full">
           {{ store.state.destinationTokenConfiguration?.tokenId }}
-          <CopyIcon :text="store.state.destinationTokenConfiguration?.tokenId" :title="`Copy token id: ${store.state.destinationTokenConfiguration?.tokenId}`"></CopyIcon>
+          <CopyIcon :text="store.state.destinationTokenConfiguration?.tokenId" :title="`Copy token ID: ${store.state.destinationTokenConfiguration?.tokenId}`"></CopyIcon>
         </div>
       </div>
       <div class="flex flex-col md:flex-row mt-2 text-center md:text-left">

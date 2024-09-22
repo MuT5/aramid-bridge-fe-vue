@@ -29,7 +29,7 @@ export const checkSourceAlgoTx = async () => {
         continue
       }
       if (!tx['asset-transfer-transaction'] || tx['asset-transfer-transaction']['asset-id'] != store.state.sourceToken) {
-        console.log('asset id does not match', tx['asset-transfer-transaction']['asset-id'], store.state.sourceToken)
+        console.log('asset ID does not match', tx['asset-transfer-transaction']['asset-id'], store.state.sourceToken)
         continue
       }
       if (new BigNumber(tx['asset-transfer-transaction']['amount']).toFixed(0, 1) != store.state.sourceAmount) {

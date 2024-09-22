@@ -28,7 +28,7 @@ const getImageUrl = (name: string | undefined) => {
       <div class="hidden md:inline-block text-left text-sm">({{ props.id }})</div>
     </div>
     <div class="">
-      <CopyIcon :text="props.id" :title="`Copy asset id: ${props.id}`"></CopyIcon>
+      <CopyIcon :text="props.id" :title="`Copy asset ID: ${props.id}`"></CopyIcon>
     </div>
   </div>
 </template>
