@@ -173,7 +173,6 @@ const resetButtonClick = () => {
         <span v-if="Number(store.state.sourceTokenConfiguration?.tokenId) > 0"> ({{ store.state.sourceTokenConfiguration?.tokenId }}) </span> to bridge address
         <WalletAddress :address="store.state.sourceBridgeAddress"></WalletAddress> <CopyIcon :text="store.state.sourceBridgeAddress"></CopyIcon> at the
         {{ store.state.sourceChainConfiguration?.name }} chain with note field <CopyIcon :text="store.state.sourceTxNote"></CopyIcon>
-        <textarea rows="4" v-model="store.state.sourceTxNote" disabled class="w-full text-sm text-pretty"></textarea>
       </p>
       <div v-if="store.state.sourceAlgoConnectorType == AlgoConnectorType.QRCode">
         <div class="text-center">
