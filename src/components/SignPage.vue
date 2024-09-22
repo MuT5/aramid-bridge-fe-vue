@@ -194,7 +194,7 @@ const resetButtonClick = () => {
       <ShortTx :txId="store.state.bridgeTx" :length="6" :chain="store.state.sourceChain"></ShortTx>
     </div>
     <div v-else-if="store.state.claimTx && store.state.destinationChainConfiguration?.type == 'algo'">
-      <p>Bridging Bridging successful! The assets are at the destination account. Tx information: <ShortTx :txId="store.state.claimTx" :length="6" :chain="store.state.destinationChain"></ShortTx></p>
+      <p>Bridging Bridging successful! The assets are at the destination account. TXN ID: <ShortTx :txId="store.state.claimTx" :length="6" :chain="store.state.destinationChain"></ShortTx></p>
       <FireworksEffect></FireworksEffect>
       <MainActionButton @click="resetButtonClick">Bridge again</MainActionButton>
     </div>

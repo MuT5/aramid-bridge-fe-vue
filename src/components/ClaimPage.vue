@@ -330,7 +330,7 @@ const resetButtonClick = async () => {
       <div v-else-if="state.claimed">
         <p>
           Bridging successful! The assets are at the destination account.
-          <span v-if="state.resultTx">Tx information: <ShortTx :txId="state.resultTx" :length="6" :chain="store.state.destinationChain"></ShortTx></span>
+          <span v-if="state.resultTx">TXN ID: <ShortTx :txId="state.resultTx" :length="6" :chain="store.state.destinationChain"></ShortTx></span>
         </p>
         <FireworksEffect></FireworksEffect>
         <MainActionButton @click="resetButtonClick">Bridge again</MainActionButton>
