@@ -105,6 +105,28 @@ const doValidation = (): boolean => {
       throw Error('Loading the balance of the destination escrow address, please try again later')
     }
 
+    if (store.state.sourceChainConfiguration?.type == 'algo') {
+      if (!algosdk.isValidAddress(store.state.sourceAddress ?? '')) {
+        throw Error('Source address is in invalid format')
+      }
+    }
+    if (store.state.sourceChainConfiguration?.type == 'eth') {
+      if (!ethers.isAddress(store.state.sourceAddress)) {
+        throw Error('Source address is in invalid format')
+      }
+    }
+
+    if (store.state.destinationChainConfiguration?.type == 'algo') {
+      if (!algosdk.isValidAddress(store.state.destinationAddress ?? '')) {
+        throw Error('Destination address is in invalid format')
+      }
+    }
+    if (store.state.destinationChainConfiguration?.type == 'eth') {
+      if (!ethers.isAddress(store.state.destinationAddress)) {
+        throw Error('Destination address is in invalid format')
+      }
+    }
+
     if (!store.state.sourceAddress) {
       throw Error('Please select the address from which you will bridge the assets by connecting source chain wallet')
     } else if (
@@ -130,8 +152,6 @@ const doValidation = (): boolean => {
       throw Error('destinationTokenConfiguration is empty.')
     } else if (!store.state.escrowBalanceIsSufficient) {
       throw Error('Insufficient liquidity to fulfill bridge request, please try again later.')
-    } else if (store.state.destinationChainConfiguration && store.state.destinationChainConfiguration.type == 'algo' && !store.state.destinationAccountOptedIn && store.state.destinationToken != '0') {
-      throw Error(`Destination account is not opted in to the ASA ${store.state.destinationToken}.`)
     } else if (
       !store.state.destinationBridgeBalance ||
       !store.state.destinationAddressBalance ||
@@ -147,27 +167,6 @@ const doValidation = (): boolean => {
     //   throw Error('Please Pay token storage fee to continue.')
     // }
 
-    if (store.state.sourceChainConfiguration?.type == 'algo') {
-      if (!algosdk.isValidAddress(store.state.sourceAddress)) {
-        throw Error('Source address is in invalid format')
-      }
-    }
-    if (store.state.sourceChainConfiguration?.type == 'eth') {
-      if (!ethers.isAddress(store.state.sourceAddress)) {
-        throw Error('Source address is in invalid format')
-      }
-    }
-
-    if (store.state.destinationChainConfiguration?.type == 'algo') {
-      if (!algosdk.isValidAddress(store.state.destinationAddress)) {
-        throw Error('Destination address is in invalid format')
-      }
-    }
-    if (store.state.destinationChainConfiguration?.type == 'eth') {
-      if (!ethers.isAddress(store.state.destinationAddress)) {
-        throw Error('Destination address is in invalid format')
-      }
-    }
     if (
       store.state.routeConfig &&
       store.state.routeConfig.feeAlternatives &&
@@ -210,20 +209,28 @@ const doValidation = (): boolean => {
 
 const reviewButtonClick = () => {
   if (!doValidation()) return
+  let optedIn = true
+  if (store.state.destinationChainConfiguration?.type == 'algo' && !store.state.destinationAccountOptedIn && store.state.destinationToken != '0') {
+    optedIn = false
+  }
   if (
     store.state.sourceChainConfiguration &&
     store.state.destinationChainConfiguration &&
     store.state.sourceTokenConfiguration &&
     store.state.destinationTokenConfiguration &&
+    store.state.sourceAddress &&
+    store.state.destinationAddress &&
     store.state.sourceAmount
   ) {
     router.push({
-      name: 'review-sc-dc-st-dt-a-n',
+      name: optedIn ? 'review-sc-dc-st-dt-sa-da-a-n' : 'optin-sc-dc-st-dt-sa-da-a-n',
       params: {
         sourceChain: store.state.sourceChainConfiguration.name,
         destinationChain: store.state.destinationChainConfiguration.name,
         sourceToken: store.state.sourceTokenConfiguration.name,
         destinationToken: store.state.destinationTokenConfiguration.name,
+        sourceAddress: store.state.sourceAddress,
+        destinationAddress: store.state.destinationAddress,
         sourceAmount: store.state.sourceAmount,
         note: base64url(store.state.memo ? store.state.memo : 'aramid')
       }

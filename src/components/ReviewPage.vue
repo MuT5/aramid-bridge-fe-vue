@@ -43,9 +43,6 @@ const getDestinationChainImageUrl = () => {
 
 const routeToBridgeScreen = () => {
   console.log('route', route)
-  if (route.name == 'review-sc-dc-st-dt-a-n') {
-    router.push({ name: 'bridge-sc-dc-st-dt-a-n' })
-  }
   if (route.name == 'review-sc-dc-st-dt-sa-da-a-n') {
     router.push({ name: 'bridge-sc-dc-st-dt-sa-da-a-n' })
   }

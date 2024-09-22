@@ -1,6 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
-import ReviewView from '../views/ReviewView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -41,14 +40,14 @@ const router = createRouter({
       component: HomeView
     },
     {
-      path: '/review/:sourceChain/:destinationChain/:sourceToken/:destinationToken/:sourceAmount/:note',
-      name: 'review-sc-dc-st-dt-a-n',
-      component: ReviewView
+      path: '/optin/:sourceChain/:destinationChain/:sourceToken/:destinationToken/:sourceAddress/:destinationAddress/:sourceAmount/:note',
+      name: 'optin-sc-dc-st-dt-sa-da-a-n',
+      component: () => import('../views/OptinView.vue')
     },
     {
-      path: '/review-a/:sourceChain/:destinationChain/:sourceToken/:destinationToken/:sourceAddress/:destinationAddress/:sourceAmount/:note',
+      path: '/review/:sourceChain/:destinationChain/:sourceToken/:destinationToken/:sourceAddress/:destinationAddress/:sourceAmount/:note',
       name: 'review-sc-dc-st-dt-sa-da-a-n',
-      component: ReviewView
+      component: () => import('../views/ReviewView.vue')
     },
     {
       path: '/sign/:sourceChain/:destinationChain/:sourceToken/:destinationToken/:sourceAddress/:destinationAddress/:sourceAmount/:note',

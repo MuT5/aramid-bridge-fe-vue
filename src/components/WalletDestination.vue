@@ -16,8 +16,11 @@ import getWeb3Modal from '@/scripts/eth/getWeb3Modal'
 import asyncdelay from '@/scripts/common/asyncDelay'
 import { useWeb3ModalAccount } from '@web3modal/ethers/vue'
 import { useToast } from 'primevue/usetoast'
+import { useWallet } from 'avm-wallet-vue'
+import { AlgoConnectorType } from '@/scripts/interface/algo/AlgoConnectorType'
 const store = useAppStore()
 const toast = useToast()
+const { setActiveNetwork, activeWallet, activeAccount } = useWallet()
 interface IState {
   connected: boolean
   publicConfiguration: PublicConfigurationRoot | null
@@ -33,6 +36,12 @@ const fillInState = () => {
 
 onMounted(async () => {
   state.publicConfiguration = await getPublicConfiguration(false)
+  console.log('activeAccount.value', activeWallet.value, activeAccount.value)
+  if (store.state.sourceChainConfiguration?.type != 'algo' && store.state.destinationChainConfiguration?.type == 'algo' && activeWallet.value && activeAccount.value?.address) {
+    store.state.destinationAddress = activeAccount.value?.address
+    store.state.connectedDestinationChain = store.state.destinationChain
+  }
+
   fillInState()
 })
 
@@ -123,7 +132,7 @@ const onDestinationAddressChange = async () => {
         store.state.destinationAccountOptedIn = false
         store.state.destinationAddressBalance = '0'
       }
-      store.state.loadingDestinationAddressBalance = true
+      store.state.loadingDestinationAddressBalance = false
     } catch (e: any) {
       store.state.loadingDestinationAddressBalance = false
       store.state.destinationAddressBalance = '0'

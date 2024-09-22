@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { sanitizeTokenName } from '@/scripts/common/sanitizeTokenName'
+import CopyIcon from './CopyIcon.vue'
 
 const props = defineProps({ img: String, text: String, id: String })
 
@@ -22,8 +23,12 @@ const getImageUrl = (name: string | undefined) => {
       <img alt="Algorand" loading="lazy" width="59" height="59" decoding="async" data-nimg="1" :src="getImageUrl(props.img)" style="color: transparent" />
     </div>
     <div class="mr-2.5"></div>
-    <div class="text-center flex flex-col justify-center">
-      {{ sanitizeTokenName(props.text ?? '') }}<span class="hidden md:block"> ({{ props.id }})</span>
+    <div class="text-center flex flex-col justify-center flex-1">
+      <div class="w-full text-left">{{ sanitizeTokenName(props.text ?? '') }}</div>
+      <div class="hidden md:inline-block text-left text-sm">({{ props.id }})</div>
+    </div>
+    <div class="">
+      <CopyIcon :text="props.id" :title="`Copy asset id: ${props.id}`"></CopyIcon>
     </div>
   </div>
 </template>

@@ -88,7 +88,7 @@ onMounted(async () => {
   state.publicConfiguration = await getPublicConfiguration(false)
   fillInState()
 
-  if (activeWallet.value && activeAccount.value?.address) {
+  if (store.state.sourceChainConfiguration?.type == 'algo' && activeWallet.value && activeAccount.value?.address) {
     store.state.sourceAddress = activeAccount.value?.address
     store.state.sourceAlgoConnectorType = AlgoConnectorType.UseWallet
     store.state.connectedSourceChain = store.state.sourceChain
