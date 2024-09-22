@@ -9,7 +9,7 @@ export const getBridgeLog = async () => {
     console.error('!appConfiguration')
     return
   }
-  const publicConfiguration = await getPublicConfiguration(true)
+  const publicConfiguration = await getPublicConfiguration(false)
   if (!publicConfiguration) {
     console.error('!publicConfiguration')
     return

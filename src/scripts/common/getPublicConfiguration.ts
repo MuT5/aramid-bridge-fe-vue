@@ -2,12 +2,12 @@ import getAlgorandConfigTransaction from '../algo/getAlgorandConfigTransaction'
 import type { IConfig } from '../interface/aramid/IConfig'
 import type { PublicConfigurationRoot } from '../interface/mapping/PublicConfigurationRoot'
 import getAppConfiguration from './getAppConfiguration'
-import fileMapping from '@/env/public-configuration.ipfs'
 import CryptoJS from 'crypto-js'
 import getLogger from './getLogger'
 import loadIPFSFile from '../ipfs/loadFile'
 import asyncdelay from './asyncDelay'
 import { useAppStore } from '@/stores/app'
+import axios from 'axios'
 
 let loading = false
 const getPublicConfiguration = async (reload: boolean): Promise<PublicConfigurationRoot | null> => {
@@ -27,6 +27,8 @@ const getPublicConfiguration = async (reload: boolean): Promise<PublicConfigurat
     if (appConfiguration === null) return null
 
     if (appConfiguration.useFilesystemPublicConfiguration) {
+      const fileMappingAxios = await axios.get('/public-configuration.json?t=' + new Date().getTime())
+      const fileMapping = fileMappingAxios.data as PublicConfigurationRoot
       const copy = { ...fileMapping }
       copy.hash = CryptoJS.SHA256(JSON.stringify(fileMapping)).toString()
       logger.info(`${new Date()} Loaded configuration from localstorage. Hash: ${copy.hash}`)
@@ -35,11 +37,7 @@ const getPublicConfiguration = async (reload: boolean): Promise<PublicConfigurat
       console.log('loading', loading, store.state.publicConfiguration)
       return store.state.publicConfiguration
     }
-    const controlTx = await getAlgorandConfigTransaction(
-      appConfiguration.mainToken,
-      appConfiguration.mainNetwork,
-      appConfiguration.configurationAddress
-    )
+    const controlTx = await getAlgorandConfigTransaction(appConfiguration.mainToken, appConfiguration.mainNetwork, appConfiguration.configurationAddress)
     if (!controlTx) {
       throw 'Unable to load configuration'
     }

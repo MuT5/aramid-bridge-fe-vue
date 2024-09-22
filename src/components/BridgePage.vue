@@ -239,7 +239,7 @@ const reviewButtonClick = () => {
 }
 
 onMounted(async () => {
-  await getPublicConfiguration(true)
+  await getPublicConfiguration(false)
   console.log('store.state.publicConfiguration', store.state.publicConfiguration)
   resetDestinationChainIfNotMatched()
   if (!store.state.destinationChain) fillDestinationChainConfiguration()

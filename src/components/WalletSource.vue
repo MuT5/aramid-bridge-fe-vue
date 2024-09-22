@@ -123,8 +123,8 @@ watch(
         case 'AramidChain':
           setActiveNetwork(NetworkId.ARAMIDMAIN)
           break
-        case 'VoiTest':
-          setActiveNetwork(NetworkId.VOITEST)
+        case 'VoiMain':
+          setActiveNetwork(NetworkId.VOIMAIN)
           break
       }
     }
