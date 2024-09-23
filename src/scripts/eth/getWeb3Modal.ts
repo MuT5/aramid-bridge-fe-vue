@@ -60,7 +60,7 @@ const getWeb3Modal = (): AppKit<EthersStoreUtilState, number> | null => {
   })
   console.log('chains', chains)
   web3Modal = modal
-  return web3Modal
+  return modal
 }
 
 export default getWeb3Modal

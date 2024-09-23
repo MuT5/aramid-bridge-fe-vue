@@ -31,7 +31,10 @@ const state = reactive({
   claiming: false,
   claimErrorMessage: ''
 })
+
+const modal = getWeb3Modal()
 const { chainId } = useWeb3ModalAccount()
+const web3ModalProvider = useWeb3ModalProvider()
 
 const setIsSearching = (val: boolean) => {
   state.isSearching = val
@@ -129,7 +132,6 @@ onMounted(async () => {
     searchForTx(state.inputTx)
   }
 
-  const modal = getWeb3Modal()
   console.log('modal', modal)
 })
 
@@ -146,10 +148,8 @@ const claimButtonClick = async () => {
   try {
     state.claiming = true
 
-    const web3ModalProvider = useWeb3ModalProvider()
     const { switchNetwork } = useSwitchNetwork()
     if (!web3ModalProvider.walletProvider.value) {
-      const modal = getWeb3Modal()
       console.log('modal', modal)
       await modal?.open()
     }

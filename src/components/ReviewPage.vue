@@ -4,11 +4,10 @@ import { useAppStore } from '@/stores/app'
 import CopyIcon from './ui/CopyIcon.vue'
 import MainBox from './ui/MainBox.vue'
 import WalletAddress from './ui/WalletAddress.vue'
-import { onMounted, reactive } from 'vue'
+import { onMounted, reactive, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import StatusBar from './status/StatusBar.vue'
 import MainActionButton from './ui/MainActionButton.vue'
-import { AlgoConnectorType } from '@/scripts/interface/algo/AlgoConnectorType'
 import base64url from 'base64url'
 import getWeb3Modal from '@/scripts/eth/getWeb3Modal'
 import { useSwitchNetwork, useWeb3ModalAccount, useWeb3ModalProvider } from '@web3modal/ethers/vue'
@@ -23,6 +22,7 @@ const router = useRouter()
 const toast = useToast()
 
 const state = reactive({
+  switchingNetwork: false,
   inApproval: false,
   inApprovalMinting: false,
   approvalHash: '',
@@ -31,6 +31,11 @@ const state = reactive({
   inSignMinting: false,
   signHash: ''
 })
+
+const modal = getWeb3Modal()
+const { chainId } = useWeb3ModalAccount()
+const web3ModalProvider = useWeb3ModalProvider()
+const { switchNetwork } = useSwitchNetwork()
 
 const getSourceChainImageUrl = () => {
   const ret = new URL(`../assets/logos/chains/${store.state.sourceChainConfiguration?.logo}.png`, import.meta.url)
@@ -49,8 +54,6 @@ const routeToBridgeScreen = () => {
 }
 
 onMounted(() => {
-  const modal = getWeb3Modal()
-  console.log('modal', modal)
   if (!store.state.publicConfiguration || !store.state.sourceAmount) {
     // route back to bridge screen
     routeToBridgeScreen()
@@ -86,23 +89,16 @@ const signButtonClick = async () => {
     })
   }
 }
-
-const approveButtonClick = async () => {
+const switchNetworkClick = async () => {
   try {
-    console.log('approveButtonClick')
-    if (!store.state.sourceChainConfiguration) throw Error('store.state.sourceChainConfiguration is missing')
-    state.inApproval = true
-    const web3ModalProvider = useWeb3ModalProvider()
-    const { switchNetwork } = useSwitchNetwork()
-    const { address, chainId, isConnected } = useWeb3ModalAccount()
     if (!web3ModalProvider.walletProvider.value) {
-      const modal = getWeb3Modal()
       console.log('modal', modal)
-      await modal?.open()
+      await modal?.open({ view: 'Networks' })
     }
     if (!web3ModalProvider.walletProvider.value) {
       throw Error(`Please connect ${store.state.sourceChainConfiguration?.name} in your wallet`)
     }
+
     if (store.state.sourceChain) {
       console.log('chainId.value ? store.state.sourceChain', chainId.value, store.state.sourceChain)
       if (chainId.value != store.state.sourceChain) {
@@ -112,8 +108,32 @@ const approveButtonClick = async () => {
           detail: `Please switch to ${store.state.sourceChainConfiguration?.name} in your wallet`,
           life: 10000
         })
+        state.switchingNetwork = true
         await switchNetwork(store.state.sourceChain)
+
+        state.switchingNetwork = false
       }
+    }
+  } catch (e: any) {
+    state.switchingNetwork = false
+    console.error(e)
+    toast.add({
+      severity: 'error',
+      detail: e.message ?? e,
+      life: 10000
+    })
+  }
+}
+const approveButtonClick = async () => {
+  try {
+    if (!store.state.sourceChainConfiguration) throw Error('store.state.sourceChainConfiguration is missing')
+    state.inApproval = true
+    if (!web3ModalProvider.walletProvider.value) {
+      console.log('modal', modal)
+      await modal?.open({ view: 'Account' })
+    }
+    if (!web3ModalProvider.walletProvider.value) {
+      throw Error(`Please connect ${store.state.sourceChainConfiguration?.name} in your wallet`)
     }
 
     const approveInfo = await executeEthApproveTx()
@@ -184,6 +204,15 @@ const lockButtonClick = async () => {
     })
   }
 }
+
+watch(
+  () => chainId,
+  () => {
+    if (chainId.value == store.state.sourceChain) {
+      state.switchingNetwork = false
+    }
+  }
+)
 </script>
 
 <template>
@@ -335,10 +364,16 @@ const lockButtonClick = async () => {
     <div v-if="state.inSignMinting">
       <img :src="loader" alt="Loading" height="18" width="18" class="inline-block" /> Your bridge transaction is being submitted to {{ store.state.sourceChainConfiguration?.name }}
     </div>
+    <div v-if="state.switchingNetwork"><img :src="loader" alt="Loading" height="18" width="18" class="inline-block" /> Please check your wallet for switch network request</div>
 
-    <MainActionButton @click="approveButtonClick" v-if="store.state.sourceChainConfiguration?.type == 'eth' && !state.approved && !state.inApproval && !state.inApprovalMinting">
-      Approve
-    </MainActionButton>
-    <MainActionButton @click="lockButtonClick" v-if="store.state.sourceChainConfiguration?.type == 'eth' && state.approved && !state.inSign && !state.inSignMinting">Sign bridge TXN</MainActionButton>
+    <MainActionButton v-if="chainId != store.state.sourceChain" @click="switchNetworkClick">Switch your wallet to {{ store.state.sourceChainConfiguration?.name }}</MainActionButton>
+    <div v-else class="w-full">
+      <MainActionButton @click="approveButtonClick" v-if="store.state.sourceChainConfiguration?.type == 'eth' && !state.approved && !state.inApproval && !state.inApprovalMinting">
+        Approve
+      </MainActionButton>
+      <MainActionButton @click="lockButtonClick" v-if="store.state.sourceChainConfiguration?.type == 'eth' && state.approved && !state.inSign && !state.inSignMinting">
+        Sign bridge TXN
+      </MainActionButton>
+    </div>
   </MainBox>
 </template>
