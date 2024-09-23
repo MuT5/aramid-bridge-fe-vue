@@ -337,6 +337,6 @@ const lockButtonClick = async () => {
     </div>
 
     <MainActionButton @click="approveButtonClick" v-if="store.state.sourceChainConfiguration?.type == 'eth' && !state.approved">Approve</MainActionButton>
-    <MainActionButton @click="lockButtonClick" v-if="store.state.sourceChainConfiguration?.type == 'eth' && state.approved">Sign bridge tx</MainActionButton>
+    <MainActionButton @click="lockButtonClick" v-if="store.state.sourceChainConfiguration?.type == 'eth' && state.approved">Sign bridge TXN</MainActionButton>
   </MainBox>
 </template>
