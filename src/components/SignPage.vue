@@ -21,6 +21,7 @@ import { useToast } from 'primevue/usetoast'
 import MainActionButton from './ui/MainActionButton.vue'
 import { getClaimTx } from '@/scripts/aramid/getClaimTx'
 import { getTxClaimData } from '@/scripts/aramid/getTxClaimData'
+import { resetStateSoft } from '@/scripts/common/resetStateSoft'
 
 const store = useAppStore()
 const route = useRoute()
@@ -140,10 +141,11 @@ onBeforeUnmount(() => {
   }
 })
 
-const resetButtonClick = () => {
+const resetButtonClick = async () => {
+  resetStateSoft()
   console.log('resetButtonClick')
   store.state.claimData = undefined
-  router.push({ name: 'bridge-sc-dc-st-dt-sa-da-a-n' })
+  await router.push({ name: 'bridge-sc-dc-st-dt-sa-da-a-n' })
 }
 </script>
 

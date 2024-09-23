@@ -19,6 +19,7 @@ import ShortTx from './ui/ShortTx.vue'
 import getPublicConfiguration from '@/scripts/common/getPublicConfiguration'
 import { executeEthRedeemTx } from '@/scripts/eth/executeEthRedeemTx'
 import { fillInStateFromClaimData } from '@/scripts/events/fillInStateFromClaimData'
+import { resetStateSoft } from '@/scripts/common/resetStateSoft'
 const toast = useToast()
 const router = useRouter()
 const store = useAppStore()
@@ -195,7 +196,7 @@ const claimButtonClick = async () => {
 }
 
 const resetButtonClick = async () => {
-  store.state.claimData = undefined
+  resetStateSoft()
   await router.push('/')
 }
 </script>

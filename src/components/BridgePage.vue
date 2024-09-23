@@ -28,6 +28,7 @@ import Message from 'primevue/message'
 import { AlgoConnectorType } from '@/scripts/interface/algo/AlgoConnectorType'
 import getWeb3Modal from '@/scripts/eth/getWeb3Modal'
 import algosdk from 'algosdk'
+import { resetStateSoft } from '@/scripts/common/resetStateSoft'
 
 const store = useAppStore()
 const route = useRoute()
@@ -262,7 +263,7 @@ onMounted(async () => {
       })
     }
   }
-  store.state.bridgeTx = ''
+  resetStateSoft()
   state.mounted = true
   fillInRoute()
 
