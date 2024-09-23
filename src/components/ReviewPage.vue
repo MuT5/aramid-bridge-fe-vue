@@ -336,7 +336,9 @@ const lockButtonClick = async () => {
       <img :src="loader" alt="Loading" height="18" width="18" class="inline-block" /> Your bridge transaction is being submitted to {{ store.state.sourceChainConfiguration?.name }}
     </div>
 
-    <MainActionButton @click="approveButtonClick" v-if="store.state.sourceChainConfiguration?.type == 'eth' && !state.approved">Approve</MainActionButton>
-    <MainActionButton @click="lockButtonClick" v-if="store.state.sourceChainConfiguration?.type == 'eth' && state.approved">Sign bridge TXN</MainActionButton>
+    <MainActionButton @click="approveButtonClick" v-if="store.state.sourceChainConfiguration?.type == 'eth' && !state.approved && !state.inApproval && !state.inApprovalMinting">
+      Approve
+    </MainActionButton>
+    <MainActionButton @click="lockButtonClick" v-if="store.state.sourceChainConfiguration?.type == 'eth' && state.approved && !state.inSign && !state.inSignMinting">Sign bridge TXN</MainActionButton>
   </MainBox>
 </template>
