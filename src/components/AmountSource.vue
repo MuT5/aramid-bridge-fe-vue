@@ -90,6 +90,12 @@ watch(
     fillInState()
   }
 )
+watch(
+  () => route.params?.sourceAmount,
+  () => {
+    fillInState()
+  }
+)
 const setMax = () => {
   if (!store.state.sourceAddressBalance) return
   if (!store.state.sourceTokenConfiguration) return

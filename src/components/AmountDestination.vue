@@ -95,6 +95,14 @@ watch(
     setWarningIfLowBalanceAtDestinationChain()
   }
 )
+watch(
+  () => store.state.sourceAmount,
+  () => {
+    calculateFeeAndDestinationAmount()
+    makeNoteField()
+    setWarningIfLowBalanceAtDestinationChain()
+  }
+)
 </script>
 <template>
   <div class="flex flex-col w-full">
