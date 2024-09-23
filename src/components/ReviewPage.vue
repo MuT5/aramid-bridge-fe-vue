@@ -365,15 +365,16 @@ watch(
       <img :src="loader" alt="Loading" height="18" width="18" class="inline-block" /> Your bridge transaction is being submitted to {{ store.state.sourceChainConfiguration?.name }}
     </div>
     <div v-if="state.switchingNetwork"><img :src="loader" alt="Loading" height="18" width="18" class="inline-block" /> Please check your wallet for switch network request</div>
-
-    <MainActionButton v-if="chainId != store.state.sourceChain" @click="switchNetworkClick">Switch your wallet to {{ store.state.sourceChainConfiguration?.name }}</MainActionButton>
-    <div v-else class="w-full">
-      <MainActionButton @click="approveButtonClick" v-if="store.state.sourceChainConfiguration?.type == 'eth' && !state.approved && !state.inApproval && !state.inApprovalMinting">
-        Approve
-      </MainActionButton>
-      <MainActionButton @click="lockButtonClick" v-if="store.state.sourceChainConfiguration?.type == 'eth' && state.approved && !state.inSign && !state.inSignMinting">
-        Sign bridge TXN
-      </MainActionButton>
+    <div v-if="store.state.sourceChainConfiguration?.type == 'eth'" class="w-full">
+      <MainActionButton v-if="chainId != store.state.sourceChain" @click="switchNetworkClick">Switch your wallet to {{ store.state.sourceChainConfiguration?.name }}</MainActionButton>
+      <div v-else class="w-full">
+        <MainActionButton @click="approveButtonClick" v-if="store.state.sourceChainConfiguration?.type == 'eth' && !state.approved && !state.inApproval && !state.inApprovalMinting">
+          Approve
+        </MainActionButton>
+        <MainActionButton @click="lockButtonClick" v-if="store.state.sourceChainConfiguration?.type == 'eth' && state.approved && !state.inSign && !state.inSignMinting">
+          Sign bridge TXN
+        </MainActionButton>
+      </div>
     </div>
   </MainBox>
 </template>

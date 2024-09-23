@@ -1,6 +1,9 @@
 <script setup lang="ts">
 import calculateFeeAndDestinationAmount from '@/scripts/common/calculateFeeAndDestinationAmount'
+import { AlgoConnectorType } from '@/scripts/interface/algo/AlgoConnectorType'
 import { useAppStore } from '@/stores/app'
+import { useWallet } from 'avm-wallet-vue'
+const { activeAddress } = useWallet()
 const store = useAppStore()
 const switchClick = () => {
   const currSourceChain = store.state.sourceChain
@@ -36,6 +39,15 @@ const switchClick = () => {
   const currSourceAmountFormatted = store.state.sourceAmountFormatted
   store.state.sourceAmountFormatted = store.state.destinationAmountFormatted
   store.state.destinationAmountFormatted = currSourceAmountFormatted
+  if (!store.state.sourceAlgoConnectorType) {
+    if (store.state.sourceChainConfiguration?.type == 'algo') {
+      if (store.state.sourceAddress == activeAddress.value) {
+        store.state.sourceAlgoConnectorType = AlgoConnectorType.UseWallet
+      } else {
+        store.state.sourceAlgoConnectorType = AlgoConnectorType.QRCode
+      }
+    }
+  }
 
   calculateFeeAndDestinationAmount()
 }
