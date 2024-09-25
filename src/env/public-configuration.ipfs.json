@@ -1,18 +1,18 @@
 {
   "addresses": {
-    "config": "EGRNQAIVBY4O47XJNCLIYZGSHBQIKYC25VWEHBQVFRUACCXBR7TDSKISSA",
+    "config": "ARAMICOCHLHSX3G5KCKK23M72ETI537GK5VGLOVHXAGPIELWYJKIMGKK6I",
     "configObj": {
-      "address": "EGRNQAIVBY4O47XJNCLIYZGSHBQIKYC25VWEHBQVFRUACCXBR7TDSKISSA",
+      "address": "ARAMICOCHLHSX3G5KCKK23M72ETI537GK5VGLOVHXAGPIELWYJKIMGKK6I",
       "chainId": 101003
     },
-    "proofs": "FJMKOR6EDJ2YFF5B7Y3LJKZ3JG53ZRYLGHIJ3MTFMI5OVDPKPPBVETMGFU",
+    "proofs": "ARAMIDZEFB66VZ7HOWGF5RUPX6GZ6KJHPZJXY2N2R6WFXTLF2WBKSDFIQE",
     "proofsObj": {
-      "address": "FJMKOR6EDJ2YFF5B7Y3LJKZ3JG53ZRYLGHIJ3MTFMI5OVDPKPPBVETMGFU",
+      "address": "ARAMIDZEFB66VZ7HOWGF5RUPX6GZ6KJHPZJXY2N2R6WFXTLF2WBKSDFIQE",
       "chainId": 101003
     },
-    "claims": "Y23J3FZTGOQN6U5LKX6CGM4J3R6RXKVKGPH4H4UKRBHE5PYIK6IKDDHIGY",
+    "claims": "ARAMIDCBFNGLVMI2TYP3MMMTYD7JVYZT2WUJW24HYBKVNGWR3IFNKU5N4Q",
     "claimsObj": {
-      "address": "Y23J3FZTGOQN6U5LKX6CGM4J3R6RXKVKGPH4H4UKRBHE5PYIK6IKDDHIGY",
+      "address": "ARAMIDCBFNGLVMI2TYP3MMMTYD7JVYZT2WUJW24HYBKVNGWR3IFNKU5N4Q",
       "chainId": 101003
     },
     "roundOracle": "ARAMIDXXYOGENNKBIXUS7GTZR3FNV7S7JFE7K5Y7B66AVKNV5IQSUTFAO4",
@@ -21,51 +21,180 @@
       "chainId": 101003
     },
     "soldiersCommObj": {
-      "address": "JDAT5II37K3RCTDXR2DTYWMCI4W66PO6NMHIQ5HMWSF3CKVE7SVWD2VTNQ",
+      "address": "ARAMIDT7B4367DKF3E5BSPS27VJMRRB4GHVPTCGIAIYAAHUSUUUOEWHRKE",
       "chainId": 101003
     }
   },
   "chains": {
+    "8453": {
+      "chainId": 8453,
+      "name": "Base",
+      "type": "eth",
+      "folder": "base",
+      "address": "0xC7FAA8f8C6D9Dc05ABf3C5aa741a38F9A6d1C263",
+      "tokens": {
+        "0x52043D065C471C4cf778532b55f7F2113C6e2dee": {
+          "tokenId": "0x52043D065C471C4cf778532b55f7F2113C6e2dee",
+          "name": "Aramid USDC",
+          "symbol": "usdc",
+          "decimals": 6,
+          "chainId": 8453,
+          "type": "eth",
+          "isPremium": true,
+          "logo": "usdc"
+        },
+        "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913": {
+          "tokenId": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+          "name": "USDC",
+          "symbol": "usdc",
+          "decimals": 6,
+          "chainId": 8453,
+          "type": "eth",
+          "isPremium": false,
+          "logo": "usdc"
+        },
+        "0x0a10F8a6920670cFf0E54fADfFfeEcd5aF90c6c4": {
+          "tokenId": "0x0a10F8a6920670cFf0E54fADfFfeEcd5aF90c6c4",
+          "name": "Aramid VOI",
+          "symbol": "voi",
+          "decimals": 6,
+          "chainId": 8453,
+          "type": "eth",
+          "isPremium": true,
+          "logo": "voi"
+        },
+        "0x945115FF3f1f2236a579D1F034eC85Ded3C42ADf": {
+          "tokenId": "0x945115FF3f1f2236a579D1F034eC85Ded3C42ADf",
+          "name": "Aramid ALGO",
+          "symbol": "algo",
+          "decimals": 6,
+          "chainId": 8453,
+          "type": "eth",
+          "isPremium": true,
+          "logo": "algo"
+        }
+      },
+      "logo": "base",
+      "blockExplorers": ["https://basescan.org/tx/"],
+      "soldiersByRound": [
+        {
+          "validFrom": 0,
+          "validUntil": 999999999,
+          "signThreshold": 2,
+          "sendThreshold": 2,
+          "soldiers": {
+            "aramid-01": "0x2163E593817402B0c754DC0F4d468603A10e7305",
+            "aramid-02": "0x3751aed1fD2873FeED2Fa50a4c36BE75a3F36434",
+            "aramid-t32": "0x91122a24f1cd121cb4c4bd4caacb0867d003e152",
+            "aramid-t31": "0xb12f42e9826ba0fbaa21c6fa607db2f8346ea6dc"
+          }
+        }
+      ],
+      "confirmationCount": 10
+    },
+    "42161": {
+      "chainId": 42161,
+      "name": "Arbitrum",
+      "type": "eth",
+      "folder": "arbitrum",
+      "address": "0xC7FAA8f8C6D9Dc05ABf3C5aa741a38F9A6d1C263",
+      "tokens": {
+        "0x52043D065C471C4cf778532b55f7F2113C6e2dee": {
+          "tokenId": "0x52043D065C471C4cf778532b55f7F2113C6e2dee",
+          "name": "Aramid USDC",
+          "symbol": "usdc",
+          "decimals": 6,
+          "chainId": 42161,
+          "type": "eth",
+          "isPremium": true,
+          "logo": "usdc"
+        },
+        "0xaf88d065e77c8cC2239327C5EDb3A432268e5831": {
+          "tokenId": "0xaf88d065e77c8cC2239327C5EDb3A432268e5831",
+          "name": "USDC",
+          "symbol": "usdc",
+          "decimals": 6,
+          "chainId": 42161,
+          "type": "eth",
+          "isPremium": false,
+          "logo": "usdc"
+        },
+        "0x0a10F8a6920670cFf0E54fADfFfeEcd5aF90c6c4": {
+          "tokenId": "0x0a10F8a6920670cFf0E54fADfFfeEcd5aF90c6c4",
+          "name": "Aramid VOI",
+          "symbol": "voi",
+          "decimals": 6,
+          "chainId": 42161,
+          "type": "eth",
+          "isPremium": true,
+          "logo": "voi"
+        },
+        "0x945115FF3f1f2236a579D1F034eC85Ded3C42ADf": {
+          "tokenId": "0x945115FF3f1f2236a579D1F034eC85Ded3C42ADf",
+          "name": "Aramid ALGO",
+          "symbol": "algo",
+          "decimals": 6,
+          "chainId": 42161,
+          "type": "eth",
+          "isPremium": true,
+          "logo": "algo"
+        }
+      },
+      "logo": "arbitrum",
+      "blockExplorers": ["https://arbiscan.io/tx/"],
+      "soldiersByRound": [
+        {
+          "validFrom": 0,
+          "validUntil": 999999999,
+          "signThreshold": 2,
+          "sendThreshold": 2,
+          "soldiers": {
+            "aramid-01": "0x2163E593817402B0c754DC0F4d468603A10e7305",
+            "aramid-02": "0x3751aed1fD2873FeED2Fa50a4c36BE75a3F36434",
+            "aramid-t32": "0x91122a24f1cd121cb4c4bd4caacb0867d003e152",
+            "aramid-t31": "0xb12f42e9826ba0fbaa21c6fa607db2f8346ea6dc"
+          }
+        }
+      ],
+      "confirmationCount": 10
+    },
     "101003": {
       "chainId": 101003,
       "name": "AramidChain",
       "type": "algo",
       "folder": "algo",
       "tokens": {},
-      "address": "VINY6VJDHYYSKTRE54XHOUMS5ISV6A5XHOV3HMMLBNJNHNLIMYFRMLLXOI",
+      "address": "ARAMIDFJYV2TOFB5MRNZJIXBSAVZCVAUDAPFGKR5PNX4MTILGAZABBTXQQ",
       "logo": "algo",
-      "blockExplorers": [
-        "https://app.dappflow.org/explorer/transaction/"
-      ],
+      "blockExplorers": ["https://aramid.algoexplorer.io/tx/"],
       "soldiersByRound": [
         {
           "validFrom": 0,
           "validUntil": 999999999,
-          "signThreshold": 3,
-          "sendThreshold": 3,
+          "signThreshold": 2,
+          "sendThreshold": 2,
           "soldiers": {
-            "s2-1": "55LMB3P7DIYSL4VHUZQDPO36JLD5FKNJ4LVBFG7CUZDYA5DABMTGUF3RSA",
-            "s2-2": "JJY3IRHNIQIEFEPCPBGAMNQBBGOAZZZHMHDO4FD3PVDHZQAGQIGOLOQXDI",
-            "s3-1": "Q5GB5LAP7DRIWBVBR6KJABKK7VXULI4CCNZOQFR3BYMMRLREIBQI3565ZE",
-            "s3-2": "WKS2LO5DN6X4TMLQF2LG74MRXWYRLMO3X5UYCUKKW6FPF23J7D4JGURDJQ"
+            "aramid-01": "I4RHHDECYQJ5DHW6RHHDIQZF37DOW7SH5S4O2L5VCOAI7D4T5PNS5W3CVE",
+            "aramid-02": "6JPEYQ3HEYLDP3Y7PR3S4TFYM4K6E7JWLHX75H224BHSUOEXEEJUYYXJYU",
+            "aramid-t32": "BQFQBC4TURRI2YUODREHL7WMKD45FODL7SY56IOEIB3DFS3LIURW4BNTBM",
+            "aramid-t31": "AQKDOSKFRP6ZDCNLPS7KCM5M7ZURPP3352B57Q7K4PHQDMX6VTDWHLUT3I"
           }
         }
-      ]
+      ],
+      "confirmationCount": 1
     },
     "416001": {
       "chainId": 416001,
       "name": "Algorand",
       "type": "algo",
       "folder": "algo",
-      "address": "VINY6VJDHYYSKTRE54XHOUMS5ISV6A5XHOV3HMMLBNJNHNLIMYFRMLLXOI",
+      "address": "ARAMIDFJYV2TOFB5MRNZJIXBSAVZCVAUDAPFGKR5PNX4MTILGAZABBTXQQ",
       "logo": "algo",
-      "blockExplorers": [
-        "https://allo.info/tx/"
-      ],
+      "blockExplorers": ["https://allo.info/tx/"],
       "tokens": {
         "0": {
           "tokenId": "0",
-          "name": "Algo",
+          "name": "ALGO",
           "symbol": "aAlgo",
           "decimals": 6,
           "chainId": 416001,
@@ -76,31 +205,41 @@
         "31566704": {
           "tokenId": "31566704",
           "name": "USDC",
-          "symbol": "aUSC",
+          "symbol": "aUSDC",
           "decimals": 6,
           "chainId": 416001,
           "type": "algo",
           "isPremium": false,
           "logo": "usdc"
         },
+        "770066888": {
+          "tokenId": "770066888",
+          "name": "Aramid USDC",
+          "symbol": "aUSDC",
+          "decimals": 6,
+          "chainId": 416001,
+          "type": "algo",
+          "isPremium": true,
+          "logo": "aramid-usd"
+        },
         "1241944285": {
           "tokenId": "1241944285",
-          "name": "Gold",
-          "symbol": "gold",
+          "name": "ASA.GOLD",
+          "symbol": "aGold",
           "decimals": 6,
           "chainId": 416001,
           "type": "algo",
           "isPremium": false,
           "logo": "gold"
         },
-        "1392374998": {
-          "tokenId": "1392374998",
-          "name": "Voi Testnet",
-          "symbol": "aVoitest",
+        "2320775407": {
+          "tokenId": "2320775407",
+          "name": "Aramid VOI",
+          "symbol": "aVoi",
           "decimals": 6,
           "chainId": 416001,
           "type": "algo",
-          "isPremium": false,
+          "isPremium": true,
           "logo": "aramid-voi"
         }
       },
@@ -108,100 +247,1698 @@
         {
           "validFrom": 0,
           "validUntil": 999999999,
-          "signThreshold": 3,
-          "sendThreshold": 3,
+          "signThreshold": 2,
+          "sendThreshold": 2,
           "soldiers": {
-            "s2-1": "55LMB3P7DIYSL4VHUZQDPO36JLD5FKNJ4LVBFG7CUZDYA5DABMTGUF3RSA",
-            "s2-2": "JJY3IRHNIQIEFEPCPBGAMNQBBGOAZZZHMHDO4FD3PVDHZQAGQIGOLOQXDI",
-            "s3-1": "Q5GB5LAP7DRIWBVBR6KJABKK7VXULI4CCNZOQFR3BYMMRLREIBQI3565ZE",
-            "s3-2": "WKS2LO5DN6X4TMLQF2LG74MRXWYRLMO3X5UYCUKKW6FPF23J7D4JGURDJQ"
+            "aramid-01": "I4RHHDECYQJ5DHW6RHHDIQZF37DOW7SH5S4O2L5VCOAI7D4T5PNS5W3CVE",
+            "aramid-02": "6JPEYQ3HEYLDP3Y7PR3S4TFYM4K6E7JWLHX75H224BHSUOEXEEJUYYXJYU",
+            "aramid-t32": "BQFQBC4TURRI2YUODREHL7WMKD45FODL7SY56IOEIB3DFS3LIURW4BNTBM",
+            "aramid-t31": "AQKDOSKFRP6ZDCNLPS7KCM5M7ZURPP3352B57Q7K4PHQDMX6VTDWHLUT3I"
           }
         }
-      ]
+      ],
+      "confirmationCount": 1
     },
-    "416102": {
-      "chainId": 416102,
-      "name": "VoiTest",
+    "416101": {
+      "chainId": 416101,
+      "name": "Voi",
       "type": "algo",
       "folder": "algo",
-      "address": "VINY6VJDHYYSKTRE54XHOUMS5ISV6A5XHOV3HMMLBNJNHNLIMYFRMLLXOI",
+      "address": "ARAMIDFJYV2TOFB5MRNZJIXBSAVZCVAUDAPFGKR5PNX4MTILGAZABBTXQQ",
       "logo": "voi",
-      "blockExplorers": [
-        "https://voitest-explorer.k1-fi.a-wallet.net/explorer/transaction/"
-      ],
+      "blockExplorers": ["https://explorer.voi.network/explorer/transaction/"],
       "tokens": {
         "0": {
           "tokenId": "0",
           "name": "Voi",
-          "symbol": "aVoitest",
+          "symbol": "aVoi",
           "decimals": 6,
-          "chainId": 416102,
+          "chainId": 416101,
           "type": "algo",
           "isPremium": false,
           "logo": "voi"
         },
-        "26168978": {
-          "tokenId": "26168978",
-          "name": "Aramid USDc",
-          "symbol": "aUSC",
+        "302189": {
+          "tokenId": "302189",
+          "name": "Aramid ALGO",
+          "symbol": "aAlgo",
           "decimals": 6,
-          "chainId": 416102,
+          "chainId": 416101,
+          "type": "algo",
+          "isPremium": true,
+          "logo": "aramid-algo"
+        },
+        "302190": {
+          "tokenId": "302190",
+          "name": "Aramid USDc",
+          "symbol": "aUSDC",
+          "decimals": 6,
+          "chainId": 416101,
           "type": "algo",
           "isPremium": true,
           "logo": "aramid-usdc"
         },
-        "26174498": {
-          "tokenId": "26174498",
-          "name": "Gold",
-          "symbol": "gold",
+        "302228": {
+          "tokenId": "302228",
+          "name": "Aramid GOLD",
+          "symbol": "aGold",
           "decimals": 6,
-          "chainId": 416102,
+          "chainId": 416101,
           "type": "algo",
-          "isPremium": false,
+          "isPremium": true,
           "logo": "gold"
-        },
-        "26174499": {
-          "tokenId": "26174499",
-          "name": "Algo Mainnet",
-          "symbol": "aAlgo",
-          "decimals": 6,
-          "chainId": 416102,
-          "type": "algo",
-          "isPremium": false,
-          "logo": "aramid-algo"
         }
       },
       "soldiersByRound": [
         {
           "validFrom": 0,
           "validUntil": 999999999,
-          "signThreshold": 3,
-          "sendThreshold": 3,
+          "signThreshold": 2,
+          "sendThreshold": 2,
           "soldiers": {
-            "s2-1": "55LMB3P7DIYSL4VHUZQDPO36JLD5FKNJ4LVBFG7CUZDYA5DABMTGUF3RSA",
-            "s2-2": "JJY3IRHNIQIEFEPCPBGAMNQBBGOAZZZHMHDO4FD3PVDHZQAGQIGOLOQXDI",
-            "s3-1": "Q5GB5LAP7DRIWBVBR6KJABKK7VXULI4CCNZOQFR3BYMMRLREIBQI3565ZE",
-            "s3-2": "WKS2LO5DN6X4TMLQF2LG74MRXWYRLMO3X5UYCUKKW6FPF23J7D4JGURDJQ"
+            "aramid-01": "I4RHHDECYQJ5DHW6RHHDIQZF37DOW7SH5S4O2L5VCOAI7D4T5PNS5W3CVE",
+            "aramid-02": "6JPEYQ3HEYLDP3Y7PR3S4TFYM4K6E7JWLHX75H224BHSUOEXEEJUYYXJYU",
+            "aramid-t32": "BQFQBC4TURRI2YUODREHL7WMKD45FODL7SY56IOEIB3DFS3LIURW4BNTBM",
+            "aramid-t31": "AQKDOSKFRP6ZDCNLPS7KCM5M7ZURPP3352B57Q7K4PHQDMX6VTDWHLUT3I"
           }
         }
-      ]
+      ],
+      "confirmationCount": 1
     }
   },
   "chains2tokens": {
+    "8453": {
+      "8453": {
+        "0x52043D065C471C4cf778532b55f7F2113C6e2dee": {
+          "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913": {
+            "sourceChain": 8453,
+            "sourceToken": "0x52043D065C471C4cf778532b55f7F2113C6e2dee",
+            "sourceName": "Aramid USDC",
+            "sourceSymbol": "usdc",
+            "sourceDecimals": 6,
+            "sourceType": "eth",
+            "sourceTokenLogo": "usdc",
+            "destinationChain": 8453,
+            "destinationToken": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+            "destinationName": "USDC",
+            "destinationSymbol": "usdc",
+            "destinationDecimals": 6,
+            "destinationType": "eth",
+            "destinationTokenLogo": "usdc",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "100000",
+                "maximumAmount": "999999999000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "999999999000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          }
+        },
+        "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913": {
+          "0x52043D065C471C4cf778532b55f7F2113C6e2dee": {
+            "sourceChain": 8453,
+            "sourceToken": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+            "sourceName": "USDC",
+            "sourceSymbol": "usdc",
+            "sourceDecimals": 6,
+            "sourceType": "eth",
+            "sourceTokenLogo": "usdc",
+            "destinationChain": 8453,
+            "destinationToken": "0x52043D065C471C4cf778532b55f7F2113C6e2dee",
+            "destinationName": "Aramid USDC",
+            "destinationSymbol": "usdc",
+            "destinationDecimals": 6,
+            "destinationType": "eth",
+            "destinationTokenLogo": "usdc",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "100000",
+                "maximumAmount": "999999999000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "999999999000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          }
+        }
+      },
+      "42161": {
+        "0x52043D065C471C4cf778532b55f7F2113C6e2dee": {
+          "0x52043D065C471C4cf778532b55f7F2113C6e2dee": {
+            "sourceChain": 8453,
+            "sourceToken": "0x52043D065C471C4cf778532b55f7F2113C6e2dee",
+            "sourceName": "Aramid USDC",
+            "sourceSymbol": "usdc",
+            "sourceDecimals": 6,
+            "sourceType": "eth",
+            "sourceTokenLogo": "usdc",
+            "destinationChain": 42161,
+            "destinationToken": "0x52043D065C471C4cf778532b55f7F2113C6e2dee",
+            "destinationName": "Aramid USDC",
+            "destinationSymbol": "usdc",
+            "destinationDecimals": 6,
+            "destinationType": "eth",
+            "destinationTokenLogo": "usdc",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "100000",
+                "maximumAmount": "999999999000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "999999999000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          },
+          "0xaf88d065e77c8cC2239327C5EDb3A432268e5831": {
+            "sourceChain": 8453,
+            "sourceToken": "0x52043D065C471C4cf778532b55f7F2113C6e2dee",
+            "sourceName": "Aramid USDC",
+            "sourceSymbol": "usdc",
+            "sourceDecimals": 6,
+            "sourceType": "eth",
+            "sourceTokenLogo": "usdc",
+            "destinationChain": 42161,
+            "destinationToken": "0xaf88d065e77c8cC2239327C5EDb3A432268e5831",
+            "destinationName": "USDC",
+            "destinationSymbol": "usdc",
+            "destinationDecimals": 6,
+            "destinationType": "eth",
+            "destinationTokenLogo": "usdc",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "100000",
+                "maximumAmount": "999999999000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "999999999000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          }
+        },
+        "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913": {
+          "0x52043D065C471C4cf778532b55f7F2113C6e2dee": {
+            "sourceChain": 8453,
+            "sourceToken": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+            "sourceName": "USDC",
+            "sourceSymbol": "usdc",
+            "sourceDecimals": 6,
+            "sourceType": "eth",
+            "sourceTokenLogo": "usdc",
+            "destinationChain": 42161,
+            "destinationToken": "0x52043D065C471C4cf778532b55f7F2113C6e2dee",
+            "destinationName": "Aramid USDC",
+            "destinationSymbol": "usdc",
+            "destinationDecimals": 6,
+            "destinationType": "eth",
+            "destinationTokenLogo": "usdc",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "100000",
+                "maximumAmount": "999999999000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "999999999000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          },
+          "0xaf88d065e77c8cC2239327C5EDb3A432268e5831": {
+            "sourceChain": 8453,
+            "sourceToken": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+            "sourceName": "USDC",
+            "sourceSymbol": "usdc",
+            "sourceDecimals": 6,
+            "sourceType": "eth",
+            "sourceTokenLogo": "usdc",
+            "destinationChain": 42161,
+            "destinationToken": "0xaf88d065e77c8cC2239327C5EDb3A432268e5831",
+            "destinationName": "USDC",
+            "destinationSymbol": "usdc",
+            "destinationDecimals": 6,
+            "destinationType": "eth",
+            "destinationTokenLogo": "usdc",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "100000",
+                "maximumAmount": "999999999000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "999999999000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          }
+        },
+        "0x0a10F8a6920670cFf0E54fADfFfeEcd5aF90c6c4": {
+          "0x0a10F8a6920670cFf0E54fADfFfeEcd5aF90c6c4": {
+            "sourceChain": 8453,
+            "sourceToken": "0x0a10F8a6920670cFf0E54fADfFfeEcd5aF90c6c4",
+            "sourceName": "Aramid VOI",
+            "sourceSymbol": "voi",
+            "sourceDecimals": 6,
+            "sourceType": "eth",
+            "sourceTokenLogo": "voi",
+            "destinationChain": 42161,
+            "destinationToken": "0x0a10F8a6920670cFf0E54fADfFfeEcd5aF90c6c4",
+            "destinationName": "Aramid VOI",
+            "destinationSymbol": "voi",
+            "destinationDecimals": 6,
+            "destinationType": "eth",
+            "destinationTokenLogo": "voi",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "100000",
+                "maximumAmount": "999999999000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "999999999000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          }
+        },
+        "0x945115FF3f1f2236a579D1F034eC85Ded3C42ADf": {
+          "0x945115FF3f1f2236a579D1F034eC85Ded3C42ADf": {
+            "sourceChain": 8453,
+            "sourceToken": "0x945115FF3f1f2236a579D1F034eC85Ded3C42ADf",
+            "sourceName": "Aramid ALGO",
+            "sourceSymbol": "algo",
+            "sourceDecimals": 6,
+            "sourceType": "eth",
+            "sourceTokenLogo": "algo",
+            "destinationChain": 42161,
+            "destinationToken": "0x945115FF3f1f2236a579D1F034eC85Ded3C42ADf",
+            "destinationName": "Aramid ALGO",
+            "destinationSymbol": "algo",
+            "destinationDecimals": 6,
+            "destinationType": "eth",
+            "destinationTokenLogo": "algo",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "100000",
+                "maximumAmount": "999999999000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "999999999000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          }
+        }
+      },
+      "416001": {
+        "0x52043D065C471C4cf778532b55f7F2113C6e2dee": {
+          "31566704": {
+            "sourceChain": 8453,
+            "sourceToken": "0x52043D065C471C4cf778532b55f7F2113C6e2dee",
+            "sourceName": "Aramid USDC",
+            "sourceSymbol": "usdc",
+            "sourceDecimals": 6,
+            "sourceType": "eth",
+            "sourceTokenLogo": "usdc",
+            "destinationChain": 416001,
+            "destinationToken": "31566704",
+            "destinationName": "USDC",
+            "destinationSymbol": "usdc",
+            "destinationDecimals": 6,
+            "destinationType": "algo",
+            "destinationTokenLogo": "usdc",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "100000",
+                "maximumAmount": "999999999000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "999999999000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          },
+          "770066888": {
+            "sourceChain": 8453,
+            "sourceToken": "0x52043D065C471C4cf778532b55f7F2113C6e2dee",
+            "sourceName": "Aramid USDC",
+            "sourceSymbol": "usdc",
+            "sourceDecimals": 6,
+            "sourceType": "eth",
+            "sourceTokenLogo": "usdc",
+            "destinationChain": 416001,
+            "destinationToken": "770066888",
+            "destinationName": "Aramid USDC",
+            "destinationSymbol": "aramid-usd",
+            "destinationDecimals": 6,
+            "destinationType": "algo",
+            "destinationTokenLogo": "aramid-usd",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "100000",
+                "maximumAmount": "999999999000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "999999999000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          }
+        },
+        "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913": {
+          "31566704": {
+            "sourceChain": 8453,
+            "sourceToken": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+            "sourceName": "USDC",
+            "sourceSymbol": "usdc",
+            "sourceDecimals": 6,
+            "sourceType": "eth",
+            "sourceTokenLogo": "usdc",
+            "destinationChain": 416001,
+            "destinationToken": "31566704",
+            "destinationName": "USDC",
+            "destinationSymbol": "usdc",
+            "destinationDecimals": 6,
+            "destinationType": "algo",
+            "destinationTokenLogo": "usdc",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "100000",
+                "maximumAmount": "999999999000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "999999999000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          },
+          "770066888": {
+            "sourceChain": 8453,
+            "sourceToken": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+            "sourceName": "USDC",
+            "sourceSymbol": "usdc",
+            "sourceDecimals": 6,
+            "sourceType": "eth",
+            "sourceTokenLogo": "usdc",
+            "destinationChain": 416001,
+            "destinationToken": "770066888",
+            "destinationName": "Aramid USDC",
+            "destinationSymbol": "aramid-usd",
+            "destinationDecimals": 6,
+            "destinationType": "algo",
+            "destinationTokenLogo": "aramid-usd",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "100000",
+                "maximumAmount": "999999999000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "999999999000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          }
+        }
+      },
+      "416101": {
+        "0x52043D065C471C4cf778532b55f7F2113C6e2dee": {
+          "302190": {
+            "sourceChain": 8453,
+            "sourceToken": "0x52043D065C471C4cf778532b55f7F2113C6e2dee",
+            "sourceName": "Aramid USDC",
+            "sourceSymbol": "usdc",
+            "sourceDecimals": 6,
+            "sourceType": "eth",
+            "sourceTokenLogo": "usdc",
+            "destinationChain": 416101,
+            "destinationToken": "302190",
+            "destinationName": "Aramid USDc",
+            "destinationSymbol": "aramid-usdc",
+            "destinationDecimals": 6,
+            "destinationType": "algo",
+            "destinationTokenLogo": "aramid-usdc",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "100000",
+                "maximumAmount": "999999999000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "999999999000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          }
+        },
+        "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913": {
+          "302190": {
+            "sourceChain": 8453,
+            "sourceToken": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+            "sourceName": "USDC",
+            "sourceSymbol": "usdc",
+            "sourceDecimals": 6,
+            "sourceType": "eth",
+            "sourceTokenLogo": "usdc",
+            "destinationChain": 416101,
+            "destinationToken": "302190",
+            "destinationName": "Aramid USDc",
+            "destinationSymbol": "aramid-usdc",
+            "destinationDecimals": 6,
+            "destinationType": "algo",
+            "destinationTokenLogo": "aramid-usdc",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "100000",
+                "maximumAmount": "999999999000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "999999999000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          }
+        }
+      }
+    },
+    "42161": {
+      "8453": {
+        "0x52043D065C471C4cf778532b55f7F2113C6e2dee": {
+          "0x52043D065C471C4cf778532b55f7F2113C6e2dee": {
+            "sourceChain": 42161,
+            "sourceToken": "0x52043D065C471C4cf778532b55f7F2113C6e2dee",
+            "sourceName": "Aramid USDC",
+            "sourceSymbol": "usdc",
+            "sourceDecimals": 6,
+            "sourceType": "eth",
+            "sourceTokenLogo": "usdc",
+            "destinationChain": 8453,
+            "destinationToken": "0x52043D065C471C4cf778532b55f7F2113C6e2dee",
+            "destinationName": "Aramid USDC",
+            "destinationSymbol": "usdc",
+            "destinationDecimals": 6,
+            "destinationType": "eth",
+            "destinationTokenLogo": "usdc",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "100000",
+                "maximumAmount": "999999999000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "999999999000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          },
+          "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913": {
+            "sourceChain": 42161,
+            "sourceToken": "0x52043D065C471C4cf778532b55f7F2113C6e2dee",
+            "sourceName": "Aramid USDC",
+            "sourceSymbol": "usdc",
+            "sourceDecimals": 6,
+            "sourceType": "eth",
+            "sourceTokenLogo": "usdc",
+            "destinationChain": 8453,
+            "destinationToken": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+            "destinationName": "USDC",
+            "destinationSymbol": "usdc",
+            "destinationDecimals": 6,
+            "destinationType": "eth",
+            "destinationTokenLogo": "usdc",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "100000",
+                "maximumAmount": "999999999000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "999999999000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          }
+        },
+        "0xaf88d065e77c8cC2239327C5EDb3A432268e5831": {
+          "0x52043D065C471C4cf778532b55f7F2113C6e2dee": {
+            "sourceChain": 42161,
+            "sourceToken": "0xaf88d065e77c8cC2239327C5EDb3A432268e5831",
+            "sourceName": "USDC",
+            "sourceSymbol": "usdc",
+            "sourceDecimals": 6,
+            "sourceType": "eth",
+            "sourceTokenLogo": "usdc",
+            "destinationChain": 8453,
+            "destinationToken": "0x52043D065C471C4cf778532b55f7F2113C6e2dee",
+            "destinationName": "Aramid USDC",
+            "destinationSymbol": "usdc",
+            "destinationDecimals": 6,
+            "destinationType": "eth",
+            "destinationTokenLogo": "usdc",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "100000",
+                "maximumAmount": "999999999000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "999999999000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          },
+          "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913": {
+            "sourceChain": 42161,
+            "sourceToken": "0xaf88d065e77c8cC2239327C5EDb3A432268e5831",
+            "sourceName": "USDC",
+            "sourceSymbol": "usdc",
+            "sourceDecimals": 6,
+            "sourceType": "eth",
+            "sourceTokenLogo": "usdc",
+            "destinationChain": 8453,
+            "destinationToken": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+            "destinationName": "USDC",
+            "destinationSymbol": "usdc",
+            "destinationDecimals": 6,
+            "destinationType": "eth",
+            "destinationTokenLogo": "usdc",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "100000",
+                "maximumAmount": "999999999000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "999999999000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          }
+        },
+        "0x0a10F8a6920670cFf0E54fADfFfeEcd5aF90c6c4": {
+          "0x0a10F8a6920670cFf0E54fADfFfeEcd5aF90c6c4": {
+            "sourceChain": 42161,
+            "sourceToken": "0x0a10F8a6920670cFf0E54fADfFfeEcd5aF90c6c4",
+            "sourceName": "Aramid VOI",
+            "sourceSymbol": "voi",
+            "sourceDecimals": 6,
+            "sourceType": "eth",
+            "sourceTokenLogo": "voi",
+            "destinationChain": 8453,
+            "destinationToken": "0x0a10F8a6920670cFf0E54fADfFfeEcd5aF90c6c4",
+            "destinationName": "Aramid VOI",
+            "destinationSymbol": "voi",
+            "destinationDecimals": 6,
+            "destinationType": "eth",
+            "destinationTokenLogo": "voi",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "100000",
+                "maximumAmount": "999999999000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "999999999000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          }
+        },
+        "0x945115FF3f1f2236a579D1F034eC85Ded3C42ADf": {
+          "0x945115FF3f1f2236a579D1F034eC85Ded3C42ADf": {
+            "sourceChain": 42161,
+            "sourceToken": "0x945115FF3f1f2236a579D1F034eC85Ded3C42ADf",
+            "sourceName": "Aramid ALGO",
+            "sourceSymbol": "algo",
+            "sourceDecimals": 6,
+            "sourceType": "eth",
+            "sourceTokenLogo": "algo",
+            "destinationChain": 8453,
+            "destinationToken": "0x945115FF3f1f2236a579D1F034eC85Ded3C42ADf",
+            "destinationName": "Aramid ALGO",
+            "destinationSymbol": "algo",
+            "destinationDecimals": 6,
+            "destinationType": "eth",
+            "destinationTokenLogo": "algo",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "100000",
+                "maximumAmount": "999999999000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "999999999000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          }
+        }
+      },
+      "42161": {
+        "0x52043D065C471C4cf778532b55f7F2113C6e2dee": {
+          "0xaf88d065e77c8cC2239327C5EDb3A432268e5831": {
+            "sourceChain": 42161,
+            "sourceToken": "0x52043D065C471C4cf778532b55f7F2113C6e2dee",
+            "sourceName": "Aramid USDC",
+            "sourceSymbol": "usdc",
+            "sourceDecimals": 6,
+            "sourceType": "eth",
+            "sourceTokenLogo": "usdc",
+            "destinationChain": 42161,
+            "destinationToken": "0xaf88d065e77c8cC2239327C5EDb3A432268e5831",
+            "destinationName": "USDC",
+            "destinationSymbol": "usdc",
+            "destinationDecimals": 6,
+            "destinationType": "eth",
+            "destinationTokenLogo": "usdc",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "100000",
+                "maximumAmount": "999999999000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "999999999000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          }
+        },
+        "0xaf88d065e77c8cC2239327C5EDb3A432268e5831": {
+          "0x52043D065C471C4cf778532b55f7F2113C6e2dee": {
+            "sourceChain": 42161,
+            "sourceToken": "0xaf88d065e77c8cC2239327C5EDb3A432268e5831",
+            "sourceName": "USDC",
+            "sourceSymbol": "usdc",
+            "sourceDecimals": 6,
+            "sourceType": "eth",
+            "sourceTokenLogo": "usdc",
+            "destinationChain": 42161,
+            "destinationToken": "0x52043D065C471C4cf778532b55f7F2113C6e2dee",
+            "destinationName": "Aramid USDC",
+            "destinationSymbol": "usdc",
+            "destinationDecimals": 6,
+            "destinationType": "eth",
+            "destinationTokenLogo": "usdc",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "100000",
+                "maximumAmount": "999999999000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "999999999000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          }
+        }
+      },
+      "416001": {
+        "0x52043D065C471C4cf778532b55f7F2113C6e2dee": {
+          "31566704": {
+            "sourceChain": 42161,
+            "sourceToken": "0x52043D065C471C4cf778532b55f7F2113C6e2dee",
+            "sourceName": "Aramid USDC",
+            "sourceSymbol": "usdc",
+            "sourceDecimals": 6,
+            "sourceType": "eth",
+            "sourceTokenLogo": "usdc",
+            "destinationChain": 416001,
+            "destinationToken": "31566704",
+            "destinationName": "USDC",
+            "destinationSymbol": "usdc",
+            "destinationDecimals": 6,
+            "destinationType": "algo",
+            "destinationTokenLogo": "usdc",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "100000",
+                "maximumAmount": "999999999000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "999999999000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          },
+          "770066888": {
+            "sourceChain": 42161,
+            "sourceToken": "0x52043D065C471C4cf778532b55f7F2113C6e2dee",
+            "sourceName": "Aramid USDC",
+            "sourceSymbol": "usdc",
+            "sourceDecimals": 6,
+            "sourceType": "eth",
+            "sourceTokenLogo": "usdc",
+            "destinationChain": 416001,
+            "destinationToken": "770066888",
+            "destinationName": "Aramid USDC",
+            "destinationSymbol": "aramid-usd",
+            "destinationDecimals": 6,
+            "destinationType": "algo",
+            "destinationTokenLogo": "aramid-usd",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "100000",
+                "maximumAmount": "999999999000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "999999999000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          }
+        },
+        "0xaf88d065e77c8cC2239327C5EDb3A432268e5831": {
+          "31566704": {
+            "sourceChain": 42161,
+            "sourceToken": "0xaf88d065e77c8cC2239327C5EDb3A432268e5831",
+            "sourceName": "USDC",
+            "sourceSymbol": "usdc",
+            "sourceDecimals": 6,
+            "sourceType": "eth",
+            "sourceTokenLogo": "usdc",
+            "destinationChain": 416001,
+            "destinationToken": "31566704",
+            "destinationName": "USDC",
+            "destinationSymbol": "usdc",
+            "destinationDecimals": 6,
+            "destinationType": "algo",
+            "destinationTokenLogo": "usdc",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "100000",
+                "maximumAmount": "999999999000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "999999999000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          },
+          "770066888": {
+            "sourceChain": 42161,
+            "sourceToken": "0xaf88d065e77c8cC2239327C5EDb3A432268e5831",
+            "sourceName": "USDC",
+            "sourceSymbol": "usdc",
+            "sourceDecimals": 6,
+            "sourceType": "eth",
+            "sourceTokenLogo": "usdc",
+            "destinationChain": 416001,
+            "destinationToken": "770066888",
+            "destinationName": "Aramid USDC",
+            "destinationSymbol": "aramid-usd",
+            "destinationDecimals": 6,
+            "destinationType": "algo",
+            "destinationTokenLogo": "aramid-usd",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "100000",
+                "maximumAmount": "999999999000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "999999999000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          }
+        }
+      },
+      "416101": {
+        "0x52043D065C471C4cf778532b55f7F2113C6e2dee": {
+          "302190": {
+            "sourceChain": 42161,
+            "sourceToken": "0x52043D065C471C4cf778532b55f7F2113C6e2dee",
+            "sourceName": "Aramid USDC",
+            "sourceSymbol": "usdc",
+            "sourceDecimals": 6,
+            "sourceType": "eth",
+            "sourceTokenLogo": "usdc",
+            "destinationChain": 416101,
+            "destinationToken": "302190",
+            "destinationName": "Aramid USDc",
+            "destinationSymbol": "aramid-usdc",
+            "destinationDecimals": 6,
+            "destinationType": "algo",
+            "destinationTokenLogo": "aramid-usdc",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "100000",
+                "maximumAmount": "999999999000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "999999999000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          }
+        },
+        "0xaf88d065e77c8cC2239327C5EDb3A432268e5831": {
+          "302190": {
+            "sourceChain": 42161,
+            "sourceToken": "0xaf88d065e77c8cC2239327C5EDb3A432268e5831",
+            "sourceName": "USDC",
+            "sourceSymbol": "usdc",
+            "sourceDecimals": 6,
+            "sourceType": "eth",
+            "sourceTokenLogo": "usdc",
+            "destinationChain": 416101,
+            "destinationToken": "302190",
+            "destinationName": "Aramid USDc",
+            "destinationSymbol": "aramid-usdc",
+            "destinationDecimals": 6,
+            "destinationType": "algo",
+            "destinationTokenLogo": "aramid-usdc",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "100000",
+                "maximumAmount": "999999999000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "999999999000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          }
+        }
+      }
+    },
     "416001": {
-      "416102": {
+      "8453": {
+        "31566704": {
+          "0x52043D065C471C4cf778532b55f7F2113C6e2dee": {
+            "sourceChain": 416001,
+            "sourceToken": "31566704",
+            "sourceName": "USDC",
+            "sourceSymbol": "usdc",
+            "sourceDecimals": 6,
+            "sourceType": "algo",
+            "sourceTokenLogo": "usdc",
+            "destinationChain": 8453,
+            "destinationToken": "0x52043D065C471C4cf778532b55f7F2113C6e2dee",
+            "destinationName": "Aramid USDC",
+            "destinationSymbol": "usdc",
+            "destinationDecimals": 6,
+            "destinationType": "eth",
+            "destinationTokenLogo": "usdc",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "100000",
+                "maximumAmount": "999999999000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "999999999000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          },
+          "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913": {
+            "sourceChain": 416001,
+            "sourceToken": "31566704",
+            "sourceName": "USDC",
+            "sourceSymbol": "usdc",
+            "sourceDecimals": 6,
+            "sourceType": "algo",
+            "sourceTokenLogo": "usdc",
+            "destinationChain": 8453,
+            "destinationToken": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+            "destinationName": "USDC",
+            "destinationSymbol": "usdc",
+            "destinationDecimals": 6,
+            "destinationType": "eth",
+            "destinationTokenLogo": "usdc",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "100000",
+                "maximumAmount": "999999999000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "999999999000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          }
+        },
+        "770066888": {
+          "0x52043D065C471C4cf778532b55f7F2113C6e2dee": {
+            "sourceChain": 416001,
+            "sourceToken": "770066888",
+            "sourceName": "Aramid USDC",
+            "sourceSymbol": "aramid-usd",
+            "sourceDecimals": 6,
+            "sourceType": "algo",
+            "sourceTokenLogo": "aramid-usd",
+            "destinationChain": 8453,
+            "destinationToken": "0x52043D065C471C4cf778532b55f7F2113C6e2dee",
+            "destinationName": "Aramid USDC",
+            "destinationSymbol": "usdc",
+            "destinationDecimals": 6,
+            "destinationType": "eth",
+            "destinationTokenLogo": "usdc",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "100000",
+                "maximumAmount": "999999999000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "999999999000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          },
+          "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913": {
+            "sourceChain": 416001,
+            "sourceToken": "770066888",
+            "sourceName": "Aramid USDC",
+            "sourceSymbol": "aramid-usd",
+            "sourceDecimals": 6,
+            "sourceType": "algo",
+            "sourceTokenLogo": "aramid-usd",
+            "destinationChain": 8453,
+            "destinationToken": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+            "destinationName": "USDC",
+            "destinationSymbol": "usdc",
+            "destinationDecimals": 6,
+            "destinationType": "eth",
+            "destinationTokenLogo": "usdc",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "100000",
+                "maximumAmount": "999999999000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "999999999000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          }
+        }
+      },
+      "42161": {
+        "31566704": {
+          "0x52043D065C471C4cf778532b55f7F2113C6e2dee": {
+            "sourceChain": 416001,
+            "sourceToken": "31566704",
+            "sourceName": "USDC",
+            "sourceSymbol": "usdc",
+            "sourceDecimals": 6,
+            "sourceType": "algo",
+            "sourceTokenLogo": "usdc",
+            "destinationChain": 42161,
+            "destinationToken": "0x52043D065C471C4cf778532b55f7F2113C6e2dee",
+            "destinationName": "Aramid USDC",
+            "destinationSymbol": "usdc",
+            "destinationDecimals": 6,
+            "destinationType": "eth",
+            "destinationTokenLogo": "usdc",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "100000",
+                "maximumAmount": "999999999000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "999999999000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          },
+          "0xaf88d065e77c8cC2239327C5EDb3A432268e5831": {
+            "sourceChain": 416001,
+            "sourceToken": "31566704",
+            "sourceName": "USDC",
+            "sourceSymbol": "usdc",
+            "sourceDecimals": 6,
+            "sourceType": "algo",
+            "sourceTokenLogo": "usdc",
+            "destinationChain": 42161,
+            "destinationToken": "0xaf88d065e77c8cC2239327C5EDb3A432268e5831",
+            "destinationName": "USDC",
+            "destinationSymbol": "usdc",
+            "destinationDecimals": 6,
+            "destinationType": "eth",
+            "destinationTokenLogo": "usdc",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "100000",
+                "maximumAmount": "999999999000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "999999999000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          }
+        },
+        "770066888": {
+          "0x52043D065C471C4cf778532b55f7F2113C6e2dee": {
+            "sourceChain": 416001,
+            "sourceToken": "770066888",
+            "sourceName": "Aramid USDC",
+            "sourceSymbol": "aramid-usd",
+            "sourceDecimals": 6,
+            "sourceType": "algo",
+            "sourceTokenLogo": "aramid-usd",
+            "destinationChain": 42161,
+            "destinationToken": "0x52043D065C471C4cf778532b55f7F2113C6e2dee",
+            "destinationName": "Aramid USDC",
+            "destinationSymbol": "usdc",
+            "destinationDecimals": 6,
+            "destinationType": "eth",
+            "destinationTokenLogo": "usdc",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "100000",
+                "maximumAmount": "999999999000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "999999999000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          },
+          "0xaf88d065e77c8cC2239327C5EDb3A432268e5831": {
+            "sourceChain": 416001,
+            "sourceToken": "770066888",
+            "sourceName": "Aramid USDC",
+            "sourceSymbol": "aramid-usd",
+            "sourceDecimals": 6,
+            "sourceType": "algo",
+            "sourceTokenLogo": "aramid-usd",
+            "destinationChain": 42161,
+            "destinationToken": "0xaf88d065e77c8cC2239327C5EDb3A432268e5831",
+            "destinationName": "USDC",
+            "destinationSymbol": "usdc",
+            "destinationDecimals": 6,
+            "destinationType": "eth",
+            "destinationTokenLogo": "usdc",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "100000",
+                "maximumAmount": "999999999000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "999999999000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          }
+        }
+      },
+      "416001": {
+        "31566704": {
+          "770066888": {
+            "sourceChain": 416001,
+            "sourceToken": "31566704",
+            "sourceName": "USDC",
+            "sourceSymbol": "usdc",
+            "sourceDecimals": 6,
+            "sourceType": "algo",
+            "sourceTokenLogo": "usdc",
+            "destinationChain": 416001,
+            "destinationToken": "770066888",
+            "destinationName": "Aramid USDC",
+            "destinationSymbol": "aramid-usd",
+            "destinationDecimals": 6,
+            "destinationType": "algo",
+            "destinationTokenLogo": "aramid-usd",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "100000",
+                "maximumAmount": "999999999000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "999999999000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          }
+        },
+        "770066888": {
+          "31566704": {
+            "sourceChain": 416001,
+            "sourceToken": "770066888",
+            "sourceName": "Aramid USDC",
+            "sourceSymbol": "aramid-usd",
+            "sourceDecimals": 6,
+            "sourceType": "algo",
+            "sourceTokenLogo": "aramid-usd",
+            "destinationChain": 416001,
+            "destinationToken": "31566704",
+            "destinationName": "USDC",
+            "destinationSymbol": "usdc",
+            "destinationDecimals": 6,
+            "destinationType": "algo",
+            "destinationTokenLogo": "usdc",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "100000",
+                "maximumAmount": "999999999000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "999999999000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          }
+        }
+      },
+      "416101": {
         "0": {
-          "26174499": {
+          "302189": {
             "sourceChain": 416001,
             "sourceToken": "0",
-            "sourceName": "Algo",
+            "sourceName": "ALGO",
             "sourceSymbol": "aAlgo",
             "sourceDecimals": 6,
             "sourceType": "algo",
             "sourceTokenLogo": "algo",
-            "destinationChain": 416102,
-            "destinationToken": "26174499",
-            "destinationName": "Algo Mainnet",
+            "destinationChain": 416101,
+            "destinationToken": "302189",
+            "destinationName": "Aramid ALGO",
             "destinationSymbol": "aAlgo",
             "destinationDecimals": 6,
             "destinationType": "algo",
@@ -233,18 +1970,60 @@
           }
         },
         "31566704": {
-          "26168978": {
+          "302190": {
             "sourceChain": 416001,
             "sourceToken": "31566704",
             "sourceName": "USDC",
-            "sourceSymbol": "aUSC",
+            "sourceSymbol": "aUSDC",
             "sourceDecimals": 6,
             "sourceType": "algo",
             "sourceTokenLogo": "usdc",
-            "destinationChain": 416102,
-            "destinationToken": "26168978",
+            "destinationChain": 416101,
+            "destinationToken": "302190",
             "destinationName": "Aramid USDc",
-            "destinationSymbol": "aUSC",
+            "destinationSymbol": "aUSDC",
+            "destinationDecimals": 6,
+            "destinationType": "algo",
+            "destinationTokenLogo": "aramid-usdc",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "100000",
+                "maximumAmount": "999999999000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "999999999000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          }
+        },
+        "770066888": {
+          "302190": {
+            "sourceChain": 416001,
+            "sourceToken": "770066888",
+            "sourceName": "Aramid USDC",
+            "sourceSymbol": "aUSDC",
+            "sourceDecimals": 6,
+            "sourceType": "algo",
+            "sourceTokenLogo": "aramid-usd",
+            "destinationChain": 416101,
+            "destinationToken": "302190",
+            "destinationName": "Aramid USDc",
+            "destinationSymbol": "aUSDC",
             "destinationDecimals": 6,
             "destinationType": "algo",
             "destinationTokenLogo": "aramid-usdc",
@@ -275,18 +2054,18 @@
           }
         },
         "1241944285": {
-          "26174498": {
+          "302228": {
             "sourceChain": 416001,
             "sourceToken": "1241944285",
-            "sourceName": "Gold",
-            "sourceSymbol": "gold",
+            "sourceName": "ASA.GOLD",
+            "sourceSymbol": "aGold",
             "sourceDecimals": 6,
             "sourceType": "algo",
             "sourceTokenLogo": "gold",
-            "destinationChain": 416102,
-            "destinationToken": "26174498",
-            "destinationName": "Gold",
-            "destinationSymbol": "gold",
+            "destinationChain": 416101,
+            "destinationToken": "302228",
+            "destinationName": "Aramid GOLD",
+            "destinationSymbol": "aGold",
             "destinationDecimals": 6,
             "destinationType": "algo",
             "destinationTokenLogo": "gold",
@@ -294,7 +2073,7 @@
               {
                 "validFrom": 0,
                 "validUntil": 999999999,
-                "minimumAmount": "1000",
+                "minimumAmount": "100000",
                 "maximumAmount": "999999999000000",
                 "sourceConst": 0,
                 "sourcePercent": 0.001,
@@ -316,19 +2095,19 @@
             ]
           }
         },
-        "1392374998": {
+        "2320775407": {
           "0": {
             "sourceChain": 416001,
-            "sourceToken": "1392374998",
-            "sourceName": "Voi Testnet",
-            "sourceSymbol": "aVoitest",
+            "sourceToken": "2320775407",
+            "sourceName": "Aramid VOI",
+            "sourceSymbol": "aVoi",
             "sourceDecimals": 6,
             "sourceType": "algo",
             "sourceTokenLogo": "aramid-voi",
-            "destinationChain": 416102,
+            "destinationChain": 416101,
             "destinationToken": "0",
             "destinationName": "Voi",
-            "destinationSymbol": "aVoitest",
+            "destinationSymbol": "aVoi",
             "destinationDecimals": 6,
             "destinationType": "algo",
             "destinationTokenLogo": "voi",
@@ -360,21 +2139,189 @@
         }
       }
     },
-    "416102": {
+    "416101": {
+      "8453": {
+        "302190": {
+          "0x52043D065C471C4cf778532b55f7F2113C6e2dee": {
+            "sourceChain": 416101,
+            "sourceToken": "302190",
+            "sourceName": "Aramid USDc",
+            "sourceSymbol": "aramid-usdc",
+            "sourceDecimals": 6,
+            "sourceType": "algo",
+            "sourceTokenLogo": "aramid-usdc",
+            "destinationChain": 8453,
+            "destinationToken": "0x52043D065C471C4cf778532b55f7F2113C6e2dee",
+            "destinationName": "Aramid USDC",
+            "destinationSymbol": "usdc",
+            "destinationDecimals": 6,
+            "destinationType": "eth",
+            "destinationTokenLogo": "usdc",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "100000",
+                "maximumAmount": "999999999000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "999999999000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          },
+          "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913": {
+            "sourceChain": 416101,
+            "sourceToken": "302190",
+            "sourceName": "Aramid USDc",
+            "sourceSymbol": "aramid-usdc",
+            "sourceDecimals": 6,
+            "sourceType": "algo",
+            "sourceTokenLogo": "aramid-usdc",
+            "destinationChain": 8453,
+            "destinationToken": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+            "destinationName": "USDC",
+            "destinationSymbol": "usdc",
+            "destinationDecimals": 6,
+            "destinationType": "eth",
+            "destinationTokenLogo": "usdc",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "100000",
+                "maximumAmount": "999999999000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "999999999000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          }
+        }
+      },
+      "42161": {
+        "302190": {
+          "0x52043D065C471C4cf778532b55f7F2113C6e2dee": {
+            "sourceChain": 416101,
+            "sourceToken": "302190",
+            "sourceName": "Aramid USDc",
+            "sourceSymbol": "aramid-usdc",
+            "sourceDecimals": 6,
+            "sourceType": "algo",
+            "sourceTokenLogo": "aramid-usdc",
+            "destinationChain": 42161,
+            "destinationToken": "0x52043D065C471C4cf778532b55f7F2113C6e2dee",
+            "destinationName": "Aramid USDC",
+            "destinationSymbol": "usdc",
+            "destinationDecimals": 6,
+            "destinationType": "eth",
+            "destinationTokenLogo": "usdc",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "100000",
+                "maximumAmount": "999999999000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "999999999000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          },
+          "0xaf88d065e77c8cC2239327C5EDb3A432268e5831": {
+            "sourceChain": 416101,
+            "sourceToken": "302190",
+            "sourceName": "Aramid USDc",
+            "sourceSymbol": "aramid-usdc",
+            "sourceDecimals": 6,
+            "sourceType": "algo",
+            "sourceTokenLogo": "aramid-usdc",
+            "destinationChain": 42161,
+            "destinationToken": "0xaf88d065e77c8cC2239327C5EDb3A432268e5831",
+            "destinationName": "USDC",
+            "destinationSymbol": "usdc",
+            "destinationDecimals": 6,
+            "destinationType": "eth",
+            "destinationTokenLogo": "usdc",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "100000",
+                "maximumAmount": "999999999000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "999999999000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          }
+        }
+      },
       "416001": {
         "0": {
-          "1392374998": {
-            "sourceChain": 416102,
+          "2320775407": {
+            "sourceChain": 416101,
             "sourceToken": "0",
             "sourceName": "Voi",
-            "sourceSymbol": "aVoitest",
+            "sourceSymbol": "aVoi",
             "sourceDecimals": 6,
             "sourceType": "algo",
             "sourceTokenLogo": "voi",
             "destinationChain": 416001,
-            "destinationToken": "1392374998",
-            "destinationName": "Voi Testnet",
-            "destinationSymbol": "aVoitest",
+            "destinationToken": "2320775407",
+            "destinationName": "Aramid VOI",
+            "destinationSymbol": "aVoi",
             "destinationDecimals": 6,
             "destinationType": "algo",
             "destinationTokenLogo": "aramid-voi",
@@ -404,19 +2351,61 @@
             ]
           }
         },
-        "26168978": {
+        "302189": {
+          "0": {
+            "sourceChain": 416101,
+            "sourceToken": "302189",
+            "sourceName": "Aramid ALGO",
+            "sourceSymbol": "aAlgo",
+            "sourceDecimals": 6,
+            "sourceType": "algo",
+            "sourceTokenLogo": "aramid-algo",
+            "destinationChain": 416001,
+            "destinationToken": "0",
+            "destinationName": "ALGO",
+            "destinationSymbol": "aAlgo",
+            "destinationDecimals": 6,
+            "destinationType": "algo",
+            "destinationTokenLogo": "algo",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "100000",
+                "maximumAmount": "999999999000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "999999999000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          }
+        },
+        "302190": {
           "31566704": {
-            "sourceChain": 416102,
-            "sourceToken": "26168978",
+            "sourceChain": 416101,
+            "sourceToken": "302190",
             "sourceName": "Aramid USDc",
-            "sourceSymbol": "aUSC",
+            "sourceSymbol": "aUSDC",
             "sourceDecimals": 6,
             "sourceType": "algo",
             "sourceTokenLogo": "aramid-usdc",
             "destinationChain": 416001,
             "destinationToken": "31566704",
             "destinationName": "USDC",
-            "destinationSymbol": "aUSC",
+            "destinationSymbol": "aUSDC",
             "destinationDecimals": 6,
             "destinationType": "algo",
             "destinationTokenLogo": "usdc",
@@ -444,29 +2433,27 @@
                 "ifPremiumTokenUsed": true
               }
             ]
-          }
-        },
-        "26174498": {
-          "1241944285": {
-            "sourceChain": 416102,
-            "sourceToken": "26174498",
-            "sourceName": "Gold",
-            "sourceSymbol": "gold",
+          },
+          "770066888": {
+            "sourceChain": 416101,
+            "sourceToken": "302190",
+            "sourceName": "Aramid USDc",
+            "sourceSymbol": "aUSDC",
             "sourceDecimals": 6,
             "sourceType": "algo",
-            "sourceTokenLogo": "gold",
+            "sourceTokenLogo": "aramid-usdc",
             "destinationChain": 416001,
-            "destinationToken": "1241944285",
-            "destinationName": "Gold",
-            "destinationSymbol": "gold",
+            "destinationToken": "770066888",
+            "destinationName": "Aramid USDC",
+            "destinationSymbol": "aUSDC",
             "destinationDecimals": 6,
             "destinationType": "algo",
-            "destinationTokenLogo": "gold",
+            "destinationTokenLogo": "aramid-usd",
             "feeAlternatives": [
               {
                 "validFrom": 0,
                 "validUntil": 999999999,
-                "minimumAmount": "1000",
+                "minimumAmount": "100000",
                 "maximumAmount": "999999999000000",
                 "sourceConst": 0,
                 "sourcePercent": 0.001,
@@ -488,22 +2475,22 @@
             ]
           }
         },
-        "26174499": {
-          "0": {
-            "sourceChain": 416102,
-            "sourceToken": "26174499",
-            "sourceName": "Algo Mainnet",
-            "sourceSymbol": "aAlgo",
+        "302228": {
+          "1241944285": {
+            "sourceChain": 416101,
+            "sourceToken": "302228",
+            "sourceName": "Aramid GOLD",
+            "sourceSymbol": "aGold",
             "sourceDecimals": 6,
             "sourceType": "algo",
-            "sourceTokenLogo": "aramid-algo",
+            "sourceTokenLogo": "gold",
             "destinationChain": 416001,
-            "destinationToken": "0",
-            "destinationName": "Algo",
-            "destinationSymbol": "aAlgo",
+            "destinationToken": "1241944285",
+            "destinationName": "ASA.GOLD",
+            "destinationSymbol": "aGold",
             "destinationDecimals": 6,
             "destinationType": "algo",
-            "destinationTokenLogo": "algo",
+            "destinationTokenLogo": "gold",
             "feeAlternatives": [
               {
                 "validFrom": 0,

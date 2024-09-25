@@ -42,6 +42,18 @@ const config: SecureConfiguration = {
       providerUrl2: '',
       providerUrl3: ''
     },
+    '8453': {
+      type: 'eth',
+      providerUrl: 'https://base-rpc.publicnode.com',
+      providerUrl2: '',
+      providerUrl3: ''
+    },
+    '42161': {
+      type: 'eth',
+      providerUrl: 'https://1rpc.io/arb',
+      providerUrl2: '',
+      providerUrl3: ''
+    },
     '17000': {
       type: 'eth',
       providerUrl: 'https://ethereum-holesky-rpc.publicnode.com',
