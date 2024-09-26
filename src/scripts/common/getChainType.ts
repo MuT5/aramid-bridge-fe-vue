@@ -11,6 +11,7 @@ const getChainType = (chain: number, publicConfiguration: PublicConfigurationRoo
   if (chain == 416001) return 'algo'
   if (chain == 416001) return 'algo'
   if (chain == 416002) return 'algo'
+  if (chain == 416101) return 'algo'
   if (chain == 416102) return 'algo'
   if (chain == 101003) return 'algo'
   if (chain == NEAR_CHAIN_ID_MAINNET || chain == NEAR_CHAIN_ID_TESTNET) return 'near'
