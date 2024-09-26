@@ -19,6 +19,23 @@ const config: SecureConfiguration = {
         delay: 1000
       }
     },
+    '416101': {
+      type: 'algo',
+      algod: {
+        host: 'https://mainnet-api.voi.nodely.dev	',
+        port: 443,
+        header: 'X-Algo-API-Token',
+        token: '',
+        delay: 1000
+      },
+      indexer: {
+        host: 'https://mainnet-idx.voi.nodely.dev	',
+        port: 443,
+        header: 'X-Indexer-API-Token',
+        token: '',
+        delay: 1000
+      }
+    },
     '101003': {
       type: 'algo',
       algod: {
