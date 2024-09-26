@@ -93,7 +93,7 @@ const switchNetworkClick = async () => {
   try {
     if (!web3ModalProvider.walletProvider.value) {
       console.log('modal', modal)
-      await modal?.open({ view: 'Networks' })
+      await modal?.open()
     }
     if (!web3ModalProvider.walletProvider.value) {
       throw Error(`Please connect ${store.state.sourceChainConfiguration?.name} in your wallet`)
