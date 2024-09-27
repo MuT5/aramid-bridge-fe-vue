@@ -1,6 +1,7 @@
 import { useAppStore } from '@/stores/app'
 import getChainConfigurationSync from '../common/getChainConfigurationSync'
 import { fillRouteInfo } from './fillRouteInfo'
+import { useConfigStore } from '@/stores/config'
 
 export const fillSourceChainConfiguration = (chainId: number | undefined = undefined, paramValue: string | string[] | undefined = undefined) => {
   const store = useAppStore()
@@ -32,9 +33,19 @@ export const fillSourceChainConfiguration = (chainId: number | undefined = undef
       store.state.sourceChainGenesis = undefined
     }
   } else if (!store.state.destinationChain) {
-    const keys = Object.keys(store.state.publicConfiguration.chains2tokens)
-    keys.sort()
-    const chain = Number(keys[0])
+    const configStore = useConfigStore()
+    let chain: number = 0
+    if (configStore.state.initChainFrom) {
+      // check if route exists
+      if (store.state.publicConfiguration.chains2tokens[configStore.state.initChainFrom]) {
+        chain = configStore.state.initChainFrom
+      }
+    }
+    if (chain == 0) {
+      const keys = Object.keys(store.state.publicConfiguration.chains2tokens)
+      keys.sort()
+      chain = Number(keys[0])
+    }
     const chainObj = getChainConfigurationSync(chain, store.state.publicConfiguration)
     if (chain && chainObj) {
       console.log('fillSourceChainConfiguration', chain, chainObj.name)
@@ -44,9 +55,19 @@ export const fillSourceChainConfiguration = (chainId: number | undefined = undef
     }
   } else {
     // we have already destination chain defined, so we should match to it
-    const keys = Object.keys(store.state.publicConfiguration.chains2tokens[store.state.destinationChain.toString()])
-    keys.sort()
-    const chain = Number(keys[0])
+    const configStore = useConfigStore()
+    let chain: number = 0
+    if (configStore.state.initChainFrom) {
+      // check if route exists
+      if (store.state.publicConfiguration.chains2tokens[configStore.state.initChainFrom]) {
+        chain = configStore.state.initChainFrom
+      }
+    }
+    if (chain == 0) {
+      const keys = Object.keys(store.state.publicConfiguration.chains2tokens[store.state.destinationChain.toString()])
+      keys.sort()
+      chain = Number(keys[0])
+    }
     const chainObj = getChainConfigurationSync(chain, store.state.publicConfiguration)
     if (chain && chainObj) {
       console.log('fillSourceChainConfiguration', chain, chainObj.name)

@@ -1,6 +1,7 @@
 import { useAppStore } from '@/stores/app'
 import getToken from '../common/getToken'
 import { fillRouteInfo } from './fillRouteInfo'
+import { useConfigStore } from '@/stores/config'
 
 export const fillSourceTokenConfiguration = (tokenId: string | undefined = undefined, paramValue: string | string[] | undefined = undefined) => {
   const store = useAppStore()
@@ -67,9 +68,19 @@ export const fillSourceTokenConfiguration = (tokenId: string | undefined = undef
       store.state.publicConfiguration.chains2tokens[store.state.sourceChain.toString()] &&
       store.state.publicConfiguration.chains2tokens[store.state.sourceChain.toString()][store.state.destinationChain]
     ) {
-      const sourceTokens = Object.keys(store.state.publicConfiguration.chains2tokens[store.state.sourceChain.toString()][store.state.destinationChain])
-      sourceTokens.sort()
-      const newSourceTokenId = sourceTokens[0]
+      const configStore = useConfigStore()
+      let newSourceTokenId: string = ''
+      if (configStore.state.initTokenFrom) {
+        // check if route exists
+        if (store.state.publicConfiguration.chains2tokens[store.state.sourceChain.toString()][store.state.destinationChain.toString()][configStore.state.initTokenFrom]) {
+          newSourceTokenId = configStore.state.initTokenFrom
+        }
+      }
+      if (newSourceTokenId == '') {
+        const sourceTokens = Object.keys(store.state.publicConfiguration.chains2tokens[store.state.sourceChain.toString()][store.state.destinationChain])
+        sourceTokens.sort()
+        newSourceTokenId = sourceTokens[0]
+      }
       const tokenConfiguration = getToken(store.state.sourceChain, newSourceTokenId, store.state.publicConfiguration)
       if (tokenConfiguration) {
         console.log('fillInSourceTokenConfiguration', store.state.sourceChain, store.state.destinationChain)
