@@ -321,7 +321,7 @@ const resetButtonClick = async () => {
         </div>
       </div>
       <div v-if="state.claiming">
-        <p>Please check your wallet for the transaction to be signed</p>
+        <p>Please check your wallet to sign the transaction</p>
         <MainActionButton @click="state.claiming = false">Cancel</MainActionButton>
       </div>
       <div class="w-full" v-else-if="!state.claimed">

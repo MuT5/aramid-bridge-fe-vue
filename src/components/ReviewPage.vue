@@ -360,7 +360,7 @@ watch(
       <img :src="loader" alt="Loading" height="18" width="18" class="inline-block" /> Your approval transaction is being submitted to {{ store.state.sourceChainConfiguration?.name }}
       <span v-if="state.approvalHash"><ShortTx :txId="state.approvalHash" :length="6" :chain="store.state.sourceChain"></ShortTx></span>
     </div>
-    <div v-if="state.inSign"><img :src="loader" alt="Loading" height="18" width="18" class="inline-block" /> Please check your wallet for the bridge transaction to sign.</div>
+    <div v-if="state.inSign"><img :src="loader" alt="Loading" height="18" width="18" class="inline-block" /> Please check your wallet to sign the transaction.</div>
     <div v-if="state.inSignMinting">
       <img :src="loader" alt="Loading" height="18" width="18" class="inline-block" /> Your bridge transaction is being submitted to {{ store.state.sourceChainConfiguration?.name }}
     </div>
