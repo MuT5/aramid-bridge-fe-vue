@@ -327,6 +327,6 @@ watch(
     <Message severity="warn" v-if="store.state.escrowBalanceIsSufficient && !store.state.escrowBalanceIsSufficient10x" class="mt-4 w-full">
       The bridge balance has less than 10x your transfer amount and your request may potentially not be fulfilled.
     </Message>
-    <MainActionButton @click="reviewButtonClick">Review your transation</MainActionButton>
+    <MainActionButton @click="reviewButtonClick">Review your transaction</MainActionButton>
   </MainBox>
 </template>
