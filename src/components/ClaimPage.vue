@@ -242,18 +242,18 @@ const resetButtonClick = async () => {
           </div>
         </div>
         <div class="flex flex-col md:flex-row mt-2 text-center md:text-left">
-          <div class="md:min-w-44 font-bold">Source address</div>
+          <div class="md:min-w-44 font-bold">Origin address</div>
           <div class="w-full block md:hidden">
             <WalletAddress :address="store.state.sourceAddress" :length="4"></WalletAddress>
-            <CopyIcon :text="store.state.sourceAddress" :title="`Copy source address: ${store.state.sourceAddress}`"></CopyIcon>
+            <CopyIcon :text="store.state.sourceAddress" :title="`Copy origin address: ${store.state.sourceAddress}`"></CopyIcon>
           </div>
           <div class="w-full hidden md:block lg:hidden">
             <WalletAddress :address="store.state.sourceAddress" :length="6"></WalletAddress>
-            <CopyIcon :text="store.state.sourceAddress" :title="`Copy source address: ${store.state.sourceAddress}`"></CopyIcon>
+            <CopyIcon :text="store.state.sourceAddress" :title="`Copy origin address: ${store.state.sourceAddress}`"></CopyIcon>
           </div>
           <div class="w-full hidden lg:block">
             <WalletAddress :address="store.state.sourceAddress" :length="30"></WalletAddress>
-            <CopyIcon :text="store.state.sourceAddress" :title="`Copy source address: ${store.state.sourceAddress}`"></CopyIcon>
+            <CopyIcon :text="store.state.sourceAddress" :title="`Copy origin address: ${store.state.sourceAddress}`"></CopyIcon>
           </div>
         </div>
         <div class="flex flex-col md:flex-row mt-2 text-center md:text-left">
@@ -288,15 +288,15 @@ const resetButtonClick = async () => {
           <div class="md:min-w-44 font-bold">Destination address</div>
           <div class="w-full block md:hidden">
             <WalletAddress :address="store.state.destinationAddress" :length="4"></WalletAddress>
-            <CopyIcon :text="store.state.destinationAddress" :title="`Copy source address: ${store.state.destinationAddress}`"></CopyIcon>
+            <CopyIcon :text="store.state.destinationAddress" :title="`Copy origin address: ${store.state.destinationAddress}`"></CopyIcon>
           </div>
           <div class="w-full hidden md:block lg:hidden">
             <WalletAddress :address="store.state.destinationAddress" :length="6"></WalletAddress>
-            <CopyIcon :text="store.state.destinationAddress" :title="`Copy source address: ${store.state.destinationAddress}`"></CopyIcon>
+            <CopyIcon :text="store.state.destinationAddress" :title="`Copy origin address: ${store.state.destinationAddress}`"></CopyIcon>
           </div>
           <div class="w-full hidden lg:block">
             <WalletAddress :address="store.state.destinationAddress" :length="30"></WalletAddress>
-            <CopyIcon :text="store.state.destinationAddress" :title="`Copy source address: ${store.state.destinationAddress}`"></CopyIcon>
+            <CopyIcon :text="store.state.destinationAddress" :title="`Copy origin address: ${store.state.destinationAddress}`"></CopyIcon>
           </div>
         </div>
         <div class="flex flex-col md:flex-row mt-2 text-center md:text-left">
@@ -317,7 +317,7 @@ const resetButtonClick = async () => {
 
         <div class="flex flex-col md:flex-row mt-2 text-center md:text-left" v-if="store.state.memo && store.state.memo != 'aramid'">
           <div class="md:min-w-44 font-bold">Data transfer</div>
-          <div class="w-full">{{ store.state.memo }} <CopyIcon :text="store.state.memo" :title="`Copy source address: ${store.state.memo}`"></CopyIcon></div>
+          <div class="w-full">{{ store.state.memo }} <CopyIcon :text="store.state.memo" :title="`Copy origin address: ${store.state.memo}`"></CopyIcon></div>
         </div>
       </div>
       <div v-if="state.claiming">

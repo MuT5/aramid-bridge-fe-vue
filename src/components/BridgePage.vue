@@ -100,7 +100,7 @@ const doValidation = (): boolean => {
       throw Error('Loading the balance of the destination address, please try again later')
     }
     if (store.state.loadingSourceAddressBalance) {
-      throw Error('Loading the balance of the source address, please try again later')
+      throw Error('Loading the balance of the origin address, please try again later')
     }
     if (store.state.loadingDestinationEscrowAddressBalance) {
       throw Error('Loading the balance of the destination escrow address, please try again later')
@@ -108,12 +108,12 @@ const doValidation = (): boolean => {
 
     if (store.state.sourceChainConfiguration?.type == 'algo') {
       if (!algosdk.isValidAddress(store.state.sourceAddress ?? '')) {
-        throw Error('Source address is in invalid format')
+        throw Error('Origin address is in invalid format')
       }
     }
     if (store.state.sourceChainConfiguration?.type == 'eth') {
       if (!ethers.isAddress(store.state.sourceAddress)) {
-        throw Error('Source address is in invalid format')
+        throw Error('Origin address is in invalid format')
       }
     }
 

@@ -90,7 +90,7 @@ const useAddressClick = () => {
           <DialogButton @click="sameAddressYesClick">Yes</DialogButton>
           <DialogButton @click="differentAddressClick">No</DialogButton>
         </div>
-        <div v-else>Please select the source address first</div>
+        <div v-else>Please select the origin address first</div>
         <div>
           <div>Or enter third party address</div>
           <textarea
