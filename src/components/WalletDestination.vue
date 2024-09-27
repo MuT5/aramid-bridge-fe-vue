@@ -228,7 +228,7 @@ watch(
     <SimpleLabel>Destination address</SimpleLabel>
     <RoundButton
       v-tooltip.top="
-        'Select address which will receive the tokens at the destination chain.\nYou do not have to be owner of that account - you can pay for invoices, bridge some data, or send a donation.\nOn AVM chains (Algorand, Voi) the destination address must opt in to the bridged asset.'
+        'Select the address that will receive the assets on the destination blockchain.\n You don’t need to own the account. On AVM chains (Algorand, Voi), the destination address must opt-in to the bridged assets. On EVM chains, the destination wallet must be connected to claim the bridged assets.'
       "
       v-if="store.state.destinationTokenConfiguration"
       :img="`logos/tokens/${store.state.destinationTokenConfiguration?.logo}.png`"

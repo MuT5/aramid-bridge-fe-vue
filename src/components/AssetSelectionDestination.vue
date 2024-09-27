@@ -55,7 +55,7 @@ watch(
   <div>
     <SimpleLabel>Receive asset</SimpleLabel>
     <DropDown
-      v-tooltip.top="'Select token which you want to send to the destination blockchain.'"
+      v-tooltip.top="'Select the asset you want to receive on the destination blockchain.'"
       v-if="store.state.destinationTokenConfiguration"
       :img="`logos/tokens/${store.state.destinationTokenConfiguration?.logo}.png`"
       :text="store.state.destinationTokenConfiguration.name"

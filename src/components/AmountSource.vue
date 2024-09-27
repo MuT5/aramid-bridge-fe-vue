@@ -118,7 +118,7 @@ const setMax = () => {
     <div class="flex flex-col md:flex-row justify-center md:justify-end lg:justify-end xl:justify-end">
       <input
         v-tooltip.focus.top="
-          'Select amount how many tokens you want to bridge from the source blockchain.\nAramid bridge is 1:1 bridge, so you will receive the same amount at the other chain from which the small bridging fee is substracted'
+          'Select the amount of assets you want to bridge from the origin blockchain.\n The Aramid bridge operates at nearly a 1:1 ratio, meaning you will receive the same amount on the destination chain after a small bridging fee (0.1%) is deducted.'
         "
         type="number"
         min="0"

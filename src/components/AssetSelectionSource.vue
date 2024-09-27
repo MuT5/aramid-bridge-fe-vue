@@ -58,7 +58,7 @@ watch(
   <div>
     <SimpleLabel>Bridge asset</SimpleLabel>
     <DropDown
-      v-tooltip.top="'Select asset which you want to bridge to another asset at another blockchain'"
+      v-tooltip.top="'Select the asset you want to bridge to the destination blockchain.'"
       v-if="store.state.sourceTokenConfiguration"
       :img="`logos/tokens/${store.state.sourceTokenConfiguration?.logo}.png`"
       :text="store.state.sourceTokenConfiguration.name"

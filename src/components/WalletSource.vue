@@ -258,7 +258,7 @@ const getImageUrl = () => {
     <SimpleLabel>Origin wallet</SimpleLabel>
     <RoundButton
       v-tooltip.top="
-        'Before proceeding you have to connect your wallet.\nIf you connect your wallet we will prefil your source account.\nOn AVM chains you can use QR payment option to initiate bridging. For this you need just to fill in your account address.'
+        'Before proceeding, connect your wallet. Once connected, your origin account will be auto-filled.\n On AVM chains, you can initiate bridging using the QR payment option by entering your account address.'
       "
       v-if="store.state.sourceTokenConfiguration"
       :img="`logos/tokens/${store.state.sourceTokenConfiguration?.logo}.png`"

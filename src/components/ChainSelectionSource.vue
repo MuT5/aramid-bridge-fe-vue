@@ -48,7 +48,7 @@ onMounted(async () => {
     <SimpleLabel>Origin chain</SimpleLabel>
     <div class="w-full text-center place-content-center justify-items-center m-auto">
       <DropDown
-        v-tooltip.top="'Select source blockchain from which you want to bridge your assets'"
+        v-tooltip.top="'Select the origin blockchain from which you want to bridge your assets.'"
         v-if="store.state.sourceChainConfiguration"
         :img="`logos/chains/${store.state.sourceChainConfiguration?.logo}.png`"
         :text="store.state.sourceChainConfiguration.name"

@@ -55,7 +55,7 @@ watch(
   <div>
     <SimpleLabel>Destination chain</SimpleLabel>
     <DropDown
-      v-tooltip.top="'Select blockchain to which you want to bridge your assets.'"
+      v-tooltip.top="'Select the destination blockchain to which you want to bridge your assets.'"
       v-if="store.state.destinationChainConfiguration"
       :img="`logos/chains/${store.state.destinationChainConfiguration?.logo}.png`"
       :text="store.state.destinationChainConfiguration.name"
