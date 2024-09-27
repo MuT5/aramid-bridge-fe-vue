@@ -307,7 +307,7 @@ watch(
         <div class="w-full" :title="`Base amount: ${store.state.destinationAmount}`">{{ store.state.destinationAmountFormatted }}</div>
       </div>
       <div class="flex flex-col md:flex-row mt-2 text-center md:text-left">
-        <div class="md:min-w-44 font-bold">Receive token</div>
+        <div class="md:min-w-44 font-bold">Token name</div>
         <div class="w-full">{{ store.state.destinationTokenConfiguration?.name }}</div>
       </div>
       <div class="flex flex-col md:flex-row mt-2 text-center md:text-left">
