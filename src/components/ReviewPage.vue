@@ -355,7 +355,7 @@ watch(
     <StatusBar></StatusBar>
     <MainActionButton @click="signButtonClick" v-if="store.state.sourceChainConfiguration?.type == 'algo'">Sign</MainActionButton>
 
-    <div v-if="state.inApproval"><img :src="loader" alt="Loading" height="18" width="18" class="inline-block" /> Please check your wallet for the approval transaction to sign.</div>
+    <div v-if="state.inApproval"><img :src="loader" alt="Loading" height="18" width="18" class="inline-block" /> Please check your wallet to approve the spending cap and sign the transaction.</div>
     <div v-if="state.inApprovalMinting">
       <img :src="loader" alt="Loading" height="18" width="18" class="inline-block" /> Your approval transaction is being submitted to {{ store.state.sourceChainConfiguration?.name }}
       <span v-if="state.approvalHash"><ShortTx :txId="state.approvalHash" :length="6" :chain="store.state.sourceChain"></ShortTx></span>
