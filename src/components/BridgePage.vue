@@ -320,7 +320,7 @@ watch(
       <AmountDestination></AmountDestination>
     </div>
     <div class="mt-4 w-full">
-      <SimpleLabel>Cross chain Note/Memo/Payment reference</SimpleLabel>
+      <SimpleLabel>Cross-chain Note/Memo/Payment reference</SimpleLabel>
       <input :maxlength="50" class="bg-white-rgba rounded-[10px] focus:outline-none w-full mt-1 3xl:mt-3 4xl:mt-6 p-1 3xl:p-3 4xl:p-6 text-base w-full" type="text" v-model="store.state.memo" />
     </div>
     <Message severity="error" v-if="state.error" class="mt-4 w-full">{{ state.error }}</Message>

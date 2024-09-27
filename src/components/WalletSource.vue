@@ -255,7 +255,7 @@ const getImageUrl = () => {
 </script>
 <template>
   <div>
-    <SimpleLabel>Source wallet</SimpleLabel>
+    <SimpleLabel>Origin wallet</SimpleLabel>
     <RoundButton
       v-tooltip.top="
         'Before proceeding you have to connect your wallet.\nIf you connect your wallet we will prefil your source account.\nOn AVM chains you can use QR payment option to initiate bridging. For this you need just to fill in your account address.'
@@ -276,7 +276,7 @@ const getImageUrl = () => {
       <div class="mx-auto self-center text-[14px] font-bold text-center 3xl:text-xl 4xl:text-2xl truncate" v-else-if="state.connected">
         <WalletAddress :address="store.state.sourceAddress"></WalletAddress>
       </div>
-      <div class="mx-auto self-center text-[14px] font-bold text-center 3xl:text-xl 4xl:text-2xl truncate" v-else>Connect source wallet</div>
+      <div class="mx-auto self-center text-[14px] font-bold text-center 3xl:text-xl 4xl:text-2xl truncate" v-else>Connect origin wallet</div>
     </RoundButton>
     <SelectSourceWalletAlgoDialog v-if="store.state.sourceChainConfiguration?.type == 'algo'"></SelectSourceWalletAlgoDialog>
   </div>
