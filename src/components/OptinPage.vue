@@ -161,7 +161,7 @@ const optinUsingUseWallet = async () => {
           </tr>
         </tbody>
       </table>
-      <QRCodeVue3 :width="200" :height="200" :value="optInQrContent()" class="m-auto w-full" myclass="m-auto w-full" imgclass="m-auto w-full h-40 w-40" />
+      <QRCodeVue3 :width="200" :height="200" :value="optInQrContent()" class="m-auto w-full" myclass="m-auto w-full" imgclass="m-auto h-40 w-40" />
       <MainActionButton @click="checkOptIn">Account has been opted in</MainActionButton>
     </div>
   </MainBox>
