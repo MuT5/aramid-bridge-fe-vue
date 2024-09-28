@@ -81,7 +81,7 @@ const useAddressClick = () => {
 </script>
 <template>
   <div :class="store.state.dialogSelectDestinationWalletIsOpen ? '' : 'hidden'">
-    <div class="fixed w-screen h-screen backdrop-blur-sm z-[100]" style="top: 50%; left: 50%; transform: translate(-50%, -50%)" @click="closeDialog"></div>
+    <div class="full-screen backdrop-blur-sm z-[100]" @click="closeDialog"></div>
     <div class="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex flex-col z-[101]">
       <ul class="bg-gradient-to-r from-topleft-purple to-bottomright-purple drop-shadow-menu-default rounded-[26px] p-3">
         <DialogTitle>Choose destination wallet</DialogTitle>

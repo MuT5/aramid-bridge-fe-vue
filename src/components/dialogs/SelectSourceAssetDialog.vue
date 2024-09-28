@@ -62,7 +62,7 @@ watch(
 </script>
 <template>
   <div :class="store.state.dialogSelectSourceAssetIsOpen ? '' : 'hidden'">
-    <div class="fixed w-screen h-screen backdrop-blur-sm z-[100]" style="top: 50%; left: 50%; transform: translate(-50%, -50%)" @click="store.state.dialogSelectSourceAssetIsOpen = false"></div>
+    <div class="full-screen backdrop-blur-sm z-[100]" @click="store.state.dialogSelectSourceAssetIsOpen = false"></div>
     <div class="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex flex-col z-[101]">
       <ul class="bg-gradient-to-r from-topleft-purple to-bottomright-purple drop-shadow-menu-default rounded-[26px] p-3">
         <DialogTitle> Select asset which you want to bridge to other chain </DialogTitle>
