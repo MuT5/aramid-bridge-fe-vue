@@ -13,7 +13,7 @@ import QRCodeVue3 from 'qrcode-vue3'
 import getAlgoAccountTokenOptedIn from '@/scripts/algo/getAlgoAccountTokenOptedIn'
 import getAlgodClientByChainId from '@/scripts/algo/getAlgodClientByChainId'
 import algosdk from 'algosdk'
-const { activeWallet, activeAccount } = useWallet()
+const { avmActiveWallet, activeAccount } = useWallet()
 
 const store = useAppStore()
 const route = useRoute()
@@ -86,7 +86,7 @@ const optinUsingUseWallet = async () => {
     })
 
     state.signInWallet = true
-    const signed = await activeWallet.value?.signTransactions([tx])
+    const signed = await avmActiveWallet.value?.signTransactions([tx])
     state.signInWallet = false
     if (signed && signed[0]) {
       state.sendingOptin = true

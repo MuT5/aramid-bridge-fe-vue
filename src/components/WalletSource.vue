@@ -12,7 +12,7 @@ import { AlgoConnectorType } from '@/scripts/interface/algo/AlgoConnectorType'
 import { useToast } from 'primevue/usetoast'
 import { fillSourceTokenConfiguration } from '@/scripts/events/fillSourceTokenConfiguration'
 import getAlgoAccountTokenBalance from '@/scripts/algo/getAlgoAccountTokenBalance'
-import { NetworkId, useWallet } from 'avm-wallet-vue'
+import { NetworkId, useWallet } from '@txnlab/use-wallet-vue'
 import getWeb3Modal from '@/scripts/eth/getWeb3Modal'
 import { useDisconnect, useWeb3ModalAccount } from '@web3modal/ethers/vue'
 import { useSwitchNetwork } from '@web3modal/ethers/vue'
@@ -88,6 +88,7 @@ const onSourceAddressChange = async () => {
 onMounted(async () => {
   state.publicConfiguration = await getPublicConfiguration(false)
   fillInState()
+  console.log('WalletSource.activeAccount.value', activeWallet.value, activeAccount.value)
 
   if (store.state.sourceChainConfiguration?.type == 'algo' && activeWallet.value && activeAccount.value?.address) {
     store.state.sourceAddress = activeAccount.value?.address

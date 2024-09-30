@@ -1,5 +1,6 @@
 import './assets/main.css'
-import { NetworkId, WalletId, WalletManagerPlugin } from 'avm-wallet-vue'
+import { NetworkId, WalletId, WalletManagerPlugin } from '@txnlab/use-wallet-vue'
+import { NetworkId as AVMNetworkId, WalletId as AVMWalletId, WalletManagerPlugin as AVMWalletManagerPlugin } from 'avm-wallet-vue'
 
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
@@ -56,7 +57,42 @@ app.use(WalletManagerPlugin, {
       }
     }
   ],
+
   network: NetworkId.MAINNET
+})
+// Install the plugin
+app.use(AVMWalletManagerPlugin, {
+  wallets: [
+    AVMWalletId.DEFLY,
+    AVMWalletId.PERA,
+    AVMWalletId.EXODUS,
+    AVMWalletId.KIBISIS,
+    {
+      id: AVMWalletId.BIATEC,
+      options: {
+        projectId: '54958e07dbb79eedf5cd5564bf16d817',
+        metadata: {
+          name: 'Aramid Finance Dapp',
+          description: 'Aramid Finance Bridge between Algorand, Voi, Near, Ethereum, Polygon and Aurora',
+          url: 'https://aramid.finance',
+          icons: ['https://beta.k8s.aramid.finance/aramid-logo.svg']
+        }
+      }
+    },
+    {
+      id: AVMWalletId.WALLETCONNECT,
+      options: {
+        projectId: '54958e07dbb79eedf5cd5564bf16d817',
+        metadata: {
+          name: 'Aramid Finance Dapp',
+          description: 'Aramid Finance Bridge between Algorand, Voi, Near, Ethereum, Polygon and Aurora',
+          url: 'https://aramid.finance',
+          icons: ['https://beta.k8s.aramid.finance/aramid-logo.svg']
+        }
+      }
+    }
+  ],
+  network: AVMNetworkId.MAINNET
 })
 
 app.mount('#app')

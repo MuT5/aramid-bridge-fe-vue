@@ -5,7 +5,7 @@ import getPublicConfiguration from '@/scripts/common/getPublicConfiguration'
 import { onMounted, reactive } from 'vue'
 import type { PublicConfigurationRoot } from '@/scripts/interface/mapping/PublicConfigurationRoot'
 import type { ChainItem } from '@/scripts/interface/mapping/ChainItem'
-import { useWallet, type Wallet } from 'avm-wallet-vue'
+import { useWallet, type Wallet } from '@txnlab/use-wallet-vue'
 import algosdk from 'algosdk'
 import { useToast } from 'primevue/usetoast'
 import { AlgoConnectorType } from '@/scripts/interface/algo/AlgoConnectorType'
@@ -19,8 +19,9 @@ const { wallets, activeWallet, activeAccount } = useWallet()
 const store = useAppStore()
 
 const walletButtonClick = async (wallet: Wallet) => {
-  console.log('wallet', wallet)
+  console.log('source.wallet', wallet, activeWallet, activeAccount)
   await wallet.connect()
+  console.log('source.wallet2', wallet, activeWallet, activeAccount)
   if (activeAccount.value?.address) {
     store.state.sourceAddress = activeAccount.value?.address
     store.state.sourceAlgoConnectorType = AlgoConnectorType.UseWallet

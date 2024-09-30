@@ -2,9 +2,11 @@ import BigNumber from 'bignumber.js'
 import getSecureConfiguration from '../common/getSecureConfiguration'
 import getIndexerClientByChainId from './getIndexerClientByChainId'
 import asyncdelay from '../common/asyncDelay'
+import algosdk from 'algosdk'
 
 const getAlgoAccountTokenBalance = async (chainId: number, accountAddress: string, asa: number): Promise<BigNumber | null> => {
   try {
+    if (!algosdk.isValidAddress(accountAddress)) return new BigNumber('0')
     const secureConfiguration = await getSecureConfiguration()
     if (!secureConfiguration?.chains || !secureConfiguration.chains[chainId]) return null
     const indexer = await getIndexerClientByChainId(chainId)

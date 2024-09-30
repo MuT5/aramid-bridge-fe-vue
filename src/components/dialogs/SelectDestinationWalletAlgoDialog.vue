@@ -15,12 +15,12 @@ import { isWalletForChain } from '@/scripts/algo/isWalletForChain'
 
 const toast = useToast()
 
-const { wallets, activeWallet, activeAccount } = useWallet()
+const { wallets, activeAccount } = useWallet()
 
 const store = useAppStore()
 
 const walletButtonClick = async (wallet: Wallet) => {
-  console.log('wallet', wallet)
+  console.log('destination.wallet', wallet, activeAccount)
   await wallet.connect()
   if (activeAccount.value?.address) {
     store.state.destinationAddress = activeAccount.value?.address
