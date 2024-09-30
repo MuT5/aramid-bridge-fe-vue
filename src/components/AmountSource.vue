@@ -103,7 +103,7 @@ const setMax = () => {
   store.state.sourceAmount = store.state.sourceAddressBalance
   if (store.state.sourceToken === '0') {
     // on AVM make sure we deduct the tx fee
-    store.state.sourceAmount = new BigNumber(store.state.sourceAddressBalance).minus(1000).toFixed(0, 1)
+    store.state.sourceAmount = new BigNumber(store.state.sourceAddressBalance).minus(101000).toFixed(0, 1)
   }
   store.state.sourceAmountFormatted = formatBaseAmount(store.state.sourceAmount, store.state.sourceTokenConfiguration.decimals)
 
