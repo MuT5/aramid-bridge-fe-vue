@@ -75,9 +75,7 @@
         }
       },
       "logo": "base",
-      "blockExplorers": [
-        "https://basescan.org/tx/"
-      ],
+      "blockExplorers": ["https://basescan.org/tx/"],
       "soldiersByRound": [
         {
           "validFrom": 0,
@@ -143,9 +141,7 @@
         }
       },
       "logo": "arbitrum",
-      "blockExplorers": [
-        "https://arbiscan.io/tx/"
-      ],
+      "blockExplorers": ["https://arbiscan.io/tx/"],
       "soldiersByRound": [
         {
           "validFrom": 0,
@@ -170,9 +166,7 @@
       "tokens": {},
       "address": "ARAMIDFJYV2TOFB5MRNZJIXBSAVZCVAUDAPFGKR5PNX4MTILGAZABBTXQQ",
       "logo": "algo",
-      "blockExplorers": [
-        "https://aramid.algoexplorer.io/tx/"
-      ],
+      "blockExplorers": ["https://aramid.algoexplorer.io/tx/"],
       "soldiersByRound": [
         {
           "validFrom": 0,
@@ -196,9 +190,7 @@
       "folder": "algo",
       "address": "ARAMIDFJYV2TOFB5MRNZJIXBSAVZCVAUDAPFGKR5PNX4MTILGAZABBTXQQ",
       "logo": "algo",
-      "blockExplorers": [
-        "https://allo.info/tx/"
-      ],
+      "blockExplorers": ["https://allo.info/tx/"],
       "tokens": {
         "0": {
           "tokenId": "0",
@@ -219,6 +211,26 @@
           "type": "algo",
           "isPremium": false,
           "logo": "usdc"
+        },
+        "400593267": {
+          "tokenId": "400593267",
+          "name": "DeFi-nite",
+          "symbol": "Finite",
+          "decimals": 8,
+          "chainId": 416001,
+          "type": "algo",
+          "isPremium": false,
+          "logo": "finite"
+        },
+        "452399768": {
+          "tokenId": "452399768",
+          "name": "Vote Coin",
+          "symbol": "Vote",
+          "decimals": 6,
+          "chainId": 416001,
+          "type": "algo",
+          "isPremium": false,
+          "logo": "vote"
         },
         "1241944285": {
           "tokenId": "1241944285",
@@ -259,6 +271,16 @@
           "type": "algo",
           "isPremium": true,
           "logo": "aramid-usdc"
+        },
+        "2591862562": {
+          "tokenId": "2591862562",
+          "name": "UNIT",
+          "symbol": "UNIT",
+          "decimals": 8,
+          "chainId": 416001,
+          "type": "algo",
+          "isPremium": false,
+          "logo": "unit"
         }
       },
       "soldiersByRound": [
@@ -284,9 +306,7 @@
       "folder": "algo",
       "address": "ARAMIDFJYV2TOFB5MRNZJIXBSAVZCVAUDAPFGKR5PNX4MTILGAZABBTXQQ",
       "logo": "voi",
-      "blockExplorers": [
-        "https://explorer.voi.network/explorer/transaction/"
-      ],
+      "blockExplorers": ["https://explorer.voi.network/explorer/transaction/"],
       "tokens": {
         "0": {
           "tokenId": "0",
@@ -327,6 +347,36 @@
           "type": "algo",
           "isPremium": true,
           "logo": "gold"
+        },
+        "747374": {
+          "tokenId": "747374",
+          "name": "UNIT",
+          "symbol": "UNIT",
+          "decimals": 8,
+          "chainId": 416101,
+          "type": "algo",
+          "isPremium": false,
+          "logo": "unit"
+        },
+        "797369": {
+          "tokenId": "797369",
+          "name": "DeFi-nite",
+          "symbol": "Finite",
+          "decimals": 8,
+          "chainId": 416101,
+          "type": "algo",
+          "isPremium": false,
+          "logo": "finite"
+        },
+        "797372": {
+          "tokenId": "797372",
+          "name": "Vote Coin",
+          "symbol": "Vote",
+          "decimals": 6,
+          "chainId": 416101,
+          "type": "algo",
+          "isPremium": false,
+          "logo": "vote"
         }
       },
       "soldiersByRound": [
@@ -2783,6 +2833,90 @@
             ]
           }
         },
+        "400593267": {
+          "797369": {
+            "sourceChain": 416001,
+            "sourceToken": "400593267",
+            "sourceName": "DeFi-nite",
+            "sourceSymbol": "Finite",
+            "sourceDecimals": 8,
+            "sourceType": "algo",
+            "sourceTokenLogo": "finite",
+            "destinationChain": 416101,
+            "destinationToken": "797369",
+            "destinationName": "DeFi-nite",
+            "destinationSymbol": "Finite",
+            "destinationDecimals": 8,
+            "destinationType": "algo",
+            "destinationTokenLogo": "finite",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "10000000",
+                "maximumAmount": "99999999900000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "99999999900000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          }
+        },
+        "452399768": {
+          "797372": {
+            "sourceChain": 416001,
+            "sourceToken": "452399768",
+            "sourceName": "Vote Coin",
+            "sourceSymbol": "Vote",
+            "sourceDecimals": 6,
+            "sourceType": "algo",
+            "sourceTokenLogo": "vote",
+            "destinationChain": 416101,
+            "destinationToken": "797372",
+            "destinationName": "Vote Coin",
+            "destinationSymbol": "Vote",
+            "destinationDecimals": 6,
+            "destinationType": "algo",
+            "destinationTokenLogo": "vote",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "100000",
+                "maximumAmount": "999999999000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "999999999000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          }
+        },
         "1241944285": {
           "302228": {
             "sourceChain": 416001,
@@ -2942,6 +3076,48 @@
                 "validUntil": 999999999,
                 "minimumAmount": "1",
                 "maximumAmount": "999999999000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          }
+        },
+        "2591862562": {
+          "747374": {
+            "sourceChain": 416001,
+            "sourceToken": "2591862562",
+            "sourceName": "UNIT",
+            "sourceSymbol": "UNIT",
+            "sourceDecimals": 8,
+            "sourceType": "algo",
+            "sourceTokenLogo": "unit",
+            "destinationChain": 416101,
+            "destinationToken": "747374",
+            "destinationName": "UNIT",
+            "destinationSymbol": "UNIT",
+            "destinationDecimals": 8,
+            "destinationType": "algo",
+            "destinationTokenLogo": "unit",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "10000000",
+                "maximumAmount": "99999999900000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "99999999900000000",
                 "sourceConst": 0,
                 "sourcePercent": 0.001,
                 "destinationConst": 0,
@@ -3518,6 +3694,132 @@
                 "validFrom": 0,
                 "validUntil": 999999999,
                 "minimumAmount": "1000",
+                "maximumAmount": "999999999000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "999999999000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          }
+        },
+        "747374": {
+          "2591862562": {
+            "sourceChain": 416101,
+            "sourceToken": "747374",
+            "sourceName": "UNIT",
+            "sourceSymbol": "UNIT",
+            "sourceDecimals": 8,
+            "sourceType": "algo",
+            "sourceTokenLogo": "unit",
+            "destinationChain": 416001,
+            "destinationToken": "2591862562",
+            "destinationName": "UNIT",
+            "destinationSymbol": "UNIT",
+            "destinationDecimals": 8,
+            "destinationType": "algo",
+            "destinationTokenLogo": "unit",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "10000000",
+                "maximumAmount": "99999999900000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "99999999900000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          }
+        },
+        "797369": {
+          "400593267": {
+            "sourceChain": 416101,
+            "sourceToken": "797369",
+            "sourceName": "DeFi-nite",
+            "sourceSymbol": "Finite",
+            "sourceDecimals": 8,
+            "sourceType": "algo",
+            "sourceTokenLogo": "finite",
+            "destinationChain": 416001,
+            "destinationToken": "400593267",
+            "destinationName": "DeFi-nite",
+            "destinationSymbol": "Finite",
+            "destinationDecimals": 8,
+            "destinationType": "algo",
+            "destinationTokenLogo": "finite",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "10000000",
+                "maximumAmount": "99999999900000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "99999999900000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          }
+        },
+        "797372": {
+          "452399768": {
+            "sourceChain": 416101,
+            "sourceToken": "797372",
+            "sourceName": "Vote Coin",
+            "sourceSymbol": "Vote",
+            "sourceDecimals": 6,
+            "sourceType": "algo",
+            "sourceTokenLogo": "vote",
+            "destinationChain": 416001,
+            "destinationToken": "452399768",
+            "destinationName": "Vote Coin",
+            "destinationSymbol": "Vote",
+            "destinationDecimals": 6,
+            "destinationType": "algo",
+            "destinationTokenLogo": "vote",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "100000",
                 "maximumAmount": "999999999000000",
                 "sourceConst": 0,
                 "sourcePercent": 0.001,

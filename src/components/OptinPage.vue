@@ -127,6 +127,8 @@ const optinUsingUseWallet = async () => {
 
     <p>On {{ store.state.destinationChainConfiguration?.name }} chain the standard assets require to be opted in to the asset before third party can do deposit.</p>
 
+    <p v-if="store.state.destinationToken"><CopyIcon :text="store.state.destinationToken" :title="store.state.destinationToken"></CopyIcon> {{ store.state.destinationToken }}</p>
+
     <div v-if="activeAccount?.address == store.state.destinationAddress">
       <p v-if="state.signInWallet"><img :src="loader" alt="Loading" height="18" width="18" class="inline-block" /> Please sign your transaction in your {{ avmActiveWallet?.name }} wallet</p>
       <p v-if="state.sendingOptin"><img :src="loader" alt="Loading" height="18" width="18" class="inline-block" /> Sending optin to the {{ store.state.destinationChainConfiguration?.name }}</p>
