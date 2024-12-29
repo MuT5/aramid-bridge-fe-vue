@@ -22,14 +22,14 @@ const config: SecureConfiguration = {
     '416101': {
       type: 'algo',
       algod: {
-        host: 'https://mainnet-api.voi.nodely.dev	',
+        host: 'https://mainnet-api.voi.nodely.dev',
         port: 443,
         header: 'X-Algo-API-Token',
         token: '',
         delay: 1000
       },
       indexer: {
-        host: 'https://mainnet-idx.voi.nodely.dev	',
+        host: 'https://mainnet-idx.voi.nodely.dev',
         port: 443,
         header: 'X-Indexer-API-Token',
         token: '',
@@ -121,14 +121,14 @@ const config: SecureConfiguration = {
     '416102': {
       type: 'algo',
       algod: {
-        host: 'https://testnet-api.voi.nodly.io',
+        host: 'https://testnet-api.voi.nodely.dev',
         port: 443,
         header: '',
         token: '',
         delay: 1000
       },
       indexer: {
-        host: 'https://testnet-idx.voi.nodly.io',
+        host: 'https://testnet-idx.voi.nodely.dev',
         port: 443,
         header: '',
         token: '',
