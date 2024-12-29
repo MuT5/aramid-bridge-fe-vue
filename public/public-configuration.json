@@ -350,6 +350,8 @@
         },
         "747374": {
           "tokenId": "747374",
+          "contractId": "420069",
+          "unitAppId": "747368",
           "name": "UNIT",
           "symbol": "UNIT",
           "decimals": 8,

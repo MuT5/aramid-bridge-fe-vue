@@ -22,6 +22,9 @@ import MainActionButton from './ui/MainActionButton.vue'
 import { getClaimTx } from '@/scripts/aramid/getClaimTx'
 import { getTxClaimData } from '@/scripts/aramid/getTxClaimData'
 import { resetStateSoft } from '@/scripts/common/resetStateSoft'
+import { CONTRACT, abi } from 'ulujs'
+import { BigNumber } from 'bignumber.js'
+import getAlgoAccountTokenBalance from '@/scripts/algo/getAlgoAccountTokenBalance'
 
 const store = useAppStore()
 const route = useRoute()
@@ -100,30 +103,131 @@ const signWithUseWallet = async () => {
     const algodClient = await getAlgodClientByChainId(store.state.sourceChain)
     if (!algodClient) throw Error('Algod client not initialized')
     const params = await algodClient.getTransactionParams().do()
-    const tx =
-      Number(store.state.sourceToken) > 0
-        ? algosdk.makeAssetTransferTxnWithSuggestedParamsFromObject({
-            amount: BigInt(store.state.sourceAmount),
-            from: store.state.sourceAddress,
-            to: store.state.sourceBridgeAddress,
-            suggestedParams: params,
-            note: new Uint8Array(Buffer.from(store.state.sourceTxNote)),
-            assetIndex: Number(store.state.sourceToken)
-          })
-        : algosdk.makePaymentTxnWithSuggestedParamsFromObject({
-            amount: BigInt(store.state.sourceAmount),
-            from: store.state.sourceAddress,
-            to: store.state.sourceBridgeAddress,
-            suggestedParams: params,
-            note: new Uint8Array(Buffer.from(store.state.sourceTxNote))
-          })
 
-    const signed = await activeWallet.value?.signTransactions([tx])
-    if (signed && signed[0]) {
-      await algodClient.sendRawTransaction(signed[0]).do()
-      store.state.bridgeTx = tx.txID()
+    let signed: Uint8Array[] | undefined
+
+    // smart asset (arc200)
+    const config = store.state.sourceTokenConfiguration as any
+    if (config?.contractId || config?.unitAppId) {
+      const { contractId, unitAppId, decimals, name, chainId } = store.state.sourceTokenConfiguration as any
+      const tokenId = store.state.sourceToken
+      const amount = BigInt(store.state.sourceAmount)
+      const asaAmount = BigInt((await getAlgoAccountTokenBalance(chainId, store.state?.sourceAddress || '', Number(tokenId)))?.toFixed(0) || '0')
+      const approveAmount = asaAmount > amount ? BigInt(0) : amount - asaAmount
+      const normalizedAmount = new BigNumber(approveAmount.toString()).div(10 ** decimals).toFixed(decimals)
+      const ci = new CONTRACT(Number(unitAppId), algodClient, undefined, abi.custom, {
+        addr: store.state.sourceAddress,
+        sk: new Uint8Array()
+      })
+      const makeConstructor = (contractId: string, abi: any) => {
+        return new CONTRACT(
+          Number(contractId),
+          algodClient,
+          undefined,
+          abi,
+          {
+            addr: store.state?.sourceAddress || '',
+            sk: new Uint8Array()
+          },
+          true,
+          false,
+          true
+        )
+      }
+      const builder = {
+        arc200: makeConstructor(contractId, abi.arc200),
+        saw200: makeConstructor(unitAppId, {
+          name: 'saw200',
+          desc: 'saw200',
+          methods: [
+            {
+              name: 'deposit',
+              args: [
+                {
+                  type: 'uint64'
+                }
+              ],
+              returns: {
+                type: 'void'
+              }
+            }
+          ],
+          events: []
+        })
+      }
+      const buildN = []
+      {
+        const txnO = (await builder.arc200.arc200_approve(algosdk.getApplicationAddress(Number(unitAppId)), approveAmount))?.obj
+        const msg = `Approving ARC200 to ASA conversion for ${normalizedAmount} ${name}`
+        buildN.push({
+          ...txnO,
+          note: new TextEncoder().encode(msg)
+        })
+      }
+      {
+        const txnO = (await builder.saw200.deposit(approveAmount))?.obj
+        const msg = `Depositing ${normalizedAmount} ${name} for ARC200 to ASA conversion`
+        const assetOptin = {
+          xaid: Number(tokenId),
+          snd: store.state.sourceAddress,
+          arcv: store.state.sourceAddress
+        }
+        buildN.push({
+          ...txnO,
+          ...assetOptin,
+          note: new TextEncoder().encode(msg)
+        })
+      }
+      {
+        const txnO = (await builder.arc200.arc200_approve(algosdk.getApplicationAddress(Number(unitAppId)), 0))?.obj // ignored
+        const assetTransfer = {
+          xaid: Number(tokenId),
+          snd: store.state.sourceAddress,
+          arcv: store.state.sourceBridgeAddress,
+          xamt: BigInt(store.state.sourceAmount),
+          xano: new Uint8Array(Buffer.from(store.state.sourceTxNote))
+        }
+        buildN.push({
+          ...txnO,
+          ...assetTransfer,
+          ignore: true
+        })
+      }
+      ci.setFee(2000)
+      ci.setEnableGroupResourceSharing(true)
+      ci.setExtraTxns(buildN)
+      const customR = await ci.custom()
+      if (!customR.success) {
+        throw Error(customR.error)
+      }
+      signed = await activeWallet.value?.signTransactions(customR.txns.map((txn: string) => new Uint8Array(Buffer.from(txn, 'base64'))))
     }
+    // algo or asa
+    else {
+      const tx =
+        Number(store.state.sourceToken) > 0
+          ? algosdk.makeAssetTransferTxnWithSuggestedParamsFromObject({
+              amount: BigInt(store.state.sourceAmount),
+              from: store.state.sourceAddress,
+              to: store.state.sourceBridgeAddress,
+              suggestedParams: params,
+              note: new Uint8Array(Buffer.from(store.state.sourceTxNote)),
+              assetIndex: Number(store.state.sourceToken)
+            })
+          : algosdk.makePaymentTxnWithSuggestedParamsFromObject({
+              amount: BigInt(store.state.sourceAmount),
+              from: store.state.sourceAddress,
+              to: store.state.sourceBridgeAddress,
+              suggestedParams: params,
+              note: new Uint8Array(Buffer.from(store.state.sourceTxNote))
+            })
 
+      signed = await activeWallet.value?.signTransactions([tx])
+    }
+    if (signed && signed[0]) {
+      const res = await algodClient.sendRawTransaction(signed).do()
+      store.state.bridgeTx = res.txId
+    }
     console.log('signed', signed)
   } catch (e: any) {
     console.error(e)
