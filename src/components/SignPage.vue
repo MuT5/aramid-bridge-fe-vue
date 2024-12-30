@@ -104,7 +104,7 @@ const signWithUseWallet = async () => {
     if (!algodClient) throw Error('Algod client not initialized')
     const params = await algodClient.getTransactionParams().do()
 
-    let signed: Uint8Array[] | undefined
+    let signed: any
 
     // smart asset (arc200)
     const config = store.state.sourceTokenConfiguration as any

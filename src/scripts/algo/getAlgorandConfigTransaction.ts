@@ -22,7 +22,7 @@ const getAlgorandConfigTransaction = async (daoToken: number, chainId: number, s
       console.log('config transactions:', txs);
       next = txs['next-token'];
       if (txs.transactions.length == 0) throw 'Unable to find aramid-config tx';
-      for (let index in txs.transactions) {
+      for (const index in txs.transactions) {
         const tx = txs.transactions[index];
         if (!tx['asset-transfer-transaction']) continue;
         if (tx['asset-transfer-transaction'].receiver != sender) continue;
