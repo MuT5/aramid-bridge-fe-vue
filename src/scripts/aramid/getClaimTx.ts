@@ -9,7 +9,7 @@ export const getClaimTx = async (txHash: string): Promise<string | null> => {
   console.log('aramid transactions:', bridgeLog)
   const transactions = bridgeLog.transactions
   if (!bridgeLog || !bridgeLog.transactions) return null
-  console.log('searching transactions')
+  console.log('searching transactions for', txHash)
   for (const currTx of transactions) {
     if (!currTx.note) {
       console.error('!currTx.note', currTx)
