@@ -28,5 +28,5 @@ export const checkDestinationAlgoTx = async () => {
       console.error(e)
     }
   }
-  // console.log('txs', store.state.destinationAddress, txs.transactions)
+  //console.log('txs', store.state.destinationAddress, txs.transactions)
 }

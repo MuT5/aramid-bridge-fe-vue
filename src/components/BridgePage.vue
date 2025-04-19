@@ -151,7 +151,9 @@ const doValidation = (): boolean => {
       throw Error('sourceTokenConfiguration is empty.')
     } else if (!store.state.destinationTokenConfiguration) {
       throw Error('destinationTokenConfiguration is empty.')
-    } else if (!store.state.escrowBalanceIsSufficient) {
+    }
+    // For some reason this fails in dev mode, but not in prod
+    else if (!store.state.escrowBalanceIsSufficient) {
       throw Error('Insufficient liquidity to fulfill bridge request, please try again later.')
     } else if (
       !store.state.destinationBridgeBalance ||

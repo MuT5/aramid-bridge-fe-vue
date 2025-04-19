@@ -101,10 +101,25 @@ const buttonClick = async () => {
     }
   }
 }
+
 const getImageUrl = () => {
   if (state.connected) {
-    const ret = new URL(`../assets/images/WalletConnected.svg`, import.meta.url)
-    return ret.toString()
+    // eth does not allow manual address entry
+    if (store.state.destinationChainConfiguration?.type == 'eth') {
+      const ret = new URL(`../assets/images/WalletConnected.svg`, import.meta.url)
+      return ret.toString()
+    } else {
+      // if the address is not the same as the active account, show the wallet icon
+      if (activeAccount.value?.address !== store.state.destinationAddress) {
+        const ret = new URL(`../assets/images/Wallet.svg`, import.meta.url)
+        return ret.toString()
+      }
+      // is manual address entry and not connected
+      else {
+        const ret = new URL(`../assets/images/WalletConnected.svg`, import.meta.url)
+        return ret.toString()
+      }
+    }
   } else {
     const ret = new URL(`../assets/images/Wallet.svg`, import.meta.url)
     return ret.toString()
