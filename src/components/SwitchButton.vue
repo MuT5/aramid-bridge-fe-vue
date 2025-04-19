@@ -16,7 +16,7 @@ const switchClick = () => {
 
   // 
   // TODO should only allow this if conditionally to prevent the user from switching to address not connect
-  //      in case of cleam
+  //      in case of clean
   //
   // const currSourceAddress = store.state.sourceAddress
   // store.state.sourceAddress = store.state.destinationAddress
