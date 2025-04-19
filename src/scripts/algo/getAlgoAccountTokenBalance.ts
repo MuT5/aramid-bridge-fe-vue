@@ -11,6 +11,7 @@ const getAlgoAccountTokenBalance = async (chainId: number, accountAddress: strin
     const secureConfiguration = await getSecureConfiguration()
     if (!secureConfiguration?.chains || !secureConfiguration.chains[chainId]) return null
     const indexer = await getIndexerClientByChainId(chainId)
+    const algod = await getAlgodClientByChainId(chainId)
     await asyncdelay(200)
     const account = await indexer?.lookupAccountByID(accountAddress).do()
     console.log('algo.account', chainId, account)

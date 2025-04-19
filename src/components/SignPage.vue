@@ -71,8 +71,8 @@ const routeToReviewScreen = () => {
   router.push({ name: 'review-sc-dc-st-dt-sa-da-a-n' })
 }
 
-const checkSourceTx = async () => {
-  console.log('checkSourceTx', store.state.claimTx, store.state.bridgeTx)
+const matchBridgeTxByDataClick = async () => {
+  console.log('matchBridgeTxByDataClick')
   if (!store.state.bridgeTx) {
     if (store.state.sourceChainConfiguration?.type == 'algo') {
       const txId = await checkSourceAlgoTx()
@@ -89,6 +89,17 @@ const checkSourceTx = async () => {
       }
     }
   }
+  if (!store.state.bridgeTx) {
+    toast.add({
+      severity: 'error',
+      detail: 'Transaction has not yet been found',
+      life: 3000
+    })
+  }
+}
+
+const checkSourceTx = async () => {
+  console.log('checkSourceTx', store.state.claimTx, store.state.bridgeTx)
   if (!store.state.claimTx && store.state.bridgeTx) {
     if (store.state.destinationChainConfiguration?.type == 'eth') {
       const claimTx = await getClaimTx(store.state.bridgeTx)
@@ -164,6 +175,7 @@ const signWithUseWallet = async () => {
     const config = store.state.sourceTokenConfiguration as any
     if (config?.contractId || config?.unitAppId) {
       const { contractId, unitAppId, decimals, name, chainId } = store.state.sourceTokenConfiguration as any
+
       const sourceAddress = store.state?.sourceAddress || ''
       const tokenId = store.state.sourceToken
       const amount = BigInt(store.state.sourceAmount)
@@ -173,6 +185,7 @@ const signWithUseWallet = async () => {
       const normalizedAmount = new BigNumber(approveAmount.toString()).div(10 ** decimals).toFixed(decimals)
       const ci = new CONTRACT(Number(unitAppId), algodClient, undefined, abi.custom, {
         addr: sourceAddress,
+
         sk: new Uint8Array()
       })
       const makeConstructor = (contractId: string, abi: any) => {
@@ -445,6 +458,7 @@ const claimButtonClick = async () => {
         </div>
         <div class="text-center font-bold m-4">
           <img :src="loader" alt="Loading" height="18" width="18" class="inline-block" /> Please scan QR code, and send the transaction to the blockchain from your wallet
+          <MainActionButton @click="matchBridgeTxByDataClick">Transaction has been submitted</MainActionButton>
         </div>
       </div>
       <div v-if="store.state.sourceAlgoConnectorType == AlgoConnectorType.UseWallet" class="text-center font-bold m-4">
