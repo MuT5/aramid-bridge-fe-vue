@@ -3,6 +3,7 @@ import getSecureConfiguration from '../common/getSecureConfiguration'
 import getIndexerClientByChainId from './getIndexerClientByChainId'
 import asyncdelay from '../common/asyncDelay'
 import algosdk from 'algosdk'
+import getAlgodClientByChainId from './getAlgodClientByChainId'
 
 const getAlgoAccountTokenBalance = async (chainId: number, accountAddress: string, asa: number): Promise<BigNumber | null> => {
   try {

@@ -9,10 +9,9 @@ export const checkSourceAlgoTx = async () => {
   if (!store.state.sourceTokenConfiguration) return
   const indexer = await getIndexerClientByChainId(store.state.sourceChain)
   if (!indexer) return
-  const txs = await indexer.lookupAccountTransactions(store.state.sourceBridgeAddress).do()
+  const txs = await indexer.lookupAccountTransactions(store.state.sourceBridgeAddress).limit(1000).do()
   for (const tx of txs.transactions.filter((tx: any) => tx.sender == store.state.sourceAddress && !!tx.note)) {
     // check asset and amount
-    console.log('checking', tx)
     if (store.state.sourceToken === '0') {
       // native token transfer
       if (tx['tx-type'] !== 'pay') {

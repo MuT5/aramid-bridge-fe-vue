@@ -67,7 +67,11 @@ watch(
       <ul class="bg-gradient-to-r from-topleft-purple to-bottomright-purple drop-shadow-menu-default rounded-[26px] p-3">
         <DialogTitle> Select asset which you want to bridge to other chain </DialogTitle>
 
-        <AssetButton v-for="(item, index) in state.assets" :key="index" :img="item.logo" :text="item.name" :id="item.tokenId" @click="assetButtonClick(item.tokenId)"></AssetButton>
+        <div v-if="!state.assets?.length" class="text-white">No assets available</div>
+
+        <template v-for="(item, index) in state.assets" :key="index">
+          <AssetButton :img="item.logo" :text="item.name" :id="item.tokenId" @click="assetButtonClick(item.tokenId)" @error="console.log('Failed to load image for:', item.name)" />
+        </template>
       </ul>
     </div>
   </div>

@@ -15,6 +15,7 @@ import { checkDestinationAlgoTx } from '@/scripts/algo/checkDestinationAlgoTx'
 import FireworksEffect from './ui/FireworksEffect.vue'
 import { AlgoConnectorType } from '@/scripts/interface/algo/AlgoConnectorType'
 import { useWallet } from '@txnlab/use-wallet-vue'
+import { useWallet as useAvmWallet } from 'avm-wallet-vue'
 import algosdk from 'algosdk'
 import getAlgodClientByChainId from '@/scripts/algo/getAlgodClientByChainId'
 import { useToast } from 'primevue/usetoast'
@@ -22,12 +23,47 @@ import MainActionButton from './ui/MainActionButton.vue'
 import { getClaimTx } from '@/scripts/aramid/getClaimTx'
 import { getTxClaimData } from '@/scripts/aramid/getTxClaimData'
 import { resetStateSoft } from '@/scripts/common/resetStateSoft'
+import { CONTRACT, abi } from 'ulujs'
+import { BigNumber } from 'bignumber.js'
+import getAlgoAccountTokenBalance from '@/scripts/algo/getAlgoAccountTokenBalance'
+import getAlgoAcountTokenOptin from '@/scripts/algo/getAlgoAccountTokenOptedIn'
+
+const saw200ABI = {
+  name: 'saw200',
+  desc: 'saw200 is an intra-chain bridge for ARC200 to ASA conversion',
+  methods: [
+    {
+      name: 'deposit',
+      args: [
+        {
+          type: 'uint64'
+        }
+      ],
+      returns: {
+        type: 'void'
+      }
+    },
+    {
+      name: 'withdraw',
+      args: [
+        {
+          type: 'uint64'
+        }
+      ],
+      returns: {
+        type: 'void'
+      }
+    }
+  ],
+  events: []
+}
 
 const store = useAppStore()
 const route = useRoute()
 const router = useRouter()
 const toast = useToast()
 const { activeWallet } = useWallet()
+const { avmActiveWallet, activeAccount } = useAvmWallet()
 
 const routeToReviewScreen = () => {
   console.log('routeToReviewScreen')
@@ -41,7 +77,15 @@ const checkSourceTx = async () => {
     if (store.state.sourceChainConfiguration?.type == 'algo') {
       const txId = await checkSourceAlgoTx()
       if (txId) {
-        store.state.bridgeTx = txId
+        const algodClient = await getAlgodClientByChainId(store.state.sourceChain)
+        try {
+          const txInfo = await algodClient.pendingTransactionInformation(txId).do()
+          if (txInfo['confirmed-round']) {
+            store.state.bridgeTx = txId
+          }
+        } catch (error) {
+          console.error('Error checking transaction confirmation:', error)
+        }
       }
     }
   }
@@ -50,16 +94,14 @@ const checkSourceTx = async () => {
       const claimTx = await getClaimTx(store.state.bridgeTx)
       if (claimTx) {
         store.state.claimTx = claimTx
-        console.log('claimTx', claimTx)
         const claimData = await getTxClaimData(claimTx)
-        console.log('claimData', claimData)
         if (claimData) {
           store.state.claimData = claimData
         }
         router.push('/claim/' + store.state.bridgeTx)
       }
     }
-    if (store.state.destinationChainConfiguration?.type == 'algo') {
+    if (store.state.destinationChainConfiguration?.type === 'algo') {
       const txId = await checkDestinationAlgoTx()
       if (txId) {
         store.state.claimTx = txId
@@ -78,6 +120,21 @@ onMounted(async () => {
   }
   if (store.state.sourceChainConfiguration?.type == 'algo' && !store.state.sourceTxNote) {
     routeToReviewScreen()
+  }
+
+  // Add check for destination wallet connection when bridging to Voi with unitAppId
+  if (
+    store.state.destinationChainConfiguration?.name === 'Voi' &&
+    store.state.destinationTokenConfiguration?.unitAppId &&
+    (!avmActiveWallet?.value || activeAccount.value?.address !== store.state.destinationAddress)
+  ) {
+    toast.add({
+      severity: 'error',
+      detail: 'Please connect the destination wallet address',
+      life: 3000
+    })
+    routeToReviewScreen()
+    return
   }
 
   timerInterval.value = setInterval(checkSourceTx.bind(this), 3000)
@@ -100,31 +157,120 @@ const signWithUseWallet = async () => {
     const algodClient = await getAlgodClientByChainId(store.state.sourceChain)
     if (!algodClient) throw Error('Algod client not initialized')
     const params = await algodClient.getTransactionParams().do()
-    const tx =
-      Number(store.state.sourceToken) > 0
-        ? algosdk.makeAssetTransferTxnWithSuggestedParamsFromObject({
-            amount: BigInt(store.state.sourceAmount),
-            from: store.state.sourceAddress,
-            to: store.state.sourceBridgeAddress,
-            suggestedParams: params,
-            note: new Uint8Array(Buffer.from(store.state.sourceTxNote)),
-            assetIndex: Number(store.state.sourceToken)
-          })
-        : algosdk.makePaymentTxnWithSuggestedParamsFromObject({
-            amount: BigInt(store.state.sourceAmount),
-            from: store.state.sourceAddress,
-            to: store.state.sourceBridgeAddress,
-            suggestedParams: params,
-            note: new Uint8Array(Buffer.from(store.state.sourceTxNote))
-          })
 
-    const signed = await activeWallet.value?.signTransactions([tx])
-    if (signed && signed[0]) {
-      await algodClient.sendRawTransaction(signed[0]).do()
-      store.state.bridgeTx = tx.txID()
+    let signed: any
+
+    // smart asset (arc200)
+    const config = store.state.sourceTokenConfiguration as any
+    if (config?.contractId || config?.unitAppId) {
+      const { contractId, unitAppId, decimals, name, chainId } = store.state.sourceTokenConfiguration as any
+      const sourceAddress = store.state?.sourceAddress || ''
+      const tokenId = store.state.sourceToken
+      const amount = BigInt(store.state.sourceAmount)
+      const asaOptin = await getAlgoAcountTokenOptin(chainId, sourceAddress, Number(tokenId))
+      const asaAmount = BigInt((await getAlgoAccountTokenBalance(chainId, sourceAddress, Number(tokenId)))?.toFixed(0) || '0')
+      const approveAmount = asaAmount > amount ? BigInt(0) : amount - asaAmount
+      const normalizedAmount = new BigNumber(approveAmount.toString()).div(10 ** decimals).toFixed(decimals)
+      const ci = new CONTRACT(Number(unitAppId), algodClient, undefined, abi.custom, {
+        addr: sourceAddress,
+        sk: new Uint8Array()
+      })
+      const makeConstructor = (contractId: string, abi: any) => {
+        return new CONTRACT(
+          Number(contractId),
+          algodClient,
+          undefined,
+          abi,
+          {
+            addr: sourceAddress,
+            sk: new Uint8Array()
+          },
+          true,
+          false,
+          true
+        )
+      }
+      const builder = {
+        arc200: makeConstructor(contractId, abi.arc200),
+        saw200: makeConstructor(unitAppId, saw200ABI)
+      }
+      const buildN = []
+      {
+        const txnO = (await builder.arc200.arc200_approve(algosdk.getApplicationAddress(Number(unitAppId)), approveAmount))?.obj
+        const msg = `Approving ARC200 to ASA conversion for ${normalizedAmount} ${name}`
+        buildN.push({
+          ...txnO,
+          note: new TextEncoder().encode(msg)
+        })
+      }
+      {
+        const txnO = (await builder.saw200.deposit(approveAmount))?.obj
+        const msg = `Depositing ${normalizedAmount} ${name} for ARC200 to ASA conversion`
+        const assetOptin = {
+          xaid: Number(tokenId),
+          snd: sourceAddress,
+          arcv: sourceAddress
+        }
+        buildN.push({
+          ...txnO,
+          ...assetOptin,
+          note: new TextEncoder().encode(msg)
+        })
+      }
+      {
+        const txnO = (await builder.arc200.arc200_approve(algosdk.getApplicationAddress(Number(unitAppId)), 0))?.obj // ignored
+        const assetTransfer = {
+          xaid: Number(tokenId),
+          snd: sourceAddress,
+          arcv: store.state.sourceBridgeAddress,
+          xamt: BigInt(store.state.sourceAmount),
+          xano: new Uint8Array(Buffer.from(store.state.sourceTxNote))
+        }
+        buildN.push({
+          ...txnO,
+          ...assetTransfer,
+          ignore: true
+        })
+      }
+      ci.setFee(2000)
+      ci.setEnableGroupResourceSharing(true)
+      ci.setExtraTxns(buildN)
+      ci.setGroupResourceSharingStrategy('merge')
+      const customR = await ci.custom()
+      if (!customR.success) {
+        throw Error(customR.error)
+      }
+      signed = await activeWallet.value?.signTransactions(customR.txns.map((txn: string) => new Uint8Array(Buffer.from(txn, 'base64'))))
     }
+    // algo or asa
+    else {
+      const tx =
+        Number(store.state.sourceToken) > 0
+          ? algosdk.makeAssetTransferTxnWithSuggestedParamsFromObject({
+              amount: BigInt(store.state.sourceAmount),
+              from: store.state.sourceAddress,
+              to: store.state.sourceBridgeAddress,
+              suggestedParams: params,
+              note: new Uint8Array(Buffer.from(store.state.sourceTxNote)),
+              assetIndex: Number(store.state.sourceToken)
+            })
+          : algosdk.makePaymentTxnWithSuggestedParamsFromObject({
+              amount: BigInt(store.state.sourceAmount),
+              from: store.state.sourceAddress,
+              to: store.state.sourceBridgeAddress,
+              suggestedParams: params,
+              note: new Uint8Array(Buffer.from(store.state.sourceTxNote))
+            })
 
-    console.log('signed', signed)
+      signed = await activeWallet.value?.signTransactions([tx])
+    }
+    if (signed && signed.length > 0) {
+      // res.txId is the txId of the first transaction in the signed array
+      // algosdk.decodeSignedTransaction(signed.pop()).txn.txID() is the txId of the last transaction in the signed array
+      await algodClient.sendRawTransaction(signed).do()
+      const tx = algosdk.decodeSignedTransaction(signed.pop()).txn.txID()
+      store.state.bridgeTx = tx
+    }
   } catch (e: any) {
     console.error(e)
     toast.add({
@@ -147,6 +293,121 @@ const resetButtonClick = async () => {
   store.state.claimData = undefined
   await router.push({ name: 'bridge-sc-dc-st-dt-sa-da-a-n' })
 }
+
+const claimTxPending = ref(false)
+
+const claimButtonClick = async () => {
+  console.log('claimButtonClick')
+  try {
+    claimTxPending.value = true
+    if (!store.state.destinationTokenConfiguration?.unitAppId) return
+
+    // Check for destination wallet connection
+    if (!avmActiveWallet?.value) throw Error('Destination wallet not connected')
+    if (activeAccount.value?.address !== store.state.destinationAddress) {
+      throw Error('Please connect the destination wallet address')
+    }
+
+    const algodClient = await getAlgodClientByChainId(store.state.destinationChain)
+    if (!algodClient) throw Error('Algod client not initialized')
+
+    // get asset balance
+
+    const accAssetInfo = await algodClient.accountAssetInformation(store.state.destinationAddress, Number(store.state.destinationToken)).do()
+    const assetBalance = accAssetInfo['asset-holding']['amount']
+
+    // Initialize the main contract interface
+    const ci = new CONTRACT(Number(store.state.destinationTokenConfiguration.unitAppId), algodClient, undefined, abi.custom, {
+      addr: store.state.destinationAddress,
+      sk: new Uint8Array()
+    })
+
+    // Create builders for both F token and SAW200 contracts
+    const builder = {
+      arc200: new CONTRACT(
+        Number(store.state.destinationTokenConfiguration.contractId),
+        algodClient,
+        undefined,
+        abi.arc200,
+        {
+          addr: store.state.destinationAddress,
+          sk: new Uint8Array()
+        },
+        true,
+        false,
+        true
+      ),
+      saw200: new CONTRACT(
+        Number(store.state.destinationTokenConfiguration.unitAppId),
+        algodClient,
+        undefined,
+        saw200ABI,
+        {
+          addr: store.state.destinationAddress,
+          sk: new Uint8Array()
+        },
+        true,
+        false,
+        true
+      )
+    }
+
+    const buildN = []
+
+    // Add withdrawal transaction
+    {
+      const amount = BigInt(store.state.destinationAmount)
+      const decimals = store.state.destinationTokenConfiguration.decimals
+      const txnO = (await builder.saw200.withdraw(assetBalance))?.obj
+      const assetTransfer = {
+        type: 'axfer',
+        xaid: Number(store.state.destinationToken),
+        aamt: assetBalance,
+        arcv: algosdk.getApplicationAddress(Number(store.state.destinationTokenConfiguration.unitAppId))
+      }
+      buildN.push({
+        ...txnO,
+        ...assetTransfer,
+        note: new TextEncoder().encode(`Withdrawing ${store.state.destinationAmountFormatted} ${store.state.destinationTokenConfiguration.name}`)
+      })
+    }
+
+    // Configure and execute the transaction group
+    ci.setFee(2000)
+    ci.setEnableGroupResourceSharing(true)
+    ci.setExtraTxns(buildN)
+    const customR = await ci.custom()
+    if (!customR.success) {
+      throw Error(customR.error)
+    }
+
+    // Sign with destination wallet
+    const signed = await avmActiveWallet.value.signTransactions(customR.txns.map((txn: string) => new Uint8Array(Buffer.from(txn, 'base64'))))
+    const result = await algodClient.sendRawTransaction(signed).do()
+
+    // Wait for confirmation
+    await algodClient.status().do()
+    await algodClient.pendingTransactionInformation(result.txId).do()
+
+    toast.add({
+      severity: 'success',
+      detail: 'Successfully claimed tokens',
+      life: 3000
+    })
+
+    // Reset state and redirect
+    await resetButtonClick()
+  } catch (e: any) {
+    console.error(e)
+    toast.add({
+      severity: 'error',
+      detail: e.message ?? e,
+      life: 3000
+    })
+  } finally {
+    claimTxPending.value = false
+  }
+}
 </script>
 
 <template>
@@ -164,7 +425,6 @@ const resetButtonClick = async () => {
         Back
       </div>
       <div v-if="!store.state.bridgeTx" class="font-bold text-xl">Sign the transaction</div>
-      <div v-else-if="store.state.bridgeTx && !store.state.claimTx" class="font-bold text-xl">The bridging process is underway</div>
       <div v-else-if="store.state.claimTx" class="font-bold text-xl">Successful bridging</div>
     </div>
 
@@ -196,9 +456,29 @@ const resetButtonClick = async () => {
       <ShortTx :txId="store.state.bridgeTx" :length="6" :chain="store.state.sourceChain"></ShortTx>
     </div>
     <div v-else-if="store.state.claimTx && store.state.destinationChainConfiguration?.type == 'algo'">
-      <p>Bridging successful! The assets are at the destination account. TXN ID: <ShortTx :txId="store.state.claimTx" :length="6" :chain="store.state.destinationChain"></ShortTx></p>
-      <FireworksEffect></FireworksEffect>
-      <MainActionButton @click="resetButtonClick">Bridge again</MainActionButton>
+      <div v-if="store.state.destinationChainConfiguration?.name === 'Voi'">
+        <p>Your assets have been bridged successfully!</p>
+        <p>Transaction ID: <ShortTx :txId="store.state.claimTx" :length="6" :chain="store.state.destinationChain"></ShortTx></p>
+        <p>Please check your wallet to verify the received assets.</p>
+        <div v-if="store.state.destinationTokenConfiguration?.unitAppId">
+          <template v-if="claimTxPending">
+            <p class="text-center">
+              <img :src="loader" alt="Loading" height="18" width="18" class="inline-block" />
+              Claiming transaction in progress...
+            </p>
+          </template>
+          <template v-else>
+            <MainActionButton @click="claimButtonClick" tooltip="The bridged asset may need to be claimed to be used in the ecosystem"> Claim Assets </MainActionButton>
+          </template>
+        </div>
+        <FireworksEffect></FireworksEffect>
+        <MainActionButton @click="resetButtonClick">Bridge again</MainActionButton>
+      </div>
+      <div v-else>
+        <p>Bridging successful! The assets are at the destination account. TXN ID: <ShortTx :txId="store.state.claimTx" :length="6" :chain="store.state.destinationChain"></ShortTx></p>
+        <FireworksEffect></FireworksEffect>
+        <MainActionButton @click="resetButtonClick">Bridge again</MainActionButton>
+      </div>
     </div>
     <div v-else>
       <img :src="loader" alt="Loading" height="18" width="18" class="inline-block" /> Please wait a minute.

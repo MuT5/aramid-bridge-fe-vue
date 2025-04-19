@@ -12,6 +12,7 @@ import { AlgoConnectorType } from '@/scripts/interface/algo/AlgoConnectorType'
 import { useToast } from 'primevue/usetoast'
 import { fillSourceTokenConfiguration } from '@/scripts/events/fillSourceTokenConfiguration'
 import getAlgoAccountTokenBalance from '@/scripts/algo/getAlgoAccountTokenBalance'
+import getAlgoAccountARC200TokenBalance from '@/scripts/algo/getAlgoAccountARC200TokenBalance'
 import { NetworkId, useWallet } from '@txnlab/use-wallet-vue'
 import getWeb3Modal from '@/scripts/eth/getWeb3Modal'
 import { useDisconnect, useWeb3ModalAccount } from '@web3modal/ethers/vue'
@@ -19,6 +20,7 @@ import { useSwitchNetwork } from '@web3modal/ethers/vue'
 import asyncdelay from '@/scripts/common/asyncDelay'
 import getEthAccountTokenBalance from '@/scripts/eth/getEthAccountTokenBalance'
 import WalletAddress from './ui/WalletAddress.vue'
+import BigNumber from 'bignumber.js'
 
 const { setActiveNetwork, activeWallet, activeAccount } = useWallet()
 
@@ -55,13 +57,41 @@ const onSourceAddressChange = async () => {
     if (!store.state.sourceChain) return
     if (!store.state.sourceChainConfiguration) return
     if (!store.state.sourceAddress) return
-    if (store.state.sourceChainConfiguration.type == 'algo') {
-      store.state.loadingSourceAddressBalance = true
-      const balance = await getAlgoAccountTokenBalance(store.state.sourceChain, store.state.sourceAddress, Number(store.state.sourceToken))
-      if (balance !== null) {
-        store.state.sourceAddressBalance = balance.toString()
-        store.state.loadingSourceAddressBalance = false
-        console.log('onSourceAddressChange.balance', store.state.sourceAddressBalance, store.state.sourceChain, store.state.sourceAddress, Number(store.state.sourceToken))
+    if (!store.state.sourceTokenConfiguration) return
+    const sourceChainConfiguration = store.state.sourceChainConfiguration
+    const { name: sourceChainName, type: sourceChainType, chainId: sourceChainId } = sourceChainConfiguration
+    const sourceTokenConfig = store.state.sourceTokenConfiguration as any
+    const { type: sourceTokenType, contractId: sourceTokenContractId, unitAppId: sourceTokenUnitAppId, chainId: sourceTokenChainId } = sourceTokenConfig
+    if (sourceTokenType == 'algo') {
+      switch (sourceChainName) {
+        case 'Voi': {
+          if (sourceTokenConfig?.contractId) {
+            const balance = await getAlgoAccountARC200TokenBalance(store.state.sourceChain, store.state.sourceAddress, Number(sourceTokenConfig?.contractId), Number(store.state.sourceToken))
+            if (balance !== null) {
+              store.state.sourceAddressBalance = balance.toString()
+              store.state.loadingSourceAddressBalance = false
+              console.log('onSourceAddressChange.balance', store.state.sourceAddressBalance, store.state.sourceChain, store.state.sourceAddress, Number(store.state.sourceToken))
+            }
+          } else {
+            store.state.loadingSourceAddressBalance = true
+            const balance = await getAlgoAccountTokenBalance(store.state.sourceChain, store.state.sourceAddress, Number(store.state.sourceToken))
+            if (balance !== null) {
+              store.state.sourceAddressBalance = balance.toString()
+              store.state.loadingSourceAddressBalance = false
+              console.log('onSourceAddressChange.balance', store.state.sourceAddressBalance, store.state.sourceChain, store.state.sourceAddress, Number(store.state.sourceToken))
+            }
+          }
+          break
+        }
+        default: {
+          store.state.loadingSourceAddressBalance = true
+          const balance = await getAlgoAccountTokenBalance(store.state.sourceChain, store.state.sourceAddress, Number(store.state.sourceToken))
+          if (balance !== null) {
+            store.state.sourceAddressBalance = balance.toString()
+            store.state.loadingSourceAddressBalance = false
+            console.log('onSourceAddressChange.balance', store.state.sourceAddressBalance, store.state.sourceChain, store.state.sourceAddress, Number(store.state.sourceToken))
+          }
+        }
       }
     }
     if (store.state.sourceChainConfiguration.type == 'eth' && store.state.sourceToken) {

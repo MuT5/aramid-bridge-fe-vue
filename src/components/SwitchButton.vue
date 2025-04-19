@@ -9,13 +9,20 @@ const switchClick = () => {
   const currSourceChain = store.state.sourceChain
   store.state.sourceChain = store.state.destinationChain
   store.state.destinationChain = currSourceChain
+
   const currSourceChainConfiguration = store.state.sourceChainConfiguration
   store.state.sourceChainConfiguration = store.state.destinationChainConfiguration
   store.state.destinationChainConfiguration = currSourceChainConfiguration
 
-  const currSourceAddress = store.state.sourceAddress
-  store.state.sourceAddress = store.state.destinationAddress
-  store.state.destinationAddress = currSourceAddress
+  // 
+  // TODO should only allow this if conditionally to prevent the user from switching to address not connect
+  //      in case of cleam
+  //
+  // const currSourceAddress = store.state.sourceAddress
+  // store.state.sourceAddress = store.state.destinationAddress
+  // store.state.destinationAddress = currSourceAddress
+  store.state.sourceAddress = ''
+  store.state.destinationAddress = ''
 
   const currSourceToken = store.state.sourceToken
   store.state.sourceToken = store.state.destinationToken
