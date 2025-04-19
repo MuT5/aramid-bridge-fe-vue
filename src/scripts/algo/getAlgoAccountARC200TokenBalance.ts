@@ -28,7 +28,7 @@ const getAlgoAccountTokenBalance = async (chainId: number, accountAddress: strin
     }
     const asaAmount = asaItem ? BigInt(asaItem.amount) : BigInt(0)
 
-    if (!asaItem && balance == BigInt(0)) return new BigNumber('0') // if no ARC200-ASA and no ARC200, return 0
+    if (balance == BigInt(0)) return new BigNumber('0') // if no ARC200-ASA and no ARC200, return 0
 
     console.log('algo.account', chainId, accountAddress, contractId, assetId, balance, asaAmount)
     const ret = new BigNumber((asaAmount + balance).toString()) // combine ARC200 and ARC200-ASA
