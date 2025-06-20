@@ -73,15 +73,17 @@ const routeToReviewScreen = () => {
 
 const matchBridgeTxByDataClick = async () => {
   console.log('matchBridgeTxByDataClick')
-  if (!store.state.bridgeTx) {
+  if (!store.state.bridgeTx && store.state.sourceChain) {
     if (store.state.sourceChainConfiguration?.type == 'algo') {
       const txId = await checkSourceAlgoTx()
       if (txId) {
         const algodClient = await getAlgodClientByChainId(store.state.sourceChain)
         try {
-          const txInfo = await algodClient.pendingTransactionInformation(txId).do()
-          if (txInfo['confirmed-round']) {
-            store.state.bridgeTx = txId
+          if (algodClient) {
+            const txInfo = await algodClient.pendingTransactionInformation(txId).do()
+            if (txInfo['confirmed-round']) {
+              store.state.bridgeTx = txId
+            }
           }
         } catch (error) {
           console.error('Error checking transaction confirmation:', error)
@@ -136,7 +138,7 @@ onMounted(async () => {
   // Add check for destination wallet connection when bridging to Voi with unitAppId
   if (
     store.state.destinationChainConfiguration?.name === 'Voi' &&
-    store.state.destinationTokenConfiguration?.unitAppId &&
+    store.state.destinationTokenConfiguration?.arc200TokenId &&
     (!avmActiveWallet?.value || activeAccount.value?.address !== store.state.destinationAddress)
   ) {
     toast.add({
@@ -313,24 +315,24 @@ const claimButtonClick = async () => {
   console.log('claimButtonClick')
   try {
     claimTxPending.value = true
-    if (!store.state.destinationTokenConfiguration?.unitAppId) return
+    if (!store.state.destinationTokenConfiguration?.arc200TokenId) return
 
     // Check for destination wallet connection
     if (!avmActiveWallet?.value) throw Error('Destination wallet not connected')
     if (activeAccount.value?.address !== store.state.destinationAddress) {
       throw Error('Please connect the destination wallet address')
     }
-
+    if (!store.state.destinationChain) throw Error('Destination chain is not set')
     const algodClient = await getAlgodClientByChainId(store.state.destinationChain)
     if (!algodClient) throw Error('Algod client not initialized')
 
     // get asset balance
-
+    if (!store.state.destinationAddress) throw Error('Destination address is not set')
     const accAssetInfo = await algodClient.accountAssetInformation(store.state.destinationAddress, Number(store.state.destinationToken)).do()
     const assetBalance = accAssetInfo['asset-holding']['amount']
 
     // Initialize the main contract interface
-    const ci = new CONTRACT(Number(store.state.destinationTokenConfiguration.unitAppId), algodClient, undefined, abi.custom, {
+    const ci = new CONTRACT(Number(store.state.destinationTokenConfiguration.arc200TokenId), algodClient, undefined, abi.custom, {
       addr: store.state.destinationAddress,
       sk: new Uint8Array()
     })
@@ -338,7 +340,7 @@ const claimButtonClick = async () => {
     // Create builders for both F token and SAW200 contracts
     const builder = {
       arc200: new CONTRACT(
-        Number(store.state.destinationTokenConfiguration.contractId),
+        Number(store.state.destinationTokenConfiguration.asa2arc200BridgeAppId),
         algodClient,
         undefined,
         abi.arc200,
@@ -351,7 +353,7 @@ const claimButtonClick = async () => {
         true
       ),
       saw200: new CONTRACT(
-        Number(store.state.destinationTokenConfiguration.unitAppId),
+        Number(store.state.destinationTokenConfiguration.arc200TokenId),
         algodClient,
         undefined,
         saw200ABI,
@@ -376,7 +378,7 @@ const claimButtonClick = async () => {
         type: 'axfer',
         xaid: Number(store.state.destinationToken),
         aamt: assetBalance,
-        arcv: algosdk.getApplicationAddress(Number(store.state.destinationTokenConfiguration.unitAppId))
+        arcv: algosdk.getApplicationAddress(Number(store.state.destinationTokenConfiguration.arc200TokenId))
       }
       buildN.push({
         ...txnO,
@@ -396,7 +398,13 @@ const claimButtonClick = async () => {
 
     // Sign with destination wallet
     const signed = await avmActiveWallet.value.signTransactions(customR.txns.map((txn: string) => new Uint8Array(Buffer.from(txn, 'base64'))))
-    const result = await algodClient.sendRawTransaction(signed).do()
+
+    // Filter out any null values to satisfy the type requirement
+    const filteredSigned = signed.filter((s: Uint8Array | null): s is Uint8Array => s !== null)
+    if (filteredSigned.length === 0) {
+      throw Error('No transactions signed')
+    }
+    const result = await algodClient.sendRawTransaction(filteredSigned).do()
 
     // Wait for confirmation
     await algodClient.status().do()
@@ -474,7 +482,7 @@ const claimButtonClick = async () => {
         <p>Your assets have been bridged successfully!</p>
         <p>Transaction ID: <ShortTx :txId="store.state.claimTx" :length="6" :chain="store.state.destinationChain"></ShortTx></p>
         <p>Please check your wallet to verify the received assets.</p>
-        <div v-if="store.state.destinationTokenConfiguration?.unitAppId">
+        <div v-if="store.state.destinationTokenConfiguration?.arc200TokenId">
           <template v-if="claimTxPending">
             <p class="text-center">
               <img :src="loader" alt="Loading" height="18" width="18" class="inline-block" />

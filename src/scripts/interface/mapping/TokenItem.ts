@@ -1,5 +1,4 @@
-export 
-type TokenItem = {
+export type TokenItem = {
   tokenId: string
   name: string
   chainId: number
@@ -8,4 +7,6 @@ type TokenItem = {
   decimals: number
   logo: string
   isPremium: boolean
+  asa2arc200BridgeAppId?: number
+  arc200TokenId?: number
 }

@@ -33,6 +33,16 @@
       "folder": "base",
       "address": "0xC7FAA8f8C6D9Dc05ABf3C5aa741a38F9A6d1C263",
       "tokens": {
+        "0x0000000000000000000000000000000000000000": {
+          "tokenId": "0x0000000000000000000000000000000000000000",
+          "name": "Native ETH",
+          "symbol": "aETH",
+          "decimals": 18,
+          "chainId": 8453,
+          "type": "eth",
+          "isPremium": false,
+          "logo": "eth"
+        },
         "0x6792e1234B8d3E63AA7ba0D4d98cf5205b4cE5Be": {
           "tokenId": "0x6792e1234B8d3E63AA7ba0D4d98cf5205b4cE5Be",
           "name": "Aramid USDC",
@@ -72,6 +82,66 @@
           "type": "eth",
           "isPremium": true,
           "logo": "aramid-algo"
+        },
+        "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf": {
+          "tokenId": "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf",
+          "name": "Coinbase Wrapped BTC",
+          "symbol": "acbBTC",
+          "decimals": 8,
+          "chainId": 8453,
+          "type": "eth",
+          "isPremium": false,
+          "logo": "cbbtc"
+        },
+        "0xa62cE1465123C70669EB9A8EEF83Bd788ee9cBB5": {
+          "tokenId": "0xa62cE1465123C70669EB9A8EEF83Bd788ee9cBB5",
+          "name": "Aramid cbBTC",
+          "symbol": "acbBTC",
+          "decimals": 8,
+          "chainId": 8453,
+          "type": "eth",
+          "isPremium": false,
+          "logo": "cbbtc"
+        },
+        "0x0555e30da8f98308edb960aa94c0db47230d2b9c": {
+          "tokenId": "0x0555e30da8f98308edb960aa94c0db47230d2b9c",
+          "name": "Wrapped BTC",
+          "symbol": "aWBTC",
+          "decimals": 8,
+          "chainId": 8453,
+          "type": "eth",
+          "isPremium": false,
+          "logo": "wbtc"
+        },
+        "0x573daA4caA8312EeE2BaB9c8eA633664B3FBF641": {
+          "tokenId": "0x573daA4caA8312EeE2BaB9c8eA633664B3FBF641",
+          "name": "Aramid WBTC",
+          "symbol": "aWBTC",
+          "decimals": 8,
+          "chainId": 8453,
+          "type": "eth",
+          "isPremium": false,
+          "logo": "wbtc"
+        },
+        "0xb23556658b1E25E0268409053274E09Ed50e2595": {
+          "tokenId": "0xb23556658b1E25E0268409053274E09Ed50e2595",
+          "name": "Aramid ETH",
+          "symbol": "aETH",
+          "decimals": 18,
+          "chainId": 8453,
+          "type": "eth",
+          "isPremium": true,
+          "logo": "aramid-eth"
+        },
+        "0xFE987A1AB0F45d405e50dA54C80fF93F35B68567": {
+          "tokenId": "0xFE987A1AB0F45d405e50dA54C80fF93F35B68567",
+          "name": "Power",
+          "symbol": "POW",
+          "decimals": 6,
+          "chainId": 8453,
+          "type": "eth",
+          "isPremium": false,
+          "logo": "pow"
         }
       },
       "logo": "base",
@@ -99,6 +169,16 @@
       "folder": "arbitrum",
       "address": "0xC7FAA8f8C6D9Dc05ABf3C5aa741a38F9A6d1C263",
       "tokens": {
+        "0x0000000000000000000000000000000000000000": {
+          "tokenId": "0x0000000000000000000000000000000000000000",
+          "name": "Native ETH",
+          "symbol": "aETH",
+          "decimals": 18,
+          "chainId": 42161,
+          "type": "eth",
+          "isPremium": false,
+          "logo": "eth"
+        },
         "0x6792e1234B8d3E63AA7ba0D4d98cf5205b4cE5Be": {
           "tokenId": "0x6792e1234B8d3E63AA7ba0D4d98cf5205b4cE5Be",
           "name": "Aramid USDC",
@@ -138,6 +218,66 @@
           "type": "eth",
           "isPremium": true,
           "logo": "aramid-algo"
+        },
+        "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf": {
+          "tokenId": "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf",
+          "name": "Coinbase Wrapped BTC",
+          "symbol": "acbBTC",
+          "decimals": 8,
+          "chainId": 42161,
+          "type": "eth",
+          "isPremium": false,
+          "logo": "cbbtc"
+        },
+        "0xFE987A1AB0F45d405e50dA54C80fF93F35B68567": {
+          "tokenId": "0xFE987A1AB0F45d405e50dA54C80fF93F35B68567",
+          "name": "Aramid cbBTC",
+          "symbol": "acbBTC",
+          "decimals": 8,
+          "chainId": 42161,
+          "type": "eth",
+          "isPremium": false,
+          "logo": "cbbtc"
+        },
+        "0x2f2a2543B76A4166549F7aaB2e75Bef0aefC5B0f": {
+          "tokenId": "0x2f2a2543B76A4166549F7aaB2e75Bef0aefC5B0f",
+          "name": "Wrapped BTC",
+          "symbol": "aWBTC",
+          "decimals": 8,
+          "chainId": 42161,
+          "type": "eth",
+          "isPremium": false,
+          "logo": "wbtc"
+        },
+        "0xb23556658b1E25E0268409053274E09Ed50e2595": {
+          "tokenId": "0xb23556658b1E25E0268409053274E09Ed50e2595",
+          "name": "Aramid WBTC",
+          "symbol": "aWBTC",
+          "decimals": 8,
+          "chainId": 42161,
+          "type": "eth",
+          "isPremium": false,
+          "logo": "wbtc"
+        },
+        "0x573daA4caA8312EeE2BaB9c8eA633664B3FBF641": {
+          "tokenId": "0x573daA4caA8312EeE2BaB9c8eA633664B3FBF641",
+          "name": "Aramid ETH",
+          "symbol": "aETH",
+          "decimals": 18,
+          "chainId": 42161,
+          "type": "eth",
+          "isPremium": true,
+          "logo": "aramid-eth"
+        },
+        "0xa62cE1465123C70669EB9A8EEF83Bd788ee9cBB5": {
+          "tokenId": "0xa62cE1465123C70669EB9A8EEF83Bd788ee9cBB5",
+          "name": "Power",
+          "symbol": "POW",
+          "decimals": 6,
+          "chainId": 42161,
+          "type": "eth",
+          "isPremium": false,
+          "logo": "pow"
         }
       },
       "logo": "arbitrum",
@@ -232,6 +372,16 @@
           "isPremium": false,
           "logo": "vote"
         },
+        "770071959": {
+          "tokenId": "770071959",
+          "name": "Aramid ETH",
+          "symbol": "aETH",
+          "decimals": 6,
+          "chainId": 416001,
+          "type": "algo",
+          "isPremium": false,
+          "logo": "aramid-eth"
+        },
         "1241944285": {
           "tokenId": "1241944285",
           "name": "ASA.GOLD",
@@ -281,6 +431,26 @@
           "type": "algo",
           "isPremium": false,
           "logo": "unit"
+        },
+        "3081228451": {
+          "tokenId": "3081228451",
+          "name": "Aramid WBTC",
+          "symbol": "aWBTC",
+          "decimals": 8,
+          "chainId": 416001,
+          "type": "algo",
+          "isPremium": false,
+          "logo": "wbtc"
+        },
+        "3081230356": {
+          "tokenId": "3081230356",
+          "name": "Aramid cbBTC",
+          "symbol": "acbBTC",
+          "decimals": 8,
+          "chainId": 416001,
+          "type": "algo",
+          "isPremium": false,
+          "logo": "cbbtc"
         }
       },
       "soldiersByRound": [
@@ -338,6 +508,16 @@
           "isPremium": true,
           "logo": "aramid-usdc"
         },
+        "302193": {
+          "tokenId": "302193",
+          "name": "Aramid ETH",
+          "symbol": "aETH",
+          "decimals": 6,
+          "chainId": 416101,
+          "type": "algo",
+          "isPremium": false,
+          "logo": "aramid-eth"
+        },
         "302228": {
           "tokenId": "302228",
           "name": "Aramid GOLD",
@@ -350,15 +530,15 @@
         },
         "747374": {
           "tokenId": "747374",
-          "contractId": "420069",
-          "unitAppId": "747368",
           "name": "UNIT",
           "symbol": "UNIT",
           "decimals": 8,
           "chainId": 416101,
           "type": "algo",
           "isPremium": false,
-          "logo": "unit"
+          "logo": "unit",
+          "asa2arc200BridgeAppId": 747368,
+          "arc200TokenId": 420069
         },
         "797369": {
           "tokenId": "797369",
@@ -379,6 +559,36 @@
           "type": "algo",
           "isPremium": false,
           "logo": "vote"
+        },
+        "40152643": {
+          "tokenId": "40152643",
+          "name": "Aramid WBTC",
+          "symbol": "aWBTC",
+          "decimals": 8,
+          "chainId": 416101,
+          "type": "algo",
+          "isPremium": false,
+          "logo": "wbtc"
+        },
+        "40152648": {
+          "tokenId": "40152648",
+          "name": "Aramid cbBTC",
+          "symbol": "acbBTC",
+          "decimals": 8,
+          "chainId": 416101,
+          "type": "algo",
+          "isPremium": false,
+          "logo": "cbbtc"
+        },
+        "40152679": {
+          "tokenId": "40152679",
+          "name": "Power",
+          "symbol": "POW",
+          "decimals": 6,
+          "chainId": 416101,
+          "type": "algo",
+          "isPremium": false,
+          "logo": "pow"
         }
       },
       "soldiersByRound": [
@@ -401,6 +611,90 @@
   "chains2tokens": {
     "8453": {
       "8453": {
+        "0x0000000000000000000000000000000000000000": {
+          "0xb23556658b1E25E0268409053274E09Ed50e2595": {
+            "sourceChain": 8453,
+            "sourceToken": "0x0000000000000000000000000000000000000000",
+            "sourceName": "Native ETH",
+            "sourceSymbol": "aETH",
+            "sourceDecimals": 18,
+            "sourceType": "eth",
+            "sourceTokenLogo": "eth",
+            "destinationChain": 8453,
+            "destinationToken": "0xb23556658b1E25E0268409053274E09Ed50e2595",
+            "destinationName": "Aramid ETH",
+            "destinationSymbol": "aETH",
+            "destinationDecimals": 18,
+            "destinationType": "eth",
+            "destinationTokenLogo": "aramid-eth",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "100000000000000000",
+                "maximumAmount": "999999999000000000000000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "999999999000000000000000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          }
+        },
+        "0xb23556658b1E25E0268409053274E09Ed50e2595": {
+          "0x0000000000000000000000000000000000000000": {
+            "sourceChain": 8453,
+            "sourceToken": "0xb23556658b1E25E0268409053274E09Ed50e2595",
+            "sourceName": "Aramid ETH",
+            "sourceSymbol": "aETH",
+            "sourceDecimals": 18,
+            "sourceType": "eth",
+            "sourceTokenLogo": "aramid-eth",
+            "destinationChain": 8453,
+            "destinationToken": "0x0000000000000000000000000000000000000000",
+            "destinationName": "Native ETH",
+            "destinationSymbol": "aETH",
+            "destinationDecimals": 18,
+            "destinationType": "eth",
+            "destinationTokenLogo": "eth",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "100000000000000000",
+                "maximumAmount": "999999999000000000000000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "999999999000000000000000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          }
+        },
         "0x6792e1234B8d3E63AA7ba0D4d98cf5205b4cE5Be": {
           "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913": {
             "sourceChain": 8453,
@@ -484,9 +778,259 @@
               }
             ]
           }
+        },
+        "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf": {
+          "0xa62cE1465123C70669EB9A8EEF83Bd788ee9cBB5": {
+            "sourceChain": 8453,
+            "sourceToken": "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf",
+            "sourceName": "Coinbase Wrapped BTC",
+            "sourceSymbol": "acbBTC",
+            "sourceDecimals": 8,
+            "sourceType": "eth",
+            "sourceTokenLogo": "cbbtc",
+            "destinationChain": 8453,
+            "destinationToken": "0xa62cE1465123C70669EB9A8EEF83Bd788ee9cBB5",
+            "destinationName": "Aramid cbBTC",
+            "destinationSymbol": "acbBTC",
+            "destinationDecimals": 8,
+            "destinationType": "eth",
+            "destinationTokenLogo": "cbbtc",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "10000000",
+                "maximumAmount": "99999999900000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "99999999900000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          }
+        },
+        "0xa62cE1465123C70669EB9A8EEF83Bd788ee9cBB5": {
+          "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf": {
+            "sourceChain": 8453,
+            "sourceToken": "0xa62cE1465123C70669EB9A8EEF83Bd788ee9cBB5",
+            "sourceName": "Aramid cbBTC",
+            "sourceSymbol": "acbBTC",
+            "sourceDecimals": 8,
+            "sourceType": "eth",
+            "sourceTokenLogo": "cbbtc",
+            "destinationChain": 8453,
+            "destinationToken": "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf",
+            "destinationName": "Coinbase Wrapped BTC",
+            "destinationSymbol": "acbBTC",
+            "destinationDecimals": 8,
+            "destinationType": "eth",
+            "destinationTokenLogo": "cbbtc",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "10000000",
+                "maximumAmount": "99999999900000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "99999999900000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          }
+        },
+        "0x0555e30da8f98308edb960aa94c0db47230d2b9c": {
+          "0x573daA4caA8312EeE2BaB9c8eA633664B3FBF641": {
+            "sourceChain": 8453,
+            "sourceToken": "0x0555e30da8f98308edb960aa94c0db47230d2b9c",
+            "sourceName": "Wrapped BTC",
+            "sourceSymbol": "aWBTC",
+            "sourceDecimals": 8,
+            "sourceType": "eth",
+            "sourceTokenLogo": "wbtc",
+            "destinationChain": 8453,
+            "destinationToken": "0x573daA4caA8312EeE2BaB9c8eA633664B3FBF641",
+            "destinationName": "Aramid WBTC",
+            "destinationSymbol": "aWBTC",
+            "destinationDecimals": 8,
+            "destinationType": "eth",
+            "destinationTokenLogo": "wbtc",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "10000000",
+                "maximumAmount": "99999999900000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "99999999900000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          }
+        },
+        "0x573daA4caA8312EeE2BaB9c8eA633664B3FBF641": {
+          "0x0555e30da8f98308edb960aa94c0db47230d2b9c": {
+            "sourceChain": 8453,
+            "sourceToken": "0x573daA4caA8312EeE2BaB9c8eA633664B3FBF641",
+            "sourceName": "Aramid WBTC",
+            "sourceSymbol": "aWBTC",
+            "sourceDecimals": 8,
+            "sourceType": "eth",
+            "sourceTokenLogo": "wbtc",
+            "destinationChain": 8453,
+            "destinationToken": "0x0555e30da8f98308edb960aa94c0db47230d2b9c",
+            "destinationName": "Wrapped BTC",
+            "destinationSymbol": "aWBTC",
+            "destinationDecimals": 8,
+            "destinationType": "eth",
+            "destinationTokenLogo": "wbtc",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "10000000",
+                "maximumAmount": "99999999900000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "99999999900000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          }
         }
       },
       "42161": {
+        "0x0000000000000000000000000000000000000000": {
+          "0x0000000000000000000000000000000000000000": {
+            "sourceChain": 8453,
+            "sourceToken": "0x0000000000000000000000000000000000000000",
+            "sourceName": "Native ETH",
+            "sourceSymbol": "aETH",
+            "sourceDecimals": 18,
+            "sourceType": "eth",
+            "sourceTokenLogo": "eth",
+            "destinationChain": 42161,
+            "destinationToken": "0x0000000000000000000000000000000000000000",
+            "destinationName": "Native ETH",
+            "destinationSymbol": "aETH",
+            "destinationDecimals": 18,
+            "destinationType": "eth",
+            "destinationTokenLogo": "eth",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "100000000000000000",
+                "maximumAmount": "999999999000000000000000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "999999999000000000000000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          },
+          "0x573daA4caA8312EeE2BaB9c8eA633664B3FBF641": {
+            "sourceChain": 8453,
+            "sourceToken": "0x0000000000000000000000000000000000000000",
+            "sourceName": "Native ETH",
+            "sourceSymbol": "aETH",
+            "sourceDecimals": 18,
+            "sourceType": "eth",
+            "sourceTokenLogo": "eth",
+            "destinationChain": 42161,
+            "destinationToken": "0x573daA4caA8312EeE2BaB9c8eA633664B3FBF641",
+            "destinationName": "Aramid ETH",
+            "destinationSymbol": "aETH",
+            "destinationDecimals": 18,
+            "destinationType": "eth",
+            "destinationTokenLogo": "aramid-eth",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "100000000000000000",
+                "maximumAmount": "999999999000000000000000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "999999999000000000000000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          }
+        },
         "0x6792e1234B8d3E63AA7ba0D4d98cf5205b4cE5Be": {
           "0x6792e1234B8d3E63AA7ba0D4d98cf5205b4cE5Be": {
             "sourceChain": 8453,
@@ -734,9 +1278,503 @@
               }
             ]
           }
+        },
+        "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf": {
+          "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf": {
+            "sourceChain": 8453,
+            "sourceToken": "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf",
+            "sourceName": "Coinbase Wrapped BTC",
+            "sourceSymbol": "acbBTC",
+            "sourceDecimals": 8,
+            "sourceType": "eth",
+            "sourceTokenLogo": "cbbtc",
+            "destinationChain": 42161,
+            "destinationToken": "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf",
+            "destinationName": "Coinbase Wrapped BTC",
+            "destinationSymbol": "acbBTC",
+            "destinationDecimals": 8,
+            "destinationType": "eth",
+            "destinationTokenLogo": "cbbtc",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "10000000",
+                "maximumAmount": "99999999900000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "99999999900000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          },
+          "0xFE987A1AB0F45d405e50dA54C80fF93F35B68567": {
+            "sourceChain": 8453,
+            "sourceToken": "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf",
+            "sourceName": "Coinbase Wrapped BTC",
+            "sourceSymbol": "acbBTC",
+            "sourceDecimals": 8,
+            "sourceType": "eth",
+            "sourceTokenLogo": "cbbtc",
+            "destinationChain": 42161,
+            "destinationToken": "0xFE987A1AB0F45d405e50dA54C80fF93F35B68567",
+            "destinationName": "Aramid cbBTC",
+            "destinationSymbol": "acbBTC",
+            "destinationDecimals": 8,
+            "destinationType": "eth",
+            "destinationTokenLogo": "cbbtc",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "10000000",
+                "maximumAmount": "99999999900000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "99999999900000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          }
+        },
+        "0xa62cE1465123C70669EB9A8EEF83Bd788ee9cBB5": {
+          "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf": {
+            "sourceChain": 8453,
+            "sourceToken": "0xa62cE1465123C70669EB9A8EEF83Bd788ee9cBB5",
+            "sourceName": "Aramid cbBTC",
+            "sourceSymbol": "acbBTC",
+            "sourceDecimals": 8,
+            "sourceType": "eth",
+            "sourceTokenLogo": "cbbtc",
+            "destinationChain": 42161,
+            "destinationToken": "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf",
+            "destinationName": "Coinbase Wrapped BTC",
+            "destinationSymbol": "acbBTC",
+            "destinationDecimals": 8,
+            "destinationType": "eth",
+            "destinationTokenLogo": "cbbtc",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "10000000",
+                "maximumAmount": "99999999900000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "99999999900000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          },
+          "0xFE987A1AB0F45d405e50dA54C80fF93F35B68567": {
+            "sourceChain": 8453,
+            "sourceToken": "0xa62cE1465123C70669EB9A8EEF83Bd788ee9cBB5",
+            "sourceName": "Aramid cbBTC",
+            "sourceSymbol": "acbBTC",
+            "sourceDecimals": 8,
+            "sourceType": "eth",
+            "sourceTokenLogo": "cbbtc",
+            "destinationChain": 42161,
+            "destinationToken": "0xFE987A1AB0F45d405e50dA54C80fF93F35B68567",
+            "destinationName": "Aramid cbBTC",
+            "destinationSymbol": "acbBTC",
+            "destinationDecimals": 8,
+            "destinationType": "eth",
+            "destinationTokenLogo": "cbbtc",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "10000000",
+                "maximumAmount": "99999999900000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "99999999900000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          }
+        },
+        "0x0555e30da8f98308edb960aa94c0db47230d2b9c": {
+          "0x2f2a2543B76A4166549F7aaB2e75Bef0aefC5B0f": {
+            "sourceChain": 8453,
+            "sourceToken": "0x0555e30da8f98308edb960aa94c0db47230d2b9c",
+            "sourceName": "Wrapped BTC",
+            "sourceSymbol": "aWBTC",
+            "sourceDecimals": 8,
+            "sourceType": "eth",
+            "sourceTokenLogo": "wbtc",
+            "destinationChain": 42161,
+            "destinationToken": "0x2f2a2543B76A4166549F7aaB2e75Bef0aefC5B0f",
+            "destinationName": "Wrapped BTC",
+            "destinationSymbol": "aWBTC",
+            "destinationDecimals": 8,
+            "destinationType": "eth",
+            "destinationTokenLogo": "wbtc",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "10000000",
+                "maximumAmount": "99999999900000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "99999999900000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          },
+          "0xb23556658b1E25E0268409053274E09Ed50e2595": {
+            "sourceChain": 8453,
+            "sourceToken": "0x0555e30da8f98308edb960aa94c0db47230d2b9c",
+            "sourceName": "Wrapped BTC",
+            "sourceSymbol": "aWBTC",
+            "sourceDecimals": 8,
+            "sourceType": "eth",
+            "sourceTokenLogo": "wbtc",
+            "destinationChain": 42161,
+            "destinationToken": "0xb23556658b1E25E0268409053274E09Ed50e2595",
+            "destinationName": "Aramid WBTC",
+            "destinationSymbol": "aWBTC",
+            "destinationDecimals": 8,
+            "destinationType": "eth",
+            "destinationTokenLogo": "wbtc",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "10000000",
+                "maximumAmount": "99999999900000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "99999999900000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          }
+        },
+        "0x573daA4caA8312EeE2BaB9c8eA633664B3FBF641": {
+          "0x2f2a2543B76A4166549F7aaB2e75Bef0aefC5B0f": {
+            "sourceChain": 8453,
+            "sourceToken": "0x573daA4caA8312EeE2BaB9c8eA633664B3FBF641",
+            "sourceName": "Aramid WBTC",
+            "sourceSymbol": "aWBTC",
+            "sourceDecimals": 8,
+            "sourceType": "eth",
+            "sourceTokenLogo": "wbtc",
+            "destinationChain": 42161,
+            "destinationToken": "0x2f2a2543B76A4166549F7aaB2e75Bef0aefC5B0f",
+            "destinationName": "Wrapped BTC",
+            "destinationSymbol": "aWBTC",
+            "destinationDecimals": 8,
+            "destinationType": "eth",
+            "destinationTokenLogo": "wbtc",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "10000000",
+                "maximumAmount": "99999999900000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "99999999900000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          },
+          "0xb23556658b1E25E0268409053274E09Ed50e2595": {
+            "sourceChain": 8453,
+            "sourceToken": "0x573daA4caA8312EeE2BaB9c8eA633664B3FBF641",
+            "sourceName": "Aramid WBTC",
+            "sourceSymbol": "aWBTC",
+            "sourceDecimals": 8,
+            "sourceType": "eth",
+            "sourceTokenLogo": "wbtc",
+            "destinationChain": 42161,
+            "destinationToken": "0xb23556658b1E25E0268409053274E09Ed50e2595",
+            "destinationName": "Aramid WBTC",
+            "destinationSymbol": "aWBTC",
+            "destinationDecimals": 8,
+            "destinationType": "eth",
+            "destinationTokenLogo": "wbtc",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "10000000",
+                "maximumAmount": "99999999900000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "99999999900000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          }
+        },
+        "0xb23556658b1E25E0268409053274E09Ed50e2595": {
+          "0x0000000000000000000000000000000000000000": {
+            "sourceChain": 8453,
+            "sourceToken": "0xb23556658b1E25E0268409053274E09Ed50e2595",
+            "sourceName": "Aramid ETH",
+            "sourceSymbol": "aETH",
+            "sourceDecimals": 18,
+            "sourceType": "eth",
+            "sourceTokenLogo": "aramid-eth",
+            "destinationChain": 42161,
+            "destinationToken": "0x0000000000000000000000000000000000000000",
+            "destinationName": "Native ETH",
+            "destinationSymbol": "aETH",
+            "destinationDecimals": 18,
+            "destinationType": "eth",
+            "destinationTokenLogo": "eth",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "100000000000000000",
+                "maximumAmount": "999999999000000000000000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "999999999000000000000000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          },
+          "0x573daA4caA8312EeE2BaB9c8eA633664B3FBF641": {
+            "sourceChain": 8453,
+            "sourceToken": "0xb23556658b1E25E0268409053274E09Ed50e2595",
+            "sourceName": "Aramid ETH",
+            "sourceSymbol": "aETH",
+            "sourceDecimals": 18,
+            "sourceType": "eth",
+            "sourceTokenLogo": "aramid-eth",
+            "destinationChain": 42161,
+            "destinationToken": "0x573daA4caA8312EeE2BaB9c8eA633664B3FBF641",
+            "destinationName": "Aramid ETH",
+            "destinationSymbol": "aETH",
+            "destinationDecimals": 18,
+            "destinationType": "eth",
+            "destinationTokenLogo": "aramid-eth",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "100000000000000000",
+                "maximumAmount": "999999999000000000000000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "999999999000000000000000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          }
+        },
+        "0xFE987A1AB0F45d405e50dA54C80fF93F35B68567": {
+          "0xa62cE1465123C70669EB9A8EEF83Bd788ee9cBB5": {
+            "sourceChain": 8453,
+            "sourceToken": "0xFE987A1AB0F45d405e50dA54C80fF93F35B68567",
+            "sourceName": "Power",
+            "sourceSymbol": "POW",
+            "sourceDecimals": 6,
+            "sourceType": "eth",
+            "sourceTokenLogo": "pow",
+            "destinationChain": 42161,
+            "destinationToken": "0xa62cE1465123C70669EB9A8EEF83Bd788ee9cBB5",
+            "destinationName": "Power",
+            "destinationSymbol": "POW",
+            "destinationDecimals": 6,
+            "destinationType": "eth",
+            "destinationTokenLogo": "pow",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "100000",
+                "maximumAmount": "999999999000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "999999999000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          }
         }
       },
       "416001": {
+        "0x0000000000000000000000000000000000000000": {
+          "770071959": {
+            "sourceChain": 8453,
+            "sourceToken": "0x0000000000000000000000000000000000000000",
+            "sourceName": "Native ETH",
+            "sourceSymbol": "aETH",
+            "sourceDecimals": 18,
+            "sourceType": "eth",
+            "sourceTokenLogo": "eth",
+            "destinationChain": 416001,
+            "destinationToken": "770071959",
+            "destinationName": "Aramid ETH",
+            "destinationSymbol": "aETH",
+            "destinationDecimals": 6,
+            "destinationType": "algo",
+            "destinationTokenLogo": "aramid-eth",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "100000000000000000",
+                "maximumAmount": "999999999000000000000000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "999999999000000000000000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          }
+        },
         "0x6792e1234B8d3E63AA7ba0D4d98cf5205b4cE5Be": {
           "31566704": {
             "sourceChain": 8453,
@@ -1024,9 +2062,261 @@
               }
             ]
           }
+        },
+        "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf": {
+          "3081230356": {
+            "sourceChain": 8453,
+            "sourceToken": "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf",
+            "sourceName": "Coinbase Wrapped BTC",
+            "sourceSymbol": "acbBTC",
+            "sourceDecimals": 8,
+            "sourceType": "eth",
+            "sourceTokenLogo": "cbbtc",
+            "destinationChain": 416001,
+            "destinationToken": "3081230356",
+            "destinationName": "Aramid cbBTC",
+            "destinationSymbol": "acbBTC",
+            "destinationDecimals": 8,
+            "destinationType": "algo",
+            "destinationTokenLogo": "cbbtc",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "10000000",
+                "maximumAmount": "99999999900000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "99999999900000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          }
+        },
+        "0xa62cE1465123C70669EB9A8EEF83Bd788ee9cBB5": {
+          "3081230356": {
+            "sourceChain": 8453,
+            "sourceToken": "0xa62cE1465123C70669EB9A8EEF83Bd788ee9cBB5",
+            "sourceName": "Aramid cbBTC",
+            "sourceSymbol": "acbBTC",
+            "sourceDecimals": 8,
+            "sourceType": "eth",
+            "sourceTokenLogo": "cbbtc",
+            "destinationChain": 416001,
+            "destinationToken": "3081230356",
+            "destinationName": "Aramid cbBTC",
+            "destinationSymbol": "acbBTC",
+            "destinationDecimals": 8,
+            "destinationType": "algo",
+            "destinationTokenLogo": "cbbtc",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "10000000",
+                "maximumAmount": "99999999900000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "99999999900000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          }
+        },
+        "0x0555e30da8f98308edb960aa94c0db47230d2b9c": {
+          "3081228451": {
+            "sourceChain": 8453,
+            "sourceToken": "0x0555e30da8f98308edb960aa94c0db47230d2b9c",
+            "sourceName": "Wrapped BTC",
+            "sourceSymbol": "aWBTC",
+            "sourceDecimals": 8,
+            "sourceType": "eth",
+            "sourceTokenLogo": "wbtc",
+            "destinationChain": 416001,
+            "destinationToken": "3081228451",
+            "destinationName": "Aramid WBTC",
+            "destinationSymbol": "aWBTC",
+            "destinationDecimals": 8,
+            "destinationType": "algo",
+            "destinationTokenLogo": "wbtc",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "10000000",
+                "maximumAmount": "99999999900000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "99999999900000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          }
+        },
+        "0x573daA4caA8312EeE2BaB9c8eA633664B3FBF641": {
+          "3081228451": {
+            "sourceChain": 8453,
+            "sourceToken": "0x573daA4caA8312EeE2BaB9c8eA633664B3FBF641",
+            "sourceName": "Aramid WBTC",
+            "sourceSymbol": "aWBTC",
+            "sourceDecimals": 8,
+            "sourceType": "eth",
+            "sourceTokenLogo": "wbtc",
+            "destinationChain": 416001,
+            "destinationToken": "3081228451",
+            "destinationName": "Aramid WBTC",
+            "destinationSymbol": "aWBTC",
+            "destinationDecimals": 8,
+            "destinationType": "algo",
+            "destinationTokenLogo": "wbtc",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "10000000",
+                "maximumAmount": "99999999900000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "99999999900000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          }
+        },
+        "0xb23556658b1E25E0268409053274E09Ed50e2595": {
+          "770071959": {
+            "sourceChain": 8453,
+            "sourceToken": "0xb23556658b1E25E0268409053274E09Ed50e2595",
+            "sourceName": "Aramid ETH",
+            "sourceSymbol": "aETH",
+            "sourceDecimals": 18,
+            "sourceType": "eth",
+            "sourceTokenLogo": "aramid-eth",
+            "destinationChain": 416001,
+            "destinationToken": "770071959",
+            "destinationName": "Aramid ETH",
+            "destinationSymbol": "aETH",
+            "destinationDecimals": 6,
+            "destinationType": "algo",
+            "destinationTokenLogo": "aramid-eth",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "100000000000000000",
+                "maximumAmount": "999999999000000000000000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "999999999000000000000000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          }
         }
       },
       "416101": {
+        "0x0000000000000000000000000000000000000000": {
+          "302193": {
+            "sourceChain": 8453,
+            "sourceToken": "0x0000000000000000000000000000000000000000",
+            "sourceName": "Native ETH",
+            "sourceSymbol": "aETH",
+            "sourceDecimals": 18,
+            "sourceType": "eth",
+            "sourceTokenLogo": "eth",
+            "destinationChain": 416101,
+            "destinationToken": "302193",
+            "destinationName": "Aramid ETH",
+            "destinationSymbol": "aETH",
+            "destinationDecimals": 6,
+            "destinationType": "algo",
+            "destinationTokenLogo": "aramid-eth",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "100000000000000000",
+                "maximumAmount": "999999999000000000000000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "999999999000000000000000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          }
+        },
         "0x6792e1234B8d3E63AA7ba0D4d98cf5205b4cE5Be": {
           "302190": {
             "sourceChain": 8453,
@@ -1169,6 +2459,258 @@
             "destinationDecimals": 6,
             "destinationType": "algo",
             "destinationTokenLogo": "aramid-algo",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "100000",
+                "maximumAmount": "999999999000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "999999999000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          }
+        },
+        "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf": {
+          "40152648": {
+            "sourceChain": 8453,
+            "sourceToken": "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf",
+            "sourceName": "Coinbase Wrapped BTC",
+            "sourceSymbol": "acbBTC",
+            "sourceDecimals": 8,
+            "sourceType": "eth",
+            "sourceTokenLogo": "cbbtc",
+            "destinationChain": 416101,
+            "destinationToken": "40152648",
+            "destinationName": "Aramid cbBTC",
+            "destinationSymbol": "acbBTC",
+            "destinationDecimals": 8,
+            "destinationType": "algo",
+            "destinationTokenLogo": "cbbtc",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "10000000",
+                "maximumAmount": "99999999900000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "99999999900000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          }
+        },
+        "0xa62cE1465123C70669EB9A8EEF83Bd788ee9cBB5": {
+          "40152648": {
+            "sourceChain": 8453,
+            "sourceToken": "0xa62cE1465123C70669EB9A8EEF83Bd788ee9cBB5",
+            "sourceName": "Aramid cbBTC",
+            "sourceSymbol": "acbBTC",
+            "sourceDecimals": 8,
+            "sourceType": "eth",
+            "sourceTokenLogo": "cbbtc",
+            "destinationChain": 416101,
+            "destinationToken": "40152648",
+            "destinationName": "Aramid cbBTC",
+            "destinationSymbol": "acbBTC",
+            "destinationDecimals": 8,
+            "destinationType": "algo",
+            "destinationTokenLogo": "cbbtc",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "10000000",
+                "maximumAmount": "99999999900000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "99999999900000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          }
+        },
+        "0x0555e30da8f98308edb960aa94c0db47230d2b9c": {
+          "40152643": {
+            "sourceChain": 8453,
+            "sourceToken": "0x0555e30da8f98308edb960aa94c0db47230d2b9c",
+            "sourceName": "Wrapped BTC",
+            "sourceSymbol": "aWBTC",
+            "sourceDecimals": 8,
+            "sourceType": "eth",
+            "sourceTokenLogo": "wbtc",
+            "destinationChain": 416101,
+            "destinationToken": "40152643",
+            "destinationName": "Aramid WBTC",
+            "destinationSymbol": "aWBTC",
+            "destinationDecimals": 8,
+            "destinationType": "algo",
+            "destinationTokenLogo": "wbtc",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "10000000",
+                "maximumAmount": "99999999900000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "99999999900000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          }
+        },
+        "0x573daA4caA8312EeE2BaB9c8eA633664B3FBF641": {
+          "40152643": {
+            "sourceChain": 8453,
+            "sourceToken": "0x573daA4caA8312EeE2BaB9c8eA633664B3FBF641",
+            "sourceName": "Aramid WBTC",
+            "sourceSymbol": "aWBTC",
+            "sourceDecimals": 8,
+            "sourceType": "eth",
+            "sourceTokenLogo": "wbtc",
+            "destinationChain": 416101,
+            "destinationToken": "40152643",
+            "destinationName": "Aramid WBTC",
+            "destinationSymbol": "aWBTC",
+            "destinationDecimals": 8,
+            "destinationType": "algo",
+            "destinationTokenLogo": "wbtc",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "10000000",
+                "maximumAmount": "99999999900000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "99999999900000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          }
+        },
+        "0xb23556658b1E25E0268409053274E09Ed50e2595": {
+          "302193": {
+            "sourceChain": 8453,
+            "sourceToken": "0xb23556658b1E25E0268409053274E09Ed50e2595",
+            "sourceName": "Aramid ETH",
+            "sourceSymbol": "aETH",
+            "sourceDecimals": 18,
+            "sourceType": "eth",
+            "sourceTokenLogo": "aramid-eth",
+            "destinationChain": 416101,
+            "destinationToken": "302193",
+            "destinationName": "Aramid ETH",
+            "destinationSymbol": "aETH",
+            "destinationDecimals": 6,
+            "destinationType": "algo",
+            "destinationTokenLogo": "aramid-eth",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "100000000000000000",
+                "maximumAmount": "999999999000000000000000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "999999999000000000000000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          }
+        },
+        "0xFE987A1AB0F45d405e50dA54C80fF93F35B68567": {
+          "40152679": {
+            "sourceChain": 8453,
+            "sourceToken": "0xFE987A1AB0F45d405e50dA54C80fF93F35B68567",
+            "sourceName": "Power",
+            "sourceSymbol": "POW",
+            "sourceDecimals": 6,
+            "sourceType": "eth",
+            "sourceTokenLogo": "pow",
+            "destinationChain": 416101,
+            "destinationToken": "40152679",
+            "destinationName": "Power",
+            "destinationSymbol": "POW",
+            "destinationDecimals": 6,
+            "destinationType": "algo",
+            "destinationTokenLogo": "pow",
             "feeAlternatives": [
               {
                 "validFrom": 0,
@@ -1199,6 +2741,170 @@
     },
     "42161": {
       "8453": {
+        "0x0000000000000000000000000000000000000000": {
+          "0x0000000000000000000000000000000000000000": {
+            "sourceChain": 42161,
+            "sourceToken": "0x0000000000000000000000000000000000000000",
+            "sourceName": "Native ETH",
+            "sourceSymbol": "aETH",
+            "sourceDecimals": 18,
+            "sourceType": "eth",
+            "sourceTokenLogo": "eth",
+            "destinationChain": 8453,
+            "destinationToken": "0x0000000000000000000000000000000000000000",
+            "destinationName": "Native ETH",
+            "destinationSymbol": "aETH",
+            "destinationDecimals": 18,
+            "destinationType": "eth",
+            "destinationTokenLogo": "eth",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "100000000000000000",
+                "maximumAmount": "999999999000000000000000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "999999999000000000000000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          },
+          "0xb23556658b1E25E0268409053274E09Ed50e2595": {
+            "sourceChain": 42161,
+            "sourceToken": "0x0000000000000000000000000000000000000000",
+            "sourceName": "Native ETH",
+            "sourceSymbol": "aETH",
+            "sourceDecimals": 18,
+            "sourceType": "eth",
+            "sourceTokenLogo": "eth",
+            "destinationChain": 8453,
+            "destinationToken": "0xb23556658b1E25E0268409053274E09Ed50e2595",
+            "destinationName": "Aramid ETH",
+            "destinationSymbol": "aETH",
+            "destinationDecimals": 18,
+            "destinationType": "eth",
+            "destinationTokenLogo": "aramid-eth",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "100000000000000000",
+                "maximumAmount": "999999999000000000000000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "999999999000000000000000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          }
+        },
+        "0x573daA4caA8312EeE2BaB9c8eA633664B3FBF641": {
+          "0x0000000000000000000000000000000000000000": {
+            "sourceChain": 42161,
+            "sourceToken": "0x573daA4caA8312EeE2BaB9c8eA633664B3FBF641",
+            "sourceName": "Aramid ETH",
+            "sourceSymbol": "aETH",
+            "sourceDecimals": 18,
+            "sourceType": "eth",
+            "sourceTokenLogo": "aramid-eth",
+            "destinationChain": 8453,
+            "destinationToken": "0x0000000000000000000000000000000000000000",
+            "destinationName": "Native ETH",
+            "destinationSymbol": "aETH",
+            "destinationDecimals": 18,
+            "destinationType": "eth",
+            "destinationTokenLogo": "eth",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "100000000000000000",
+                "maximumAmount": "999999999000000000000000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "999999999000000000000000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          },
+          "0xb23556658b1E25E0268409053274E09Ed50e2595": {
+            "sourceChain": 42161,
+            "sourceToken": "0x573daA4caA8312EeE2BaB9c8eA633664B3FBF641",
+            "sourceName": "Aramid ETH",
+            "sourceSymbol": "aETH",
+            "sourceDecimals": 18,
+            "sourceType": "eth",
+            "sourceTokenLogo": "aramid-eth",
+            "destinationChain": 8453,
+            "destinationToken": "0xb23556658b1E25E0268409053274E09Ed50e2595",
+            "destinationName": "Aramid ETH",
+            "destinationSymbol": "aETH",
+            "destinationDecimals": 18,
+            "destinationType": "eth",
+            "destinationTokenLogo": "aramid-eth",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "100000000000000000",
+                "maximumAmount": "999999999000000000000000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "999999999000000000000000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          }
+        },
         "0x6792e1234B8d3E63AA7ba0D4d98cf5205b4cE5Be": {
           "0x6792e1234B8d3E63AA7ba0D4d98cf5205b4cE5Be": {
             "sourceChain": 42161,
@@ -1446,9 +3152,463 @@
               }
             ]
           }
+        },
+        "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf": {
+          "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf": {
+            "sourceChain": 42161,
+            "sourceToken": "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf",
+            "sourceName": "Coinbase Wrapped BTC",
+            "sourceSymbol": "acbBTC",
+            "sourceDecimals": 8,
+            "sourceType": "eth",
+            "sourceTokenLogo": "cbbtc",
+            "destinationChain": 8453,
+            "destinationToken": "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf",
+            "destinationName": "Coinbase Wrapped BTC",
+            "destinationSymbol": "acbBTC",
+            "destinationDecimals": 8,
+            "destinationType": "eth",
+            "destinationTokenLogo": "cbbtc",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "10000000",
+                "maximumAmount": "99999999900000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "99999999900000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          },
+          "0xa62cE1465123C70669EB9A8EEF83Bd788ee9cBB5": {
+            "sourceChain": 42161,
+            "sourceToken": "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf",
+            "sourceName": "Coinbase Wrapped BTC",
+            "sourceSymbol": "acbBTC",
+            "sourceDecimals": 8,
+            "sourceType": "eth",
+            "sourceTokenLogo": "cbbtc",
+            "destinationChain": 8453,
+            "destinationToken": "0xa62cE1465123C70669EB9A8EEF83Bd788ee9cBB5",
+            "destinationName": "Aramid cbBTC",
+            "destinationSymbol": "acbBTC",
+            "destinationDecimals": 8,
+            "destinationType": "eth",
+            "destinationTokenLogo": "cbbtc",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "10000000",
+                "maximumAmount": "99999999900000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "99999999900000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          }
+        },
+        "0xFE987A1AB0F45d405e50dA54C80fF93F35B68567": {
+          "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf": {
+            "sourceChain": 42161,
+            "sourceToken": "0xFE987A1AB0F45d405e50dA54C80fF93F35B68567",
+            "sourceName": "Aramid cbBTC",
+            "sourceSymbol": "acbBTC",
+            "sourceDecimals": 8,
+            "sourceType": "eth",
+            "sourceTokenLogo": "cbbtc",
+            "destinationChain": 8453,
+            "destinationToken": "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf",
+            "destinationName": "Coinbase Wrapped BTC",
+            "destinationSymbol": "acbBTC",
+            "destinationDecimals": 8,
+            "destinationType": "eth",
+            "destinationTokenLogo": "cbbtc",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "10000000",
+                "maximumAmount": "99999999900000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "99999999900000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          },
+          "0xa62cE1465123C70669EB9A8EEF83Bd788ee9cBB5": {
+            "sourceChain": 42161,
+            "sourceToken": "0xFE987A1AB0F45d405e50dA54C80fF93F35B68567",
+            "sourceName": "Aramid cbBTC",
+            "sourceSymbol": "acbBTC",
+            "sourceDecimals": 8,
+            "sourceType": "eth",
+            "sourceTokenLogo": "cbbtc",
+            "destinationChain": 8453,
+            "destinationToken": "0xa62cE1465123C70669EB9A8EEF83Bd788ee9cBB5",
+            "destinationName": "Aramid cbBTC",
+            "destinationSymbol": "acbBTC",
+            "destinationDecimals": 8,
+            "destinationType": "eth",
+            "destinationTokenLogo": "cbbtc",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "10000000",
+                "maximumAmount": "99999999900000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "99999999900000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          }
+        },
+        "0x2f2a2543B76A4166549F7aaB2e75Bef0aefC5B0f": {
+          "0x0555e30da8f98308edb960aa94c0db47230d2b9c": {
+            "sourceChain": 42161,
+            "sourceToken": "0x2f2a2543B76A4166549F7aaB2e75Bef0aefC5B0f",
+            "sourceName": "Wrapped BTC",
+            "sourceSymbol": "aWBTC",
+            "sourceDecimals": 8,
+            "sourceType": "eth",
+            "sourceTokenLogo": "wbtc",
+            "destinationChain": 8453,
+            "destinationToken": "0x0555e30da8f98308edb960aa94c0db47230d2b9c",
+            "destinationName": "Wrapped BTC",
+            "destinationSymbol": "aWBTC",
+            "destinationDecimals": 8,
+            "destinationType": "eth",
+            "destinationTokenLogo": "wbtc",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "10000000",
+                "maximumAmount": "99999999900000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "99999999900000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          },
+          "0x573daA4caA8312EeE2BaB9c8eA633664B3FBF641": {
+            "sourceChain": 42161,
+            "sourceToken": "0x2f2a2543B76A4166549F7aaB2e75Bef0aefC5B0f",
+            "sourceName": "Wrapped BTC",
+            "sourceSymbol": "aWBTC",
+            "sourceDecimals": 8,
+            "sourceType": "eth",
+            "sourceTokenLogo": "wbtc",
+            "destinationChain": 8453,
+            "destinationToken": "0x573daA4caA8312EeE2BaB9c8eA633664B3FBF641",
+            "destinationName": "Aramid WBTC",
+            "destinationSymbol": "aWBTC",
+            "destinationDecimals": 8,
+            "destinationType": "eth",
+            "destinationTokenLogo": "wbtc",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "10000000",
+                "maximumAmount": "99999999900000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "99999999900000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          }
+        },
+        "0xb23556658b1E25E0268409053274E09Ed50e2595": {
+          "0x0555e30da8f98308edb960aa94c0db47230d2b9c": {
+            "sourceChain": 42161,
+            "sourceToken": "0xb23556658b1E25E0268409053274E09Ed50e2595",
+            "sourceName": "Aramid WBTC",
+            "sourceSymbol": "aWBTC",
+            "sourceDecimals": 8,
+            "sourceType": "eth",
+            "sourceTokenLogo": "wbtc",
+            "destinationChain": 8453,
+            "destinationToken": "0x0555e30da8f98308edb960aa94c0db47230d2b9c",
+            "destinationName": "Wrapped BTC",
+            "destinationSymbol": "aWBTC",
+            "destinationDecimals": 8,
+            "destinationType": "eth",
+            "destinationTokenLogo": "wbtc",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "10000000",
+                "maximumAmount": "99999999900000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "99999999900000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          },
+          "0x573daA4caA8312EeE2BaB9c8eA633664B3FBF641": {
+            "sourceChain": 42161,
+            "sourceToken": "0xb23556658b1E25E0268409053274E09Ed50e2595",
+            "sourceName": "Aramid WBTC",
+            "sourceSymbol": "aWBTC",
+            "sourceDecimals": 8,
+            "sourceType": "eth",
+            "sourceTokenLogo": "wbtc",
+            "destinationChain": 8453,
+            "destinationToken": "0x573daA4caA8312EeE2BaB9c8eA633664B3FBF641",
+            "destinationName": "Aramid WBTC",
+            "destinationSymbol": "aWBTC",
+            "destinationDecimals": 8,
+            "destinationType": "eth",
+            "destinationTokenLogo": "wbtc",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "10000000",
+                "maximumAmount": "99999999900000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "99999999900000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          }
+        },
+        "0xa62cE1465123C70669EB9A8EEF83Bd788ee9cBB5": {
+          "0xFE987A1AB0F45d405e50dA54C80fF93F35B68567": {
+            "sourceChain": 42161,
+            "sourceToken": "0xa62cE1465123C70669EB9A8EEF83Bd788ee9cBB5",
+            "sourceName": "Power",
+            "sourceSymbol": "POW",
+            "sourceDecimals": 6,
+            "sourceType": "eth",
+            "sourceTokenLogo": "pow",
+            "destinationChain": 8453,
+            "destinationToken": "0xFE987A1AB0F45d405e50dA54C80fF93F35B68567",
+            "destinationName": "Power",
+            "destinationSymbol": "POW",
+            "destinationDecimals": 6,
+            "destinationType": "eth",
+            "destinationTokenLogo": "pow",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "100000",
+                "maximumAmount": "999999999000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "999999999000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          }
         }
       },
       "42161": {
+        "0x0000000000000000000000000000000000000000": {
+          "0x573daA4caA8312EeE2BaB9c8eA633664B3FBF641": {
+            "sourceChain": 42161,
+            "sourceToken": "0x0000000000000000000000000000000000000000",
+            "sourceName": "Native ETH",
+            "sourceSymbol": "aETH",
+            "sourceDecimals": 18,
+            "sourceType": "eth",
+            "sourceTokenLogo": "eth",
+            "destinationChain": 42161,
+            "destinationToken": "0x573daA4caA8312EeE2BaB9c8eA633664B3FBF641",
+            "destinationName": "Aramid ETH",
+            "destinationSymbol": "aETH",
+            "destinationDecimals": 18,
+            "destinationType": "eth",
+            "destinationTokenLogo": "aramid-eth",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "100000000000000000",
+                "maximumAmount": "999999999000000000000000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "999999999000000000000000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          }
+        },
+        "0x573daA4caA8312EeE2BaB9c8eA633664B3FBF641": {
+          "0x0000000000000000000000000000000000000000": {
+            "sourceChain": 42161,
+            "sourceToken": "0x573daA4caA8312EeE2BaB9c8eA633664B3FBF641",
+            "sourceName": "Aramid ETH",
+            "sourceSymbol": "aETH",
+            "sourceDecimals": 18,
+            "sourceType": "eth",
+            "sourceTokenLogo": "aramid-eth",
+            "destinationChain": 42161,
+            "destinationToken": "0x0000000000000000000000000000000000000000",
+            "destinationName": "Native ETH",
+            "destinationSymbol": "aETH",
+            "destinationDecimals": 18,
+            "destinationType": "eth",
+            "destinationTokenLogo": "eth",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "100000000000000000",
+                "maximumAmount": "999999999000000000000000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "999999999000000000000000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          }
+        },
         "0x6792e1234B8d3E63AA7ba0D4d98cf5205b4cE5Be": {
           "0xaf88d065e77c8cC2239327C5EDb3A432268e5831": {
             "sourceChain": 42161,
@@ -1532,9 +3692,219 @@
               }
             ]
           }
+        },
+        "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf": {
+          "0xFE987A1AB0F45d405e50dA54C80fF93F35B68567": {
+            "sourceChain": 42161,
+            "sourceToken": "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf",
+            "sourceName": "Coinbase Wrapped BTC",
+            "sourceSymbol": "acbBTC",
+            "sourceDecimals": 8,
+            "sourceType": "eth",
+            "sourceTokenLogo": "cbbtc",
+            "destinationChain": 42161,
+            "destinationToken": "0xFE987A1AB0F45d405e50dA54C80fF93F35B68567",
+            "destinationName": "Aramid cbBTC",
+            "destinationSymbol": "acbBTC",
+            "destinationDecimals": 8,
+            "destinationType": "eth",
+            "destinationTokenLogo": "cbbtc",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "10000000",
+                "maximumAmount": "99999999900000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "99999999900000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          }
+        },
+        "0xFE987A1AB0F45d405e50dA54C80fF93F35B68567": {
+          "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf": {
+            "sourceChain": 42161,
+            "sourceToken": "0xFE987A1AB0F45d405e50dA54C80fF93F35B68567",
+            "sourceName": "Aramid cbBTC",
+            "sourceSymbol": "acbBTC",
+            "sourceDecimals": 8,
+            "sourceType": "eth",
+            "sourceTokenLogo": "cbbtc",
+            "destinationChain": 42161,
+            "destinationToken": "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf",
+            "destinationName": "Coinbase Wrapped BTC",
+            "destinationSymbol": "acbBTC",
+            "destinationDecimals": 8,
+            "destinationType": "eth",
+            "destinationTokenLogo": "cbbtc",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "10000000",
+                "maximumAmount": "99999999900000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "99999999900000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          }
+        },
+        "0x2f2a2543B76A4166549F7aaB2e75Bef0aefC5B0f": {
+          "0xb23556658b1E25E0268409053274E09Ed50e2595": {
+            "sourceChain": 42161,
+            "sourceToken": "0x2f2a2543B76A4166549F7aaB2e75Bef0aefC5B0f",
+            "sourceName": "Wrapped BTC",
+            "sourceSymbol": "aWBTC",
+            "sourceDecimals": 8,
+            "sourceType": "eth",
+            "sourceTokenLogo": "wbtc",
+            "destinationChain": 42161,
+            "destinationToken": "0xb23556658b1E25E0268409053274E09Ed50e2595",
+            "destinationName": "Aramid WBTC",
+            "destinationSymbol": "aWBTC",
+            "destinationDecimals": 8,
+            "destinationType": "eth",
+            "destinationTokenLogo": "wbtc",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "10000000",
+                "maximumAmount": "99999999900000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "99999999900000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          }
+        },
+        "0xb23556658b1E25E0268409053274E09Ed50e2595": {
+          "0x2f2a2543B76A4166549F7aaB2e75Bef0aefC5B0f": {
+            "sourceChain": 42161,
+            "sourceToken": "0xb23556658b1E25E0268409053274E09Ed50e2595",
+            "sourceName": "Aramid WBTC",
+            "sourceSymbol": "aWBTC",
+            "sourceDecimals": 8,
+            "sourceType": "eth",
+            "sourceTokenLogo": "wbtc",
+            "destinationChain": 42161,
+            "destinationToken": "0x2f2a2543B76A4166549F7aaB2e75Bef0aefC5B0f",
+            "destinationName": "Wrapped BTC",
+            "destinationSymbol": "aWBTC",
+            "destinationDecimals": 8,
+            "destinationType": "eth",
+            "destinationTokenLogo": "wbtc",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "10000000",
+                "maximumAmount": "99999999900000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "99999999900000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          }
         }
       },
       "416001": {
+        "0x0000000000000000000000000000000000000000": {
+          "770071959": {
+            "sourceChain": 42161,
+            "sourceToken": "0x0000000000000000000000000000000000000000",
+            "sourceName": "Native ETH",
+            "sourceSymbol": "aETH",
+            "sourceDecimals": 18,
+            "sourceType": "eth",
+            "sourceTokenLogo": "eth",
+            "destinationChain": 416001,
+            "destinationToken": "770071959",
+            "destinationName": "Aramid ETH",
+            "destinationSymbol": "aETH",
+            "destinationDecimals": 6,
+            "destinationType": "algo",
+            "destinationTokenLogo": "aramid-eth",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "100000000000000000",
+                "maximumAmount": "999999999000000000000000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "999999999000000000000000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          }
+        },
         "0x6792e1234B8d3E63AA7ba0D4d98cf5205b4cE5Be": {
           "31566704": {
             "sourceChain": 42161,
@@ -1822,9 +4192,261 @@
               }
             ]
           }
+        },
+        "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf": {
+          "3081230356": {
+            "sourceChain": 42161,
+            "sourceToken": "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf",
+            "sourceName": "Coinbase Wrapped BTC",
+            "sourceSymbol": "acbBTC",
+            "sourceDecimals": 8,
+            "sourceType": "eth",
+            "sourceTokenLogo": "cbbtc",
+            "destinationChain": 416001,
+            "destinationToken": "3081230356",
+            "destinationName": "Aramid cbBTC",
+            "destinationSymbol": "acbBTC",
+            "destinationDecimals": 8,
+            "destinationType": "algo",
+            "destinationTokenLogo": "cbbtc",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "10000000",
+                "maximumAmount": "99999999900000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "99999999900000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          }
+        },
+        "0xFE987A1AB0F45d405e50dA54C80fF93F35B68567": {
+          "3081230356": {
+            "sourceChain": 42161,
+            "sourceToken": "0xFE987A1AB0F45d405e50dA54C80fF93F35B68567",
+            "sourceName": "Aramid cbBTC",
+            "sourceSymbol": "acbBTC",
+            "sourceDecimals": 8,
+            "sourceType": "eth",
+            "sourceTokenLogo": "cbbtc",
+            "destinationChain": 416001,
+            "destinationToken": "3081230356",
+            "destinationName": "Aramid cbBTC",
+            "destinationSymbol": "acbBTC",
+            "destinationDecimals": 8,
+            "destinationType": "algo",
+            "destinationTokenLogo": "cbbtc",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "10000000",
+                "maximumAmount": "99999999900000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "99999999900000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          }
+        },
+        "0x2f2a2543B76A4166549F7aaB2e75Bef0aefC5B0f": {
+          "3081228451": {
+            "sourceChain": 42161,
+            "sourceToken": "0x2f2a2543B76A4166549F7aaB2e75Bef0aefC5B0f",
+            "sourceName": "Wrapped BTC",
+            "sourceSymbol": "aWBTC",
+            "sourceDecimals": 8,
+            "sourceType": "eth",
+            "sourceTokenLogo": "wbtc",
+            "destinationChain": 416001,
+            "destinationToken": "3081228451",
+            "destinationName": "Aramid WBTC",
+            "destinationSymbol": "aWBTC",
+            "destinationDecimals": 8,
+            "destinationType": "algo",
+            "destinationTokenLogo": "wbtc",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "10000000",
+                "maximumAmount": "99999999900000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "99999999900000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          }
+        },
+        "0xb23556658b1E25E0268409053274E09Ed50e2595": {
+          "3081228451": {
+            "sourceChain": 42161,
+            "sourceToken": "0xb23556658b1E25E0268409053274E09Ed50e2595",
+            "sourceName": "Aramid WBTC",
+            "sourceSymbol": "aWBTC",
+            "sourceDecimals": 8,
+            "sourceType": "eth",
+            "sourceTokenLogo": "wbtc",
+            "destinationChain": 416001,
+            "destinationToken": "3081228451",
+            "destinationName": "Aramid WBTC",
+            "destinationSymbol": "aWBTC",
+            "destinationDecimals": 8,
+            "destinationType": "algo",
+            "destinationTokenLogo": "wbtc",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "10000000",
+                "maximumAmount": "99999999900000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "99999999900000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          }
+        },
+        "0x573daA4caA8312EeE2BaB9c8eA633664B3FBF641": {
+          "770071959": {
+            "sourceChain": 42161,
+            "sourceToken": "0x573daA4caA8312EeE2BaB9c8eA633664B3FBF641",
+            "sourceName": "Aramid ETH",
+            "sourceSymbol": "aETH",
+            "sourceDecimals": 18,
+            "sourceType": "eth",
+            "sourceTokenLogo": "aramid-eth",
+            "destinationChain": 416001,
+            "destinationToken": "770071959",
+            "destinationName": "Aramid ETH",
+            "destinationSymbol": "aETH",
+            "destinationDecimals": 6,
+            "destinationType": "algo",
+            "destinationTokenLogo": "aramid-eth",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "100000000000000000",
+                "maximumAmount": "999999999000000000000000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "999999999000000000000000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          }
         }
       },
       "416101": {
+        "0x0000000000000000000000000000000000000000": {
+          "302193": {
+            "sourceChain": 42161,
+            "sourceToken": "0x0000000000000000000000000000000000000000",
+            "sourceName": "Native ETH",
+            "sourceSymbol": "aETH",
+            "sourceDecimals": 18,
+            "sourceType": "eth",
+            "sourceTokenLogo": "eth",
+            "destinationChain": 416101,
+            "destinationToken": "302193",
+            "destinationName": "Aramid ETH",
+            "destinationSymbol": "aETH",
+            "destinationDecimals": 6,
+            "destinationType": "algo",
+            "destinationTokenLogo": "aramid-eth",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "100000000000000000",
+                "maximumAmount": "999999999000000000000000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "999999999000000000000000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          }
+        },
         "0x6792e1234B8d3E63AA7ba0D4d98cf5205b4cE5Be": {
           "302190": {
             "sourceChain": 42161,
@@ -1967,6 +4589,258 @@
             "destinationDecimals": 6,
             "destinationType": "algo",
             "destinationTokenLogo": "aramid-algo",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "100000",
+                "maximumAmount": "999999999000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "999999999000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          }
+        },
+        "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf": {
+          "40152648": {
+            "sourceChain": 42161,
+            "sourceToken": "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf",
+            "sourceName": "Coinbase Wrapped BTC",
+            "sourceSymbol": "acbBTC",
+            "sourceDecimals": 8,
+            "sourceType": "eth",
+            "sourceTokenLogo": "cbbtc",
+            "destinationChain": 416101,
+            "destinationToken": "40152648",
+            "destinationName": "Aramid cbBTC",
+            "destinationSymbol": "acbBTC",
+            "destinationDecimals": 8,
+            "destinationType": "algo",
+            "destinationTokenLogo": "cbbtc",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "10000000",
+                "maximumAmount": "99999999900000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "99999999900000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          }
+        },
+        "0xFE987A1AB0F45d405e50dA54C80fF93F35B68567": {
+          "40152648": {
+            "sourceChain": 42161,
+            "sourceToken": "0xFE987A1AB0F45d405e50dA54C80fF93F35B68567",
+            "sourceName": "Aramid cbBTC",
+            "sourceSymbol": "acbBTC",
+            "sourceDecimals": 8,
+            "sourceType": "eth",
+            "sourceTokenLogo": "cbbtc",
+            "destinationChain": 416101,
+            "destinationToken": "40152648",
+            "destinationName": "Aramid cbBTC",
+            "destinationSymbol": "acbBTC",
+            "destinationDecimals": 8,
+            "destinationType": "algo",
+            "destinationTokenLogo": "cbbtc",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "10000000",
+                "maximumAmount": "99999999900000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "99999999900000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          }
+        },
+        "0x2f2a2543B76A4166549F7aaB2e75Bef0aefC5B0f": {
+          "40152643": {
+            "sourceChain": 42161,
+            "sourceToken": "0x2f2a2543B76A4166549F7aaB2e75Bef0aefC5B0f",
+            "sourceName": "Wrapped BTC",
+            "sourceSymbol": "aWBTC",
+            "sourceDecimals": 8,
+            "sourceType": "eth",
+            "sourceTokenLogo": "wbtc",
+            "destinationChain": 416101,
+            "destinationToken": "40152643",
+            "destinationName": "Aramid WBTC",
+            "destinationSymbol": "aWBTC",
+            "destinationDecimals": 8,
+            "destinationType": "algo",
+            "destinationTokenLogo": "wbtc",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "10000000",
+                "maximumAmount": "99999999900000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "99999999900000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          }
+        },
+        "0xb23556658b1E25E0268409053274E09Ed50e2595": {
+          "40152643": {
+            "sourceChain": 42161,
+            "sourceToken": "0xb23556658b1E25E0268409053274E09Ed50e2595",
+            "sourceName": "Aramid WBTC",
+            "sourceSymbol": "aWBTC",
+            "sourceDecimals": 8,
+            "sourceType": "eth",
+            "sourceTokenLogo": "wbtc",
+            "destinationChain": 416101,
+            "destinationToken": "40152643",
+            "destinationName": "Aramid WBTC",
+            "destinationSymbol": "aWBTC",
+            "destinationDecimals": 8,
+            "destinationType": "algo",
+            "destinationTokenLogo": "wbtc",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "10000000",
+                "maximumAmount": "99999999900000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "99999999900000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          }
+        },
+        "0x573daA4caA8312EeE2BaB9c8eA633664B3FBF641": {
+          "302193": {
+            "sourceChain": 42161,
+            "sourceToken": "0x573daA4caA8312EeE2BaB9c8eA633664B3FBF641",
+            "sourceName": "Aramid ETH",
+            "sourceSymbol": "aETH",
+            "sourceDecimals": 18,
+            "sourceType": "eth",
+            "sourceTokenLogo": "aramid-eth",
+            "destinationChain": 416101,
+            "destinationToken": "302193",
+            "destinationName": "Aramid ETH",
+            "destinationSymbol": "aETH",
+            "destinationDecimals": 6,
+            "destinationType": "algo",
+            "destinationTokenLogo": "aramid-eth",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "100000000000000000",
+                "maximumAmount": "999999999000000000000000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "999999999000000000000000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          }
+        },
+        "0xa62cE1465123C70669EB9A8EEF83Bd788ee9cBB5": {
+          "40152679": {
+            "sourceChain": 42161,
+            "sourceToken": "0xa62cE1465123C70669EB9A8EEF83Bd788ee9cBB5",
+            "sourceName": "Power",
+            "sourceSymbol": "POW",
+            "sourceDecimals": 6,
+            "sourceType": "eth",
+            "sourceTokenLogo": "pow",
+            "destinationChain": 416101,
+            "destinationToken": "40152679",
+            "destinationName": "Power",
+            "destinationSymbol": "POW",
+            "destinationDecimals": 6,
+            "destinationType": "algo",
+            "destinationTokenLogo": "pow",
             "feeAlternatives": [
               {
                 "validFrom": 0,
@@ -2121,6 +4995,88 @@
             ]
           }
         },
+        "770071959": {
+          "0x0000000000000000000000000000000000000000": {
+            "sourceChain": 416001,
+            "sourceToken": "770071959",
+            "sourceName": "Aramid ETH",
+            "sourceSymbol": "aETH",
+            "sourceDecimals": 6,
+            "sourceType": "algo",
+            "sourceTokenLogo": "aramid-eth",
+            "destinationChain": 8453,
+            "destinationToken": "0x0000000000000000000000000000000000000000",
+            "destinationName": "Native ETH",
+            "destinationSymbol": "aETH",
+            "destinationDecimals": 18,
+            "destinationType": "eth",
+            "destinationTokenLogo": "eth",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "100000",
+                "maximumAmount": "999999999000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "999999999000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          },
+          "0xb23556658b1E25E0268409053274E09Ed50e2595": {
+            "sourceChain": 416001,
+            "sourceToken": "770071959",
+            "sourceName": "Aramid ETH",
+            "sourceSymbol": "aETH",
+            "sourceDecimals": 6,
+            "sourceType": "algo",
+            "sourceTokenLogo": "aramid-eth",
+            "destinationChain": 8453,
+            "destinationToken": "0xb23556658b1E25E0268409053274E09Ed50e2595",
+            "destinationName": "Aramid ETH",
+            "destinationSymbol": "aETH",
+            "destinationDecimals": 18,
+            "destinationType": "eth",
+            "destinationTokenLogo": "aramid-eth",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "100000",
+                "maximumAmount": "999999999000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "999999999000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          }
+        },
         "2320775407": {
           "0xb40C776253c4BbC18A9e635aCC183359e5fa22f9": {
             "sourceChain": 416001,
@@ -2286,6 +5242,170 @@
               }
             ]
           }
+        },
+        "3081228451": {
+          "0x0555e30da8f98308edb960aa94c0db47230d2b9c": {
+            "sourceChain": 416001,
+            "sourceToken": "3081228451",
+            "sourceName": "Aramid WBTC",
+            "sourceSymbol": "aWBTC",
+            "sourceDecimals": 8,
+            "sourceType": "algo",
+            "sourceTokenLogo": "wbtc",
+            "destinationChain": 8453,
+            "destinationToken": "0x0555e30da8f98308edb960aa94c0db47230d2b9c",
+            "destinationName": "Wrapped BTC",
+            "destinationSymbol": "aWBTC",
+            "destinationDecimals": 8,
+            "destinationType": "eth",
+            "destinationTokenLogo": "wbtc",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "10000000",
+                "maximumAmount": "99999999900000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "99999999900000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          },
+          "0x573daA4caA8312EeE2BaB9c8eA633664B3FBF641": {
+            "sourceChain": 416001,
+            "sourceToken": "3081228451",
+            "sourceName": "Aramid WBTC",
+            "sourceSymbol": "aWBTC",
+            "sourceDecimals": 8,
+            "sourceType": "algo",
+            "sourceTokenLogo": "wbtc",
+            "destinationChain": 8453,
+            "destinationToken": "0x573daA4caA8312EeE2BaB9c8eA633664B3FBF641",
+            "destinationName": "Aramid WBTC",
+            "destinationSymbol": "aWBTC",
+            "destinationDecimals": 8,
+            "destinationType": "eth",
+            "destinationTokenLogo": "wbtc",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "10000000",
+                "maximumAmount": "99999999900000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "99999999900000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          }
+        },
+        "3081230356": {
+          "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf": {
+            "sourceChain": 416001,
+            "sourceToken": "3081230356",
+            "sourceName": "Aramid cbBTC",
+            "sourceSymbol": "acbBTC",
+            "sourceDecimals": 8,
+            "sourceType": "algo",
+            "sourceTokenLogo": "cbbtc",
+            "destinationChain": 8453,
+            "destinationToken": "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf",
+            "destinationName": "Coinbase Wrapped BTC",
+            "destinationSymbol": "acbBTC",
+            "destinationDecimals": 8,
+            "destinationType": "eth",
+            "destinationTokenLogo": "cbbtc",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "10000000",
+                "maximumAmount": "99999999900000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "99999999900000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          },
+          "0xa62cE1465123C70669EB9A8EEF83Bd788ee9cBB5": {
+            "sourceChain": 416001,
+            "sourceToken": "3081230356",
+            "sourceName": "Aramid cbBTC",
+            "sourceSymbol": "acbBTC",
+            "sourceDecimals": 8,
+            "sourceType": "algo",
+            "sourceTokenLogo": "cbbtc",
+            "destinationChain": 8453,
+            "destinationToken": "0xa62cE1465123C70669EB9A8EEF83Bd788ee9cBB5",
+            "destinationName": "Aramid cbBTC",
+            "destinationSymbol": "acbBTC",
+            "destinationDecimals": 8,
+            "destinationType": "eth",
+            "destinationTokenLogo": "cbbtc",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "10000000",
+                "maximumAmount": "99999999900000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "99999999900000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          }
         }
       },
       "42161": {
@@ -2387,6 +5507,88 @@
             "destinationDecimals": 6,
             "destinationType": "eth",
             "destinationTokenLogo": "usdc",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "100000",
+                "maximumAmount": "999999999000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "999999999000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          }
+        },
+        "770071959": {
+          "0x0000000000000000000000000000000000000000": {
+            "sourceChain": 416001,
+            "sourceToken": "770071959",
+            "sourceName": "Aramid ETH",
+            "sourceSymbol": "aETH",
+            "sourceDecimals": 6,
+            "sourceType": "algo",
+            "sourceTokenLogo": "aramid-eth",
+            "destinationChain": 42161,
+            "destinationToken": "0x0000000000000000000000000000000000000000",
+            "destinationName": "Native ETH",
+            "destinationSymbol": "aETH",
+            "destinationDecimals": 18,
+            "destinationType": "eth",
+            "destinationTokenLogo": "eth",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "100000",
+                "maximumAmount": "999999999000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "999999999000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          },
+          "0x573daA4caA8312EeE2BaB9c8eA633664B3FBF641": {
+            "sourceChain": 416001,
+            "sourceToken": "770071959",
+            "sourceName": "Aramid ETH",
+            "sourceSymbol": "aETH",
+            "sourceDecimals": 6,
+            "sourceType": "algo",
+            "sourceTokenLogo": "aramid-eth",
+            "destinationChain": 42161,
+            "destinationToken": "0x573daA4caA8312EeE2BaB9c8eA633664B3FBF641",
+            "destinationName": "Aramid ETH",
+            "destinationSymbol": "aETH",
+            "destinationDecimals": 18,
+            "destinationType": "eth",
+            "destinationTokenLogo": "aramid-eth",
             "feeAlternatives": [
               {
                 "validFrom": 0,
@@ -2570,6 +5772,170 @@
                 "validUntil": 999999999,
                 "minimumAmount": "1",
                 "maximumAmount": "999999999000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          }
+        },
+        "3081228451": {
+          "0x2f2a2543B76A4166549F7aaB2e75Bef0aefC5B0f": {
+            "sourceChain": 416001,
+            "sourceToken": "3081228451",
+            "sourceName": "Aramid WBTC",
+            "sourceSymbol": "aWBTC",
+            "sourceDecimals": 8,
+            "sourceType": "algo",
+            "sourceTokenLogo": "wbtc",
+            "destinationChain": 42161,
+            "destinationToken": "0x2f2a2543B76A4166549F7aaB2e75Bef0aefC5B0f",
+            "destinationName": "Wrapped BTC",
+            "destinationSymbol": "aWBTC",
+            "destinationDecimals": 8,
+            "destinationType": "eth",
+            "destinationTokenLogo": "wbtc",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "10000000",
+                "maximumAmount": "99999999900000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "99999999900000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          },
+          "0xb23556658b1E25E0268409053274E09Ed50e2595": {
+            "sourceChain": 416001,
+            "sourceToken": "3081228451",
+            "sourceName": "Aramid WBTC",
+            "sourceSymbol": "aWBTC",
+            "sourceDecimals": 8,
+            "sourceType": "algo",
+            "sourceTokenLogo": "wbtc",
+            "destinationChain": 42161,
+            "destinationToken": "0xb23556658b1E25E0268409053274E09Ed50e2595",
+            "destinationName": "Aramid WBTC",
+            "destinationSymbol": "aWBTC",
+            "destinationDecimals": 8,
+            "destinationType": "eth",
+            "destinationTokenLogo": "wbtc",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "10000000",
+                "maximumAmount": "99999999900000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "99999999900000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          }
+        },
+        "3081230356": {
+          "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf": {
+            "sourceChain": 416001,
+            "sourceToken": "3081230356",
+            "sourceName": "Aramid cbBTC",
+            "sourceSymbol": "acbBTC",
+            "sourceDecimals": 8,
+            "sourceType": "algo",
+            "sourceTokenLogo": "cbbtc",
+            "destinationChain": 42161,
+            "destinationToken": "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf",
+            "destinationName": "Coinbase Wrapped BTC",
+            "destinationSymbol": "acbBTC",
+            "destinationDecimals": 8,
+            "destinationType": "eth",
+            "destinationTokenLogo": "cbbtc",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "10000000",
+                "maximumAmount": "99999999900000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "99999999900000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          },
+          "0xFE987A1AB0F45d405e50dA54C80fF93F35B68567": {
+            "sourceChain": 416001,
+            "sourceToken": "3081230356",
+            "sourceName": "Aramid cbBTC",
+            "sourceSymbol": "acbBTC",
+            "sourceDecimals": 8,
+            "sourceType": "algo",
+            "sourceTokenLogo": "cbbtc",
+            "destinationChain": 42161,
+            "destinationToken": "0xFE987A1AB0F45d405e50dA54C80fF93F35B68567",
+            "destinationName": "Aramid cbBTC",
+            "destinationSymbol": "acbBTC",
+            "destinationDecimals": 8,
+            "destinationType": "eth",
+            "destinationTokenLogo": "cbbtc",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "10000000",
+                "maximumAmount": "99999999900000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "99999999900000000",
                 "sourceConst": 0,
                 "sourcePercent": 0.001,
                 "destinationConst": 0,
@@ -2919,6 +6285,48 @@
             ]
           }
         },
+        "770071959": {
+          "302193": {
+            "sourceChain": 416001,
+            "sourceToken": "770071959",
+            "sourceName": "Aramid ETH",
+            "sourceSymbol": "aETH",
+            "sourceDecimals": 6,
+            "sourceType": "algo",
+            "sourceTokenLogo": "aramid-eth",
+            "destinationChain": 416101,
+            "destinationToken": "302193",
+            "destinationName": "Aramid ETH",
+            "destinationSymbol": "aETH",
+            "destinationDecimals": 6,
+            "destinationType": "algo",
+            "destinationTokenLogo": "aramid-eth",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "100000",
+                "maximumAmount": "999999999000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "999999999000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          }
+        },
         "1241944285": {
           "302228": {
             "sourceChain": 416001,
@@ -3128,6 +6536,90 @@
               }
             ]
           }
+        },
+        "3081228451": {
+          "40152643": {
+            "sourceChain": 416001,
+            "sourceToken": "3081228451",
+            "sourceName": "Aramid WBTC",
+            "sourceSymbol": "aWBTC",
+            "sourceDecimals": 8,
+            "sourceType": "algo",
+            "sourceTokenLogo": "wbtc",
+            "destinationChain": 416101,
+            "destinationToken": "40152643",
+            "destinationName": "Aramid WBTC",
+            "destinationSymbol": "aWBTC",
+            "destinationDecimals": 8,
+            "destinationType": "algo",
+            "destinationTokenLogo": "wbtc",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "10000000",
+                "maximumAmount": "99999999900000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "99999999900000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          }
+        },
+        "3081230356": {
+          "40152648": {
+            "sourceChain": 416001,
+            "sourceToken": "3081230356",
+            "sourceName": "Aramid cbBTC",
+            "sourceSymbol": "acbBTC",
+            "sourceDecimals": 8,
+            "sourceType": "algo",
+            "sourceTokenLogo": "cbbtc",
+            "destinationChain": 416101,
+            "destinationToken": "40152648",
+            "destinationName": "Aramid cbBTC",
+            "destinationSymbol": "acbBTC",
+            "destinationDecimals": 8,
+            "destinationType": "algo",
+            "destinationTokenLogo": "cbbtc",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "10000000",
+                "maximumAmount": "99999999900000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "99999999900000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          }
         }
       }
     },
@@ -3298,6 +6790,294 @@
               }
             ]
           }
+        },
+        "302193": {
+          "0x0000000000000000000000000000000000000000": {
+            "sourceChain": 416101,
+            "sourceToken": "302193",
+            "sourceName": "Aramid ETH",
+            "sourceSymbol": "aETH",
+            "sourceDecimals": 6,
+            "sourceType": "algo",
+            "sourceTokenLogo": "aramid-eth",
+            "destinationChain": 8453,
+            "destinationToken": "0x0000000000000000000000000000000000000000",
+            "destinationName": "Native ETH",
+            "destinationSymbol": "aETH",
+            "destinationDecimals": 18,
+            "destinationType": "eth",
+            "destinationTokenLogo": "eth",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "100000",
+                "maximumAmount": "999999999000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "999999999000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          },
+          "0xb23556658b1E25E0268409053274E09Ed50e2595": {
+            "sourceChain": 416101,
+            "sourceToken": "302193",
+            "sourceName": "Aramid ETH",
+            "sourceSymbol": "aETH",
+            "sourceDecimals": 6,
+            "sourceType": "algo",
+            "sourceTokenLogo": "aramid-eth",
+            "destinationChain": 8453,
+            "destinationToken": "0xb23556658b1E25E0268409053274E09Ed50e2595",
+            "destinationName": "Aramid ETH",
+            "destinationSymbol": "aETH",
+            "destinationDecimals": 18,
+            "destinationType": "eth",
+            "destinationTokenLogo": "aramid-eth",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "100000",
+                "maximumAmount": "999999999000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "999999999000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          }
+        },
+        "40152643": {
+          "0x0555e30da8f98308edb960aa94c0db47230d2b9c": {
+            "sourceChain": 416101,
+            "sourceToken": "40152643",
+            "sourceName": "Aramid WBTC",
+            "sourceSymbol": "aWBTC",
+            "sourceDecimals": 8,
+            "sourceType": "algo",
+            "sourceTokenLogo": "wbtc",
+            "destinationChain": 8453,
+            "destinationToken": "0x0555e30da8f98308edb960aa94c0db47230d2b9c",
+            "destinationName": "Wrapped BTC",
+            "destinationSymbol": "aWBTC",
+            "destinationDecimals": 8,
+            "destinationType": "eth",
+            "destinationTokenLogo": "wbtc",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "10000000",
+                "maximumAmount": "99999999900000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "99999999900000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          },
+          "0x573daA4caA8312EeE2BaB9c8eA633664B3FBF641": {
+            "sourceChain": 416101,
+            "sourceToken": "40152643",
+            "sourceName": "Aramid WBTC",
+            "sourceSymbol": "aWBTC",
+            "sourceDecimals": 8,
+            "sourceType": "algo",
+            "sourceTokenLogo": "wbtc",
+            "destinationChain": 8453,
+            "destinationToken": "0x573daA4caA8312EeE2BaB9c8eA633664B3FBF641",
+            "destinationName": "Aramid WBTC",
+            "destinationSymbol": "aWBTC",
+            "destinationDecimals": 8,
+            "destinationType": "eth",
+            "destinationTokenLogo": "wbtc",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "10000000",
+                "maximumAmount": "99999999900000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "99999999900000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          }
+        },
+        "40152648": {
+          "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf": {
+            "sourceChain": 416101,
+            "sourceToken": "40152648",
+            "sourceName": "Aramid cbBTC",
+            "sourceSymbol": "acbBTC",
+            "sourceDecimals": 8,
+            "sourceType": "algo",
+            "sourceTokenLogo": "cbbtc",
+            "destinationChain": 8453,
+            "destinationToken": "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf",
+            "destinationName": "Coinbase Wrapped BTC",
+            "destinationSymbol": "acbBTC",
+            "destinationDecimals": 8,
+            "destinationType": "eth",
+            "destinationTokenLogo": "cbbtc",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "10000000",
+                "maximumAmount": "99999999900000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "99999999900000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          },
+          "0xa62cE1465123C70669EB9A8EEF83Bd788ee9cBB5": {
+            "sourceChain": 416101,
+            "sourceToken": "40152648",
+            "sourceName": "Aramid cbBTC",
+            "sourceSymbol": "acbBTC",
+            "sourceDecimals": 8,
+            "sourceType": "algo",
+            "sourceTokenLogo": "cbbtc",
+            "destinationChain": 8453,
+            "destinationToken": "0xa62cE1465123C70669EB9A8EEF83Bd788ee9cBB5",
+            "destinationName": "Aramid cbBTC",
+            "destinationSymbol": "acbBTC",
+            "destinationDecimals": 8,
+            "destinationType": "eth",
+            "destinationTokenLogo": "cbbtc",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "10000000",
+                "maximumAmount": "99999999900000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "99999999900000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          }
+        },
+        "40152679": {
+          "0xFE987A1AB0F45d405e50dA54C80fF93F35B68567": {
+            "sourceChain": 416101,
+            "sourceToken": "40152679",
+            "sourceName": "Power",
+            "sourceSymbol": "POW",
+            "sourceDecimals": 6,
+            "sourceType": "algo",
+            "sourceTokenLogo": "pow",
+            "destinationChain": 8453,
+            "destinationToken": "0xFE987A1AB0F45d405e50dA54C80fF93F35B68567",
+            "destinationName": "Power",
+            "destinationSymbol": "POW",
+            "destinationDecimals": 6,
+            "destinationType": "eth",
+            "destinationTokenLogo": "pow",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "100000",
+                "maximumAmount": "999999999000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "999999999000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          }
         }
       },
       "42161": {
@@ -3441,6 +7221,294 @@
             "destinationDecimals": 6,
             "destinationType": "eth",
             "destinationTokenLogo": "usdc",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "100000",
+                "maximumAmount": "999999999000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "999999999000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          }
+        },
+        "302193": {
+          "0x0000000000000000000000000000000000000000": {
+            "sourceChain": 416101,
+            "sourceToken": "302193",
+            "sourceName": "Aramid ETH",
+            "sourceSymbol": "aETH",
+            "sourceDecimals": 6,
+            "sourceType": "algo",
+            "sourceTokenLogo": "aramid-eth",
+            "destinationChain": 42161,
+            "destinationToken": "0x0000000000000000000000000000000000000000",
+            "destinationName": "Native ETH",
+            "destinationSymbol": "aETH",
+            "destinationDecimals": 18,
+            "destinationType": "eth",
+            "destinationTokenLogo": "eth",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "100000",
+                "maximumAmount": "999999999000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "999999999000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          },
+          "0x573daA4caA8312EeE2BaB9c8eA633664B3FBF641": {
+            "sourceChain": 416101,
+            "sourceToken": "302193",
+            "sourceName": "Aramid ETH",
+            "sourceSymbol": "aETH",
+            "sourceDecimals": 6,
+            "sourceType": "algo",
+            "sourceTokenLogo": "aramid-eth",
+            "destinationChain": 42161,
+            "destinationToken": "0x573daA4caA8312EeE2BaB9c8eA633664B3FBF641",
+            "destinationName": "Aramid ETH",
+            "destinationSymbol": "aETH",
+            "destinationDecimals": 18,
+            "destinationType": "eth",
+            "destinationTokenLogo": "aramid-eth",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "100000",
+                "maximumAmount": "999999999000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "999999999000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          }
+        },
+        "40152643": {
+          "0x2f2a2543B76A4166549F7aaB2e75Bef0aefC5B0f": {
+            "sourceChain": 416101,
+            "sourceToken": "40152643",
+            "sourceName": "Aramid WBTC",
+            "sourceSymbol": "aWBTC",
+            "sourceDecimals": 8,
+            "sourceType": "algo",
+            "sourceTokenLogo": "wbtc",
+            "destinationChain": 42161,
+            "destinationToken": "0x2f2a2543B76A4166549F7aaB2e75Bef0aefC5B0f",
+            "destinationName": "Wrapped BTC",
+            "destinationSymbol": "aWBTC",
+            "destinationDecimals": 8,
+            "destinationType": "eth",
+            "destinationTokenLogo": "wbtc",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "10000000",
+                "maximumAmount": "99999999900000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "99999999900000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          },
+          "0xb23556658b1E25E0268409053274E09Ed50e2595": {
+            "sourceChain": 416101,
+            "sourceToken": "40152643",
+            "sourceName": "Aramid WBTC",
+            "sourceSymbol": "aWBTC",
+            "sourceDecimals": 8,
+            "sourceType": "algo",
+            "sourceTokenLogo": "wbtc",
+            "destinationChain": 42161,
+            "destinationToken": "0xb23556658b1E25E0268409053274E09Ed50e2595",
+            "destinationName": "Aramid WBTC",
+            "destinationSymbol": "aWBTC",
+            "destinationDecimals": 8,
+            "destinationType": "eth",
+            "destinationTokenLogo": "wbtc",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "10000000",
+                "maximumAmount": "99999999900000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "99999999900000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          }
+        },
+        "40152648": {
+          "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf": {
+            "sourceChain": 416101,
+            "sourceToken": "40152648",
+            "sourceName": "Aramid cbBTC",
+            "sourceSymbol": "acbBTC",
+            "sourceDecimals": 8,
+            "sourceType": "algo",
+            "sourceTokenLogo": "cbbtc",
+            "destinationChain": 42161,
+            "destinationToken": "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf",
+            "destinationName": "Coinbase Wrapped BTC",
+            "destinationSymbol": "acbBTC",
+            "destinationDecimals": 8,
+            "destinationType": "eth",
+            "destinationTokenLogo": "cbbtc",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "10000000",
+                "maximumAmount": "99999999900000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "99999999900000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          },
+          "0xFE987A1AB0F45d405e50dA54C80fF93F35B68567": {
+            "sourceChain": 416101,
+            "sourceToken": "40152648",
+            "sourceName": "Aramid cbBTC",
+            "sourceSymbol": "acbBTC",
+            "sourceDecimals": 8,
+            "sourceType": "algo",
+            "sourceTokenLogo": "cbbtc",
+            "destinationChain": 42161,
+            "destinationToken": "0xFE987A1AB0F45d405e50dA54C80fF93F35B68567",
+            "destinationName": "Aramid cbBTC",
+            "destinationSymbol": "acbBTC",
+            "destinationDecimals": 8,
+            "destinationType": "eth",
+            "destinationTokenLogo": "cbbtc",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "10000000",
+                "maximumAmount": "99999999900000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "99999999900000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          }
+        },
+        "40152679": {
+          "0xa62cE1465123C70669EB9A8EEF83Bd788ee9cBB5": {
+            "sourceChain": 416101,
+            "sourceToken": "40152679",
+            "sourceName": "Power",
+            "sourceSymbol": "POW",
+            "sourceDecimals": 6,
+            "sourceType": "algo",
+            "sourceTokenLogo": "pow",
+            "destinationChain": 42161,
+            "destinationToken": "0xa62cE1465123C70669EB9A8EEF83Bd788ee9cBB5",
+            "destinationName": "Power",
+            "destinationSymbol": "POW",
+            "destinationDecimals": 6,
+            "destinationType": "eth",
+            "destinationTokenLogo": "pow",
             "feeAlternatives": [
               {
                 "validFrom": 0,
@@ -3675,6 +7743,48 @@
             ]
           }
         },
+        "302193": {
+          "770071959": {
+            "sourceChain": 416101,
+            "sourceToken": "302193",
+            "sourceName": "Aramid ETH",
+            "sourceSymbol": "aETH",
+            "sourceDecimals": 6,
+            "sourceType": "algo",
+            "sourceTokenLogo": "aramid-eth",
+            "destinationChain": 416001,
+            "destinationToken": "770071959",
+            "destinationName": "Aramid ETH",
+            "destinationSymbol": "aETH",
+            "destinationDecimals": 6,
+            "destinationType": "algo",
+            "destinationTokenLogo": "aramid-eth",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "100000",
+                "maximumAmount": "999999999000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "999999999000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          }
+        },
         "302228": {
           "1241944285": {
             "sourceChain": 416101,
@@ -3834,6 +7944,90 @@
                 "validUntil": 999999999,
                 "minimumAmount": "1",
                 "maximumAmount": "999999999000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          }
+        },
+        "40152643": {
+          "3081228451": {
+            "sourceChain": 416101,
+            "sourceToken": "40152643",
+            "sourceName": "Aramid WBTC",
+            "sourceSymbol": "aWBTC",
+            "sourceDecimals": 8,
+            "sourceType": "algo",
+            "sourceTokenLogo": "wbtc",
+            "destinationChain": 416001,
+            "destinationToken": "3081228451",
+            "destinationName": "Aramid WBTC",
+            "destinationSymbol": "aWBTC",
+            "destinationDecimals": 8,
+            "destinationType": "algo",
+            "destinationTokenLogo": "wbtc",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "10000000",
+                "maximumAmount": "99999999900000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "99999999900000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          }
+        },
+        "40152648": {
+          "3081230356": {
+            "sourceChain": 416101,
+            "sourceToken": "40152648",
+            "sourceName": "Aramid cbBTC",
+            "sourceSymbol": "acbBTC",
+            "sourceDecimals": 8,
+            "sourceType": "algo",
+            "sourceTokenLogo": "cbbtc",
+            "destinationChain": 416001,
+            "destinationToken": "3081230356",
+            "destinationName": "Aramid cbBTC",
+            "destinationSymbol": "acbBTC",
+            "destinationDecimals": 8,
+            "destinationType": "algo",
+            "destinationTokenLogo": "cbbtc",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "10000000",
+                "maximumAmount": "99999999900000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "99999999900000000",
                 "sourceConst": 0,
                 "sourcePercent": 0.001,
                 "destinationConst": 0,
