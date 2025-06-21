@@ -237,8 +237,38 @@ const reviewButtonClick = () => {
   }
 }
 
+const fillInConfigFromRoute = () => {
+  if (!store.state.publicConfiguration) return
+  const sourceChain = route.params['sourceChain'] as string
+  const destinationChain = route.params['destinationChain'] as string
+  const sourceToken = route.params['sourceToken'] as string
+  const destinationToken = route.params['destinationToken'] as string
+  if (sourceChain) {
+    store.state.sourceChainConfiguration = Object.values(store.state.publicConfiguration.chains).find((chain) => chain.name === sourceChain)
+    if (!store.state.sourceChainConfiguration) return
+    store.state.sourceChain = store.state.sourceChainConfiguration.chainId
+  }
+  if (destinationChain) {
+    store.state.destinationChainConfiguration = Object.values(store.state.publicConfiguration.chains).find((chain) => chain.name === destinationChain)
+    if (!store.state.destinationChainConfiguration) return
+    store.state.destinationChain = store.state.destinationChainConfiguration.chainId
+  }
+  if (sourceToken && store.state.sourceChainConfiguration) {
+    store.state.sourceTokenConfiguration = Object.values(store.state.sourceChainConfiguration.tokens).find((token) => token.name === sourceToken)
+    if (!store.state.sourceTokenConfiguration) return
+    store.state.sourceToken = store.state.sourceTokenConfiguration.tokenId
+  }
+  if (destinationToken && store.state.destinationChainConfiguration) {
+    store.state.destinationTokenConfiguration = Object.values(store.state.destinationChainConfiguration.tokens).find((token) => token.name === destinationToken)
+    if (!store.state.destinationTokenConfiguration) return
+    store.state.destinationToken = store.state.destinationTokenConfiguration.tokenId
+  }
+  console.log('state after fillInConfigFromRoute', store.state)
+}
+
 onMounted(async () => {
   await getPublicConfiguration(false)
+  fillInConfigFromRoute()
   console.log('store.state.publicConfiguration', store.state.publicConfiguration)
   resetDestinationChainIfNotMatched()
   if (!store.state.destinationChain) fillDestinationChainConfiguration()
