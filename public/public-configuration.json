@@ -432,6 +432,16 @@
           "isPremium": false,
           "logo": "unit"
         },
+        "2994233666": {
+          "tokenId": "2994233666",
+          "name": "Power",
+          "symbol": "POW",
+          "decimals": 6,
+          "chainId": 416001,
+          "type": "algo",
+          "isPremium": false,
+          "logo": "pow"
+        },
         "3081228451": {
           "tokenId": "3081228451",
           "name": "Aramid WBTC",
@@ -587,7 +597,7 @@
           "decimals": 6,
           "chainId": 416101,
           "type": "algo",
-          "isPremium": false,
+          "isPremium": true,
           "logo": "pow"
         }
       },
@@ -2264,6 +2274,48 @@
                 "validUntil": 999999999,
                 "minimumAmount": "1",
                 "maximumAmount": "999999999000000000000000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          }
+        },
+        "0xFE987A1AB0F45d405e50dA54C80fF93F35B68567": {
+          "2994233666": {
+            "sourceChain": 8453,
+            "sourceToken": "0xFE987A1AB0F45d405e50dA54C80fF93F35B68567",
+            "sourceName": "Power",
+            "sourceSymbol": "POW",
+            "sourceDecimals": 6,
+            "sourceType": "eth",
+            "sourceTokenLogo": "pow",
+            "destinationChain": 416001,
+            "destinationToken": "2994233666",
+            "destinationName": "Power",
+            "destinationSymbol": "POW",
+            "destinationDecimals": 6,
+            "destinationType": "algo",
+            "destinationTokenLogo": "pow",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "100000",
+                "maximumAmount": "999999999000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "999999999000000",
                 "sourceConst": 0,
                 "sourcePercent": 0.001,
                 "destinationConst": 0,
@@ -4402,6 +4454,48 @@
               }
             ]
           }
+        },
+        "0xa62cE1465123C70669EB9A8EEF83Bd788ee9cBB5": {
+          "2994233666": {
+            "sourceChain": 42161,
+            "sourceToken": "0xa62cE1465123C70669EB9A8EEF83Bd788ee9cBB5",
+            "sourceName": "Power",
+            "sourceSymbol": "POW",
+            "sourceDecimals": 6,
+            "sourceType": "eth",
+            "sourceTokenLogo": "pow",
+            "destinationChain": 416001,
+            "destinationToken": "2994233666",
+            "destinationName": "Power",
+            "destinationSymbol": "POW",
+            "destinationDecimals": 6,
+            "destinationType": "algo",
+            "destinationTokenLogo": "pow",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "100000",
+                "maximumAmount": "999999999000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "999999999000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          }
         }
       },
       "416101": {
@@ -5243,6 +5337,48 @@
             ]
           }
         },
+        "2994233666": {
+          "0xFE987A1AB0F45d405e50dA54C80fF93F35B68567": {
+            "sourceChain": 416001,
+            "sourceToken": "2994233666",
+            "sourceName": "Power",
+            "sourceSymbol": "POW",
+            "sourceDecimals": 6,
+            "sourceType": "algo",
+            "sourceTokenLogo": "pow",
+            "destinationChain": 8453,
+            "destinationToken": "0xFE987A1AB0F45d405e50dA54C80fF93F35B68567",
+            "destinationName": "Power",
+            "destinationSymbol": "POW",
+            "destinationDecimals": 6,
+            "destinationType": "eth",
+            "destinationTokenLogo": "pow",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "100000",
+                "maximumAmount": "999999999000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "999999999000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          }
+        },
         "3081228451": {
           "0x0555e30da8f98308edb960aa94c0db47230d2b9c": {
             "sourceChain": 416001,
@@ -5755,6 +5891,48 @@
             "destinationDecimals": 6,
             "destinationType": "eth",
             "destinationTokenLogo": "usdc",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "100000",
+                "maximumAmount": "999999999000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "999999999000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          }
+        },
+        "2994233666": {
+          "0xa62cE1465123C70669EB9A8EEF83Bd788ee9cBB5": {
+            "sourceChain": 416001,
+            "sourceToken": "2994233666",
+            "sourceName": "Power",
+            "sourceSymbol": "POW",
+            "sourceDecimals": 6,
+            "sourceType": "algo",
+            "sourceTokenLogo": "pow",
+            "destinationChain": 42161,
+            "destinationToken": "0xa62cE1465123C70669EB9A8EEF83Bd788ee9cBB5",
+            "destinationName": "Power",
+            "destinationSymbol": "POW",
+            "destinationDecimals": 6,
+            "destinationType": "eth",
+            "destinationTokenLogo": "pow",
             "feeAlternatives": [
               {
                 "validFrom": 0,
@@ -6528,6 +6706,48 @@
                 "validUntil": 999999999,
                 "minimumAmount": "1",
                 "maximumAmount": "99999999900000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          }
+        },
+        "2994233666": {
+          "40152679": {
+            "sourceChain": 416001,
+            "sourceToken": "2994233666",
+            "sourceName": "Power",
+            "sourceSymbol": "POW",
+            "sourceDecimals": 6,
+            "sourceType": "algo",
+            "sourceTokenLogo": "pow",
+            "destinationChain": 416101,
+            "destinationToken": "40152679",
+            "destinationName": "Power",
+            "destinationSymbol": "POW",
+            "destinationDecimals": 6,
+            "destinationType": "algo",
+            "destinationTokenLogo": "pow",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "100000",
+                "maximumAmount": "999999999000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "999999999000000",
                 "sourceConst": 0,
                 "sourcePercent": 0.001,
                 "destinationConst": 0,
@@ -8028,6 +8248,48 @@
                 "validUntil": 999999999,
                 "minimumAmount": "1",
                 "maximumAmount": "99999999900000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          }
+        },
+        "40152679": {
+          "2994233666": {
+            "sourceChain": 416101,
+            "sourceToken": "40152679",
+            "sourceName": "Power",
+            "sourceSymbol": "POW",
+            "sourceDecimals": 6,
+            "sourceType": "algo",
+            "sourceTokenLogo": "pow",
+            "destinationChain": 416001,
+            "destinationToken": "2994233666",
+            "destinationName": "Power",
+            "destinationSymbol": "POW",
+            "destinationDecimals": 6,
+            "destinationType": "algo",
+            "destinationTokenLogo": "pow",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "100000",
+                "maximumAmount": "999999999000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "999999999000000",
                 "sourceConst": 0,
                 "sourcePercent": 0.001,
                 "destinationConst": 0,
