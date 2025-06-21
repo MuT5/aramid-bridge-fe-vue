@@ -130,19 +130,21 @@ const onDestinationAddressChange = async () => {
   // refresh balance of source account
   if (!store.state.destinationChain) return
   if (!store.state.destinationChainConfiguration) return
-  if (!store.state.destinationAddress) return
+  if (store.state.destinationToken === undefined) return
   if (store.state.destinationChainConfiguration.type == 'algo') {
     try {
-      // check the bridge account
-      store.state.loadingDestinationEscrowAddressBalance = true
-      const balance = await getAlgoAccountTokenBalance(store.state.destinationChain, store.state.destinationBridgeAddress, Number(store.state.destinationToken))
-      console.log('onDestinationAddressChange', balance)
-      if (balance) {
-        store.state.destinationBridgeBalance = balance.toFixed(0, 1)
-      } else {
-        store.state.destinationBridgeBalance = '0'
+      if (store.state.destinationBridgeAddress) {
+        // check the bridge account
+        store.state.loadingDestinationEscrowAddressBalance = true
+        const balance = await getAlgoAccountTokenBalance(store.state.destinationChain, store.state.destinationBridgeAddress, Number(store.state.destinationToken))
+        console.log('loadingDestinationEscrowAddressBalance', store.state.destinationChain, store.state.destinationBridgeAddress, Number(store.state.destinationToken), balance)
+        if (balance) {
+          store.state.destinationBridgeBalance = balance.toFixed(0, 1)
+        } else {
+          store.state.destinationBridgeBalance = '0'
+        }
+        store.state.loadingDestinationEscrowAddressBalance = false
       }
-      store.state.loadingDestinationEscrowAddressBalance = false
     } catch (e: any) {
       store.state.destinationBridgeBalance = '0'
       store.state.loadingDestinationEscrowAddressBalance = false
@@ -155,21 +157,23 @@ const onDestinationAddressChange = async () => {
       return false
     }
     try {
-      store.state.loadingDestinationAddressBalance = true
-      const optin = await getAlgoAccountTokenOptedIn(store.state.destinationChain, store.state.destinationAddress, Number(store.state.destinationToken))
-      if (optin !== null) {
-        store.state.destinationAccountOptedIn = optin
+      if (store.state.destinationAddress) {
+        store.state.loadingDestinationAddressBalance = true
+        const optin = await getAlgoAccountTokenOptedIn(store.state.destinationChain, store.state.destinationAddress, Number(store.state.destinationToken))
+        if (optin !== null) {
+          store.state.destinationAccountOptedIn = optin
 
-        const balance = await getAlgoAccountTokenBalance(store.state.destinationChain, store.state.destinationAddress, Number(store.state.destinationToken))
-        if (balance !== null) {
-          store.state.destinationAddressBalance = balance.toString()
-          console.log('onDestinationAddressChange.balance', store.state.destinationAddressBalance, store.state.destinationChain, store.state.destinationAddress, Number(store.state.destinationToken))
+          const balance = await getAlgoAccountTokenBalance(store.state.destinationChain, store.state.destinationAddress, Number(store.state.destinationToken))
+          if (balance !== null) {
+            store.state.destinationAddressBalance = balance.toString()
+            console.log('onDestinationAddressChange.balance', store.state.destinationAddressBalance, store.state.destinationChain, store.state.destinationAddress, Number(store.state.destinationToken))
+          }
+        } else {
+          store.state.destinationAccountOptedIn = false
+          store.state.destinationAddressBalance = '0'
         }
-      } else {
-        store.state.destinationAccountOptedIn = false
-        store.state.destinationAddressBalance = '0'
+        store.state.loadingDestinationAddressBalance = false
       }
-      store.state.loadingDestinationAddressBalance = false
     } catch (e: any) {
       store.state.loadingDestinationAddressBalance = false
       store.state.destinationAddressBalance = '0'
@@ -185,15 +189,18 @@ const onDestinationAddressChange = async () => {
   if (store.state.destinationChainConfiguration.type == 'eth' && store.state.destinationToken) {
     // check the bridge account
     try {
-      store.state.loadingDestinationEscrowAddressBalance = true
-      const bridgeBalance = await getEthAccountTokenBalance(store.state.destinationChain, store.state.destinationBridgeAddress, store.state.destinationToken)
-      console.log('onDestinationAddressChange', bridgeBalance)
-      if (bridgeBalance) {
-        store.state.destinationBridgeBalance = bridgeBalance.toFixed(0, 1)
-      } else {
-        store.state.destinationBridgeBalance = '0'
+      if (store.state.destinationBridgeAddress) {
+        store.state.loadingDestinationEscrowAddressBalance = true
+        const bridgeBalance = await getEthAccountTokenBalance(store.state.destinationChain, store.state.destinationBridgeAddress, store.state.destinationToken)
+        console.log('getEthAccountTokenBalance.bridge', store.state.destinationChain, store.state.destinationAddress, store.state.destinationToken, bridgeBalance?.toString())
+        console.log('onDestinationAddressChange', bridgeBalance)
+        if (bridgeBalance) {
+          store.state.destinationBridgeBalance = bridgeBalance.toFixed(0, 1)
+        } else {
+          store.state.destinationBridgeBalance = '0'
+        }
+        store.state.loadingDestinationEscrowAddressBalance = false
       }
-      store.state.loadingDestinationEscrowAddressBalance = false
     } catch (e: any) {
       store.state.destinationBridgeBalance = '0'
       store.state.loadingDestinationEscrowAddressBalance = false
@@ -206,16 +213,19 @@ const onDestinationAddressChange = async () => {
       return false
     }
     try {
-      store.state.loadingDestinationAddressBalance = true
-      const balance = await getEthAccountTokenBalance(store.state.destinationChain, store.state.destinationAddress, store.state.destinationToken)
-      if (balance !== null) {
-        store.state.destinationAddressBalance = balance.toString()
-        console.log('onDestinationAddressChange.balance', store.state.destinationAddressBalance, store.state.destinationChain, store.state.destinationAddress, store.state.destinationToken)
-      } else {
-        store.state.destinationAccountOptedIn = true
-        store.state.destinationAddressBalance = '0'
+      if (store.state.destinationAddress) {
+        store.state.loadingDestinationAddressBalance = true
+        const balance = await getEthAccountTokenBalance(store.state.destinationChain, store.state.destinationAddress, store.state.destinationToken)
+        console.log('getEthAccountTokenBalance.user', store.state.destinationChain, store.state.destinationAddress, store.state.destinationToken, balance?.toString())
+        if (balance !== null) {
+          store.state.destinationAddressBalance = balance.toString()
+          console.log('onDestinationAddressChange.balance', store.state.destinationAddressBalance, store.state.destinationChain, store.state.destinationAddress, store.state.destinationToken)
+        } else {
+          store.state.destinationAccountOptedIn = true
+          store.state.destinationAddressBalance = '0'
+        }
+        store.state.loadingDestinationAddressBalance = false
       }
-      store.state.loadingDestinationAddressBalance = false
     } catch (e: any) {
       store.state.loadingDestinationAddressBalance = false
       store.state.destinationAddressBalance = '0'
@@ -232,6 +242,19 @@ const onDestinationAddressChange = async () => {
 
 watch(
   () => store.state.destinationAddress,
+  async () => {
+    await onDestinationAddressChange()
+  }
+)
+
+watch(
+  () => store.state.destinationBridgeAddress,
+  async () => {
+    await onDestinationAddressChange()
+  }
+)
+watch(
+  () => store.state.destinationToken,
   async () => {
     await onDestinationAddressChange()
   }
