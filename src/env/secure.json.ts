@@ -67,8 +67,8 @@ const config: SecureConfiguration = {
     },
     '42161': {
       type: 'eth',
-      providerUrl: 'https://1rpc.io/arb',
-      providerUrl2: '',
+      providerUrl: 'https://arb1.arbitrum.io/rpc',
+      providerUrl2: 'https://1rpc.io/arb',
       providerUrl3: ''
     },
     '17000': {
