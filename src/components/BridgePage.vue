@@ -155,11 +155,7 @@ const doValidation = (): boolean => {
     // For some reason this fails in dev mode, but not in prod
     else if (!store.state.escrowBalanceIsSufficient) {
       throw Error('Insufficient liquidity to fulfill bridge request, please try again later.')
-    } else if (
-      !store.state.destinationBridgeBalance ||
-      !store.state.destinationAddressBalance ||
-      new BigNumber(store.state.destinationBridgeBalance).lt(new BigNumber(store.state.destinationAddressBalance))
-    ) {
+    } else if (!store.state.destinationBridgeBalance || !store.state.destinationAmount || new BigNumber(store.state.destinationBridgeBalance).lt(new BigNumber(store.state.destinationAmount))) {
       throw Error('Amount requested to bridge is greater than destination bridge account balance.')
     }
     const memoWhiteList = /^[\p{L}\p{N}\s\.,\-_\/@\*\+\$%]*$/u
@@ -177,7 +173,7 @@ const doValidation = (): boolean => {
       new BigNumber(store.state.sourceAmount).minus(store.state.feeAmount).lt(store.state.routeConfig.feeAlternatives[0].minimumAmount)
     ) {
       throw Error(
-        `Source asset amount after fees are substracted should be at least ${Number(ethers.formatUnits(store.state.routeConfig.feeAlternatives[0].minimumAmount, store.state.sourceTokenConfiguration.decimals)).toFixed(2)}.`
+        `Source asset amount after fees are substracted should be at least ${Number(ethers.formatUnits(store.state.routeConfig.feeAlternatives[0].minimumAmount, store.state.sourceTokenConfiguration.decimals)).toFixed(8)}.`
       )
     }
     if (

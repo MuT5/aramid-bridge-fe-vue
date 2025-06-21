@@ -14,6 +14,7 @@ import { useSwitchNetwork, useWeb3ModalAccount, useWeb3ModalProvider } from '@we
 import { useToast } from 'primevue/usetoast'
 import { executeEthApproveTx } from '@/scripts/eth/executeEthApproveTx'
 import { executeEthLockTokensTx } from '@/scripts/eth/executeEthLockTokensTx'
+import { executeEthLockNativeTx } from '@/scripts/eth/executeEthLockNativeTx'
 import loader from '@/assets/images/loading-buffering.gif'
 import ShortTx from './ui/ShortTx.vue'
 const store = useAppStore()
@@ -205,6 +206,47 @@ const lockButtonClick = async () => {
   }
 }
 
+const payNativeButtonClick = async () => {
+  try {
+    console.log('lockButtonClick')
+    if (!store.state.sourceChainConfiguration) throw Error('store.state.sourceChainConfiguration is missing')
+    state.inSign = true
+    const signInfo = await executeEthLockNativeTx()
+    state.inSign = false
+    state.signHash = signInfo.hash
+    state.inSignMinting = true
+    console.log('signInfo', signInfo)
+    await signInfo.wait()
+    state.inSignMinting = false
+    if (signInfo.hash) {
+      store.state.bridgeTx = signInfo.hash
+
+      await router.push({
+        name: 'bridging',
+        params: {
+          sourceChain: store.state.sourceChainConfiguration.name,
+          destinationChain: store.state.destinationChainConfiguration?.name,
+          sourceToken: store.state.sourceTokenConfiguration?.name,
+          destinationToken: store.state.destinationTokenConfiguration?.name,
+          sourceAmount: store.state.sourceAmount,
+          note: base64url(store.state.memo ?? 'aramid-fe-2'),
+          sourceAddress: store.state.sourceAddress,
+          destinationAddress: store.state.destinationAddress
+        }
+      })
+      return
+    }
+  } catch (e: any) {
+    state.inSign = false
+    state.inSignMinting = false
+    console.error(e)
+    toast.add({
+      severity: 'error',
+      detail: e.message ?? e,
+      life: 10000
+    })
+  }
+}
 watch(
   () => chainId,
   () => {
@@ -367,6 +409,9 @@ watch(
     <div v-if="state.switchingNetwork"><img :src="loader" alt="Loading" height="18" width="18" class="inline-block" /> Please check your wallet for switch network request</div>
     <div v-if="store.state.sourceChainConfiguration?.type == 'eth'" class="w-full">
       <MainActionButton v-if="chainId != store.state.sourceChain" @click="switchNetworkClick">Switch your wallet to {{ store.state.sourceChainConfiguration?.name }}</MainActionButton>
+      <div v-else-if="store.state.sourceToken == '0x0000000000000000000000000000000000000000'">
+        <MainActionButton @click="payNativeButtonClick"> Bridge native token </MainActionButton>
+      </div>
       <div v-else class="w-full">
         <MainActionButton @click="approveButtonClick" v-if="store.state.sourceChainConfiguration?.type == 'eth' && !state.approved && !state.inApproval && !state.inApprovalMinting">
           Approve

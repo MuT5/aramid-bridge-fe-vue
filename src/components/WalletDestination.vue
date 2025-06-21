@@ -192,7 +192,7 @@ const onDestinationAddressChange = async () => {
       if (store.state.destinationBridgeAddress) {
         store.state.loadingDestinationEscrowAddressBalance = true
         const bridgeBalance = await getEthAccountTokenBalance(store.state.destinationChain, store.state.destinationBridgeAddress, store.state.destinationToken)
-        console.log('getEthAccountTokenBalance.bridge', store.state.destinationChain, store.state.destinationAddress, store.state.destinationToken, bridgeBalance?.toString())
+        console.log('getEthAccountTokenBalance.bridge', store.state.destinationChain, store.state.destinationBridgeAddress, store.state.destinationToken, bridgeBalance?.toString())
         console.log('onDestinationAddressChange', bridgeBalance)
         if (bridgeBalance) {
           store.state.destinationBridgeBalance = bridgeBalance.toFixed(0, 1)

@@ -13,6 +13,7 @@ export const makeNoteField = () => {
   }
 
   const tosendFee = parseInt(store.state.feeAmount)
+  const netSrcAmt = parseInt(store.state.sourceAmount) - tosendFee
   const netDestAmt = parseInt(store.state.destinationAmount)
   //if (netDestAmt != netSourceAmt) throw Error(`Net source amount is not equal to net destination amount: ${netSourceAmt} != ${netDestAmt}`);
   const note: ITransfer = {
@@ -22,7 +23,7 @@ export const makeNoteField = () => {
     feeAmount: tosendFee,
     destinationAmount: netDestAmt,
     note: store.state.memo ?? 'aramid-fe-2',
-    sourceAmount: netDestAmt
+    sourceAmount: netSrcAmt
   }
   console.log('note', note)
   const algorandNote: string = `aramid-transfer/v1:j${JSON.stringify(note)}`

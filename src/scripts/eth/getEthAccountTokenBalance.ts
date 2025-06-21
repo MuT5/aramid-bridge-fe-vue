@@ -27,7 +27,7 @@ const getEthAccountTokenBalance = async (chainId: number, walletAddress: string,
       console.log('web3.eth.getBalance', walletAddress)
       const bal = await web3.eth.getBalance(walletAddress)
       balance = bal.toString()
-      console.log('web3.eth.getBalance=balance asdasdasdasd', walletAddress, balance)
+      console.log('web3.eth.getBalance=balance native token', walletAddress, balance)
       if (balance === undefined || balance === null) {
         throw 'undefined or null balance'
       }
