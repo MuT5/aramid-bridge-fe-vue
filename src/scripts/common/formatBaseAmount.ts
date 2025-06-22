@@ -1,6 +1,6 @@
 const formatBaseAmount = (amount: string, decimals: number): string => {
   let showDecimals = decimals
-  if (showDecimals > 6) showDecimals = 6
+  if (showDecimals > 8) showDecimals = 8
   const formatter = new Intl.NumberFormat(undefined, {
     minimumFractionDigits: showDecimals,
     maximumFractionDigits: showDecimals
