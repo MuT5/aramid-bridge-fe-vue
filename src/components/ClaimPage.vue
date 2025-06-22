@@ -326,7 +326,10 @@ const resetButtonClick = async () => {
       </div>
       <div class="w-full" v-else-if="!state.claimed">
         <MainActionButton v-if="chainId == store.state.destinationChain" @click="claimButtonClick">Claim</MainActionButton>
-        <MainActionButton v-else @click="claimButtonClick">Switch your wallet to {{ store.state.destinationChainConfiguration?.name }}</MainActionButton>
+        <MainActionButton v-else-if="store.state.claimData" @click="claimButtonClick">Switch your wallet to {{ store.state.destinationChainConfiguration?.name }}</MainActionButton>
+        <div v-else>
+          <p class="text-red-100 text-center">It seems that the transaction has not been bridged yet or has been bridged too long time ago</p>
+        </div>
       </div>
       <div v-else-if="state.claimed">
         <p>
