@@ -17,6 +17,8 @@ export const useAppStore = defineStore('app', () => {
     isMintScreen: false,
     requestDestinationTokenBalanceRefresh: false,
     sourceAmount: '0',
+    sourceAmountUpdateEnabled: false,
+    sourceAmountNet: '0',
     sourceAmountFormatted: '0',
     destinationAmount: '0',
     destinationAmountFormatted: '0',
@@ -41,7 +43,8 @@ export const useAppStore = defineStore('app', () => {
 
     loadingSourceAddressBalance: false,
     loadingDestinationAddressBalance: false,
-    loadingDestinationEscrowAddressBalance: false
+    loadingDestinationEscrowAddressBalance: false,
+    lockRouteForSwitch: false
   })
 
   return { state }

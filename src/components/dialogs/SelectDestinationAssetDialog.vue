@@ -47,7 +47,7 @@ const fillInState = () => {
     store.state.sourceToken
   ) {
     const allowedRoutes = Object.keys(state.publicConfiguration.chains2tokens[store.state.sourceChain.toString()][store.state.destinationChain.toString()][store.state.sourceToken])
-    console.log('allowedRoutes', allowedRoutes)
+    //console.log('allowedRoutes', allowedRoutes)
     state.assets = Object.values(state.publicConfiguration.chains[store.state.destinationChain.toString()].tokens).filter((c) => allowedRoutes.includes(c.tokenId))
   } else {
     state.assets = Object.values(state.publicConfiguration.chains[store.state.destinationChain.toString()].tokens)
@@ -55,7 +55,7 @@ const fillInState = () => {
 }
 onMounted(async () => {
   state.publicConfiguration = await getPublicConfiguration(false)
-  console.log('select destination asset dialog onmounted')
+  //console.log('select destination asset dialog onmounted')
   fillInState()
 })
 

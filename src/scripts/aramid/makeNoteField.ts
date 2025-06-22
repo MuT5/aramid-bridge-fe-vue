@@ -13,7 +13,7 @@ export const makeNoteField = () => {
   }
 
   const tosendFee = parseInt(store.state.feeAmount)
-  const netSrcAmt = parseInt(store.state.sourceAmount) - tosendFee
+  const netSrcAmt = parseInt(store.state.sourceAmountNet)
   const netDestAmt = parseInt(store.state.destinationAmount)
   //if (netDestAmt != netSourceAmt) throw Error(`Net source amount is not equal to net destination amount: ${netSourceAmt} != ${netDestAmt}`);
   const note: ITransfer = {

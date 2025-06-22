@@ -26,7 +26,7 @@ const fillInState = () => {
   try {
     if (!state.publicConfiguration) return
     if (!store.state.sourceChainConfiguration) {
-      console.log("css route.params['sourceChain']", route.params['sourceChain'])
+      //console.log("css route.params['sourceChain']", route.params['sourceChain'])
       fillSourceChainConfiguration(undefined, route.params['sourceChain'])
     }
   } catch (e: any) {

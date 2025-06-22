@@ -19,7 +19,7 @@ const getPublicConfiguration = async (reload: boolean): Promise<PublicConfigurat
     }
     if (!reload) {
       if (store.state.publicConfiguration !== null) return store.state.publicConfiguration
-      console.log('currentMapping', store.state.publicConfiguration)
+      //console.log('currentMapping', store.state.publicConfiguration)
     }
     loading = true
 
@@ -34,7 +34,7 @@ const getPublicConfiguration = async (reload: boolean): Promise<PublicConfigurat
       logger.info(`${new Date()} Loaded configuration from localstorage. Hash: ${copy.hash}`)
       store.state.publicConfiguration = copy
       loading = false
-      console.log('loading', loading, store.state.publicConfiguration)
+      ////console.log('loading', loading, store.state.publicConfiguration)
       return store.state.publicConfiguration
     }
     const controlTx = await getAlgorandConfigTransaction(appConfiguration.mainToken, appConfiguration.mainNetwork, appConfiguration.configurationAddress)
@@ -52,7 +52,7 @@ const getPublicConfiguration = async (reload: boolean): Promise<PublicConfigurat
     mappingFromWeb.hash = CryptoJS.SHA256(JSON.stringify(mappingFromWeb)).toString()
     store.state.publicConfiguration = mappingFromWeb
     logger.info(`${new Date()} Loaded configuration from hash: ${mappingFromWeb.hash}`)
-    console.log('loaded configuration from ipfs:', store.state.publicConfiguration)
+    //console.log('loaded configuration from ipfs:', store.state.publicConfiguration)
 
     loading = false
     return mappingFromWeb

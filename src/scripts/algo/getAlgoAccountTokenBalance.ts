@@ -14,7 +14,7 @@ const getAlgoAccountTokenBalance = async (chainId: number, accountAddress: strin
     const algod = await getAlgodClientByChainId(chainId)
     await asyncdelay(200)
     const account = await indexer?.lookupAccountByID(accountAddress).do()
-    console.log('algo.account', chainId, account)
+    //console.log('algo.account', chainId, account)
     if (!account || !account.account) return new BigNumber('0')
     if (asa == 0) {
       return account.account.amount
@@ -23,7 +23,7 @@ const getAlgoAccountTokenBalance = async (chainId: number, accountAddress: strin
     const asaItem = account.account.assets.find((a: any) => a['asset-id'] == asa)
     if (!asaItem) return new BigNumber('0')
     const ret = new BigNumber(asaItem.amount)
-    console.log('account.amount', ret.toFixed(0, 1))
+    //console.log('account.amount', ret.toFixed(0, 1))
     return ret
   } catch (e) {
     console.error(e)

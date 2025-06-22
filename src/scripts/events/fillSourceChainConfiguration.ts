@@ -10,13 +10,13 @@ export const fillSourceChainConfiguration = (chainId: number | undefined = undef
     const chain = chainId
     const chainObj = getChainConfigurationSync(chain, store.state.publicConfiguration)
     if (chain && chainObj) {
-      console.log('fillSourceChainConfiguration', chain, chainObj.name)
+      //console.log('fillSourceChainConfiguration', chain, chainObj.name)
       store.state.sourceChain = chain
       store.state.sourceChainConfiguration = chainObj
       store.state.sourceChainGenesis = undefined
     }
   } else if (!store.state.destinationChain && paramValue) {
-    console.log("route.params['sourceChain']", paramValue)
+    //console.log("route.params['sourceChain']", paramValue)
     let chainFromPath = Object.values(store.state.publicConfiguration.chains).find((c) => c.name == paramValue)?.chainId
     if (!chainFromPath) {
       const keys = Object.keys(store.state.publicConfiguration.chains2tokens)
@@ -27,7 +27,7 @@ export const fillSourceChainConfiguration = (chainId: number | undefined = undef
     const chain = Number(chainFromPath)
     const chainObj = getChainConfigurationSync(chain, store.state.publicConfiguration)
     if (chain && chainObj) {
-      console.log('fillSourceChainConfiguration', chain, chainObj.name)
+      //console.log('fillSourceChainConfiguration', chain, chainObj.name)
       store.state.sourceChain = chain
       store.state.sourceChainConfiguration = chainObj
       store.state.sourceChainGenesis = undefined
@@ -48,7 +48,7 @@ export const fillSourceChainConfiguration = (chainId: number | undefined = undef
     }
     const chainObj = getChainConfigurationSync(chain, store.state.publicConfiguration)
     if (chain && chainObj) {
-      console.log('fillSourceChainConfiguration', chain, chainObj.name)
+      //console.log('fillSourceChainConfiguration', chain, chainObj.name)
       store.state.sourceChain = chain
       store.state.sourceChainConfiguration = chainObj
       store.state.sourceChainGenesis = undefined
@@ -70,7 +70,7 @@ export const fillSourceChainConfiguration = (chainId: number | undefined = undef
     }
     const chainObj = getChainConfigurationSync(chain, store.state.publicConfiguration)
     if (chain && chainObj) {
-      console.log('fillSourceChainConfiguration', chain, chainObj.name)
+      //console.log('fillSourceChainConfiguration', chain, chainObj.name)
       store.state.sourceChain = chain
       store.state.sourceChainConfiguration = chainObj
       store.state.sourceChainGenesis = undefined

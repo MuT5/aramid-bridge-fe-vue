@@ -55,20 +55,20 @@ const setWarningIfLowBalanceAtDestinationChain = () => {
   } else {
     store.state.escrowBalanceIsSufficient = true
   }
-  console.log(
-    'store.state.escrowBalanceIsSufficient',
-    store.state.escrowBalanceIsSufficient,
-    store.state.escrowBalanceIsSufficient10x,
-    store.state.destinationAmount,
-    store.state.destinationBridgeBalance
-  )
+  // console.log(
+  //   'store.state.escrowBalanceIsSufficient',
+  //   store.state.escrowBalanceIsSufficient,
+  //   store.state.escrowBalanceIsSufficient10x,
+  //   store.state.destinationAmount,
+  //   store.state.destinationBridgeBalance
+  // )
 }
 
 watch(
   () => store.state.destinationAmount,
   () => {
     // check 10x warning
-    console.log('destinationAmount updated', store.state.escrowBalanceIsSufficient, store.state.escrowBalanceIsSufficient10x, store.state.destinationAmount, store.state.destinationBridgeBalance)
+    //console.log('destinationAmount updated', store.state.escrowBalanceIsSufficient, store.state.escrowBalanceIsSufficient10x, store.state.destinationAmount, store.state.destinationBridgeBalance)
     setWarningIfLowBalanceAtDestinationChain()
   }
 )

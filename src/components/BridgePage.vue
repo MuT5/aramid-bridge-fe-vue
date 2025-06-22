@@ -29,6 +29,7 @@ import { AlgoConnectorType } from '@/scripts/interface/algo/AlgoConnectorType'
 import getWeb3Modal from '@/scripts/eth/getWeb3Modal'
 import algosdk from 'algosdk'
 import { resetStateSoft } from '@/scripts/common/resetStateSoft'
+import calculateFeeAndDestinationAmount from '@/scripts/common/calculateFeeAndDestinationAmount'
 
 const store = useAppStore()
 const route = useRoute()
@@ -40,6 +41,11 @@ const state = reactive({
 })
 const fillInRoute = () => {
   if (!state.mounted) return
+  if (store.state.lockRouteForSwitch) {
+    store.state.lockRouteForSwitch = false
+    return
+  }
+  let route, params
   if (
     store.state.sourceChainConfiguration &&
     store.state.destinationChainConfiguration &&
@@ -49,19 +55,17 @@ const fillInRoute = () => {
     store.state.destinationAddress &&
     store.state.sourceAmount
   ) {
-    router.push({
-      name: 'bridge-sc-dc-st-dt-sa-da-a-n',
-      params: {
-        sourceChain: store.state.sourceChainConfiguration.name,
-        destinationChain: store.state.destinationChainConfiguration.name,
-        sourceToken: store.state.sourceTokenConfiguration.name,
-        destinationToken: store.state.destinationTokenConfiguration.name,
-        sourceAddress: store.state.sourceAddress,
-        destinationAddress: store.state.destinationAddress,
-        sourceAmount: store.state.sourceAmount,
-        note: base64url(store.state.memo ? store.state.memo : 'aramid')
-      }
-    })
+    route = 'bridge-sc-dc-st-dt-sa-da-a-n'
+    params = {
+      sourceChain: store.state.sourceChainConfiguration.name,
+      destinationChain: store.state.destinationChainConfiguration.name,
+      sourceToken: store.state.sourceTokenConfiguration.name,
+      destinationToken: store.state.destinationTokenConfiguration.name,
+      sourceAddress: store.state.sourceAddress,
+      destinationAddress: store.state.destinationAddress,
+      sourceAmount: store.state.sourceAmount,
+      note: base64url(store.state.memo ? store.state.memo : 'aramid')
+    }
   } else if (
     store.state.sourceChainConfiguration &&
     store.state.destinationChainConfiguration &&
@@ -69,26 +73,32 @@ const fillInRoute = () => {
     store.state.destinationTokenConfiguration &&
     store.state.sourceAmount
   ) {
-    router.push({
-      name: 'bridge-sc-dc-st-dt-a-n',
-      params: {
-        sourceChain: store.state.sourceChainConfiguration.name,
-        destinationChain: store.state.destinationChainConfiguration.name,
-        sourceToken: store.state.sourceTokenConfiguration.name,
-        destinationToken: store.state.destinationTokenConfiguration.name,
-        sourceAmount: store.state.sourceAmount,
-        note: base64url(store.state.memo ? store.state.memo : 'aramid')
-      }
-    })
+    route = 'bridge-sc-dc-st-dt-a-n'
+    params = {
+      sourceChain: store.state.sourceChainConfiguration.name,
+      destinationChain: store.state.destinationChainConfiguration.name,
+      sourceToken: store.state.sourceTokenConfiguration.name,
+      destinationToken: store.state.destinationTokenConfiguration.name,
+      sourceAmount: store.state.sourceAmount,
+      note: base64url(store.state.memo ? store.state.memo : 'aramid')
+    }
   } else if (store.state.sourceChainConfiguration && store.state.destinationChainConfiguration && store.state.sourceTokenConfiguration && store.state.destinationTokenConfiguration) {
+    route = 'bridge-sc-dc-st-dt'
+    params = {
+      sourceChain: store.state.sourceChainConfiguration.name,
+      destinationChain: store.state.destinationChainConfiguration.name,
+      sourceToken: store.state.sourceTokenConfiguration.name,
+      destinationToken: store.state.destinationTokenConfiguration.name
+    }
+  }
+  if (route) {
+    // console.log('debug route', {
+    //   route: route,
+    //   params: params
+    // })
     router.push({
-      name: 'bridge-sc-dc-st-dt',
-      params: {
-        sourceChain: store.state.sourceChainConfiguration.name,
-        destinationChain: store.state.destinationChainConfiguration.name,
-        sourceToken: store.state.sourceTokenConfiguration.name,
-        destinationToken: store.state.destinationTokenConfiguration.name
-      }
+      name: route,
+      params: params
     })
   }
 }
@@ -263,24 +273,25 @@ const fillInConfigFromRoute = () => {
     if (!store.state.destinationTokenConfiguration) return
     store.state.destinationToken = store.state.destinationTokenConfiguration.tokenId
   }
-  console.log('state after fillInConfigFromRoute', store.state)
+  //console.log('state after fillInConfigFromRoute', store.state)
 }
 
 onMounted(async () => {
   await getPublicConfiguration(false)
   fillInConfigFromRoute()
-  console.log('store.state.publicConfiguration', store.state.publicConfiguration)
+  //console.log('store.state.publicConfiguration', store.state.publicConfiguration)
   resetDestinationChainIfNotMatched()
   if (!store.state.destinationChain) fillDestinationChainConfiguration()
   resetSourceTokenIfNotMatched()
   if (!store.state.sourceToken) fillSourceTokenConfiguration()
   if (route.params['sourceAmount']) {
     store.state.sourceAmount = route.params['sourceAmount'] as string
+    calculateFeeAndDestinationAmount()
   }
   if (route.params['note']) {
     try {
       const parsedMemo = base64url.decode(route.params['note'] as string)
-      console.log('parsedMemo', parsedMemo)
+      //console.log('parsedMemo', parsedMemo)
       store.state.memo = parsedMemo
     } catch (e: any) {
       console.error(e)
@@ -295,8 +306,8 @@ onMounted(async () => {
   state.mounted = true
   fillInRoute()
 
-  const modal = getWeb3Modal()
-  console.log('modal', modal)
+  //const modal = getWeb3Modal()
+  //console.log('modal', modal)
 
   if (store.state.memo == 'aramid') store.state.memo = ''
 })
@@ -307,12 +318,12 @@ watch(
     fillInRoute()
   }
 )
-watch(
-  () => store.state.sourceAmount,
-  () => {
-    fillInRoute()
-  }
-)
+// watch(
+//   () => store.state.sourceAmount,
+//   () => {
+//     fillInRoute()
+//   }
+// )
 watch(
   () => store.state.memo,
   () => {

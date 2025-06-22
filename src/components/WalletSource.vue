@@ -70,7 +70,7 @@ const onSourceAddressChange = async () => {
             if (balance !== null) {
               store.state.sourceAddressBalance = balance.toString()
               store.state.loadingSourceAddressBalance = false
-              console.log('onSourceAddressChange.balance', store.state.sourceAddressBalance, store.state.sourceChain, store.state.sourceAddress, Number(store.state.sourceToken))
+              //console.log('onSourceAddressChange.balance', store.state.sourceAddressBalance, store.state.sourceChain, store.state.sourceAddress, Number(store.state.sourceToken))
             }
           } else {
             store.state.loadingSourceAddressBalance = true
@@ -78,7 +78,7 @@ const onSourceAddressChange = async () => {
             if (balance !== null) {
               store.state.sourceAddressBalance = balance.toString()
               store.state.loadingSourceAddressBalance = false
-              console.log('onSourceAddressChange.balance', store.state.sourceAddressBalance, store.state.sourceChain, store.state.sourceAddress, Number(store.state.sourceToken))
+              //console.log('onSourceAddressChange.balance', store.state.sourceAddressBalance, store.state.sourceChain, store.state.sourceAddress, Number(store.state.sourceToken))
             }
           }
           break
@@ -89,7 +89,7 @@ const onSourceAddressChange = async () => {
           if (balance !== null) {
             store.state.sourceAddressBalance = balance.toString()
             store.state.loadingSourceAddressBalance = false
-            console.log('onSourceAddressChange.balance', store.state.sourceAddressBalance, store.state.sourceChain, store.state.sourceAddress, Number(store.state.sourceToken))
+            //console.log('onSourceAddressChange.balance', store.state.sourceAddressBalance, store.state.sourceChain, store.state.sourceAddress, Number(store.state.sourceToken))
           }
         }
       }
@@ -100,7 +100,7 @@ const onSourceAddressChange = async () => {
       if (balance !== null) {
         store.state.sourceAddressBalance = balance.toString()
         store.state.loadingSourceAddressBalance = false
-        console.log('onSourceAddressChange.balance', store.state.sourceAddressBalance, store.state.sourceChain, store.state.sourceAddress, Number(store.state.sourceToken))
+        //console.log('onSourceAddressChange.balance', store.state.sourceAddressBalance, store.state.sourceChain, store.state.sourceAddress, Number(store.state.sourceToken))
       }
     }
   } catch (e: any) {
@@ -118,7 +118,7 @@ const onSourceAddressChange = async () => {
 onMounted(async () => {
   state.publicConfiguration = await getPublicConfiguration(false)
   fillInState()
-  console.log('WalletSource.activeAccount.value', activeWallet.value, activeAccount.value)
+  //console.log('WalletSource.activeAccount.value', activeWallet.value, activeAccount.value)
 
   if (store.state.sourceChainConfiguration?.type == 'algo' && activeWallet.value && activeAccount.value?.address) {
     store.state.sourceAddress = activeAccount.value?.address
@@ -150,7 +150,7 @@ watch(
   () => {
     fillInState()
     if (store.state.sourceChainConfiguration?.type == 'algo') {
-      console.log('setActiveNetwork', store.state.sourceChainConfiguration.name)
+      //console.log('setActiveNetwork', store.state.sourceChainConfiguration.name)
       switch (store.state.sourceChainConfiguration.name) {
         case 'Algorand':
           setActiveNetwork(NetworkId.MAINNET)
@@ -228,34 +228,34 @@ const buttonClick = async () => {
         await asyncdelay(500)
       }
 
-      console.log('0x1 address is ', isConnected.value, address.value, new Date())
+      //console.log('0x1 address is ', isConnected.value, address.value, new Date())
       if (isConnected.value && address.value) {
         store.state.connectedSourceChain = store.state.sourceChain
         store.state.sourceAddress = address.value
       } else {
         await modal?.open()
-        console.log('0x2 address is ', isConnected.value, address.value, new Date())
+        //console.log('0x2 address is ', isConnected.value, address.value, new Date())
         if (isConnected.value && address.value) {
           store.state.connectedSourceChain = store.state.sourceChain
           store.state.sourceAddress = address.value
           return
         }
         await asyncdelay(1000)
-        console.log('0x3 address is ', isConnected.value, address.value, new Date())
+        //console.log('0x3 address is ', isConnected.value, address.value, new Date())
         if (isConnected.value && address.value) {
           store.state.connectedSourceChain = store.state.sourceChain
           store.state.sourceAddress = address.value
           return
         }
         await asyncdelay(5000)
-        console.log('0x4 address is ', isConnected.value, address.value, new Date())
+        //console.log('0x4 address is ', isConnected.value, address.value, new Date())
         if (isConnected.value && address.value) {
           store.state.connectedSourceChain = store.state.sourceChain
           store.state.sourceAddress = address.value
           return
         }
         await asyncdelay(10000)
-        console.log('0x5 address is ', isConnected.value, address.value, new Date())
+        //console.log('0x5 address is ', isConnected.value, address.value, new Date())
         if (isConnected.value && address.value) {
           store.state.connectedSourceChain = store.state.sourceChain
           store.state.sourceAddress = address.value
@@ -266,7 +266,7 @@ const buttonClick = async () => {
       //if (!address) {
       // await modal?.open({ view: 'Account' })
       // address = await modal?.getAddress()
-      // console.log('address after open is ', address)
+      // //console.log('address after open is ', address)
       // //}
 
       // if (address) {

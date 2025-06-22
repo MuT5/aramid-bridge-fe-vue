@@ -36,7 +36,7 @@ const fillInState = () => {
 
 onMounted(async () => {
   state.publicConfiguration = await getPublicConfiguration(false)
-  console.log('WalletDestination.activeAccount.value', avmActiveWallet.value, activeAccount.value)
+  //console.log('WalletDestination.activeAccount.value', avmActiveWallet.value, activeAccount.value)
   if (store.state.destinationChainConfiguration?.type == 'algo' && avmActiveWallet.value && activeAccount.value?.address) {
     store.state.destinationAddress = activeAccount.value?.address
     store.state.connectedDestinationChain = store.state.destinationChain
@@ -137,7 +137,7 @@ const onDestinationAddressChange = async () => {
         // check the bridge account
         store.state.loadingDestinationEscrowAddressBalance = true
         const balance = await getAlgoAccountTokenBalance(store.state.destinationChain, store.state.destinationBridgeAddress, Number(store.state.destinationToken))
-        console.log('loadingDestinationEscrowAddressBalance', store.state.destinationChain, store.state.destinationBridgeAddress, Number(store.state.destinationToken), balance)
+        //console.log('loadingDestinationEscrowAddressBalance', store.state.destinationChain, store.state.destinationBridgeAddress, Number(store.state.destinationToken), balance)
         if (balance) {
           store.state.destinationBridgeBalance = balance.toFixed(0, 1)
         } else {
@@ -166,7 +166,7 @@ const onDestinationAddressChange = async () => {
           const balance = await getAlgoAccountTokenBalance(store.state.destinationChain, store.state.destinationAddress, Number(store.state.destinationToken))
           if (balance !== null) {
             store.state.destinationAddressBalance = balance.toString()
-            console.log('onDestinationAddressChange.balance', store.state.destinationAddressBalance, store.state.destinationChain, store.state.destinationAddress, Number(store.state.destinationToken))
+            //console.log('onDestinationAddressChange.balance', store.state.destinationAddressBalance, store.state.destinationChain, store.state.destinationAddress, Number(store.state.destinationToken))
           }
         } else {
           store.state.destinationAccountOptedIn = false
@@ -192,8 +192,8 @@ const onDestinationAddressChange = async () => {
       if (store.state.destinationBridgeAddress) {
         store.state.loadingDestinationEscrowAddressBalance = true
         const bridgeBalance = await getEthAccountTokenBalance(store.state.destinationChain, store.state.destinationBridgeAddress, store.state.destinationToken)
-        console.log('getEthAccountTokenBalance.bridge', store.state.destinationChain, store.state.destinationBridgeAddress, store.state.destinationToken, bridgeBalance?.toString())
-        console.log('onDestinationAddressChange', bridgeBalance)
+        // console.log('getEthAccountTokenBalance.bridge', store.state.destinationChain, store.state.destinationBridgeAddress, store.state.destinationToken, bridgeBalance?.toString())
+        // console.log('onDestinationAddressChange', bridgeBalance)
         if (bridgeBalance) {
           store.state.destinationBridgeBalance = bridgeBalance.toFixed(0, 1)
         } else {
@@ -216,10 +216,10 @@ const onDestinationAddressChange = async () => {
       if (store.state.destinationAddress) {
         store.state.loadingDestinationAddressBalance = true
         const balance = await getEthAccountTokenBalance(store.state.destinationChain, store.state.destinationAddress, store.state.destinationToken)
-        console.log('getEthAccountTokenBalance.user', store.state.destinationChain, store.state.destinationAddress, store.state.destinationToken, balance?.toString())
+        //console.log('getEthAccountTokenBalance.user', store.state.destinationChain, store.state.destinationAddress, store.state.destinationToken, balance?.toString())
         if (balance !== null) {
           store.state.destinationAddressBalance = balance.toString()
-          console.log('onDestinationAddressChange.balance', store.state.destinationAddressBalance, store.state.destinationChain, store.state.destinationAddress, store.state.destinationToken)
+          //console.log('onDestinationAddressChange.balance', store.state.destinationAddressBalance, store.state.destinationChain, store.state.destinationAddress, store.state.destinationToken)
         } else {
           store.state.destinationAccountOptedIn = true
           store.state.destinationAddressBalance = '0'

@@ -133,7 +133,7 @@ onMounted(async () => {
     searchForTx(state.inputTx)
   }
 
-  console.log('modal', modal)
+  //console.log('modal', modal)
 })
 
 const getSourceChainImageUrl = () => {
@@ -151,7 +151,7 @@ const claimButtonClick = async () => {
 
     const { switchNetwork } = useSwitchNetwork()
     if (!web3ModalProvider.walletProvider.value) {
-      console.log('modal', modal)
+      //console.log('modal', modal)
       await modal?.open()
     }
     if (!web3ModalProvider.walletProvider.value) {

@@ -31,7 +31,7 @@ const getIndexerClientByChainId = async (chainId: number) => {
     }
     const auth: CustomTokenHeader = {}
     auth[tokenHeader] = config.indexer.token
-    logger.debug(`indexerClient root ${config.indexer.host}, ${config.indexer.port}`)
+    //logger.debug(`indexerClient root ${config.indexer.host}, ${config.indexer.port}`)
     indexerClientRef[chainId] = new algosdk.Indexer(auth, config.indexer.host, config.indexer.port)
   }
   return indexerClientRef[chainId]

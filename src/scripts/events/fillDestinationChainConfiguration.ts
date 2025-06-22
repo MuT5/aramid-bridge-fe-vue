@@ -13,7 +13,7 @@ export const fillDestinationChainConfiguration = (chainId: number | undefined = 
     const newDestChainId = chainId
     const newDestChainObj = getChainConfigurationSync(newDestChainId, store.state.publicConfiguration)
     if (newDestChainId && newDestChainObj) {
-      console.log('fillDestinationChainConfiguration', newDestChainId, newDestChainObj.name)
+      //console.log('fillDestinationChainConfiguration', newDestChainId, newDestChainObj.name)
       store.state.destinationChain = newDestChainId
       store.state.destinationChainConfiguration = newDestChainObj
       store.state.destinationChainGenesis = undefined
@@ -28,7 +28,7 @@ export const fillDestinationChainConfiguration = (chainId: number | undefined = 
     const newDestChainId = chainFromPath
     const newDestChainObj = getChainConfigurationSync(newDestChainId, store.state.publicConfiguration)
     if (newDestChainId && newDestChainObj) {
-      console.log('fillDestinationChainConfiguration', newDestChainId, newDestChainObj.name)
+      //console.log('fillDestinationChainConfiguration', newDestChainId, newDestChainObj.name)
       store.state.destinationChain = newDestChainId
       store.state.destinationChainConfiguration = newDestChainObj
       store.state.destinationChainGenesis = undefined
@@ -49,7 +49,7 @@ export const fillDestinationChainConfiguration = (chainId: number | undefined = 
     }
     const newDestChainObj = getChainConfigurationSync(newDestChainId, store.state.publicConfiguration)
     if (newDestChainId && newDestChainObj) {
-      console.log('fillDestinationChainConfiguration', newDestChainId, newDestChainObj.name)
+      //console.log('fillDestinationChainConfiguration', newDestChainId, newDestChainObj.name)
       store.state.destinationChain = newDestChainId
       store.state.destinationChainConfiguration = newDestChainObj
       store.state.destinationChainGenesis = undefined

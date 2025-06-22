@@ -41,7 +41,7 @@ const fillInState = () => {
       store.state.sourceAmount = route.params['sourceAmount'] as string
       store.state.sourceAmountFormatted = formatBaseAmount(store.state.sourceAmount, store.state.sourceTokenConfiguration.decimals)
       state.sourceAmount = new BigNumber(store.state.sourceAmount).toNumber() / 10 ** store.state.sourceTokenConfiguration.decimals
-      console.log('state.sourceAmount', new BigNumber(state.sourceAmount).toNumber(), state.sourceAmount)
+      //console.log('state.sourceAmount', new BigNumber(state.sourceAmount).toNumber(), state.sourceAmount)
       calculateFeeAndDestinationAmount()
       makeNoteField()
     }
@@ -61,7 +61,7 @@ const setAmount = () => {
   const base = new BigNumber(state.sourceAmount).multipliedBy(new BigNumber(10).pow(store.state.sourceTokenConfiguration.decimals)).toFixed(0, 1)
   store.state.sourceAmount = base
   store.state.sourceAmountFormatted = formatBaseAmount(base, store.state.sourceTokenConfiguration.decimals)
-  console.log('store.state.sourceAmount', store.state.sourceAmount)
+  //console.log('store.state.sourceAmount', store.state.sourceAmount)
   calculateFeeAndDestinationAmount()
   makeNoteField()
 }

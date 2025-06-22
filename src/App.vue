@@ -14,7 +14,9 @@ window.global ||= window
 window.process = {
   env: {}
 }
-console.log('window.process', window.process)
+//console.log('window.process', window.process)
+
+console.log('Welcome to the Aramid Bridge')
 </script>
 
 <template>

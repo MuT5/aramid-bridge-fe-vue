@@ -32,7 +32,7 @@ const getAlgodClientByChainId = async (chainId: number) => {
     }
     const auth: CustomTokenHeader = {}
     auth[tokenHeader] = config.algod.token
-    logger.debug('algodClient root', config.algod.host, config.algod.port)
+    //logger.debug('algodClient root', config.algod.host, config.algod.port)
     algodClientRef[chainId] = new algosdk.Algodv2(auth, config.algod.host, config.algod.port)
   }
   return algodClientRef[chainId]

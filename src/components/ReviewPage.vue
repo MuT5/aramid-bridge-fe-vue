@@ -93,7 +93,7 @@ const signButtonClick = async () => {
 const switchNetworkClick = async () => {
   try {
     if (!web3ModalProvider.walletProvider.value) {
-      console.log('modal', modal)
+      //console.log('modal', modal)
       await modal?.open()
     }
     if (!web3ModalProvider.walletProvider.value) {
@@ -101,7 +101,7 @@ const switchNetworkClick = async () => {
     }
 
     if (store.state.sourceChain) {
-      console.log('chainId.value ? store.state.sourceChain', chainId.value, store.state.sourceChain)
+      //console.log('chainId.value ? store.state.sourceChain', chainId.value, store.state.sourceChain)
       if (chainId.value != store.state.sourceChain) {
         //provider.open()
         toast.add({
@@ -130,7 +130,7 @@ const approveButtonClick = async () => {
     if (!store.state.sourceChainConfiguration) throw Error('store.state.sourceChainConfiguration is missing')
     state.inApproval = true
     if (!web3ModalProvider.walletProvider.value) {
-      console.log('modal', modal)
+      //console.log('modal', modal)
       await modal?.open({ view: 'Account' })
     }
     if (!web3ModalProvider.walletProvider.value) {
@@ -138,7 +138,7 @@ const approveButtonClick = async () => {
     }
 
     const approveInfo = await executeEthApproveTx()
-    console.log('approveInfo', approveInfo)
+    //console.log('approveInfo', approveInfo)
     state.approvalHash = approveInfo.hash
     state.inApproval = false
     state.inApprovalMinting = true
@@ -166,14 +166,14 @@ const approveButtonClick = async () => {
 
 const lockButtonClick = async () => {
   try {
-    console.log('lockButtonClick')
+    //console.log('lockButtonClick')
     if (!store.state.sourceChainConfiguration) throw Error('store.state.sourceChainConfiguration is missing')
     state.inSign = true
     const signInfo = await executeEthLockTokensTx()
     state.inSign = false
     state.signHash = signInfo.hash
     state.inSignMinting = true
-    console.log('signInfo', signInfo)
+    //console.log('signInfo', signInfo)
     await signInfo.wait()
     state.inSignMinting = false
     if (signInfo.hash) {
@@ -208,14 +208,14 @@ const lockButtonClick = async () => {
 
 const payNativeButtonClick = async () => {
   try {
-    console.log('lockButtonClick')
+    //console.log('lockButtonClick')
     if (!store.state.sourceChainConfiguration) throw Error('store.state.sourceChainConfiguration is missing')
     state.inSign = true
     const signInfo = await executeEthLockNativeTx()
     state.inSign = false
     state.signHash = signInfo.hash
     state.inSignMinting = true
-    console.log('signInfo', signInfo)
+    //console.log('signInfo', signInfo)
     await signInfo.wait()
     state.inSignMinting = false
     if (signInfo.hash) {

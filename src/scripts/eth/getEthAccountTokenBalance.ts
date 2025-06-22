@@ -14,48 +14,48 @@ const getEthAccountTokenBalance = async (chainId: number, walletAddress: string,
     return null
   }
 
-  console.log('fetching balance on eth of', tokenAddress, 'for', walletAddress, 'on chain', chainId)
+  //console.log('fetching balance on eth of', tokenAddress, 'for', walletAddress, 'on chain', chainId)
 
-  console.log('config.providerUrl', config.providerUrl)
+  //console.log('config.providerUrl', config.providerUrl)
   const web3 = new Web3(config.providerUrl)
-  console.log('web3', web3)
+  //console.log('web3', web3)
   let balance: string | null = null
 
   if (/^0x([0-1]{40})$/.test(tokenAddress)) {
     // native token
     try {
-      console.log('web3.eth.getBalance', walletAddress)
+      //console.log('web3.eth.getBalance', walletAddress)
       const bal = await web3.eth.getBalance(walletAddress)
       balance = bal.toString()
-      console.log('web3.eth.getBalance=balance native token', walletAddress, balance)
+      //console.log('web3.eth.getBalance=balance native token', walletAddress, balance)
       if (balance === undefined || balance === null) {
         throw 'undefined or null balance'
       }
     } catch (e) {
-      console.log('error fetching balance:', e)
+      //console.log('error fetching balance:', e)
       try {
         if ((balance === undefined || balance === null || balance === 'NaN') && config.providerUrl2) {
-          console.log('trying secondary RPC')
+          //console.log('trying secondary RPC')
           const bal = await new Web3(config.providerUrl2).eth.getBalance(walletAddress)
           balance = bal.toString()
         }
       } catch (e) {
-        console.log('error fetching balance from secondary RPC:', e)
+        //console.log('error fetching balance from secondary RPC:', e)
         try {
           if ((balance === undefined || balance === null || balance === 'NaN') && config.providerUrl3) {
-            console.log('trying tertiary RPC')
+            //console.log('trying tertiary RPC')
             const bal = await new Web3(config.providerUrl3).eth.getBalance(walletAddress)
             balance = bal.toString()
           }
         } catch (e) {
-          console.log('error fetching balance from tertiary RPC:', e)
+          //console.log('error fetching balance from tertiary RPC:', e)
           balance = null
         }
       }
     }
   } else {
     // The minimum ABI to get ERC20 Token balance
-    console.log('/^0x([0-1]{40})$/.test(tokenAddress)', false, tokenAddress)
+    //console.log('/^0x([0-1]{40})$/.test(tokenAddress)', false, tokenAddress)
     const abi: ContractAbi = JSON.parse(JSON.stringify(erc20abi))
 
     let contract = new web3.eth.Contract(abi, tokenAddress)
@@ -65,23 +65,23 @@ const getEthAccountTokenBalance = async (chainId: number, walletAddress: string,
         throw 'undefined or null balance'
       }
     } catch (error) {
-      console.log('error fetching balance from primary RPC:', config.providerUrl, error, balance)
+      //console.log('error fetching balance from primary RPC:', config.providerUrl, error, balance)
       try {
         if ((balance === undefined || balance === null) && config.providerUrl2) {
-          console.log('trying secondary RPC:', config.providerUrl2)
+          //console.log('trying secondary RPC:', config.providerUrl2)
           contract = new new Web3(config.providerUrl2).eth.Contract(abi, tokenAddress)
           balance = await contract.methods.balanceOf(walletAddress).call()
         }
       } catch (err) {
-        console.log('error fetching from secondary RPC:', err)
+        //console.log('error fetching from secondary RPC:', err)
         try {
           if ((balance === undefined || balance === null || balance === 'NaN') && config.providerUrl3) {
-            console.log('trying tertiary RPC:', config.providerUrl3)
+            //console.log('trying tertiary RPC:', config.providerUrl3)
             contract = new new Web3(config.providerUrl3).eth.Contract(abi, tokenAddress)
             balance = await contract.methods.balanceOf(walletAddress).call()
           }
         } catch (e) {
-          console.log('error fetching balance from tertiary RPC:', e)
+          //console.log('error fetching balance from tertiary RPC:', e)
           balance = null
         }
         balance = null
@@ -89,7 +89,7 @@ const getEthAccountTokenBalance = async (chainId: number, walletAddress: string,
     }
   }
 
-  console.log('eth.balance', balance, new BigNumber(balance ?? '0'))
+  //console.log('eth.balance', balance, new BigNumber(balance ?? '0'))
   return new BigNumber(balance ?? '0')
 }
 

@@ -3,7 +3,7 @@ import formatBaseAmount from './formatBaseAmount'
 import { useAppStore } from '@/stores/app'
 
 const calculateFeeAndDestinationAmount = () => {
-  console.log('calculateFeeAndDestinationAmount')
+  //console.log('calculateFeeAndDestinationAmount')
   const store = useAppStore()
   if (!store.state.sourceTokenConfiguration) {
     console.log('store.state.sourceTokenConfiguration missing')
@@ -22,7 +22,7 @@ const calculateFeeAndDestinationAmount = () => {
 
   const sourceAmount = new BigNumber(store.state.sourceAmount)
   // const fee = sourceAmount.minus(new BigNumber(sourceAmount.dividedToIntegerBy(1.001)).toFixed(0, 1));
-  console.log('dest chain tokens:', store.state.routeConfig, store.state.feeToken, store.state.destinationToken)
+  //console.log('dest chain tokens:', store.state.routeConfig, store.state.feeToken, store.state.destinationToken)
   const feeAlternatives = store.state.routeConfig.feeAlternatives
   let feeMultiplier: number | null = null
   for (let i = 0; i < feeAlternatives.length; i++) {
@@ -37,7 +37,7 @@ const calculateFeeAndDestinationAmount = () => {
   }
   if (!feeMultiplier) feeMultiplier = 0.001 // default value if it's undefined
 
-  console.log('fee multiplier:', feeMultiplier, '\nfee token:', feeTokenConfiguration, '\ntoken configs:', store.state.routeConfig, '\ndestination token:', store.state.destinationToken)
+  //console.log('fee multiplier:', feeMultiplier, '\nfee token:', feeTokenConfiguration, '\ntoken configs:', store.state.routeConfig, '\ndestination token:', store.state.destinationToken)
   const fee = new BigNumber(sourceAmount.multipliedBy(feeMultiplier))
   const feeAmount = fee.toFixed(0, 0)
   let updated = false
@@ -59,7 +59,7 @@ const calculateFeeAndDestinationAmount = () => {
   // console.log(sourceAmount, destInSourceDecimals, fee);
   if (decDiff > 0) {
     // source token has more decimals than destination token
-    console.log('source token has more decimals than destination token')
+    //console.log('source token has more decimals than destination token')
     const destinationAmount = destInSourceDecimals.multipliedBy(10 ** decDiff).toFixed(0, 1)
     if (store.state.destinationAmount != destinationAmount) {
       store.state.destinationAmount = destinationAmount
@@ -67,7 +67,7 @@ const calculateFeeAndDestinationAmount = () => {
     }
   } else if (decDiff == 0) {
     // source token and destination token have same decimals
-    console.log('same decimals', destInSourceDecimals.toFixed(0, 1))
+    //console.log('same decimals', destInSourceDecimals.toFixed(0, 1))
     const destinationAmount = destInSourceDecimals.toFixed(0, 1)
     if (store.state.destinationAmount != destinationAmount) {
       store.state.destinationAmount = destinationAmount
@@ -75,11 +75,74 @@ const calculateFeeAndDestinationAmount = () => {
     }
   } else if (decDiff < 0) {
     // destination token has more decimals than source token
-    console.log('destination token has more decimals than source token')
+    //console.log('destination token has more decimals than source token')
     const destinationAmount = destInSourceDecimals.dividedToIntegerBy(10 ** (-1 * decDiff)).toFixed(0, 1)
     if (store.state.destinationAmount != destinationAmount) {
       store.state.destinationAmount = destinationAmount
       updated = true
+    }
+  }
+
+  const sourceAmountNet = new BigNumber(store.state.sourceAmount).minus(new BigNumber(store.state.feeAmount)).toFixed(0, 1)
+  if (store.state.sourceAmountNet != sourceAmountNet) {
+    store.state.sourceAmountNet = sourceAmountNet
+    updated = true
+  }
+  // prevent rounding issue with. The destinationAmount should be 1094000000000000 aramid-transfer/v1:j{"destinationNetwork":8453,"destinationAddress":"","destinationToken":"0xb23556658b1E25E0268409053274E09Ed50e2595","feeAmount":2,"destinationAmount":1094904000000000,"note":"aramid","sourceAmount":1094}
+
+  if (decDiff == 0 && store.state.destinationAmount != store.state.sourceAmountNet) {
+    if (new BigNumber(store.state.destinationAmount).gt(new BigNumber(store.state.sourceAmountNet))) {
+      // take the smaller number
+      store.state.destinationAmount = store.state.sourceAmountNet
+      updated = true
+    } else {
+      // take the smaller number
+      store.state.sourceAmountNet = store.state.destinationAmount
+      updated = true
+    }
+  } else if (decDiff > 0) {
+    // source token has fewer decimals than destination token
+    const power = new BigNumber(10).pow(decDiff)
+    const destinationInSourceDecimals = new BigNumber(store.state.destinationAmount).dividedToIntegerBy(10 ** decDiff).toFixed(0, 1)
+    const sourceInDestinationDecimals = new BigNumber(store.state.sourceAmountNet).multipliedBy(10 ** decDiff).toFixed(0, 1)
+    if (store.state.destinationAmount != sourceInDestinationDecimals) {
+      const difference = new BigNumber(store.state.destinationAmount).minus(new BigNumber(sourceInDestinationDecimals))
+      //console.log('difference', difference.toFixed(0, 1))
+      if (difference.gt(0)) {
+        // destination amount is greater than source amount all based in destination decimals
+        store.state.destinationAmount = sourceInDestinationDecimals
+        updated = true
+      } else {
+        // source amount is greater than destination amount all based in destination decimals
+        store.state.sourceAmountNet = destinationInSourceDecimals
+        // when source token is updated, we need to update the fee amount as well
+        store.state.feeAmount = new BigNumber(store.state.feeAmount).minus(difference).toFixed(0, 0)
+        store.state.feeAmountFormatted = formatBaseAmount(store.state.feeAmount, store.state.sourceTokenConfiguration.decimals)
+
+        updated = true
+      }
+    }
+  } else if (decDiff < 0) {
+    // source token has more decimals than destination token
+    const power = new BigNumber(10).pow(-1 * decDiff)
+    const destinationInSourceDecimals = new BigNumber(store.state.destinationAmount).multipliedBy(power).toFixed(0, 1)
+    const sourceInDestinationDecimals = new BigNumber(store.state.sourceAmountNet).dividedToIntegerBy(power).toFixed(0, 1)
+    if (store.state.sourceAmountNet != destinationInSourceDecimals) {
+      const difference = new BigNumber(store.state.sourceAmountNet).minus(new BigNumber(destinationInSourceDecimals))
+      //console.log('difference', difference.toFixed(0, 1))
+      if (difference.gt(0)) {
+        // source amount is greater than destination amount all based in source decimals
+        store.state.sourceAmountNet = destinationInSourceDecimals
+        // when source token is updated, we need to update the fee amount as well
+        store.state.feeAmount = new BigNumber(store.state.feeAmount).plus(difference).toFixed(0, 0)
+        store.state.feeAmountFormatted = formatBaseAmount(store.state.feeAmount, store.state.sourceTokenConfiguration.decimals)
+        updated = true
+      } else {
+        // destination amount is greater than source amount all based in source decimals
+        store.state.destinationAmount = sourceInDestinationDecimals
+
+        updated = true
+      }
     }
   }
   const destinationAmountFormatted = formatBaseAmount(store.state.destinationAmount, store.state.destinationTokenConfiguration.decimals)
@@ -87,13 +150,14 @@ const calculateFeeAndDestinationAmount = () => {
     store.state.destinationAmountFormatted = destinationAmountFormatted
     updated = true
   }
-  if (updated) {
-    console.log('calculate destination amount update:', {
-      sourceAmount: store.state.sourceAmount,
-      feeAmount: store.state.feeAmount,
-      destinationAmount: store.state.destinationAmount
-    })
-  }
+  // if (updated) {
+  //   console.log('calculate destination amount update 2:', {
+  //     sourceAmount: store.state.sourceAmount,
+  //     sourceAmountNet: store.state.sourceAmountNet,
+  //     feeAmount: store.state.feeAmount,
+  //     destinationAmount: store.state.destinationAmount
+  //   })
+  // }
 }
 
 export default calculateFeeAndDestinationAmount

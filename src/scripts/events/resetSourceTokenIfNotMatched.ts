@@ -3,13 +3,13 @@ import { fillRouteInfo } from './fillRouteInfo'
 
 export const resetSourceTokenIfNotMatched = () => {
   const store = useAppStore()
-  console.log(
-    'resetSourceTokenIfNotMatched swap?',
-    store.state.sourceChainConfiguration?.name,
-    store.state.destinationChainConfiguration?.name,
-    store.state.destinationTokenConfiguration?.name,
-    store.state.sourceTokenConfiguration?.name
-  )
+  // console.log(
+  //   'resetSourceTokenIfNotMatched swap?',
+  //   store.state.sourceChainConfiguration?.name,
+  //   store.state.destinationChainConfiguration?.name,
+  //   store.state.destinationTokenConfiguration?.name,
+  //   store.state.sourceTokenConfiguration?.name
+  // )
 
   if (!store.state.publicConfiguration) return
   if (!store.state.sourceChain) return
@@ -21,7 +21,7 @@ export const resetSourceTokenIfNotMatched = () => {
   if (!store.state.publicConfiguration.chains2tokens[store.state.sourceChain.toString()][store.state.destinationChain.toString()]) return
   if (store.state.publicConfiguration.chains2tokens[store.state.sourceChain.toString()][store.state.destinationChain.toString()][store.state.sourceToken]) {
     if (!store.state.publicConfiguration.chains2tokens[store.state.sourceChain.toString()][store.state.destinationChain.toString()][store.state.sourceToken][store.state.destinationToken]) {
-      console.log('resetSourceTokenIfNotMatched')
+      //console.log('resetSourceTokenIfNotMatched')
       store.state.sourceToken = undefined
       store.state.sourceTokenConfiguration = undefined
     }
@@ -31,7 +31,7 @@ export const resetSourceTokenIfNotMatched = () => {
       store.state.publicConfiguration.chains2tokens[store.state.sourceChain.toString()][store.state.destinationChain.toString()][store.state.destinationToken][store.state.sourceToken]
     ) {
       // source and dest chains swapped
-      console.log('resetSourceTokenIfNotMatched swap')
+      //console.log('resetSourceTokenIfNotMatched swap')
       const tmp = store.state.destinationToken
       const tmpObj = store.state.destinationTokenConfiguration
       store.state.destinationToken = store.state.sourceToken

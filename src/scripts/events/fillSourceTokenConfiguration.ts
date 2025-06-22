@@ -25,7 +25,7 @@ export const fillSourceTokenConfiguration = (tokenId: string | undefined = undef
     const newSourceTokenId = tokenId
     const tokenConfiguration = getToken(store.state.sourceChain, newSourceTokenId, store.state.publicConfiguration)
     if (tokenConfiguration) {
-      console.log('fillInSourceTokenConfiguration', store.state.sourceChain, store.state.destinationChain)
+      //console.log('fillInSourceTokenConfiguration', store.state.sourceChain, store.state.destinationChain)
 
       store.state.sourceToken = newSourceTokenId
       store.state.sourceTokenConfiguration = tokenConfiguration
@@ -37,7 +37,7 @@ export const fillSourceTokenConfiguration = (tokenId: string | undefined = undef
     const newSourceTokenId = tokenId ? tokenId : sourceTokens[0]
     const tokenConfiguration = getToken(store.state.sourceChain, newSourceTokenId, store.state.publicConfiguration)
     if (tokenConfiguration) {
-      console.log('fillInSourceTokenConfiguration', store.state.sourceChain, store.state.destinationChain)
+      //console.log('fillInSourceTokenConfiguration', store.state.sourceChain, store.state.destinationChain)
 
       store.state.sourceToken = newSourceTokenId
       store.state.sourceTokenConfiguration = tokenConfiguration
@@ -58,7 +58,7 @@ export const fillSourceTokenConfiguration = (tokenId: string | undefined = undef
     const newSourceTokenId = tokenFromPath
     const tokenConfiguration = getToken(store.state.sourceChain, newSourceTokenId, store.state.publicConfiguration)
     if (tokenConfiguration) {
-      console.log('fillInSourceTokenConfiguration', store.state.sourceChain, store.state.destinationChain)
+      //console.log('fillInSourceTokenConfiguration', store.state.sourceChain, store.state.destinationChain)
 
       store.state.sourceToken = newSourceTokenId
       store.state.sourceTokenConfiguration = tokenConfiguration
@@ -83,7 +83,7 @@ export const fillSourceTokenConfiguration = (tokenId: string | undefined = undef
       }
       const tokenConfiguration = getToken(store.state.sourceChain, newSourceTokenId, store.state.publicConfiguration)
       if (tokenConfiguration) {
-        console.log('fillInSourceTokenConfiguration', store.state.sourceChain, store.state.destinationChain)
+        //console.log('fillInSourceTokenConfiguration', store.state.sourceChain, store.state.destinationChain)
 
         store.state.sourceToken = newSourceTokenId
         store.state.sourceTokenConfiguration = tokenConfiguration

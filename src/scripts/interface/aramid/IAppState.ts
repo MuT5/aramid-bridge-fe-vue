@@ -51,6 +51,8 @@ export interface IAppState {
   sourceTokenConfiguration?: TokenItem // currently selected token.
   connectedSourceChain?: number
   sourceAmount: string //base source amount
+  sourceAmountUpdateEnabled: boolean // enable/disable source amount input. Used for swap networks
+  sourceAmountNet: string //base source amount
   sourceAmountFormatted: string //formatted source amount
   sourceBridgeAddress: string // aramid msig address of the source network
 
@@ -143,4 +145,6 @@ export interface IAppState {
   loadingSourceAddressBalance: boolean
   loadingDestinationAddressBalance: boolean
   loadingDestinationEscrowAddressBalance: boolean
+
+  lockRouteForSwitch: boolean
 }
