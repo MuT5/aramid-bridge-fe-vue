@@ -103,8 +103,8 @@
           "isPremium": false,
           "logo": "cbbtc"
         },
-        "0x0555e30da8f98308edb960aa94c0db47230d2b9c": {
-          "tokenId": "0x0555e30da8f98308edb960aa94c0db47230d2b9c",
+        "0x0555E30da8f98308EdB960aa94C0Db47230d2B9c": {
+          "tokenId": "0x0555E30da8f98308EdB960aa94C0Db47230d2B9c",
           "name": "Wrapped BTC",
           "symbol": "aWBTC",
           "decimals": 8,
@@ -873,10 +873,10 @@
             ]
           }
         },
-        "0x0555e30da8f98308edb960aa94c0db47230d2b9c": {
+        "0x0555E30da8f98308EdB960aa94C0Db47230d2B9c": {
           "0x573daA4caA8312EeE2BaB9c8eA633664B3FBF641": {
             "sourceChain": 8453,
-            "sourceToken": "0x0555e30da8f98308edb960aa94c0db47230d2b9c",
+            "sourceToken": "0x0555E30da8f98308EdB960aa94C0Db47230d2B9c",
             "sourceName": "Wrapped BTC",
             "sourceSymbol": "aWBTC",
             "sourceDecimals": 8,
@@ -916,7 +916,7 @@
           }
         },
         "0x573daA4caA8312EeE2BaB9c8eA633664B3FBF641": {
-          "0x0555e30da8f98308edb960aa94c0db47230d2b9c": {
+          "0x0555E30da8f98308EdB960aa94C0Db47230d2B9c": {
             "sourceChain": 8453,
             "sourceToken": "0x573daA4caA8312EeE2BaB9c8eA633664B3FBF641",
             "sourceName": "Aramid WBTC",
@@ -925,7 +925,7 @@
             "sourceType": "eth",
             "sourceTokenLogo": "wbtc",
             "destinationChain": 8453,
-            "destinationToken": "0x0555e30da8f98308edb960aa94c0db47230d2b9c",
+            "destinationToken": "0x0555E30da8f98308EdB960aa94C0Db47230d2B9c",
             "destinationName": "Wrapped BTC",
             "destinationSymbol": "aWBTC",
             "destinationDecimals": 8,
@@ -1453,10 +1453,10 @@
             ]
           }
         },
-        "0x0555e30da8f98308edb960aa94c0db47230d2b9c": {
+        "0x0555E30da8f98308EdB960aa94C0Db47230d2B9c": {
           "0x2f2a2543B76A4166549F7aaB2e75Bef0aefC5B0f": {
             "sourceChain": 8453,
-            "sourceToken": "0x0555e30da8f98308edb960aa94c0db47230d2b9c",
+            "sourceToken": "0x0555E30da8f98308EdB960aa94C0Db47230d2B9c",
             "sourceName": "Wrapped BTC",
             "sourceSymbol": "aWBTC",
             "sourceDecimals": 8,
@@ -1496,7 +1496,7 @@
           },
           "0xb23556658b1E25E0268409053274E09Ed50e2595": {
             "sourceChain": 8453,
-            "sourceToken": "0x0555e30da8f98308edb960aa94c0db47230d2b9c",
+            "sourceToken": "0x0555E30da8f98308EdB960aa94C0Db47230d2B9c",
             "sourceName": "Wrapped BTC",
             "sourceSymbol": "aWBTC",
             "sourceDecimals": 8,
@@ -2157,10 +2157,10 @@
             ]
           }
         },
-        "0x0555e30da8f98308edb960aa94c0db47230d2b9c": {
+        "0x0555E30da8f98308EdB960aa94C0Db47230d2B9c": {
           "3081228451": {
             "sourceChain": 8453,
-            "sourceToken": "0x0555e30da8f98308edb960aa94c0db47230d2b9c",
+            "sourceToken": "0x0555E30da8f98308EdB960aa94C0Db47230d2B9c",
             "sourceName": "Wrapped BTC",
             "sourceSymbol": "aWBTC",
             "sourceDecimals": 8,
@@ -2621,10 +2621,10 @@
             ]
           }
         },
-        "0x0555e30da8f98308edb960aa94c0db47230d2b9c": {
+        "0x0555E30da8f98308EdB960aa94C0Db47230d2B9c": {
           "40152643": {
             "sourceChain": 8453,
-            "sourceToken": "0x0555e30da8f98308edb960aa94c0db47230d2b9c",
+            "sourceToken": "0x0555E30da8f98308EdB960aa94C0Db47230d2B9c",
             "sourceName": "Wrapped BTC",
             "sourceSymbol": "aWBTC",
             "sourceDecimals": 8,
@@ -3370,7 +3370,7 @@
           }
         },
         "0x2f2a2543B76A4166549F7aaB2e75Bef0aefC5B0f": {
-          "0x0555e30da8f98308edb960aa94c0db47230d2b9c": {
+          "0x0555E30da8f98308EdB960aa94C0Db47230d2B9c": {
             "sourceChain": 42161,
             "sourceToken": "0x2f2a2543B76A4166549F7aaB2e75Bef0aefC5B0f",
             "sourceName": "Wrapped BTC",
@@ -3379,7 +3379,7 @@
             "sourceType": "eth",
             "sourceTokenLogo": "wbtc",
             "destinationChain": 8453,
-            "destinationToken": "0x0555e30da8f98308edb960aa94c0db47230d2b9c",
+            "destinationToken": "0x0555E30da8f98308EdB960aa94C0Db47230d2B9c",
             "destinationName": "Wrapped BTC",
             "destinationSymbol": "aWBTC",
             "destinationDecimals": 8,
@@ -3452,7 +3452,7 @@
           }
         },
         "0xb23556658b1E25E0268409053274E09Ed50e2595": {
-          "0x0555e30da8f98308edb960aa94c0db47230d2b9c": {
+          "0x0555E30da8f98308EdB960aa94C0Db47230d2B9c": {
             "sourceChain": 42161,
             "sourceToken": "0xb23556658b1E25E0268409053274E09Ed50e2595",
             "sourceName": "Aramid WBTC",
@@ -3461,7 +3461,7 @@
             "sourceType": "eth",
             "sourceTokenLogo": "wbtc",
             "destinationChain": 8453,
-            "destinationToken": "0x0555e30da8f98308edb960aa94c0db47230d2b9c",
+            "destinationToken": "0x0555E30da8f98308EdB960aa94C0Db47230d2B9c",
             "destinationName": "Wrapped BTC",
             "destinationSymbol": "aWBTC",
             "destinationDecimals": 8,
@@ -5380,7 +5380,7 @@
           }
         },
         "3081228451": {
-          "0x0555e30da8f98308edb960aa94c0db47230d2b9c": {
+          "0x0555E30da8f98308EdB960aa94C0Db47230d2B9c": {
             "sourceChain": 416001,
             "sourceToken": "3081228451",
             "sourceName": "Aramid WBTC",
@@ -5389,7 +5389,7 @@
             "sourceType": "algo",
             "sourceTokenLogo": "wbtc",
             "destinationChain": 8453,
-            "destinationToken": "0x0555e30da8f98308edb960aa94c0db47230d2b9c",
+            "destinationToken": "0x0555E30da8f98308EdB960aa94C0Db47230d2B9c",
             "destinationName": "Wrapped BTC",
             "destinationSymbol": "aWBTC",
             "destinationDecimals": 8,
@@ -7094,7 +7094,7 @@
           }
         },
         "40152643": {
-          "0x0555e30da8f98308edb960aa94c0db47230d2b9c": {
+          "0x0555E30da8f98308EdB960aa94C0Db47230d2B9c": {
             "sourceChain": 416101,
             "sourceToken": "40152643",
             "sourceName": "Aramid WBTC",
@@ -7103,7 +7103,7 @@
             "sourceType": "algo",
             "sourceTokenLogo": "wbtc",
             "destinationChain": 8453,
-            "destinationToken": "0x0555e30da8f98308edb960aa94c0db47230d2b9c",
+            "destinationToken": "0x0555E30da8f98308EdB960aa94C0Db47230d2B9c",
             "destinationName": "Wrapped BTC",
             "destinationSymbol": "aWBTC",
             "destinationDecimals": 8,
