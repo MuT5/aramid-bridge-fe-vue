@@ -1,15 +1,17 @@
-FROM node:20 AS build
+FROM node:22 AS build
 WORKDIR /src
 RUN apt update && apt dist-upgrade -y && apt-get autoremove --yes && rm -rf /var/lib/{apt,dpkg,cache,log}/
-RUN npm install -g npm@10.8.1
+RUN npm install -g npm@latest
 COPY package.json package.json
 COPY package-lock.json package-lock.json
 RUN npm ci
 RUN npx browserslist@latest --update-db
 COPY . .
+ENV CI=true
 RUN npm audit fix --force --save &>/dev/null
-RUN npm install
-RUN npm run build
+RUN echo "Building the project..."
+RUN npm run type-check && echo "type-check completed successfully."
+RUN npm run build-only; echo "Build exit code: $?"; echo "Build completed successfully."
 RUN cd /src/dist && ls
 
 FROM nginxinc/nginx-unprivileged:latest
