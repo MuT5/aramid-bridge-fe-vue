@@ -13,5 +13,15 @@ export default defineConfig({
   },
   build: {
     chunkSizeWarningLimit: 5000, // in kB
+    rollupOptions: {
+      external: [],
+      onwarn: (warning, warn) => {
+        // Suppress eval warnings from third-party libraries
+        if (warning.code === 'EVAL' && warning.id?.includes('lottie-web')) {
+          return;
+        }
+        warn(warning);
+      }
+    }
   },
 });
