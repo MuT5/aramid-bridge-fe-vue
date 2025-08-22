@@ -275,7 +275,9 @@
         }
       },
       "logo": "base",
-      "blockExplorers": ["https://basescan.org/tx/"],
+      "blockExplorers": [
+        "https://basescan.org/tx/"
+      ],
       "soldiersByRound": [
         {
           "validFrom": 0,
@@ -541,7 +543,9 @@
         }
       },
       "logo": "arbitrum",
-      "blockExplorers": ["https://arbiscan.io/tx/"],
+      "blockExplorers": [
+        "https://arbiscan.io/tx/"
+      ],
       "soldiersByRound": [
         {
           "validFrom": 0,
@@ -566,7 +570,9 @@
       "tokens": {},
       "address": "ARAMIDFJYV2TOFB5MRNZJIXBSAVZCVAUDAPFGKR5PNX4MTILGAZABBTXQQ",
       "logo": "algo",
-      "blockExplorers": ["https://aramid.algoexplorer.io/tx/"],
+      "blockExplorers": [
+        "https://aramid.algoexplorer.io/tx/"
+      ],
       "soldiersByRound": [
         {
           "validFrom": 0,
@@ -590,7 +596,9 @@
       "folder": "algo",
       "address": "ARAMIDFJYV2TOFB5MRNZJIXBSAVZCVAUDAPFGKR5PNX4MTILGAZABBTXQQ",
       "logo": "algo",
-      "blockExplorers": ["https://allo.info/tx/"],
+      "blockExplorers": [
+        "https://allo.info/tx/"
+      ],
       "tokens": {
         "0": {
           "tokenId": "0",
@@ -636,7 +644,7 @@
           "tokenId": "401752010",
           "name": "Blapu",
           "symbol": "BLAPU",
-          "decimals": 6,
+          "decimals": 0,
           "chainId": 416001,
           "type": "algo",
           "isPremium": false,
@@ -656,7 +664,7 @@
           "tokenId": "511028589",
           "name": "Jim Coin",
           "symbol": "Jimmy",
-          "decimals": 6,
+          "decimals": 4,
           "chainId": 416001,
           "type": "algo",
           "isPremium": false,
@@ -856,7 +864,9 @@
       "folder": "algo",
       "address": "ARAMIDFJYV2TOFB5MRNZJIXBSAVZCVAUDAPFGKR5PNX4MTILGAZABBTXQQ",
       "logo": "voi",
-      "blockExplorers": ["https://explorer.voi.network/explorer/transaction/"],
+      "blockExplorers": [
+        "https://explorer.voi.network/explorer/transaction/"
+      ],
       "tokens": {
         "0": {
           "tokenId": "0",
@@ -3480,7 +3490,7 @@
             "destinationToken": "401752010",
             "destinationName": "Blapu",
             "destinationSymbol": "BLAPU",
-            "destinationDecimals": 6,
+            "destinationDecimals": 0,
             "destinationType": "algo",
             "destinationTokenLogo": "blapu",
             "feeAlternatives": [
@@ -3732,7 +3742,7 @@
             "destinationToken": "511028589",
             "destinationName": "Jim Coin",
             "destinationSymbol": "Jimmy",
-            "destinationDecimals": 6,
+            "destinationDecimals": 4,
             "destinationType": "algo",
             "destinationTokenLogo": "jimmy",
             "feeAlternatives": [
@@ -7328,7 +7338,7 @@
             "destinationToken": "401752010",
             "destinationName": "Blapu",
             "destinationSymbol": "BLAPU",
-            "destinationDecimals": 6,
+            "destinationDecimals": 0,
             "destinationType": "algo",
             "destinationTokenLogo": "blapu",
             "feeAlternatives": [
@@ -7580,7 +7590,7 @@
             "destinationToken": "511028589",
             "destinationName": "Jim Coin",
             "destinationSymbol": "Jimmy",
-            "destinationDecimals": 6,
+            "destinationDecimals": 4,
             "destinationType": "algo",
             "destinationTokenLogo": "jimmy",
             "feeAlternatives": [
@@ -9043,7 +9053,7 @@
             "sourceToken": "401752010",
             "sourceName": "Blapu",
             "sourceSymbol": "BLAPU",
-            "sourceDecimals": 6,
+            "sourceDecimals": 0,
             "sourceType": "algo",
             "sourceTokenLogo": "blapu",
             "destinationChain": 8453,
@@ -9057,8 +9067,8 @@
               {
                 "validFrom": 0,
                 "validUntil": 999999999,
-                "minimumAmount": "100000",
-                "maximumAmount": "999999999000000",
+                "minimumAmount": "1",
+                "maximumAmount": "999999999",
                 "sourceConst": 0,
                 "sourcePercent": 0.001,
                 "destinationConst": 0,
@@ -9069,7 +9079,7 @@
                 "validFrom": 0,
                 "validUntil": 999999999,
                 "minimumAmount": "1",
-                "maximumAmount": "999999999000000",
+                "maximumAmount": "999999999",
                 "sourceConst": 0,
                 "sourcePercent": 0.001,
                 "destinationConst": 0,
@@ -9085,7 +9095,7 @@
             "sourceToken": "511028589",
             "sourceName": "Jim Coin",
             "sourceSymbol": "Jimmy",
-            "sourceDecimals": 6,
+            "sourceDecimals": 4,
             "sourceType": "algo",
             "sourceTokenLogo": "jimmy",
             "destinationChain": 8453,
@@ -9099,8 +9109,8 @@
               {
                 "validFrom": 0,
                 "validUntil": 999999999,
-                "minimumAmount": "100000",
-                "maximumAmount": "999999999000000",
+                "minimumAmount": "1000",
+                "maximumAmount": "9999999990000",
                 "sourceConst": 0,
                 "sourcePercent": 0.001,
                 "destinationConst": 0,
@@ -9111,7 +9121,7 @@
                 "validFrom": 0,
                 "validUntil": 999999999,
                 "minimumAmount": "1",
-                "maximumAmount": "999999999000000",
+                "maximumAmount": "9999999990000",
                 "sourceConst": 0,
                 "sourcePercent": 0.001,
                 "destinationConst": 0,
@@ -10169,7 +10179,7 @@
             "sourceToken": "401752010",
             "sourceName": "Blapu",
             "sourceSymbol": "BLAPU",
-            "sourceDecimals": 6,
+            "sourceDecimals": 0,
             "sourceType": "algo",
             "sourceTokenLogo": "blapu",
             "destinationChain": 42161,
@@ -10183,8 +10193,8 @@
               {
                 "validFrom": 0,
                 "validUntil": 999999999,
-                "minimumAmount": "100000",
-                "maximumAmount": "999999999000000",
+                "minimumAmount": "1",
+                "maximumAmount": "999999999",
                 "sourceConst": 0,
                 "sourcePercent": 0.001,
                 "destinationConst": 0,
@@ -10195,7 +10205,7 @@
                 "validFrom": 0,
                 "validUntil": 999999999,
                 "minimumAmount": "1",
-                "maximumAmount": "999999999000000",
+                "maximumAmount": "999999999",
                 "sourceConst": 0,
                 "sourcePercent": 0.001,
                 "destinationConst": 0,
@@ -10211,7 +10221,7 @@
             "sourceToken": "511028589",
             "sourceName": "Jim Coin",
             "sourceSymbol": "Jimmy",
-            "sourceDecimals": 6,
+            "sourceDecimals": 4,
             "sourceType": "algo",
             "sourceTokenLogo": "jimmy",
             "destinationChain": 42161,
@@ -10225,8 +10235,8 @@
               {
                 "validFrom": 0,
                 "validUntil": 999999999,
-                "minimumAmount": "100000",
-                "maximumAmount": "999999999000000",
+                "minimumAmount": "1000",
+                "maximumAmount": "9999999990000",
                 "sourceConst": 0,
                 "sourcePercent": 0.001,
                 "destinationConst": 0,
@@ -10237,7 +10247,7 @@
                 "validFrom": 0,
                 "validUntil": 999999999,
                 "minimumAmount": "1",
-                "maximumAmount": "999999999000000",
+                "maximumAmount": "9999999990000",
                 "sourceConst": 0,
                 "sourcePercent": 0.001,
                 "destinationConst": 0,
@@ -11509,7 +11519,7 @@
             "sourceToken": "401752010",
             "sourceName": "Blapu",
             "sourceSymbol": "BLAPU",
-            "sourceDecimals": 6,
+            "sourceDecimals": 0,
             "sourceType": "algo",
             "sourceTokenLogo": "blapu",
             "destinationChain": 416101,
@@ -11523,8 +11533,8 @@
               {
                 "validFrom": 0,
                 "validUntil": 999999999,
-                "minimumAmount": "100000",
-                "maximumAmount": "999999999000000",
+                "minimumAmount": "1",
+                "maximumAmount": "999999999",
                 "sourceConst": 0,
                 "sourcePercent": 0.001,
                 "destinationConst": 0,
@@ -11535,7 +11545,7 @@
                 "validFrom": 0,
                 "validUntil": 999999999,
                 "minimumAmount": "1",
-                "maximumAmount": "999999999000000",
+                "maximumAmount": "999999999",
                 "sourceConst": 0,
                 "sourcePercent": 0.001,
                 "destinationConst": 0,
@@ -11593,7 +11603,7 @@
             "sourceToken": "511028589",
             "sourceName": "Jim Coin",
             "sourceSymbol": "Jimmy",
-            "sourceDecimals": 6,
+            "sourceDecimals": 4,
             "sourceType": "algo",
             "sourceTokenLogo": "jimmy",
             "destinationChain": 416101,
@@ -11607,8 +11617,8 @@
               {
                 "validFrom": 0,
                 "validUntil": 999999999,
-                "minimumAmount": "100000",
-                "maximumAmount": "999999999000000",
+                "minimumAmount": "1000",
+                "maximumAmount": "9999999990000",
                 "sourceConst": 0,
                 "sourcePercent": 0.001,
                 "destinationConst": 0,
@@ -11619,7 +11629,7 @@
                 "validFrom": 0,
                 "validUntil": 999999999,
                 "minimumAmount": "1",
-                "maximumAmount": "999999999000000",
+                "maximumAmount": "9999999990000",
                 "sourceConst": 0,
                 "sourcePercent": 0.001,
                 "destinationConst": 0,
@@ -15152,7 +15162,7 @@
             "destinationToken": "401752010",
             "destinationName": "Blapu",
             "destinationSymbol": "BLAPU",
-            "destinationDecimals": 6,
+            "destinationDecimals": 0,
             "destinationType": "algo",
             "destinationTokenLogo": "blapu",
             "feeAlternatives": [
@@ -15320,7 +15330,7 @@
             "destinationToken": "511028589",
             "destinationName": "Jim Coin",
             "destinationSymbol": "Jimmy",
-            "destinationDecimals": 6,
+            "destinationDecimals": 4,
             "destinationType": "algo",
             "destinationTokenLogo": "jimmy",
             "feeAlternatives": [
