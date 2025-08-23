@@ -11054,48 +11054,6 @@
               }
             ]
           }
-        },
-        "3121954282": {
-          "2591862562": {
-            "sourceChain": 416001,
-            "sourceToken": "3121954282",
-            "sourceName": "UNIT",
-            "sourceSymbol": "UNIT",
-            "sourceDecimals": 8,
-            "sourceType": "algo",
-            "sourceTokenLogo": "unit",
-            "destinationChain": 416001,
-            "destinationToken": "2591862562",
-            "destinationName": "UNIT Classic",
-            "destinationSymbol": "UNIT",
-            "destinationDecimals": 8,
-            "destinationType": "algo",
-            "destinationTokenLogo": "unit",
-            "feeAlternatives": [
-              {
-                "validFrom": 0,
-                "validUntil": 999999999,
-                "minimumAmount": "10000000",
-                "maximumAmount": "99999999900000000",
-                "sourceConst": 0,
-                "sourcePercent": 0.001,
-                "destinationConst": 0,
-                "destinationPercent": 0,
-                "ifPremiumTokenUsed": false
-              },
-              {
-                "validFrom": 0,
-                "validUntil": 999999999,
-                "minimumAmount": "1",
-                "maximumAmount": "99999999900000000",
-                "sourceConst": 0,
-                "sourcePercent": 0.001,
-                "destinationConst": 0,
-                "destinationPercent": 0,
-                "ifPremiumTokenUsed": true
-              }
-            ]
-          }
         }
       },
       "416101": {
