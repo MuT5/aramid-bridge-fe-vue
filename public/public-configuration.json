@@ -748,7 +748,7 @@
           "chainId": 416001,
           "type": "algo",
           "isPremium": false,
-          "logo": "unit"
+          "logo": "unit-classic"
         },
         "2636001002": {
           "tokenId": "2636001002",
@@ -932,9 +932,7 @@
           "chainId": 416101,
           "type": "algo",
           "isPremium": false,
-          "logo": "unit",
-          "asa2arc200BridgeAppId": 747368,
-          "arc200TokenId": 420069
+          "logo": "unit-classic"
         },
         "797369": {
           "tokenId": "797369",
@@ -11014,6 +11012,90 @@
               }
             ]
           }
+                  },
+        "2591862562": {
+          "3121954282": {
+            "sourceChain": 416001,
+            "sourceToken": "2591862562",
+            "sourceName": "UNIT Classic",
+            "sourceSymbol": "UNIT",
+            "sourceDecimals": 8,
+            "sourceType": "algo",
+            "sourceTokenLogo": "unit-classic",
+            "destinationChain": 416001,
+            "destinationToken": "3121954282",
+            "destinationName": "UNIT",
+            "destinationSymbol": "UNIT",
+            "destinationDecimals": 8,
+            "destinationType": "algo",
+            "destinationTokenLogo": "unit",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "10000000",
+                "maximumAmount": "99999999900000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "99999999900000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          }
+        },
+        "3121954282": {
+          "2591862562": {
+            "sourceChain": 416001,
+            "sourceToken": "3121954282",
+            "sourceName": "UNIT",
+            "sourceSymbol": "UNIT",
+            "sourceDecimals": 8,
+            "sourceType": "algo",
+            "sourceTokenLogo": "unit",
+            "destinationChain": 416001,
+            "destinationToken": "2591862562",
+            "destinationName": "UNIT Classic",
+            "destinationSymbol": "UNIT",
+            "destinationDecimals": 8,
+            "destinationType": "algo",
+            "destinationTokenLogo": "unit",
+            "feeAlternatives": [
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "10000000",
+                "maximumAmount": "99999999900000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": false
+              },
+              {
+                "validFrom": 0,
+                "validUntil": 999999999,
+                "minimumAmount": "1",
+                "maximumAmount": "99999999900000000",
+                "sourceConst": 0,
+                "sourcePercent": 0.001,
+                "destinationConst": 0,
+                "destinationPercent": 0,
+                "ifPremiumTokenUsed": true
+              }
+            ]
+          }
         }
       },
       "416101": {
@@ -11596,48 +11678,6 @@
                 "validUntil": 999999999,
                 "minimumAmount": "1",
                 "maximumAmount": "999999999000000",
-                "sourceConst": 0,
-                "sourcePercent": 0.001,
-                "destinationConst": 0,
-                "destinationPercent": 0,
-                "ifPremiumTokenUsed": true
-              }
-            ]
-          }
-        },
-        "2591862562": {
-          "747374": {
-            "sourceChain": 416001,
-            "sourceToken": "2591862562",
-            "sourceName": "UNIT Classic",
-            "sourceSymbol": "UNIT",
-            "sourceDecimals": 8,
-            "sourceType": "algo",
-            "sourceTokenLogo": "unit-classic",
-            "destinationChain": 416101,
-            "destinationToken": "747374",
-            "destinationName": "UNIT Classic",
-            "destinationSymbol": "UNIT",
-            "destinationDecimals": 8,
-            "destinationType": "algo",
-            "destinationTokenLogo": "unit-classic",
-            "feeAlternatives": [
-              {
-                "validFrom": 0,
-                "validUntil": 999999999,
-                "minimumAmount": "10000000",
-                "maximumAmount": "99999999900000000",
-                "sourceConst": 0,
-                "sourcePercent": 0.001,
-                "destinationConst": 0,
-                "destinationPercent": 0,
-                "ifPremiumTokenUsed": false
-              },
-              {
-                "validFrom": 0,
-                "validUntil": 999999999,
-                "minimumAmount": "1",
-                "maximumAmount": "99999999900000000",
                 "sourceConst": 0,
                 "sourcePercent": 0.001,
                 "destinationConst": 0,
@@ -14363,46 +14403,6 @@
                 "ifPremiumTokenUsed": true
               }
             ]
-          },
-          "3121954282": {
-            "sourceChain": 416101,
-            "sourceToken": "747374",
-            "sourceName": "UNIT Classic",
-            "sourceSymbol": "UNIT",
-            "sourceDecimals": 8,
-            "sourceType": "algo",
-            "sourceTokenLogo": "unit",
-            "destinationChain": 416001,
-            "destinationToken": "3121954282",
-            "destinationName": "UNIT",
-            "destinationSymbol": "UNIT",
-            "destinationDecimals": 8,
-            "destinationType": "algo",
-            "destinationTokenLogo": "unit",
-            "feeAlternatives": [
-              {
-                "validFrom": 0,
-                "validUntil": 999999999,
-                "minimumAmount": "10000000",
-                "maximumAmount": "99999999900000000",
-                "sourceConst": 0,
-                "sourcePercent": 0.001,
-                "destinationConst": 0,
-                "destinationPercent": 0,
-                "ifPremiumTokenUsed": false
-              },
-              {
-                "validFrom": 0,
-                "validUntil": 999999999,
-                "minimumAmount": "1",
-                "maximumAmount": "99999999900000000",
-                "sourceConst": 0,
-                "sourcePercent": 0.001,
-                "destinationConst": 0,
-                "destinationPercent": 0,
-                "ifPremiumTokenUsed": true
-              }
-            ]
           }
         },
         "797369": {
@@ -15047,92 +15047,6 @@
             "destinationChain": 416001,
             "destinationToken": "3121954282",
             "destinationName": "UNIT",
-            "destinationSymbol": "UNIT",
-            "destinationDecimals": 8,
-            "destinationType": "algo",
-            "destinationTokenLogo": "unit",
-            "feeAlternatives": [
-              {
-                "validFrom": 0,
-                "validUntil": 999999999,
-                "minimumAmount": "10000000",
-                "maximumAmount": "99999999900000000",
-                "sourceConst": 0,
-                "sourcePercent": 0.001,
-                "destinationConst": 0,
-                "destinationPercent": 0,
-                "ifPremiumTokenUsed": false
-              },
-              {
-                "validFrom": 0,
-                "validUntil": 999999999,
-                "minimumAmount": "1",
-                "maximumAmount": "99999999900000000",
-                "sourceConst": 0,
-                "sourcePercent": 0.001,
-                "destinationConst": 0,
-                "destinationPercent": 0,
-                "ifPremiumTokenUsed": true
-              }
-            ]
-          }
-        }
-      },
-      "416101": {
-        "747374": {
-          "40266690": {
-            "sourceChain": 416101,
-            "sourceToken": "747374",
-            "sourceName": "UNIT Classic",
-            "sourceSymbol": "UNIT",
-            "sourceDecimals": 8,
-            "sourceType": "algo",
-            "sourceTokenLogo": "unit-classic",
-            "destinationChain": 416101,
-            "destinationToken": "40266690",
-            "destinationName": "UNIT",
-            "destinationSymbol": "UNIT",
-            "destinationDecimals": 8,
-            "destinationType": "algo",
-            "destinationTokenLogo": "unit",
-            "feeAlternatives": [
-              {
-                "validFrom": 0,
-                "validUntil": 999999999,
-                "minimumAmount": "10000000",
-                "maximumAmount": "99999999900000000",
-                "sourceConst": 0,
-                "sourcePercent": 0.001,
-                "destinationConst": 0,
-                "destinationPercent": 0,
-                "ifPremiumTokenUsed": false
-              },
-              {
-                "validFrom": 0,
-                "validUntil": 999999999,
-                "minimumAmount": "1",
-                "maximumAmount": "99999999900000000",
-                "sourceConst": 0,
-                "sourcePercent": 0.001,
-                "destinationConst": 0,
-                "destinationPercent": 0,
-                "ifPremiumTokenUsed": true
-              }
-            ]
-          }
-        },
-        "40266690": {
-          "747374": {
-            "sourceChain": 416101,
-            "sourceToken": "40266690",
-            "sourceName": "UNIT",
-            "sourceSymbol": "UNIT",
-            "sourceDecimals": 8,
-            "sourceType": "algo",
-            "sourceTokenLogo": "unit",
-            "destinationChain": 416101,
-            "destinationToken": "747374",
-            "destinationName": "UNIT Classic",
             "destinationSymbol": "UNIT",
             "destinationDecimals": 8,
             "destinationType": "algo",
