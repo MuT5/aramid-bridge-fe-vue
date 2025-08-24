@@ -9,6 +9,7 @@ import { onMounted, reactive, watch } from 'vue'
 import RoundButton from './ui/RoundButton.vue'
 import WalletAddress from './ui/WalletAddress.vue'
 import getAlgoAccountTokenBalance from '@/scripts/algo/getAlgoAccountTokenBalance'
+import getAlgoAccountARC200TokenBalance from '@/scripts/algo/getAlgoAccountARC200TokenBalance'
 import getAlgoAccountTokenOptedIn from '@/scripts/algo/getAlgoAccountTokenOptedIn'
 import SelectDestinationWalletDialog from './dialogs/SelectDestinationWalletDialog.vue'
 import getEthAccountTokenBalance from '@/scripts/eth/getEthAccountTokenBalance'
@@ -127,116 +128,116 @@ const getImageUrl = () => {
 }
 
 const onDestinationAddressChange = async () => {
-  // refresh balance of source account
-  if (!store.state.destinationChain) return
-  if (!store.state.destinationChainConfiguration) return
-  if (store.state.destinationToken === undefined) return
-  if (store.state.destinationChainConfiguration.type == 'algo') {
-    try {
-      if (store.state.destinationBridgeAddress) {
-        // check the bridge account
-        store.state.loadingDestinationEscrowAddressBalance = true
-        const balance = await getAlgoAccountTokenBalance(store.state.destinationChain, store.state.destinationBridgeAddress, Number(store.state.destinationToken))
-        //console.log('loadingDestinationEscrowAddressBalance', store.state.destinationChain, store.state.destinationBridgeAddress, Number(store.state.destinationToken), balance)
-        if (balance) {
-          store.state.destinationBridgeBalance = balance.toFixed(0, 1)
-        } else {
-          store.state.destinationBridgeBalance = '0'
+  try {
+    // refresh balance of destination account
+    if (!store.state.destinationChain) return
+    if (!store.state.destinationChainConfiguration) return
+    if (!store.state.destinationAddress) return
+    if (!store.state.destinationTokenConfiguration) return
+    
+    const destinationChainConfiguration = store.state.destinationChainConfiguration
+    const { name: destinationChainName, type: destinationChainType, chainId: destinationChainId } = destinationChainConfiguration
+    const destinationTokenConfig = store.state.destinationTokenConfiguration as any
+    const { type: destinationTokenType, contractId: destinationTokenContractId, unitAppId: destinationTokenUnitAppId, chainId: destinationTokenChainId } = destinationTokenConfig
+    
+    console.log('destinationTokenType', destinationTokenType)
+    console.log('destinationTokenConfig', destinationTokenConfig)
+    
+    if (destinationTokenType == 'algo') {
+      switch (destinationChainName) {
+        case 'Voi': {
+          if (destinationTokenConfig?.arc200TokenId) {
+            const balance = await getAlgoAccountARC200TokenBalance(store.state.destinationChain, store.state.destinationAddress, Number(destinationTokenConfig?.arc200TokenId), Number(store.state.destinationToken))
+            if (balance !== null) {
+              store.state.destinationAddressBalance = balance.toString()
+              store.state.loadingDestinationAddressBalance = false
+              //console.log('onDestinationAddressChange.balance', store.state.destinationAddressBalance, store.state.destinationChain, store.state.destinationAddress, Number(store.state.destinationToken))
+            }
+          } else {
+            store.state.loadingDestinationAddressBalance = true
+            const balance = await getAlgoAccountTokenBalance(store.state.destinationChain, store.state.destinationAddress, Number(store.state.destinationToken))
+            if (balance !== null) {
+              store.state.destinationAddressBalance = balance.toString()
+              store.state.loadingDestinationAddressBalance = false
+              //console.log('onDestinationAddressChange.balance', store.state.destinationAddressBalance, store.state.destinationChain, store.state.destinationAddress, Number(store.state.destinationToken))
+            }
+          }
+          break
         }
-        store.state.loadingDestinationEscrowAddressBalance = false
-      }
-    } catch (e: any) {
-      store.state.destinationBridgeBalance = '0'
-      store.state.loadingDestinationEscrowAddressBalance = false
-      console.error(e)
-      toast.add({
-        severity: 'error',
-        detail: e.message,
-        life: 3000
-      })
-      return false
-    }
-    try {
-      if (store.state.destinationAddress) {
-        store.state.loadingDestinationAddressBalance = true
-        const optin = await getAlgoAccountTokenOptedIn(store.state.destinationChain, store.state.destinationAddress, Number(store.state.destinationToken))
-        if (optin !== null) {
-          store.state.destinationAccountOptedIn = optin
-
+        default: {
+          store.state.loadingDestinationAddressBalance = true
           const balance = await getAlgoAccountTokenBalance(store.state.destinationChain, store.state.destinationAddress, Number(store.state.destinationToken))
           if (balance !== null) {
             store.state.destinationAddressBalance = balance.toString()
+            store.state.loadingDestinationAddressBalance = false
             //console.log('onDestinationAddressChange.balance', store.state.destinationAddressBalance, store.state.destinationChain, store.state.destinationAddress, Number(store.state.destinationToken))
           }
+        }
+      }
+      
+      // Check opt-in status for Algorand chains
+      try {
+        const optin = await getAlgoAccountTokenOptedIn(store.state.destinationChain, store.state.destinationAddress, Number(store.state.destinationToken))
+        if (optin !== null) {
+          store.state.destinationAccountOptedIn = optin
         } else {
           store.state.destinationAccountOptedIn = false
-          store.state.destinationAddressBalance = '0'
         }
-        store.state.loadingDestinationAddressBalance = false
+      } catch (e: any) {
+        store.state.destinationAccountOptedIn = false
+        console.error('Error checking opt-in status:', e)
       }
-    } catch (e: any) {
-      store.state.loadingDestinationAddressBalance = false
-      store.state.destinationAddressBalance = '0'
-      console.error(e)
-      toast.add({
-        severity: 'error',
-        detail: e.message,
-        life: 3000
-      })
-      return false
     }
-  }
-  if (store.state.destinationChainConfiguration.type == 'eth' && store.state.destinationToken) {
-    // check the bridge account
-    try {
-      if (store.state.destinationBridgeAddress) {
+    
+    if (destinationTokenType == 'eth' && store.state.destinationToken) {
+      store.state.loadingDestinationAddressBalance = true
+      const balance = await getEthAccountTokenBalance(store.state.destinationChain, store.state.destinationAddress, store.state.destinationToken)
+      if (balance !== null) {
+        store.state.destinationAddressBalance = balance.toString()
+        store.state.loadingDestinationAddressBalance = false
+        //console.log('onDestinationAddressChange.balance', store.state.destinationAddressBalance, store.state.destinationChain, store.state.destinationAddress, store.state.destinationToken)
+      }
+    }
+    
+    // Check bridge balance if bridge address exists
+    if (store.state.destinationBridgeAddress) {
+      try {
         store.state.loadingDestinationEscrowAddressBalance = true
-        const bridgeBalance = await getEthAccountTokenBalance(store.state.destinationChain, store.state.destinationBridgeAddress, store.state.destinationToken)
-        // console.log('getEthAccountTokenBalance.bridge', store.state.destinationChain, store.state.destinationBridgeAddress, store.state.destinationToken, bridgeBalance?.toString())
-        // console.log('onDestinationAddressChange', bridgeBalance)
+        let bridgeBalance
+        
+        if (destinationTokenType == 'algo') {
+          bridgeBalance = await getAlgoAccountTokenBalance(store.state.destinationChain, store.state.destinationBridgeAddress!, Number(store.state.destinationToken))
+        } else if (destinationTokenType == 'eth' && store.state.destinationToken) {
+          bridgeBalance = await getEthAccountTokenBalance(store.state.destinationChain, store.state.destinationBridgeAddress!, store.state.destinationToken)
+        }
+        
         if (bridgeBalance) {
           store.state.destinationBridgeBalance = bridgeBalance.toFixed(0, 1)
         } else {
           store.state.destinationBridgeBalance = '0'
         }
         store.state.loadingDestinationEscrowAddressBalance = false
+      } catch (e: any) {
+        store.state.destinationBridgeBalance = '0'
+        store.state.loadingDestinationEscrowAddressBalance = false
+        console.error('Error fetching bridge balance:', e)
+        toast.add({
+          severity: 'error',
+          detail: e.message,
+          life: 3000
+        })
       }
-    } catch (e: any) {
-      store.state.destinationBridgeBalance = '0'
-      store.state.loadingDestinationEscrowAddressBalance = false
-      console.error(e)
-      toast.add({
-        severity: 'error',
-        detail: e.message,
-        life: 3000
-      })
-      return false
     }
-    try {
-      if (store.state.destinationAddress) {
-        store.state.loadingDestinationAddressBalance = true
-        const balance = await getEthAccountTokenBalance(store.state.destinationChain, store.state.destinationAddress, store.state.destinationToken)
-        //console.log('getEthAccountTokenBalance.user', store.state.destinationChain, store.state.destinationAddress, store.state.destinationToken, balance?.toString())
-        if (balance !== null) {
-          store.state.destinationAddressBalance = balance.toString()
-          //console.log('onDestinationAddressChange.balance', store.state.destinationAddressBalance, store.state.destinationChain, store.state.destinationAddress, store.state.destinationToken)
-        } else {
-          store.state.destinationAccountOptedIn = true
-          store.state.destinationAddressBalance = '0'
-        }
-        store.state.loadingDestinationAddressBalance = false
-      }
-    } catch (e: any) {
-      store.state.loadingDestinationAddressBalance = false
-      store.state.destinationAddressBalance = '0'
-      console.error(e)
-      toast.add({
-        severity: 'error',
-        detail: e.message,
-        life: 3000
-      })
-      return false
-    }
+  } catch (e: any) {
+    store.state.loadingDestinationAddressBalance = false
+    store.state.destinationAddressBalance = '0'
+    console.error(e)
+    toast.add({
+      severity: 'error',
+      detail: e.message,
+      life: 3000
+    })
+    return false
   }
 }
 

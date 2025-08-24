@@ -62,11 +62,13 @@ const onSourceAddressChange = async () => {
     const { name: sourceChainName, type: sourceChainType, chainId: sourceChainId } = sourceChainConfiguration
     const sourceTokenConfig = store.state.sourceTokenConfiguration as any
     const { type: sourceTokenType, contractId: sourceTokenContractId, unitAppId: sourceTokenUnitAppId, chainId: sourceTokenChainId } = sourceTokenConfig
+    console.log('sourceTokenType', sourceTokenType)
+    console.log('sourceTokenConfig', sourceTokenConfig)
     if (sourceTokenType == 'algo') {
       switch (sourceChainName) {
         case 'Voi': {
-          if (sourceTokenConfig?.contractId) {
-            const balance = await getAlgoAccountARC200TokenBalance(store.state.sourceChain, store.state.sourceAddress, Number(sourceTokenConfig?.contractId), Number(store.state.sourceToken))
+          if (sourceTokenConfig?.arc200TokenId) {
+            const balance = await getAlgoAccountARC200TokenBalance(store.state.sourceChain, store.state.sourceAddress, Number(sourceTokenConfig?.arc200TokenId), Number(store.state.sourceToken))
             if (balance !== null) {
               store.state.sourceAddressBalance = balance.toString()
               store.state.loadingSourceAddressBalance = false

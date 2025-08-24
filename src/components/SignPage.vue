@@ -58,6 +58,56 @@ const saw200ABI = {
   events: []
 }
 
+const arc200ExchangeABI = {
+  name: 'arc200Exchange',
+  desc: 'arc200Exchange is an exchange for ARC200 to ASA conversion',
+  methods: [
+    ...abi.arc200.methods,
+    {
+      name: 'arc200_exchange',
+      args: [],
+      readonly: false,
+      returns: {
+        type: '(uint64,address)'
+      },
+      desc: 'ARC-200 exchange info (external)'
+    },
+    {
+      name: 'arc200_redeem',
+      args: [
+        {
+          type: 'uint64',
+          name: 'amount',
+          desc: 'amount of ASA to redeem'
+        }
+      ],
+      readonly: false,
+      returns: {
+        type: 'void',
+        desc: 'None'
+      },
+      desc: 'Redeem ASA for ARC-200'
+    },
+    {
+      name: 'arc200_swapBack',
+      args: [
+        {
+          type: 'uint64',
+          name: 'amount',
+          desc: 'amount of ARC-200 to swap back'
+        }
+      ],
+      readonly: false,
+      returns: {
+        type: 'void',
+        desc: 'None'
+      },
+      desc: 'Swap ARC-200 back to ASA'
+    }
+  ],
+  events: []
+}
+
 const store = useAppStore()
 const route = useRoute()
 const router = useRouter()
@@ -175,8 +225,8 @@ const signWithUseWallet = async () => {
 
     // smart asset (arc200)
     const config = store.state.sourceTokenConfiguration as any
-    if (config?.contractId || config?.unitAppId) {
-      const { contractId, unitAppId, decimals, name, chainId } = store.state.sourceTokenConfiguration as any
+    if (config?.arc200TokenId || config?.asa2arc200BridgeAppId) {
+      const { arc200TokenId, asa2arc200BridgeAppId, decimals, name, chainId } = store.state.sourceTokenConfiguration as any
 
       const sourceAddress = store.state?.sourceAddress || ''
       const tokenId = store.state.sourceToken
@@ -184,10 +234,18 @@ const signWithUseWallet = async () => {
       const asaOptin = await getAlgoAcountTokenOptin(chainId, sourceAddress, Number(tokenId))
       const asaAmount = BigInt((await getAlgoAccountTokenBalance(chainId, sourceAddress, Number(tokenId)))?.toFixed(0) || '0')
       const approveAmount = asaAmount > amount ? BigInt(0) : amount - asaAmount
-      const normalizedAmount = new BigNumber(approveAmount.toString()).div(10 ** decimals).toFixed(decimals)
-      const ci = new CONTRACT(Number(unitAppId), algodClient, undefined, abi.custom, {
+      const normalizedAmount = new BigNumber(BigInt(store.state.sourceAmount).toString()).div(10 ** decimals).toFixed(decimals)
+      // TODO subtract the amount of ASA from the amount of ARC200
+      const ci = new CONTRACT(Number(asa2arc200BridgeAppId), algodClient, undefined, abi.custom, {
         addr: sourceAddress,
-
+        sk: new Uint8Array()
+      })
+      // const ciSaw200 = new CONTRACT(Number(asa2arc200BridgeAppId), algodClient, undefined, abi.custom, {
+      //   addr: sourceAddress,
+      //   sk: new Uint8Array()
+      // })
+      const ciArc200 = new CONTRACT(Number(arc200TokenId), algodClient, undefined, arc200ExchangeABI, {
+        addr: sourceAddress,
         sk: new Uint8Array()
       })
       const makeConstructor = (contractId: string, abi: any) => {
@@ -206,34 +264,76 @@ const signWithUseWallet = async () => {
         )
       }
       const builder = {
-        arc200: makeConstructor(contractId, abi.arc200),
-        saw200: makeConstructor(unitAppId, saw200ABI)
+        arc200: makeConstructor(arc200TokenId, arc200ExchangeABI)
+        //saw200: makeConstructor(asa2arc200BridgeAppId, saw200ABI)
       }
+      // transaction group
+      //   conditional asset optin
+      //   arc200_swapBack
+      //   aramid bridge txn (axfer w/ note)
+      // TODO convert only old UNIT to ARC200 using saw200
       const buildN = []
-      {
-        const txnO = (await builder.arc200.arc200_approve(algosdk.getApplicationAddress(Number(unitAppId)), approveAmount))?.obj
-        const msg = `Approving ARC200 to ASA conversion for ${normalizedAmount} ${name}`
-        buildN.push({
-          ...txnO,
-          note: new TextEncoder().encode(msg)
-        })
-      }
-      {
-        const txnO = (await builder.saw200.deposit(approveAmount))?.obj
-        const msg = `Depositing ${normalizedAmount} ${name} for ARC200 to ASA conversion`
-        const assetOptin = {
+      // REM converts old UNIT to ARC200 using saw200
+      // {
+      //   const txnO = (await builder.arc200.arc200_approve(algosdk.getApplicationAddress(Number(unitAppId)), approveAmount))?.obj
+      //   const msg = `Approving ARC200 to ASA conversion for ${normalizedAmount} ${name}`
+      //   buildN.push({
+      //     ...txnO,
+      //     note: new TextEncoder().encode(msg)
+      //   })
+      // }
+      // {
+      //   const txnO = (await builder.saw200.deposit(approveAmount))?.obj
+      //   const msg = `Depositing ${normalizedAmount} ${name} for ARC200 to ASA conversion`
+      //   const assetOptin = {
+      //     xaid: Number(tokenId),
+      //     snd: sourceAddress,
+      //     arcv: sourceAddress
+      //   }
+      //   buildN.push({
+      //     ...txnO,
+      //     ...assetOptin,
+      //     note: new TextEncoder().encode(msg)
+      //   })
+      // }
+      // REM use arc200 exchange to convert stray VSA to ARC200
+      if (asaAmount > 0) {
+        const txnO = (await builder.arc200.arc200_redeem(asaAmount))?.obj
+        const note = new TextEncoder().encode(`Converting ${asaAmount} ${name} VSA to ARC200`)
+        const assetTransfer = {
+          type: 'axfer',
           xaid: Number(tokenId),
-          snd: sourceAddress,
-          arcv: sourceAddress
+          aamt: asaAmount,
+          arcv: algosdk.getApplicationAddress(Number(arc200TokenId))
         }
         buildN.push({
           ...txnO,
+          ...assetTransfer,
+          note
+        })
+      }
+      // REM use arc200 exchange to convert UNIT to VSA
+      // REM <https://docs.google.com/document/d/1Uy9kbWF6yfM7W_VbBp1W5c2VqVdcoCj_hyoXUf1FIV0>
+      // REM <https://github.com/NautilusOSS/nautilus-interface/blob/beta/src/components/Tools/Arc200VsaConverter/index.tsx#L687>
+      {
+        const txnO = (await builder.arc200.arc200_swapBack(BigInt(store.state.sourceAmount)))?.obj // ignored
+        const assetOptin =
+          asaAmount === BigInt(0)
+            ? {
+                xaid: Number(tokenId),
+                snd: store.state.sourceAddress,
+                arcv: store.state.sourceAddress
+              }
+            : {}
+        const note = new TextEncoder().encode(`Converting ${normalizedAmount} ${name} ARC200 to VSA`)
+        buildN.push({
+          ...txnO,
           ...assetOptin,
-          note: new TextEncoder().encode(msg)
+          note
         })
       }
       {
-        const txnO = (await builder.arc200.arc200_approve(algosdk.getApplicationAddress(Number(unitAppId)), 0))?.obj // ignored
+        const txnO = (await builder.arc200.arc200_approve(algosdk.getApplicationAddress(Number(arc200TokenId)), 0))?.obj // ignored
         const assetTransfer = {
           xaid: Number(tokenId),
           snd: sourceAddress,
@@ -250,7 +350,7 @@ const signWithUseWallet = async () => {
       ci.setFee(2000)
       ci.setEnableGroupResourceSharing(true)
       ci.setExtraTxns(buildN)
-      ci.setGroupResourceSharingStrategy('merge')
+      //ci.setGroupResourceSharingStrategy('merge')
       const customR = await ci.custom()
       if (!customR.success) {
         throw Error(customR.error)
@@ -337,26 +437,14 @@ const claimButtonClick = async () => {
       sk: new Uint8Array()
     })
 
-    // Create builders for both F token and SAW200 contracts
+    // TODO depreciate saw200 claim
+    // Create builder
     const builder = {
       arc200: new CONTRACT(
-        Number(store.state.destinationTokenConfiguration.asa2arc200BridgeAppId),
-        algodClient,
-        undefined,
-        abi.arc200,
-        {
-          addr: store.state.destinationAddress,
-          sk: new Uint8Array()
-        },
-        true,
-        false,
-        true
-      ),
-      saw200: new CONTRACT(
         Number(store.state.destinationTokenConfiguration.arc200TokenId),
         algodClient,
         undefined,
-        saw200ABI,
+        arc200ExchangeABI,
         {
           addr: store.state.destinationAddress,
           sk: new Uint8Array()
@@ -365,15 +453,45 @@ const claimButtonClick = async () => {
         false,
         true
       )
+      // saw200: new CONTRACT(
+      //   Number(store.state.destinationTokenConfiguration.arc200TokenId),
+      //   algodClient,
+      //   undefined,
+      //   saw200ABI,
+      //   {
+      //     addr: store.state.destinationAddress,
+      //     sk: new Uint8Array()
+      //   },
+      //   true,
+      //   false,
+      //   true
+      // )
     }
 
     const buildN = []
 
-    // Add withdrawal transaction
+    // Add withdrawal transaction (saw200)
+    // {
+    //   const amount = BigInt(store.state.destinationAmount)
+    //   const decimals = store.state.destinationTokenConfiguration.decimals
+    //   const txnO = (await builder.saw200.withdraw(assetBalance))?.obj
+    //   const assetTransfer = {
+    //     type: 'axfer',
+    //     xaid: Number(store.state.destinationToken),
+    //     aamt: assetBalance,
+    //     arcv: algosdk.getApplicationAddress(Number(store.state.destinationTokenConfiguration.arc200TokenId))
+    //   }
+    //   buildN.push({
+    //     ...txnO,
+    //     ...assetTransfer,
+    //     note: new TextEncoder().encode(`Withdrawing ${store.state.destinationAmountFormatted} ${store.state.destinationTokenConfiguration.name}`)
+    //   })
+    // }
+    // arc200_exchange redeem
     {
       const amount = BigInt(store.state.destinationAmount)
       const decimals = store.state.destinationTokenConfiguration.decimals
-      const txnO = (await builder.saw200.withdraw(assetBalance))?.obj
+      const txnO = (await builder.arc200.arc200_redeem(assetBalance))?.obj
       const assetTransfer = {
         type: 'axfer',
         xaid: Number(store.state.destinationToken),
@@ -383,7 +501,7 @@ const claimButtonClick = async () => {
       buildN.push({
         ...txnO,
         ...assetTransfer,
-        note: new TextEncoder().encode(`Withdrawing ${store.state.destinationAmountFormatted} ${store.state.destinationTokenConfiguration.name}`)
+        note: new TextEncoder().encode(`arc200_exchange redeem ${assetBalance} ${store.state.destinationTokenConfiguration.name}`)
       })
     }
 
