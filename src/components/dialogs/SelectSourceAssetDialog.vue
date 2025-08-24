@@ -150,7 +150,7 @@ watch(
                 <AssetButton
                   :img="item.logo"
                   :text="item.name"
-                  :id="item?.arc200TokenId || item.tokenId"
+                  :id="item?.arc200TokenId?.toString() || item.tokenId"
                   @click="assetButtonClick(item.tokenId)"
                   @error="console.log('Failed to load image for:', item.name)"
                 />
@@ -166,7 +166,7 @@ watch(
                 <AssetButton
                   :img="item.logo"
                   :text="item.name"
-                  :id="item?.arc200TokenId || item.tokenId"
+                  :id="item?.arc200TokenId?.toString() || item.tokenId"
                   @click="assetButtonClick(item.tokenId)"
                   @error="console.log('Failed to load image for:', item.name)"
                 />

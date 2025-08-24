@@ -132,7 +132,13 @@ watch(
             <h3 class="text-white/80 text-sm font-medium mb-2 px-2">Popular Tokens</h3>
             <div class="space-y-1">
               <template v-for="(item, index) in popularAssets" :key="'popular-' + index">
-                <AssetButton :img="item.logo" :text="item.name" :id="item?.arc200TokenId || item.tokenId" @click="assetButtonClick(item.tokenId)" @error="console.log('Failed to load image for:', item.name)" />
+                <AssetButton
+                  :img="item.logo"
+                  :text="item.name"
+                  :id="item?.arc200TokenId?.toString() || item.tokenId"
+                  @click="assetButtonClick(item.tokenId)"
+                  @error="console.log('Failed to load image for:', item.name)"
+                />
               </template>
             </div>
           </div>
@@ -142,7 +148,13 @@ watch(
             <h3 v-if="!searchQuery.trim() && popularAssets.length > 0" class="text-white/80 text-sm font-medium mb-2 px-2 mt-4">All Tokens</h3>
             <div class="space-y-1">
               <template v-for="(item, index) in otherAssets" :key="'other-' + index">
-                <AssetButton :img="item.logo" :text="item.name" :id="item?.arc200TokenId || item.tokenId" @click="assetButtonClick(item.tokenId)" @error="console.log('Failed to load image for:', item.name)" />
+                <AssetButton
+                  :img="item.logo"
+                  :text="item.name"
+                  :id="item?.arc200TokenId?.toString() || item.tokenId"
+                  @click="assetButtonClick(item.tokenId)"
+                  @error="console.log('Failed to load image for:', item.name)"
+                />
               </template>
             </div>
           </div>
