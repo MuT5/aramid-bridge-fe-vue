@@ -37,51 +37,78 @@ const state: IState = reactive({
 // Popular tokens that should appear at the top
 const popularTokenSymbols = ['USDC', 'ETH', 'BTC', 'ALGO', 'VOI', 'WBTC', 'cbBTC']
 
+// Special tokens that should be ignored
+// TODO: migrate to public configuration
+const specialTokens = ['UNIT Classic']
+const CHAIN_ID_VOI = 416101
+
 // Computed property for filtered tokens based on search
 const filteredAssets = computed(() => {
   if (!state.assets) return []
   if (!searchQuery.value.trim()) return state.assets
-  
+
   const query = searchQuery.value.toLowerCase().trim()
-  return state.assets.filter(asset => 
-    asset.name.toLowerCase().includes(query) ||
-    asset.symbol.toLowerCase().includes(query) ||
-    asset.tokenId.toLowerCase().includes(query)
+  return state.assets.filter(
+    (asset) =>
+      asset.name.toLowerCase().includes(query) ||
+      asset.symbol.toLowerCase().includes(query) ||
+      asset.tokenId.toLowerCase().includes(query) ||
+      asset.arc200TokenId?.toString().toLowerCase().includes(query)
   )
 })
 
 // Computed property for popular tokens
 const popularAssets = computed(() => {
   if (!state.assets) return []
-  return state.assets.filter(asset => 
-    popularTokenSymbols.includes(asset.symbol)
-  ).sort((a, b) => {
-    const aIndex = popularTokenSymbols.indexOf(a.symbol)
-    const bIndex = popularTokenSymbols.indexOf(b.symbol)
-    return aIndex - bIndex
-  })
+  return state.assets
+    .filter((asset) => popularTokenSymbols.includes(asset.symbol))
+    .sort((a, b) => {
+      const aIndex = popularTokenSymbols.indexOf(a.symbol)
+      const bIndex = popularTokenSymbols.indexOf(b.symbol)
+      return aIndex - bIndex
+    })
 })
 
 // Computed property for other tokens (excluding popular ones)
 const otherAssets = computed(() => {
   if (!filteredAssets.value) return []
-  const popularTokenIds = popularAssets.value.map(asset => asset.tokenId)
-  return filteredAssets.value.filter(asset => !popularTokenIds.includes(asset.tokenId))
+  const popularTokenIds = popularAssets.value.map((asset) => asset.tokenId)
+  return filteredAssets.value.filter((asset) => !popularTokenIds.includes(asset.tokenId))
 })
 const fillInState = () => {
   if (!state.publicConfiguration) return
   if (!store.state.sourceChain) return
   if (!store.state.destinationChain) return
 
+  // if there is a route between source and destination chain, filter the assets to only include the allowed routes
   if (
     state.publicConfiguration.chains2tokens[store.state.sourceChain.toString()] &&
     state.publicConfiguration.chains2tokens[store.state.sourceChain.toString()][store.state.destinationChain.toString()]
   ) {
-    const allowedRoutes = Object.keys(state.publicConfiguration.chains2tokens[store.state.sourceChain.toString()][store.state.destinationChain.toString()])
-    state.assets = Object.values(state.publicConfiguration.chains[store.state.sourceChain.toString()].tokens).filter((c) => allowedRoutes.includes(c.tokenId))
-  } else {
-    state.assets = Object.values(state.publicConfiguration.chains[store.state.sourceChain.toString()].tokens)
+    // voi source chain specific override
+    if (store.state.sourceChain === CHAIN_ID_VOI) {
+      state.assets = Object.values(state.publicConfiguration.chains[store.state.sourceChain.toString()].tokens).filter((asset) => !specialTokens.includes(asset.name))
+    }
+    // default behavior config driven
+    else {
+      const allowedRoutes = Object.keys(state.publicConfiguration.chains2tokens[store.state.sourceChain.toString()][store.state.destinationChain.toString()])
+      state.assets = Object.values(state.publicConfiguration.chains[store.state.sourceChain.toString()].tokens).filter((c) => allowedRoutes.includes(c.tokenId))
+    }
   }
+  // if there is no route between source and destination chain, show all assets
+  else {
+    // voi source chain specific override
+    if (store.state.sourceChain === CHAIN_ID_VOI) {
+      state.assets = Object.values(state.publicConfiguration.chains[store.state.sourceChain.toString()].tokens).filter((asset) => !specialTokens.includes(asset.name))
+    }
+    // default behavior config driven
+    else {
+      state.assets = Object.values(state.publicConfiguration.chains[store.state.sourceChain.toString()].tokens)
+    }
+  }
+  console.log('sourceChain', store.state.sourceChain)
+  console.log('destinationChain', store.state.destinationChain)
+  console.log('assets', state.assets)
 }
 onMounted(async () => {
   state.publicConfiguration = await getPublicConfiguration(false)
@@ -103,9 +130,9 @@ watch(
 
         <!-- Search Bar -->
         <div class="mb-4">
-          <input 
+          <input
             v-model="searchQuery"
-            type="text" 
+            type="text"
             placeholder="Search tokens by name, symbol, or address..."
             class="w-full px-4 py-2 rounded-[16px] bg-white/10 border border-white/20 text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-white/30 focus:border-transparent"
           />
@@ -120,12 +147,12 @@ watch(
             <h3 class="text-white/80 text-sm font-medium mb-2 px-2">Popular Tokens</h3>
             <div class="space-y-1">
               <template v-for="(item, index) in popularAssets" :key="'popular-' + index">
-                <AssetButton 
-                  :img="item.logo" 
-                  :text="item.name" 
-                  :id="item.tokenId" 
-                  @click="assetButtonClick(item.tokenId)" 
-                  @error="console.log('Failed to load image for:', item.name)" 
+                <AssetButton
+                  :img="item.logo"
+                  :text="item.name"
+                  :id="item?.arc200TokenId || item.tokenId"
+                  @click="assetButtonClick(item.tokenId)"
+                  @error="console.log('Failed to load image for:', item.name)"
                 />
               </template>
             </div>
@@ -136,12 +163,12 @@ watch(
             <h3 v-if="!searchQuery.trim() && popularAssets.length > 0" class="text-white/80 text-sm font-medium mb-2 px-2 mt-4">All Tokens</h3>
             <div class="space-y-1">
               <template v-for="(item, index) in otherAssets" :key="'other-' + index">
-                <AssetButton 
-                  :img="item.logo" 
-                  :text="item.name" 
-                  :id="item.tokenId" 
-                  @click="assetButtonClick(item.tokenId)" 
-                  @error="console.log('Failed to load image for:', item.name)" 
+                <AssetButton
+                  :img="item.logo"
+                  :text="item.name"
+                  :id="item?.arc200TokenId || item.tokenId"
+                  @click="assetButtonClick(item.tokenId)"
+                  @error="console.log('Failed to load image for:', item.name)"
                 />
               </template>
             </div>

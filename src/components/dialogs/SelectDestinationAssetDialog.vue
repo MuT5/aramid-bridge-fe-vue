@@ -41,32 +41,28 @@ const popularTokenSymbols = ['USDC', 'ETH', 'BTC', 'ALGO', 'VOI', 'WBTC', 'cbBTC
 const filteredAssets = computed(() => {
   if (!state.assets) return []
   if (!searchQuery.value.trim()) return state.assets
-  
+
   const query = searchQuery.value.toLowerCase().trim()
-  return state.assets.filter(asset => 
-    asset.name.toLowerCase().includes(query) ||
-    asset.symbol.toLowerCase().includes(query) ||
-    asset.tokenId.toLowerCase().includes(query)
-  )
+  return state.assets.filter((asset) => asset.name.toLowerCase().includes(query) || asset.symbol.toLowerCase().includes(query) || asset.tokenId.toLowerCase().includes(query))
 })
 
 // Computed property for popular tokens
 const popularAssets = computed(() => {
   if (!state.assets) return []
-  return state.assets.filter(asset => 
-    popularTokenSymbols.includes(asset.symbol)
-  ).sort((a, b) => {
-    const aIndex = popularTokenSymbols.indexOf(a.symbol)
-    const bIndex = popularTokenSymbols.indexOf(b.symbol)
-    return aIndex - bIndex
-  })
+  return state.assets
+    .filter((asset) => popularTokenSymbols.includes(asset.symbol))
+    .sort((a, b) => {
+      const aIndex = popularTokenSymbols.indexOf(a.symbol)
+      const bIndex = popularTokenSymbols.indexOf(b.symbol)
+      return aIndex - bIndex
+    })
 })
 
 // Computed property for other tokens (excluding popular ones)
 const otherAssets = computed(() => {
   if (!filteredAssets.value) return []
-  const popularTokenIds = popularAssets.value.map(asset => asset.tokenId)
-  return filteredAssets.value.filter(asset => !popularTokenIds.includes(asset.tokenId))
+  const popularTokenIds = popularAssets.value.map((asset) => asset.tokenId)
+  return filteredAssets.value.filter((asset) => !popularTokenIds.includes(asset.tokenId))
 })
 const fillInState = () => {
   if (!state.publicConfiguration) return
@@ -88,10 +84,11 @@ const fillInState = () => {
   } else {
     state.assets = Object.values(state.publicConfiguration.chains[store.state.destinationChain.toString()].tokens)
   }
+  console.log('assets', state.assets)
 }
 onMounted(async () => {
   state.publicConfiguration = await getPublicConfiguration(false)
-  //console.log('select destination asset dialog onmounted')
+  console.log('select destination asset dialog onmounted')
   fillInState()
 })
 
@@ -118,9 +115,9 @@ watch(
 
         <!-- Search Bar -->
         <div class="mb-4">
-          <input 
+          <input
             v-model="searchQuery"
-            type="text" 
+            type="text"
             placeholder="Search tokens by name, symbol, or address..."
             class="w-full px-4 py-2 rounded-[16px] bg-white/10 border border-white/20 text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-white/30 focus:border-transparent"
           />
@@ -135,13 +132,7 @@ watch(
             <h3 class="text-white/80 text-sm font-medium mb-2 px-2">Popular Tokens</h3>
             <div class="space-y-1">
               <template v-for="(item, index) in popularAssets" :key="'popular-' + index">
-                <AssetButton 
-                  :img="item.logo" 
-                  :text="item.name" 
-                  :id="item.tokenId" 
-                  @click="assetButtonClick(item.tokenId)" 
-                  @error="console.log('Failed to load image for:', item.name)" 
-                />
+                <AssetButton :img="item.logo" :text="item.name" :id="item?.arc200TokenId || item.tokenId" @click="assetButtonClick(item.tokenId)" @error="console.log('Failed to load image for:', item.name)" />
               </template>
             </div>
           </div>
@@ -151,13 +142,7 @@ watch(
             <h3 v-if="!searchQuery.trim() && popularAssets.length > 0" class="text-white/80 text-sm font-medium mb-2 px-2 mt-4">All Tokens</h3>
             <div class="space-y-1">
               <template v-for="(item, index) in otherAssets" :key="'other-' + index">
-                <AssetButton 
-                  :img="item.logo" 
-                  :text="item.name" 
-                  :id="item.tokenId" 
-                  @click="assetButtonClick(item.tokenId)" 
-                  @error="console.log('Failed to load image for:', item.name)" 
-                />
+                <AssetButton :img="item.logo" :text="item.name" :id="item?.arc200TokenId || item.tokenId" @click="assetButtonClick(item.tokenId)" @error="console.log('Failed to load image for:', item.name)" />
               </template>
             </div>
           </div>

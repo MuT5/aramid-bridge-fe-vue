@@ -18,15 +18,16 @@ const getAlgoAccountTokenBalance = async (chainId: number, accountAddress: strin
     const ci = new arc200(contractId, algodClient, indexerClient)
     const balanceR = await ci.arc200_balanceOf(accountAddress)
     const balance = balanceR.success ? balanceR.returnValue : BigInt(0)
-    const account = await indexerClient?.lookupAccountByID(accountAddress).do()
-    if (!account || !account.account) return new BigNumber('0')
+    //const account = await indexerClient?.lookupAccountByID(accountAddress).do()
+    //if (!account || !account.account) return new BigNumber('0')
     // assetItem, how much ARC200-ASA is in the account with default 0
     //if (!account.account.assets) return new BigNumber('0') // removed because of ARC200
-    const asaItem = account.account?.assets?.find((a: any) => a['asset-id'] == assetId) || {
-      ['asset-id']: assetId,
-      amount: 0
-    }
-    const asaAmount = asaItem ? BigInt(asaItem.amount) : BigInt(0)
+    // const asaItem = account.account?.assets?.find((a: any) => a['asset-id'] == assetId) || {
+    //   ['asset-id']: assetId,
+    //   amount: 0
+    // }
+    //const asaAmount = asaItem ? BigInt(asaItem.amount) : BigInt(0)
+    const asaAmount = BigInt(0)
 
     if (balance == BigInt(0)) return new BigNumber('0') // if no ARC200-ASA and no ARC200, return 0
 
