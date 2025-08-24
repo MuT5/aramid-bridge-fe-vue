@@ -4,6 +4,6 @@
  * @returns
  */
 const validEthTxHash = (hash: string) => {
-  return /^0x([A-Fa-f0-9]{64})$/.test(hash); // hexadecimal
-};
-export default validEthTxHash;
+  return /^0x([A-Fa-f0-9]{64})$/.test(hash) // hexadecimal
+}
+export default validEthTxHash

@@ -134,20 +134,25 @@ const onDestinationAddressChange = async () => {
     if (!store.state.destinationChainConfiguration) return
     if (!store.state.destinationAddress) return
     if (!store.state.destinationTokenConfiguration) return
-    
+
     const destinationChainConfiguration = store.state.destinationChainConfiguration
     const { name: destinationChainName, type: destinationChainType, chainId: destinationChainId } = destinationChainConfiguration
     const destinationTokenConfig = store.state.destinationTokenConfiguration as any
     const { type: destinationTokenType, contractId: destinationTokenContractId, unitAppId: destinationTokenUnitAppId, chainId: destinationTokenChainId } = destinationTokenConfig
-    
+
     console.log('destinationTokenType', destinationTokenType)
     console.log('destinationTokenConfig', destinationTokenConfig)
-    
+
     if (destinationTokenType == 'algo') {
       switch (destinationChainName) {
         case 'Voi': {
           if (destinationTokenConfig?.arc200TokenId) {
-            const balance = await getAlgoAccountARC200TokenBalance(store.state.destinationChain, store.state.destinationAddress, Number(destinationTokenConfig?.arc200TokenId), Number(store.state.destinationToken))
+            const balance = await getAlgoAccountARC200TokenBalance(
+              store.state.destinationChain,
+              store.state.destinationAddress,
+              Number(destinationTokenConfig?.arc200TokenId),
+              Number(store.state.destinationToken)
+            )
             if (balance !== null) {
               store.state.destinationAddressBalance = balance.toString()
               store.state.loadingDestinationAddressBalance = false
@@ -174,7 +179,7 @@ const onDestinationAddressChange = async () => {
           }
         }
       }
-      
+
       // Check opt-in status for Algorand chains
       try {
         const optin = await getAlgoAccountTokenOptedIn(store.state.destinationChain, store.state.destinationAddress, Number(store.state.destinationToken))
@@ -188,7 +193,7 @@ const onDestinationAddressChange = async () => {
         console.error('Error checking opt-in status:', e)
       }
     }
-    
+
     if (destinationTokenType == 'eth' && store.state.destinationToken) {
       store.state.loadingDestinationAddressBalance = true
       const balance = await getEthAccountTokenBalance(store.state.destinationChain, store.state.destinationAddress, store.state.destinationToken)
@@ -198,19 +203,19 @@ const onDestinationAddressChange = async () => {
         //console.log('onDestinationAddressChange.balance', store.state.destinationAddressBalance, store.state.destinationChain, store.state.destinationAddress, store.state.destinationToken)
       }
     }
-    
+
     // Check bridge balance if bridge address exists
     if (store.state.destinationBridgeAddress) {
       try {
         store.state.loadingDestinationEscrowAddressBalance = true
         let bridgeBalance
-        
+
         if (destinationTokenType == 'algo') {
           bridgeBalance = await getAlgoAccountTokenBalance(store.state.destinationChain, store.state.destinationBridgeAddress!, Number(store.state.destinationToken))
         } else if (destinationTokenType == 'eth' && store.state.destinationToken) {
           bridgeBalance = await getEthAccountTokenBalance(store.state.destinationChain, store.state.destinationBridgeAddress!, store.state.destinationToken)
         }
-        
+
         if (bridgeBalance) {
           store.state.destinationBridgeBalance = bridgeBalance.toFixed(0, 1)
         } else {

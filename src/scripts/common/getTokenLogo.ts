@@ -1,68 +1,68 @@
-import circle from '@assets/circle.png';
-import algo from '@assets/logos/tokens/algo.png';
-import eth from '@assets/logos/tokens/eth.png';
-import polygon from '@assets/logos/tokens/polygon.png';
-import usdc from '@assets/logos/tokens/usdc.png';
-import usdt from '@assets/logos/tokens/usdt.png';
-import adao from '@assets/logos/tokens/aramid-dao.png';
-import ausd from '@assets/logos/tokens/aramid-usd.png';
-import aalgo from '@assets/logos/tokens/aramid-algo.png';
-import aaurora from '@assets/logos/tokens/aramid-aurora.png';
-import abtc from '@assets/logos/tokens/aramid-btc.png';
-import aeth from '@assets/logos/tokens/aramid-eth.png';
-import arinkeby from '@assets/logos/tokens/aramid-eth.png';
-import amatic from '@assets/logos/tokens/aramid-matic.png';
-import mumbai from '@assets/logos/tokens/aramid-matic.png';
-import ausdc from '@assets/logos/tokens/aramid-usdc.png';
-import ausdt from '@assets/logos/tokens/aramid-usdt.png';
-import avoi from '@assets/logos/tokens/aramid-voi.png';
-import gold from '@assets/logos/tokens/gold.png';
-import voi from '@assets/logos/tokens/voi.png';
+import circle from '@assets/circle.png'
+import algo from '@assets/logos/tokens/algo.png'
+import eth from '@assets/logos/tokens/eth.png'
+import polygon from '@assets/logos/tokens/polygon.png'
+import usdc from '@assets/logos/tokens/usdc.png'
+import usdt from '@assets/logos/tokens/usdt.png'
+import adao from '@assets/logos/tokens/aramid-dao.png'
+import ausd from '@assets/logos/tokens/aramid-usd.png'
+import aalgo from '@assets/logos/tokens/aramid-algo.png'
+import aaurora from '@assets/logos/tokens/aramid-aurora.png'
+import abtc from '@assets/logos/tokens/aramid-btc.png'
+import aeth from '@assets/logos/tokens/aramid-eth.png'
+import arinkeby from '@assets/logos/tokens/aramid-eth.png'
+import amatic from '@assets/logos/tokens/aramid-matic.png'
+import mumbai from '@assets/logos/tokens/aramid-matic.png'
+import ausdc from '@assets/logos/tokens/aramid-usdc.png'
+import ausdt from '@assets/logos/tokens/aramid-usdt.png'
+import avoi from '@assets/logos/tokens/aramid-voi.png'
+import gold from '@assets/logos/tokens/gold.png'
+import voi from '@assets/logos/tokens/voi.png'
 
 const getTokenLogo = (id: string) => {
   switch (id) {
     case 'algo':
-      return algo;
+      return algo
     case 'aramid-dao':
-      return adao;
+      return adao
     case 'aramid-usd':
-      return adao;
+      return adao
     case 'aramid-algo':
-      return aalgo;
+      return aalgo
     case 'aramid-aurora':
-      return aaurora;
+      return aaurora
     case 'aramid-btc':
-      return abtc;
+      return abtc
     case 'aramid-eth':
-      return aeth;
+      return aeth
     case 'aramid-matic':
-      return amatic;
+      return amatic
     case 'aramid-rinkeby':
-      return arinkeby;
+      return arinkeby
     case 'aramid-mumbai':
-      return mumbai;
+      return mumbai
     case 'aramid-usdc':
-      return ausdc;
+      return ausdc
     case 'aramid-usdt':
-      return ausdt;
+      return ausdt
     case 'aramid-usd':
-      return ausd;
+      return ausd
     case 'aramid-voi':
-      return avoi;
+      return avoi
     case 'usdc':
-      return usdc;
+      return usdc
     case 'usdt':
-      return usdt;
+      return usdt
     case 'eth':
-      return eth;
+      return eth
     case 'polygon':
-      return polygon;
+      return polygon
     case 'voi':
-      return voi;
+      return voi
     case 'gold':
-      return gold;
+      return gold
     default:
-      return circle;
+      return circle
   }
-};
-export default getTokenLogo;
+}
+export default getTokenLogo

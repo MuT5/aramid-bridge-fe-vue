@@ -1,4 +1,4 @@
 export type Account = {
-  addr: string;
-  pk: string;
-};
+  addr: string
+  pk: string
+}

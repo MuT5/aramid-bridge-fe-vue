@@ -1,15 +1,7 @@
 import axios from 'axios'
 
 export const loadIPFSFile = async (hash: string) => {
-  const ipfsGateways = [
-    'hardbin.com',
-    'nftstorage.link',
-    'w3s.link',
-    'dweb.link',
-    'gateway.ipfs.io',
-    'ipfs.io',
-    'cloudflare-ipfs.com'
-  ]
+  const ipfsGateways = ['hardbin.com', 'nftstorage.link', 'w3s.link', 'dweb.link', 'gateway.ipfs.io', 'ipfs.io', 'cloudflare-ipfs.com']
   const requests: any[] = []
   const useNull = (err: any): null => {
     console.log('this didnt fetch:', err)

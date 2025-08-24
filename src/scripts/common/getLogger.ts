@@ -1,4 +1,4 @@
 const getLogger = () => {
-  return console;
-};
-export default getLogger;
+  return console
+}
+export default getLogger
