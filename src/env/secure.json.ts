@@ -5,14 +5,14 @@ const config: SecureConfiguration = {
     '101001': {
       type: 'algo',
       algod: {
-        host: 'https://testnet-api.algonode.cloud',
+        host: 'https://testnet-api.4160.nodely.dev',
         port: 443,
         header: 'X-Algo-API-Token',
         token: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
         delay: 1000
       },
       indexer: {
-        host: 'https://testnet-idx.algonode.cloud',
+        host: 'https://testnet-idx.4160.nodely.dev',
         port: 443,
         header: 'X-Indexer-API-Token',
         token: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
@@ -39,14 +39,14 @@ const config: SecureConfiguration = {
     '101003': {
       type: 'algo',
       algod: {
-        host: 'https://algod.aramidmain.a-wallet.net',
+        host: 'https://algorand-algod-public.de-4.biatec.io',
         port: 443,
         header: 'X-Algo-API-Token',
         token: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
         delay: 1000
       },
       indexer: {
-        host: 'https://aramidindexer.de-k1.a-wallet.net',
+        host: 'https://aramid-indexer-public.de.nodes.biatec.io',
         port: 443,
         header: 'X-Indexer-API-Token',
         token: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
@@ -104,14 +104,14 @@ const config: SecureConfiguration = {
     '416001': {
       type: 'algo',
       algod: {
-        host: 'https://mainnet-api.algonode.cloud',
+        host: 'https://mainnet-api.4160.nodely.dev',
         port: 443,
         header: '',
         token: '',
         delay: 1000
       },
       indexer: {
-        host: 'https://mainnet-idx.algonode.cloud',
+        host: '	https://mainnet-idx.4160.nodely.dev',
         port: 443,
         header: '',
         token: '',
@@ -138,14 +138,14 @@ const config: SecureConfiguration = {
     '101002': {
       type: 'algo',
       algod: {
-        host: 'https://mainnet-api.algonode.cloud',
+        host: 'https://mainnet-api.4160.nodely.dev',
         port: 443,
         header: '',
         token: '',
         delay: 1000
       },
       indexer: {
-        host: 'https://mainnet-idx.algonode.cloud',
+        host: '	https://mainnet-idx.4160.nodely.dev',
         port: 443,
         header: '',
         token: '',
