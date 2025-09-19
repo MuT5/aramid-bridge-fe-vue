@@ -7870,24 +7870,12 @@
   "ast": {
     "absolutePath": "project:/contracts/AramidRinkebyToken.sol",
     "exportedSymbols": {
-      "AramidRinkebyToken": [
-        938
-      ],
-      "Context": [
-        710
-      ],
-      "ERC20": [
-        585
-      ],
-      "IERC20": [
-        663
-      ],
-      "IERC20Metadata": [
-        688
-      ],
-      "WrappedAssetTokenMintable": [
-        1111
-      ]
+      "AramidRinkebyToken": [938],
+      "Context": [710],
+      "ERC20": [585],
+      "IERC20": [663],
+      "IERC20Metadata": [688],
+      "WrappedAssetTokenMintable": [1111]
     },
     "id": 939,
     "license": "MIT",
@@ -7895,12 +7883,7 @@
     "nodes": [
       {
         "id": 921,
-        "literals": [
-          "solidity",
-          "^",
-          "0.8",
-          ".0"
-        ],
+        "literals": ["solidity", "^", "0.8", ".0"],
         "nodeType": "PragmaDirective",
         "src": "32:23:15"
       },
@@ -7949,14 +7932,7 @@
         "contractKind": "contract",
         "fullyImplemented": true,
         "id": 938,
-        "linearizedBaseContracts": [
-          938,
-          1111,
-          585,
-          688,
-          663,
-          710
-        ],
+        "linearizedBaseContracts": [938, 1111, 585, 688, 663, 710],
         "name": "AramidRinkebyToken",
         "nameLocation": "164:18:15",
         "nodeType": "ContractDefinition",
@@ -8109,24 +8085,12 @@
   "legacyAST": {
     "absolutePath": "project:/contracts/AramidRinkebyToken.sol",
     "exportedSymbols": {
-      "AramidRinkebyToken": [
-        938
-      ],
-      "Context": [
-        710
-      ],
-      "ERC20": [
-        585
-      ],
-      "IERC20": [
-        663
-      ],
-      "IERC20Metadata": [
-        688
-      ],
-      "WrappedAssetTokenMintable": [
-        1111
-      ]
+      "AramidRinkebyToken": [938],
+      "Context": [710],
+      "ERC20": [585],
+      "IERC20": [663],
+      "IERC20Metadata": [688],
+      "WrappedAssetTokenMintable": [1111]
     },
     "id": 939,
     "license": "MIT",
@@ -8134,12 +8098,7 @@
     "nodes": [
       {
         "id": 921,
-        "literals": [
-          "solidity",
-          "^",
-          "0.8",
-          ".0"
-        ],
+        "literals": ["solidity", "^", "0.8", ".0"],
         "nodeType": "PragmaDirective",
         "src": "32:23:15"
       },
@@ -8188,14 +8147,7 @@
         "contractKind": "contract",
         "fullyImplemented": true,
         "id": 938,
-        "linearizedBaseContracts": [
-          938,
-          1111,
-          585,
-          688,
-          663,
-          710
-        ],
+        "linearizedBaseContracts": [938, 1111, 585, 688, 663, 710],
         "name": "AramidRinkebyToken",
         "nameLocation": "164:18:15",
         "nodeType": "ContractDefinition",

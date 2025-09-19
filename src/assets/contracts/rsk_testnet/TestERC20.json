@@ -5075,21 +5075,11 @@
   "ast": {
     "absolutePath": "project:/contracts/TestERC20.sol",
     "exportedSymbols": {
-      "Context": [
-        867
-      ],
-      "ERC20": [
-        742
-      ],
-      "IERC20": [
-        820
-      ],
-      "IERC20Metadata": [
-        845
-      ],
-      "TestERC20": [
-        1544
-      ]
+      "Context": [867],
+      "ERC20": [742],
+      "IERC20": [820],
+      "IERC20Metadata": [845],
+      "TestERC20": [1544]
     },
     "id": 1545,
     "license": "MIT",
@@ -5097,12 +5087,7 @@
     "nodes": [
       {
         "id": 1510,
-        "literals": [
-          "solidity",
-          "^",
-          "0.8",
-          ".0"
-        ],
+        "literals": ["solidity", "^", "0.8", ".0"],
         "nodeType": "PragmaDirective",
         "src": "32:23:8"
       },
@@ -5173,13 +5158,7 @@
         "contractKind": "contract",
         "fullyImplemented": true,
         "id": 1544,
-        "linearizedBaseContracts": [
-          1544,
-          742,
-          845,
-          820,
-          867
-        ],
+        "linearizedBaseContracts": [1544, 742, 845, 820, 867],
         "name": "TestERC20",
         "nameLocation": "122:9:8",
         "nodeType": "ContractDefinition",
@@ -5572,21 +5551,11 @@
   "legacyAST": {
     "absolutePath": "project:/contracts/TestERC20.sol",
     "exportedSymbols": {
-      "Context": [
-        867
-      ],
-      "ERC20": [
-        742
-      ],
-      "IERC20": [
-        820
-      ],
-      "IERC20Metadata": [
-        845
-      ],
-      "TestERC20": [
-        1544
-      ]
+      "Context": [867],
+      "ERC20": [742],
+      "IERC20": [820],
+      "IERC20Metadata": [845],
+      "TestERC20": [1544]
     },
     "id": 1545,
     "license": "MIT",
@@ -5594,12 +5563,7 @@
     "nodes": [
       {
         "id": 1510,
-        "literals": [
-          "solidity",
-          "^",
-          "0.8",
-          ".0"
-        ],
+        "literals": ["solidity", "^", "0.8", ".0"],
         "nodeType": "PragmaDirective",
         "src": "32:23:8"
       },
@@ -5670,13 +5634,7 @@
         "contractKind": "contract",
         "fullyImplemented": true,
         "id": 1544,
-        "linearizedBaseContracts": [
-          1544,
-          742,
-          845,
-          820,
-          867
-        ],
+        "linearizedBaseContracts": [1544, 742, 845, 820, 867],
         "name": "TestERC20",
         "nameLocation": "122:9:8",
         "nodeType": "ContractDefinition",

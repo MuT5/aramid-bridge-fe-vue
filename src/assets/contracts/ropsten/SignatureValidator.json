@@ -14,12 +14,8 @@
   "ast": {
     "absolutePath": "project:/contracts/SignatureValidator.sol",
     "exportedSymbols": {
-      "IBridgeState": [
-        2283
-      ],
-      "SignatureValidator": [
-        2178
-      ]
+      "IBridgeState": [2283],
+      "SignatureValidator": [2178]
     },
     "id": 2179,
     "license": "MIT",
@@ -27,12 +23,7 @@
     "nodes": [
       {
         "id": 2019,
-        "literals": [
-          "solidity",
-          "^",
-          "0.8",
-          ".0"
-        ],
+        "literals": ["solidity", "^", "0.8", ".0"],
         "nodeType": "PragmaDirective",
         "src": "32:23:10"
       },
@@ -56,9 +47,7 @@
         "contractKind": "contract",
         "fullyImplemented": true,
         "id": 2178,
-        "linearizedBaseContracts": [
-          2178
-        ],
+        "linearizedBaseContracts": [2178],
         "name": "SignatureValidator",
         "nameLocation": "107:18:10",
         "nodeType": "ContractDefinition",
@@ -70,9 +59,7 @@
               "src": "317:591:10",
               "statements": [
                 {
-                  "assignments": [
-                    2035
-                  ],
+                  "assignments": [2035],
                   "declarations": [
                     {
                       "constant": false,
@@ -277,10 +264,7 @@
                       "id": 2042,
                       "name": "require",
                       "nodeType": "Identifier",
-                      "overloadedDeclarations": [
-                        4294967278,
-                        4294967278
-                      ],
+                      "overloadedDeclarations": [4294967278, 4294967278],
                       "referencedDeclaration": 4294967278,
                       "src": "407:7:10",
                       "typeDescriptions": {
@@ -314,9 +298,7 @@
                     "src": "521:381:10",
                     "statements": [
                       {
-                        "assignments": [
-                          2061
-                        ],
+                        "assignments": [2061],
                         "declarations": [
                           {
                             "constant": false,
@@ -441,9 +423,7 @@
                         "src": "535:64:10"
                       },
                       {
-                        "assignments": [
-                          2070
-                        ],
+                        "assignments": [2070],
                         "declarations": [
                           {
                             "constant": false,
@@ -622,10 +602,7 @@
                             "id": 2078,
                             "name": "require",
                             "nodeType": "Identifier",
-                            "overloadedDeclarations": [
-                              4294967278,
-                              4294967278
-                            ],
+                            "overloadedDeclarations": [4294967278, 4294967278],
                             "referencedDeclaration": 4294967278,
                             "src": "730:7:10",
                             "typeDescriptions": {
@@ -738,10 +715,7 @@
                             "id": 2083,
                             "name": "require",
                             "nodeType": "Identifier",
-                            "overloadedDeclarations": [
-                              4294967278,
-                              4294967278
-                            ],
+                            "overloadedDeclarations": [4294967278, 4294967278],
                             "referencedDeclaration": 4294967278,
                             "src": "783:7:10",
                             "typeDescriptions": {
@@ -886,9 +860,7 @@
                   },
                   "id": 2098,
                   "initializationExpression": {
-                    "assignments": [
-                      2051
-                    ],
+                    "assignments": [2051],
                     "declarations": [
                       {
                         "constant": false,
@@ -1145,11 +1117,7 @@
               "src": "1032:114:10",
               "statements": [
                 {
-                  "assignments": [
-                    2110,
-                    2112,
-                    2114
-                  ],
+                  "assignments": [2110, 2112, 2114],
                   "declarations": [
                     {
                       "constant": false,
@@ -1578,10 +1546,7 @@
                       "id": 2138,
                       "name": "require",
                       "nodeType": "Identifier",
-                      "overloadedDeclarations": [
-                        4294967278,
-                        4294967278
-                      ],
+                      "overloadedDeclarations": [4294967278, 4294967278],
                       "referencedDeclaration": 4294967278,
                       "src": "1326:7:10",
                       "typeDescriptions": {
@@ -1609,9 +1574,7 @@
                   "src": "1326:25:10"
                 },
                 {
-                  "assignments": [
-                    2146
-                  ],
+                  "assignments": [2146],
                   "declarations": [
                     {
                       "constant": false,
@@ -1646,9 +1609,7 @@
                   "src": "1362:9:10"
                 },
                 {
-                  "assignments": [
-                    2149
-                  ],
+                  "assignments": [2149],
                   "declarations": [
                     {
                       "constant": false,
@@ -1683,9 +1644,7 @@
                   "src": "1381:9:10"
                 },
                 {
-                  "assignments": [
-                    2152
-                  ],
+                  "assignments": [2152],
                   "declarations": [
                     {
                       "constant": false,
@@ -2347,12 +2306,8 @@
   "legacyAST": {
     "absolutePath": "project:/contracts/SignatureValidator.sol",
     "exportedSymbols": {
-      "IBridgeState": [
-        2283
-      ],
-      "SignatureValidator": [
-        2178
-      ]
+      "IBridgeState": [2283],
+      "SignatureValidator": [2178]
     },
     "id": 2179,
     "license": "MIT",
@@ -2360,12 +2315,7 @@
     "nodes": [
       {
         "id": 2019,
-        "literals": [
-          "solidity",
-          "^",
-          "0.8",
-          ".0"
-        ],
+        "literals": ["solidity", "^", "0.8", ".0"],
         "nodeType": "PragmaDirective",
         "src": "32:23:10"
       },
@@ -2389,9 +2339,7 @@
         "contractKind": "contract",
         "fullyImplemented": true,
         "id": 2178,
-        "linearizedBaseContracts": [
-          2178
-        ],
+        "linearizedBaseContracts": [2178],
         "name": "SignatureValidator",
         "nameLocation": "107:18:10",
         "nodeType": "ContractDefinition",
@@ -2403,9 +2351,7 @@
               "src": "317:591:10",
               "statements": [
                 {
-                  "assignments": [
-                    2035
-                  ],
+                  "assignments": [2035],
                   "declarations": [
                     {
                       "constant": false,
@@ -2610,10 +2556,7 @@
                       "id": 2042,
                       "name": "require",
                       "nodeType": "Identifier",
-                      "overloadedDeclarations": [
-                        4294967278,
-                        4294967278
-                      ],
+                      "overloadedDeclarations": [4294967278, 4294967278],
                       "referencedDeclaration": 4294967278,
                       "src": "407:7:10",
                       "typeDescriptions": {
@@ -2647,9 +2590,7 @@
                     "src": "521:381:10",
                     "statements": [
                       {
-                        "assignments": [
-                          2061
-                        ],
+                        "assignments": [2061],
                         "declarations": [
                           {
                             "constant": false,
@@ -2774,9 +2715,7 @@
                         "src": "535:64:10"
                       },
                       {
-                        "assignments": [
-                          2070
-                        ],
+                        "assignments": [2070],
                         "declarations": [
                           {
                             "constant": false,
@@ -2955,10 +2894,7 @@
                             "id": 2078,
                             "name": "require",
                             "nodeType": "Identifier",
-                            "overloadedDeclarations": [
-                              4294967278,
-                              4294967278
-                            ],
+                            "overloadedDeclarations": [4294967278, 4294967278],
                             "referencedDeclaration": 4294967278,
                             "src": "730:7:10",
                             "typeDescriptions": {
@@ -3071,10 +3007,7 @@
                             "id": 2083,
                             "name": "require",
                             "nodeType": "Identifier",
-                            "overloadedDeclarations": [
-                              4294967278,
-                              4294967278
-                            ],
+                            "overloadedDeclarations": [4294967278, 4294967278],
                             "referencedDeclaration": 4294967278,
                             "src": "783:7:10",
                             "typeDescriptions": {
@@ -3219,9 +3152,7 @@
                   },
                   "id": 2098,
                   "initializationExpression": {
-                    "assignments": [
-                      2051
-                    ],
+                    "assignments": [2051],
                     "declarations": [
                       {
                         "constant": false,
@@ -3478,11 +3409,7 @@
               "src": "1032:114:10",
               "statements": [
                 {
-                  "assignments": [
-                    2110,
-                    2112,
-                    2114
-                  ],
+                  "assignments": [2110, 2112, 2114],
                   "declarations": [
                     {
                       "constant": false,
@@ -3911,10 +3838,7 @@
                       "id": 2138,
                       "name": "require",
                       "nodeType": "Identifier",
-                      "overloadedDeclarations": [
-                        4294967278,
-                        4294967278
-                      ],
+                      "overloadedDeclarations": [4294967278, 4294967278],
                       "referencedDeclaration": 4294967278,
                       "src": "1326:7:10",
                       "typeDescriptions": {
@@ -3942,9 +3866,7 @@
                   "src": "1326:25:10"
                 },
                 {
-                  "assignments": [
-                    2146
-                  ],
+                  "assignments": [2146],
                   "declarations": [
                     {
                       "constant": false,
@@ -3979,9 +3901,7 @@
                   "src": "1362:9:10"
                 },
                 {
-                  "assignments": [
-                    2149
-                  ],
+                  "assignments": [2149],
                   "declarations": [
                     {
                       "constant": false,
@@ -4016,9 +3936,7 @@
                   "src": "1381:9:10"
                 },
                 {
-                  "assignments": [
-                    2152
-                  ],
+                  "assignments": [2152],
                   "declarations": [
                     {
                       "constant": false,

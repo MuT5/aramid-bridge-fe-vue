@@ -5081,21 +5081,11 @@
   "ast": {
     "absolutePath": "project:/contracts/ZB1Token.sol",
     "exportedSymbols": {
-      "Context": [
-        867
-      ],
-      "ERC20": [
-        742
-      ],
-      "IERC20": [
-        820
-      ],
-      "IERC20Metadata": [
-        845
-      ],
-      "ZB1Token": [
-        1580
-      ]
+      "Context": [867],
+      "ERC20": [742],
+      "IERC20": [820],
+      "IERC20Metadata": [845],
+      "ZB1Token": [1580]
     },
     "id": 1581,
     "license": "MIT",
@@ -5103,12 +5093,7 @@
     "nodes": [
       {
         "id": 1546,
-        "literals": [
-          "solidity",
-          "^",
-          "0.8",
-          ".0"
-        ],
+        "literals": ["solidity", "^", "0.8", ".0"],
         "nodeType": "PragmaDirective",
         "src": "32:23:9"
       },
@@ -5179,13 +5164,7 @@
         "contractKind": "contract",
         "fullyImplemented": true,
         "id": 1580,
-        "linearizedBaseContracts": [
-          1580,
-          742,
-          845,
-          820,
-          867
-        ],
+        "linearizedBaseContracts": [1580, 742, 845, 820, 867],
         "name": "ZB1Token",
         "nameLocation": "122:8:9",
         "nodeType": "ContractDefinition",
@@ -5578,21 +5557,11 @@
   "legacyAST": {
     "absolutePath": "project:/contracts/ZB1Token.sol",
     "exportedSymbols": {
-      "Context": [
-        867
-      ],
-      "ERC20": [
-        742
-      ],
-      "IERC20": [
-        820
-      ],
-      "IERC20Metadata": [
-        845
-      ],
-      "ZB1Token": [
-        1580
-      ]
+      "Context": [867],
+      "ERC20": [742],
+      "IERC20": [820],
+      "IERC20Metadata": [845],
+      "ZB1Token": [1580]
     },
     "id": 1581,
     "license": "MIT",
@@ -5600,12 +5569,7 @@
     "nodes": [
       {
         "id": 1546,
-        "literals": [
-          "solidity",
-          "^",
-          "0.8",
-          ".0"
-        ],
+        "literals": ["solidity", "^", "0.8", ".0"],
         "nodeType": "PragmaDirective",
         "src": "32:23:9"
       },
@@ -5676,13 +5640,7 @@
         "contractKind": "contract",
         "fullyImplemented": true,
         "id": 1580,
-        "linearizedBaseContracts": [
-          1580,
-          742,
-          845,
-          820,
-          867
-        ],
+        "linearizedBaseContracts": [1580, 742, 845, 820, 867],
         "name": "ZB1Token",
         "nameLocation": "122:8:9",
         "nodeType": "ContractDefinition",

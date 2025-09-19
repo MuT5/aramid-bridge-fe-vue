@@ -1771,9 +1771,7 @@
   "ast": {
     "absolutePath": "project:/contracts/BridgeState.sol",
     "exportedSymbols": {
-      "BridgeState": [
-        3330
-      ]
+      "BridgeState": [3330]
     },
     "id": 3331,
     "license": "MIT",
@@ -1781,12 +1779,7 @@
     "nodes": [
       {
         "id": 3292,
-        "literals": [
-          "solidity",
-          "^",
-          "0.8",
-          ".0"
-        ],
+        "literals": ["solidity", "^", "0.8", ".0"],
         "nodeType": "PragmaDirective",
         "src": "32:23:33"
       },
@@ -1798,9 +1791,7 @@
         "contractKind": "contract",
         "fullyImplemented": true,
         "id": 3330,
-        "linearizedBaseContracts": [
-          3330
-        ],
+        "linearizedBaseContracts": [3330],
         "name": "BridgeState",
         "nameLocation": "66:11:33",
         "nodeType": "ContractDefinition",
@@ -2258,9 +2249,7 @@
   "legacyAST": {
     "absolutePath": "project:/contracts/BridgeState.sol",
     "exportedSymbols": {
-      "BridgeState": [
-        3330
-      ]
+      "BridgeState": [3330]
     },
     "id": 3331,
     "license": "MIT",
@@ -2268,12 +2257,7 @@
     "nodes": [
       {
         "id": 3292,
-        "literals": [
-          "solidity",
-          "^",
-          "0.8",
-          ".0"
-        ],
+        "literals": ["solidity", "^", "0.8", ".0"],
         "nodeType": "PragmaDirective",
         "src": "32:23:33"
       },
@@ -2285,9 +2269,7 @@
         "contractKind": "contract",
         "fullyImplemented": true,
         "id": 3330,
-        "linearizedBaseContracts": [
-          3330
-        ],
+        "linearizedBaseContracts": [3330],
         "name": "BridgeState",
         "nameLocation": "66:11:33",
         "nodeType": "ContractDefinition",

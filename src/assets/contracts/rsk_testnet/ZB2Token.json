@@ -5081,21 +5081,11 @@
   "ast": {
     "absolutePath": "project:/contracts/ZB2Token.sol",
     "exportedSymbols": {
-      "Context": [
-        867
-      ],
-      "ERC20": [
-        742
-      ],
-      "IERC20": [
-        820
-      ],
-      "IERC20Metadata": [
-        845
-      ],
-      "ZB2Token": [
-        1608
-      ]
+      "Context": [867],
+      "ERC20": [742],
+      "IERC20": [820],
+      "IERC20Metadata": [845],
+      "ZB2Token": [1608]
     },
     "id": 1609,
     "license": "MIT",
@@ -5103,12 +5093,7 @@
     "nodes": [
       {
         "id": 1578,
-        "literals": [
-          "solidity",
-          "^",
-          "0.8",
-          ".0"
-        ],
+        "literals": ["solidity", "^", "0.8", ".0"],
         "nodeType": "PragmaDirective",
         "src": "32:23:10"
       },
@@ -5179,13 +5164,7 @@
         "contractKind": "contract",
         "fullyImplemented": true,
         "id": 1608,
-        "linearizedBaseContracts": [
-          1608,
-          742,
-          845,
-          820,
-          867
-        ],
+        "linearizedBaseContracts": [1608, 742, 845, 820, 867],
         "name": "ZB2Token",
         "nameLocation": "122:8:10",
         "nodeType": "ContractDefinition",
@@ -5510,21 +5489,11 @@
   "legacyAST": {
     "absolutePath": "project:/contracts/ZB2Token.sol",
     "exportedSymbols": {
-      "Context": [
-        867
-      ],
-      "ERC20": [
-        742
-      ],
-      "IERC20": [
-        820
-      ],
-      "IERC20Metadata": [
-        845
-      ],
-      "ZB2Token": [
-        1608
-      ]
+      "Context": [867],
+      "ERC20": [742],
+      "IERC20": [820],
+      "IERC20Metadata": [845],
+      "ZB2Token": [1608]
     },
     "id": 1609,
     "license": "MIT",
@@ -5532,12 +5501,7 @@
     "nodes": [
       {
         "id": 1578,
-        "literals": [
-          "solidity",
-          "^",
-          "0.8",
-          ".0"
-        ],
+        "literals": ["solidity", "^", "0.8", ".0"],
         "nodeType": "PragmaDirective",
         "src": "32:23:10"
       },
@@ -5608,13 +5572,7 @@
         "contractKind": "contract",
         "fullyImplemented": true,
         "id": 1608,
-        "linearizedBaseContracts": [
-          1608,
-          742,
-          845,
-          820,
-          867
-        ],
+        "linearizedBaseContracts": [1608, 742, 845, 820, 867],
         "name": "ZB2Token",
         "nameLocation": "122:8:10",
         "nodeType": "ContractDefinition",

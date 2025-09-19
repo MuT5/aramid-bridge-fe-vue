@@ -5259,24 +5259,12 @@
   "ast": {
     "absolutePath": "project:/contracts/AramidUSDToken.sol",
     "exportedSymbols": {
-      "AramidUSDToken": [
-        729
-      ],
-      "Context": [
-        710
-      ],
-      "ERC20": [
-        585
-      ],
-      "IERC20": [
-        663
-      ],
-      "IERC20Metadata": [
-        688
-      ],
-      "WrappedAssetToken": [
-        805
-      ]
+      "AramidUSDToken": [729],
+      "Context": [710],
+      "ERC20": [585],
+      "IERC20": [663],
+      "IERC20Metadata": [688],
+      "WrappedAssetToken": [805]
     },
     "id": 730,
     "license": "MIT",
@@ -5284,12 +5272,7 @@
     "nodes": [
       {
         "id": 712,
-        "literals": [
-          "solidity",
-          "^",
-          "0.8",
-          ".0"
-        ],
+        "literals": ["solidity", "^", "0.8", ".0"],
         "nodeType": "PragmaDirective",
         "src": "32:23:4"
       },
@@ -5338,14 +5321,7 @@
         "contractKind": "contract",
         "fullyImplemented": true,
         "id": 729,
-        "linearizedBaseContracts": [
-          729,
-          805,
-          585,
-          688,
-          663,
-          710
-        ],
+        "linearizedBaseContracts": [729, 805, 585, 688, 663, 710],
         "name": "AramidUSDToken",
         "nameLocation": "156:14:4",
         "nodeType": "ContractDefinition",
@@ -5498,24 +5474,12 @@
   "legacyAST": {
     "absolutePath": "project:/contracts/AramidUSDToken.sol",
     "exportedSymbols": {
-      "AramidUSDToken": [
-        729
-      ],
-      "Context": [
-        710
-      ],
-      "ERC20": [
-        585
-      ],
-      "IERC20": [
-        663
-      ],
-      "IERC20Metadata": [
-        688
-      ],
-      "WrappedAssetToken": [
-        805
-      ]
+      "AramidUSDToken": [729],
+      "Context": [710],
+      "ERC20": [585],
+      "IERC20": [663],
+      "IERC20Metadata": [688],
+      "WrappedAssetToken": [805]
     },
     "id": 730,
     "license": "MIT",
@@ -5523,12 +5487,7 @@
     "nodes": [
       {
         "id": 712,
-        "literals": [
-          "solidity",
-          "^",
-          "0.8",
-          ".0"
-        ],
+        "literals": ["solidity", "^", "0.8", ".0"],
         "nodeType": "PragmaDirective",
         "src": "32:23:4"
       },
@@ -5577,14 +5536,7 @@
         "contractKind": "contract",
         "fullyImplemented": true,
         "id": 729,
-        "linearizedBaseContracts": [
-          729,
-          805,
-          585,
-          688,
-          663,
-          710
-        ],
+        "linearizedBaseContracts": [729, 805, 585, 688, 663, 710],
         "name": "AramidUSDToken",
         "nameLocation": "156:14:4",
         "nodeType": "ContractDefinition",

@@ -46,9 +46,7 @@
         }
       },
       "logo": "eth",
-      "blockExplorers": [
-        "https://rinkeby.etherscan.io/tx/"
-      ],
+      "blockExplorers": ["https://rinkeby.etherscan.io/tx/"],
       "soldiersByRound": [
         {
           "validFrom": 0,
@@ -102,9 +100,7 @@
         }
       },
       "logo": "polygon",
-      "blockExplorers": [
-        "https://mumbai.polygonscan.com/tx/"
-      ],
+      "blockExplorers": ["https://mumbai.polygonscan.com/tx/"],
       "soldiersByRound": [
         {
           "validFrom": 0,
@@ -126,9 +122,7 @@
       "folder": "algo",
       "address": "ARAMIDM6O7ZKTXWMY2KEVLLFTOLRXK6IEKEG53IMXUJOT3EAJJQ3AQBBAQ",
       "logo": "algo",
-      "blockExplorers": [
-        "https://testnet.algoexplorer.io/tx/"
-      ],
+      "blockExplorers": ["https://testnet.algoexplorer.io/tx/"],
       "tokens": {
         "37074699": {
           "tokenId": "37074699",

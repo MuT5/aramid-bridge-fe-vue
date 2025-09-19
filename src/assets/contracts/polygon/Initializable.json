@@ -28,12 +28,8 @@
   "ast": {
     "absolutePath": "@openzeppelin/contracts/proxy/utils/Initializable.sol",
     "exportedSymbols": {
-      "Address": [
-        1660
-      ],
-      "Initializable": [
-        584
-      ]
+      "Address": [1660],
+      "Initializable": [584]
     },
     "id": 585,
     "license": "MIT",
@@ -41,12 +37,7 @@
     "nodes": [
       {
         "id": 444,
-        "literals": [
-          "solidity",
-          "^",
-          "0.8",
-          ".2"
-        ],
+        "literals": ["solidity", "^", "0.8", ".2"],
         "nodeType": "PragmaDirective",
         "src": "113:23:5"
       },
@@ -76,9 +67,7 @@
         },
         "fullyImplemented": true,
         "id": 584,
-        "linearizedBaseContracts": [
-          584
-        ],
+        "linearizedBaseContracts": [584],
         "name": "Initializable",
         "nameLocation": "2390:13:5",
         "nodeType": "ContractDefinition",
@@ -205,9 +194,7 @@
               "src": "3090:257:5",
               "statements": [
                 {
-                  "assignments": [
-                    461
-                  ],
+                  "assignments": [461],
                   "declarations": [
                     {
                       "constant": false,
@@ -526,9 +513,7 @@
               "src": "4162:269:5",
               "statements": [
                 {
-                  "assignments": [
-                    492
-                  ],
+                  "assignments": [492],
                   "declarations": [
                     {
                       "constant": false,
@@ -912,10 +897,7 @@
                       "id": 520,
                       "name": "require",
                       "nodeType": "Identifier",
-                      "overloadedDeclarations": [
-                        4294967278,
-                        4294967278
-                      ],
+                      "overloadedDeclarations": [4294967278, 4294967278],
                       "referencedDeclaration": 4294967278,
                       "src": "4679:7:5",
                       "typeDescriptions": {
@@ -1219,10 +1201,7 @@
                             "id": 567,
                             "name": "require",
                             "nodeType": "Identifier",
-                            "overloadedDeclarations": [
-                              4294967278,
-                              4294967278
-                            ],
+                            "overloadedDeclarations": [4294967278, 4294967278],
                             "referencedDeclaration": 4294967278,
                             "src": "5914:7:5",
                             "typeDescriptions": {
@@ -1544,10 +1523,7 @@
                             "id": 548,
                             "name": "require",
                             "nodeType": "Identifier",
-                            "overloadedDeclarations": [
-                              4294967278,
-                              4294967278
-                            ],
+                            "overloadedDeclarations": [4294967278, 4294967278],
                             "referencedDeclaration": 4294967278,
                             "src": "5702:7:5",
                             "typeDescriptions": {
@@ -1693,12 +1669,8 @@
   "legacyAST": {
     "absolutePath": "@openzeppelin/contracts/proxy/utils/Initializable.sol",
     "exportedSymbols": {
-      "Address": [
-        1660
-      ],
-      "Initializable": [
-        584
-      ]
+      "Address": [1660],
+      "Initializable": [584]
     },
     "id": 585,
     "license": "MIT",
@@ -1706,12 +1678,7 @@
     "nodes": [
       {
         "id": 444,
-        "literals": [
-          "solidity",
-          "^",
-          "0.8",
-          ".2"
-        ],
+        "literals": ["solidity", "^", "0.8", ".2"],
         "nodeType": "PragmaDirective",
         "src": "113:23:5"
       },
@@ -1741,9 +1708,7 @@
         },
         "fullyImplemented": true,
         "id": 584,
-        "linearizedBaseContracts": [
-          584
-        ],
+        "linearizedBaseContracts": [584],
         "name": "Initializable",
         "nameLocation": "2390:13:5",
         "nodeType": "ContractDefinition",
@@ -1870,9 +1835,7 @@
               "src": "3090:257:5",
               "statements": [
                 {
-                  "assignments": [
-                    461
-                  ],
+                  "assignments": [461],
                   "declarations": [
                     {
                       "constant": false,
@@ -2191,9 +2154,7 @@
               "src": "4162:269:5",
               "statements": [
                 {
-                  "assignments": [
-                    492
-                  ],
+                  "assignments": [492],
                   "declarations": [
                     {
                       "constant": false,
@@ -2577,10 +2538,7 @@
                       "id": 520,
                       "name": "require",
                       "nodeType": "Identifier",
-                      "overloadedDeclarations": [
-                        4294967278,
-                        4294967278
-                      ],
+                      "overloadedDeclarations": [4294967278, 4294967278],
                       "referencedDeclaration": 4294967278,
                       "src": "4679:7:5",
                       "typeDescriptions": {
@@ -2884,10 +2842,7 @@
                             "id": 567,
                             "name": "require",
                             "nodeType": "Identifier",
-                            "overloadedDeclarations": [
-                              4294967278,
-                              4294967278
-                            ],
+                            "overloadedDeclarations": [4294967278, 4294967278],
                             "referencedDeclaration": 4294967278,
                             "src": "5914:7:5",
                             "typeDescriptions": {
@@ -3209,10 +3164,7 @@
                             "id": 548,
                             "name": "require",
                             "nodeType": "Identifier",
-                            "overloadedDeclarations": [
-                              4294967278,
-                              4294967278
-                            ],
+                            "overloadedDeclarations": [4294967278, 4294967278],
                             "referencedDeclaration": 4294967278,
                             "src": "5702:7:5",
                             "typeDescriptions": {

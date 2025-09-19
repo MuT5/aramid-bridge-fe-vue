@@ -1771,12 +1771,8 @@
   "ast": {
     "absolutePath": "project:/contracts/BridgeSignatureValidator.sol",
     "exportedSymbols": {
-      "BridgeSignatureValidator": [
-        3015
-      ],
-      "BridgeState": [
-        3055
-      ]
+      "BridgeSignatureValidator": [3015],
+      "BridgeState": [3055]
     },
     "id": 3016,
     "license": "MIT",
@@ -1784,12 +1780,7 @@
     "nodes": [
       {
         "id": 2871,
-        "literals": [
-          "solidity",
-          "^",
-          "0.8",
-          ".0"
-        ],
+        "literals": ["solidity", "^", "0.8", ".0"],
         "nodeType": "PragmaDirective",
         "src": "32:23:17"
       },
@@ -1826,10 +1817,7 @@
         "contractKind": "contract",
         "fullyImplemented": true,
         "id": 3015,
-        "linearizedBaseContracts": [
-          3015,
-          3055
-        ],
+        "linearizedBaseContracts": [3015, 3055],
         "name": "BridgeSignatureValidator",
         "nameLocation": "95:24:17",
         "nodeType": "ContractDefinition",
@@ -1930,10 +1918,7 @@
                       "id": 2886,
                       "name": "require",
                       "nodeType": "Identifier",
-                      "overloadedDeclarations": [
-                        4294967278,
-                        4294967278
-                      ],
+                      "overloadedDeclarations": [4294967278, 4294967278],
                       "referencedDeclaration": 4294967278,
                       "src": "305:7:17",
                       "typeDescriptions": {
@@ -1967,9 +1952,7 @@
                     "src": "473:282:17",
                     "statements": [
                       {
-                        "assignments": [
-                          2905
-                        ],
+                        "assignments": [2905],
                         "declarations": [
                           {
                             "constant": false,
@@ -2164,10 +2147,7 @@
                             "id": 2913,
                             "name": "require",
                             "nodeType": "Identifier",
-                            "overloadedDeclarations": [
-                              4294967278,
-                              4294967278
-                            ],
+                            "overloadedDeclarations": [4294967278, 4294967278],
                             "referencedDeclaration": 4294967278,
                             "src": "566:7:17",
                             "typeDescriptions": {
@@ -2280,10 +2260,7 @@
                             "id": 2920,
                             "name": "require",
                             "nodeType": "Identifier",
-                            "overloadedDeclarations": [
-                              4294967278,
-                              4294967278
-                            ],
+                            "overloadedDeclarations": [4294967278, 4294967278],
                             "referencedDeclaration": 4294967278,
                             "src": "636:7:17",
                             "typeDescriptions": {
@@ -2428,9 +2405,7 @@
                   },
                   "id": 2935,
                   "initializationExpression": {
-                    "assignments": [
-                      2895
-                    ],
+                    "assignments": [2895],
                     "declarations": [
                       {
                         "constant": false,
@@ -2659,11 +2634,7 @@
               "src": "885:114:17",
               "statements": [
                 {
-                  "assignments": [
-                    2947,
-                    2949,
-                    2951
-                  ],
+                  "assignments": [2947, 2949, 2951],
                   "declarations": [
                     {
                       "constant": false,
@@ -3092,10 +3063,7 @@
                       "id": 2975,
                       "name": "require",
                       "nodeType": "Identifier",
-                      "overloadedDeclarations": [
-                        4294967278,
-                        4294967278
-                      ],
+                      "overloadedDeclarations": [4294967278, 4294967278],
                       "referencedDeclaration": 4294967278,
                       "src": "1179:7:17",
                       "typeDescriptions": {
@@ -3123,9 +3091,7 @@
                   "src": "1179:25:17"
                 },
                 {
-                  "assignments": [
-                    2983
-                  ],
+                  "assignments": [2983],
                   "declarations": [
                     {
                       "constant": false,
@@ -3160,9 +3126,7 @@
                   "src": "1215:9:17"
                 },
                 {
-                  "assignments": [
-                    2986
-                  ],
+                  "assignments": [2986],
                   "declarations": [
                     {
                       "constant": false,
@@ -3197,9 +3161,7 @@
                   "src": "1234:9:17"
                 },
                 {
-                  "assignments": [
-                    2989
-                  ],
+                  "assignments": [2989],
                   "declarations": [
                     {
                       "constant": false,
@@ -3861,12 +3823,8 @@
   "legacyAST": {
     "absolutePath": "project:/contracts/BridgeSignatureValidator.sol",
     "exportedSymbols": {
-      "BridgeSignatureValidator": [
-        3015
-      ],
-      "BridgeState": [
-        3055
-      ]
+      "BridgeSignatureValidator": [3015],
+      "BridgeState": [3055]
     },
     "id": 3016,
     "license": "MIT",
@@ -3874,12 +3832,7 @@
     "nodes": [
       {
         "id": 2871,
-        "literals": [
-          "solidity",
-          "^",
-          "0.8",
-          ".0"
-        ],
+        "literals": ["solidity", "^", "0.8", ".0"],
         "nodeType": "PragmaDirective",
         "src": "32:23:17"
       },
@@ -3916,10 +3869,7 @@
         "contractKind": "contract",
         "fullyImplemented": true,
         "id": 3015,
-        "linearizedBaseContracts": [
-          3015,
-          3055
-        ],
+        "linearizedBaseContracts": [3015, 3055],
         "name": "BridgeSignatureValidator",
         "nameLocation": "95:24:17",
         "nodeType": "ContractDefinition",
@@ -4020,10 +3970,7 @@
                       "id": 2886,
                       "name": "require",
                       "nodeType": "Identifier",
-                      "overloadedDeclarations": [
-                        4294967278,
-                        4294967278
-                      ],
+                      "overloadedDeclarations": [4294967278, 4294967278],
                       "referencedDeclaration": 4294967278,
                       "src": "305:7:17",
                       "typeDescriptions": {
@@ -4057,9 +4004,7 @@
                     "src": "473:282:17",
                     "statements": [
                       {
-                        "assignments": [
-                          2905
-                        ],
+                        "assignments": [2905],
                         "declarations": [
                           {
                             "constant": false,
@@ -4254,10 +4199,7 @@
                             "id": 2913,
                             "name": "require",
                             "nodeType": "Identifier",
-                            "overloadedDeclarations": [
-                              4294967278,
-                              4294967278
-                            ],
+                            "overloadedDeclarations": [4294967278, 4294967278],
                             "referencedDeclaration": 4294967278,
                             "src": "566:7:17",
                             "typeDescriptions": {
@@ -4370,10 +4312,7 @@
                             "id": 2920,
                             "name": "require",
                             "nodeType": "Identifier",
-                            "overloadedDeclarations": [
-                              4294967278,
-                              4294967278
-                            ],
+                            "overloadedDeclarations": [4294967278, 4294967278],
                             "referencedDeclaration": 4294967278,
                             "src": "636:7:17",
                             "typeDescriptions": {
@@ -4518,9 +4457,7 @@
                   },
                   "id": 2935,
                   "initializationExpression": {
-                    "assignments": [
-                      2895
-                    ],
+                    "assignments": [2895],
                     "declarations": [
                       {
                         "constant": false,
@@ -4749,11 +4686,7 @@
               "src": "885:114:17",
               "statements": [
                 {
-                  "assignments": [
-                    2947,
-                    2949,
-                    2951
-                  ],
+                  "assignments": [2947, 2949, 2951],
                   "declarations": [
                     {
                       "constant": false,
@@ -5182,10 +5115,7 @@
                       "id": 2975,
                       "name": "require",
                       "nodeType": "Identifier",
-                      "overloadedDeclarations": [
-                        4294967278,
-                        4294967278
-                      ],
+                      "overloadedDeclarations": [4294967278, 4294967278],
                       "referencedDeclaration": 4294967278,
                       "src": "1179:7:17",
                       "typeDescriptions": {
@@ -5213,9 +5143,7 @@
                   "src": "1179:25:17"
                 },
                 {
-                  "assignments": [
-                    2983
-                  ],
+                  "assignments": [2983],
                   "declarations": [
                     {
                       "constant": false,
@@ -5250,9 +5178,7 @@
                   "src": "1215:9:17"
                 },
                 {
-                  "assignments": [
-                    2986
-                  ],
+                  "assignments": [2986],
                   "declarations": [
                     {
                       "constant": false,
@@ -5287,9 +5213,7 @@
                   "src": "1234:9:17"
                 },
                 {
-                  "assignments": [
-                    2989
-                  ],
+                  "assignments": [2989],
                   "declarations": [
                     {
                       "constant": false,

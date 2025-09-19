@@ -5259,24 +5259,12 @@
   "ast": {
     "absolutePath": "project:/contracts/AramidAuroraTokenMainnet.sol",
     "exportedSymbols": {
-      "AramidAuroraTokenMainnet": [
-        786
-      ],
-      "Context": [
-        710
-      ],
-      "ERC20": [
-        585
-      ],
-      "IERC20": [
-        663
-      ],
-      "IERC20Metadata": [
-        688
-      ],
-      "WrappedAssetToken": [
-        1034
-      ]
+      "AramidAuroraTokenMainnet": [786],
+      "Context": [710],
+      "ERC20": [585],
+      "IERC20": [663],
+      "IERC20Metadata": [688],
+      "WrappedAssetToken": [1034]
     },
     "id": 787,
     "license": "MIT",
@@ -5284,12 +5272,7 @@
     "nodes": [
       {
         "id": 769,
-        "literals": [
-          "solidity",
-          "^",
-          "0.8",
-          ".0"
-        ],
+        "literals": ["solidity", "^", "0.8", ".0"],
         "nodeType": "PragmaDirective",
         "src": "32:23:7"
       },
@@ -5338,14 +5321,7 @@
         "contractKind": "contract",
         "fullyImplemented": true,
         "id": 786,
-        "linearizedBaseContracts": [
-          786,
-          1034,
-          585,
-          688,
-          663,
-          710
-        ],
+        "linearizedBaseContracts": [786, 1034, 585, 688, 663, 710],
         "name": "AramidAuroraTokenMainnet",
         "nameLocation": "156:24:7",
         "nodeType": "ContractDefinition",
@@ -5498,24 +5474,12 @@
   "legacyAST": {
     "absolutePath": "project:/contracts/AramidAuroraTokenMainnet.sol",
     "exportedSymbols": {
-      "AramidAuroraTokenMainnet": [
-        786
-      ],
-      "Context": [
-        710
-      ],
-      "ERC20": [
-        585
-      ],
-      "IERC20": [
-        663
-      ],
-      "IERC20Metadata": [
-        688
-      ],
-      "WrappedAssetToken": [
-        1034
-      ]
+      "AramidAuroraTokenMainnet": [786],
+      "Context": [710],
+      "ERC20": [585],
+      "IERC20": [663],
+      "IERC20Metadata": [688],
+      "WrappedAssetToken": [1034]
     },
     "id": 787,
     "license": "MIT",
@@ -5523,12 +5487,7 @@
     "nodes": [
       {
         "id": 769,
-        "literals": [
-          "solidity",
-          "^",
-          "0.8",
-          ".0"
-        ],
+        "literals": ["solidity", "^", "0.8", ".0"],
         "nodeType": "PragmaDirective",
         "src": "32:23:7"
       },
@@ -5577,14 +5536,7 @@
         "contractKind": "contract",
         "fullyImplemented": true,
         "id": 786,
-        "linearizedBaseContracts": [
-          786,
-          1034,
-          585,
-          688,
-          663,
-          710
-        ],
+        "linearizedBaseContracts": [786, 1034, 585, 688, 663, 710],
         "name": "AramidAuroraTokenMainnet",
         "nameLocation": "156:24:7",
         "nodeType": "ContractDefinition",

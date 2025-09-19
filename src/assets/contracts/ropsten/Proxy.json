@@ -23,9 +23,7 @@
   "ast": {
     "absolutePath": "@openzeppelin/contracts/proxy/Proxy.sol",
     "exportedSymbols": {
-      "Proxy": [
-        453
-      ]
+      "Proxy": [453]
     },
     "id": 454,
     "license": "MIT",
@@ -33,12 +31,7 @@
     "nodes": [
       {
         "id": 403,
-        "literals": [
-          "solidity",
-          "^",
-          "0.8",
-          ".0"
-        ],
+        "literals": ["solidity", "^", "0.8", ".0"],
         "nodeType": "PragmaDirective",
         "src": "84:23:2"
       },
@@ -56,9 +49,7 @@
         },
         "fullyImplemented": false,
         "id": 453,
-        "linearizedBaseContracts": [
-          453
-        ],
+        "linearizedBaseContracts": [453],
         "name": "Proxy",
         "nameLocation": "726:5:2",
         "nodeType": "ContractDefinition",
@@ -805,9 +796,7 @@
   "legacyAST": {
     "absolutePath": "@openzeppelin/contracts/proxy/Proxy.sol",
     "exportedSymbols": {
-      "Proxy": [
-        453
-      ]
+      "Proxy": [453]
     },
     "id": 454,
     "license": "MIT",
@@ -815,12 +804,7 @@
     "nodes": [
       {
         "id": 403,
-        "literals": [
-          "solidity",
-          "^",
-          "0.8",
-          ".0"
-        ],
+        "literals": ["solidity", "^", "0.8", ".0"],
         "nodeType": "PragmaDirective",
         "src": "84:23:2"
       },
@@ -838,9 +822,7 @@
         },
         "fullyImplemented": false,
         "id": 453,
-        "linearizedBaseContracts": [
-          453
-        ],
+        "linearizedBaseContracts": [453],
         "name": "Proxy",
         "nameLocation": "726:5:2",
         "nodeType": "ContractDefinition",

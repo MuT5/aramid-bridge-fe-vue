@@ -6775,21 +6775,11 @@
   "ast": {
     "absolutePath": "project:/contracts/WrappedAssetToken.sol",
     "exportedSymbols": {
-      "Context": [
-        1682
-      ],
-      "ERC20": [
-        1262
-      ],
-      "IERC20": [
-        1340
-      ],
-      "IERC20Metadata": [
-        1365
-      ],
-      "WrappedAssetToken": [
-        3388
-      ]
+      "Context": [1682],
+      "ERC20": [1262],
+      "IERC20": [1340],
+      "IERC20Metadata": [1365],
+      "WrappedAssetToken": [3388]
     },
     "id": 3389,
     "license": "MIT",
@@ -6797,12 +6787,7 @@
     "nodes": [
       {
         "id": 3332,
-        "literals": [
-          "solidity",
-          "^",
-          "0.8",
-          ".0"
-        ],
+        "literals": ["solidity", "^", "0.8", ".0"],
         "nodeType": "PragmaDirective",
         "src": "32:23:34"
       },
@@ -6845,13 +6830,7 @@
         },
         "fullyImplemented": true,
         "id": 3388,
-        "linearizedBaseContracts": [
-          3388,
-          1262,
-          1365,
-          1340,
-          1682
-        ],
+        "linearizedBaseContracts": [3388, 1262, 1365, 1340, 1682],
         "name": "WrappedAssetToken",
         "nameLocation": "226:17:34",
         "nodeType": "ContractDefinition",
@@ -7005,9 +6984,7 @@
                   "src": "531:32:34"
                 },
                 {
-                  "assignments": [
-                    3364
-                  ],
+                  "assignments": [3364],
                   "declarations": [
                     {
                       "constant": false,
@@ -7372,9 +7349,7 @@
             "visibility": "public"
           },
           {
-            "baseFunctions": [
-              751
-            ],
+            "baseFunctions": [751],
             "body": {
               "id": 3386,
               "nodeType": "Block",
@@ -7477,21 +7452,11 @@
   "legacyAST": {
     "absolutePath": "project:/contracts/WrappedAssetToken.sol",
     "exportedSymbols": {
-      "Context": [
-        1682
-      ],
-      "ERC20": [
-        1262
-      ],
-      "IERC20": [
-        1340
-      ],
-      "IERC20Metadata": [
-        1365
-      ],
-      "WrappedAssetToken": [
-        3388
-      ]
+      "Context": [1682],
+      "ERC20": [1262],
+      "IERC20": [1340],
+      "IERC20Metadata": [1365],
+      "WrappedAssetToken": [3388]
     },
     "id": 3389,
     "license": "MIT",
@@ -7499,12 +7464,7 @@
     "nodes": [
       {
         "id": 3332,
-        "literals": [
-          "solidity",
-          "^",
-          "0.8",
-          ".0"
-        ],
+        "literals": ["solidity", "^", "0.8", ".0"],
         "nodeType": "PragmaDirective",
         "src": "32:23:34"
       },
@@ -7547,13 +7507,7 @@
         },
         "fullyImplemented": true,
         "id": 3388,
-        "linearizedBaseContracts": [
-          3388,
-          1262,
-          1365,
-          1340,
-          1682
-        ],
+        "linearizedBaseContracts": [3388, 1262, 1365, 1340, 1682],
         "name": "WrappedAssetToken",
         "nameLocation": "226:17:34",
         "nodeType": "ContractDefinition",
@@ -7707,9 +7661,7 @@
                   "src": "531:32:34"
                 },
                 {
-                  "assignments": [
-                    3364
-                  ],
+                  "assignments": [3364],
                   "declarations": [
                     {
                       "constant": false,
@@ -8074,9 +8026,7 @@
             "visibility": "public"
           },
           {
-            "baseFunctions": [
-              751
-            ],
+            "baseFunctions": [751],
             "body": {
               "id": 3386,
               "nodeType": "Block",
