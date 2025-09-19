@@ -4,6 +4,15 @@ Aramid Bridge is a Vue 3 + Vite web application for cross-chain asset bridging b
 
 Always reference these instructions first and fallback to search or bash commands only when you encounter unexpected information that does not match the info here.
 
+## VSCode Configuration
+
+- **Settings Alignment**: `.vscode/settings.json` is configured to match project formatting standards
+- **Prettier Integration**: All Prettier settings mirror `.prettierrc.json` configuration exactly
+  - `printWidth: 200`, `tabWidth: 2`, `singleQuote: true`, `semi: false`, `trailingComma: "none"`
+- **ESLint Integration**: Auto-fix on save enabled for Vue, TypeScript, and JavaScript files
+- **Format on Save**: Enabled with Prettier as default formatter for all supported file types
+- **Vue Support**: Optimized settings for Vue 3 development with inlay hints enabled
+
 ## Working Effectively
 
 ### Initial Setup
