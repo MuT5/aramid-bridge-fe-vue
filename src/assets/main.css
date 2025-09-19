@@ -89,3 +89,10 @@ wcm-modal,
   width: 100vw;
   height: 100vh;
 }
+
+/* Aramid text highlighting for improved readability */
+.aramid-highlight {
+  color: #aeefe1; /* Using the border-green color from tailwind config */
+  font-weight: 600;
+  text-shadow: 0 0 8px rgba(174, 239, 225, 0.3);
+}
