@@ -120,6 +120,20 @@ watch(
     fillInState()
   }
 )
+
+watch(
+  () => store.state.destinationChain,
+  () => {
+    fillInState()
+  }
+)
+
+watch(
+  () => store.state.destinationChainConfiguration,
+  () => {
+    fillInState()
+  }
+)
 </script>
 <template>
   <div :class="store.state.dialogSelectSourceAssetIsOpen ? '' : 'hidden'">
