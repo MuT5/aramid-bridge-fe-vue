@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { sanitizeTokenName } from '@/scripts/common/sanitizeTokenName'
+import { highlightAramidText } from '@/scripts/common/highlightAramidText'
 import CopyIcon from './CopyIcon.vue'
+import { computed } from 'vue'
 
 const props = defineProps({ img: String, text: String, id: String })
 
@@ -8,6 +10,12 @@ const getImageUrl = (name: string | undefined) => {
   const ret = new URL(`../../assets/logos/tokens/${name}.png`, import.meta.url)
   return ret.toString()
 }
+
+// Compute the highlighted text for the token name
+const highlightedTokenName = computed(() => {
+  const sanitized = sanitizeTokenName(props.text ?? '')
+  return highlightAramidText(sanitized)
+})
 </script>
 <template>
   <div
@@ -24,7 +32,7 @@ const getImageUrl = (name: string | undefined) => {
     </div>
     <div class="mr-2.5"></div>
     <div class="text-center flex flex-col justify-center flex-1">
-      <div class="w-full text-left">{{ sanitizeTokenName(props.text ?? '') }}</div>
+      <div class="w-full text-left" v-html="highlightedTokenName.html"></div>
       <div class="hidden md:inline-block text-left text-sm">({{ props.id }})</div>
     </div>
     <div class="">

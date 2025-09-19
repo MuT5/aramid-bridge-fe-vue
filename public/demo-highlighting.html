@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aramid Token Highlighting Demo</title>
+    <style>
+        body {
+            font-family: 'Satoshi', Arial, sans-serif;
+            background: url('images/background.webp');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-color: blueviolet;
+            color: white;
+            padding: 20px;
+            margin: 0;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(35, 0, 87, 0.9);
+            border-radius: 26px;
+            padding: 30px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .asset-button {
+            background: linear-gradient(90deg, rgba(35, 0, 87, 0.9), rgba(35, 16, 69, 0.9));
+            border: 1px solid rgba(71, 85, 105, 0.5);
+            border-radius: 16px;
+            margin: 8px 0;
+            padding: 8px 16px;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.1s ease-in-out;
+        }
+        
+        .asset-button:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+        
+        .asset-icon {
+            width: 30px;
+            height: 30px;
+            background: #AEEFE1;
+            border-radius: 50%;
+            margin-right: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #2d084e;
+            font-size: 12px;
+        }
+        
+        .asset-name {
+            flex: 1;
+            font-size: 16px;
+        }
+        
+        .aramid-highlight {
+            color: #AEEFE1;
+            font-weight: 600;
+            text-shadow: 0 0 8px rgba(174, 239, 225, 0.3);
+        }
+        
+        h1 {
+            text-align: center;
+            color: #AEEFE1;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 30px;
+        }
+        
+        .section {
+            margin-bottom: 30px;
+        }
+        
+        .section h3 {
+            color: #AEEFE1;
+            margin-bottom: 15px;
+            border-bottom: 1px solid rgba(174, 239, 225, 0.3);
+            padding-bottom: 8px;
+        }
+        
+        .comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .before-after {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 15px;
+        }
+        
+        .before-after h4 {
+            color: #AEEFE1;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 30px;
+            color: #AEEFE1;
+            text-decoration: none;
+            padding: 10px;
+            border: 1px solid #AEEFE1;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        .back-link:hover {
+            background: #AEEFE1;
+            color: #2d084e;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎨 Aramid Token Highlighting</h1>
+        <div class="subtitle">Improved readability for Aramid tokens when logos are similar</div>
+        
+        <div class="section">
+            <h3>📋 Before vs After Comparison</h3>
+            <div class="comparison">
+                <div class="before-after">
+                    <h4>❌ Before (Hard to distinguish)</h4>
+                    <div class="asset-button">
+                        <div class="asset-icon">$</div>
+                        <div class="asset-name">USDC</div>
+                    </div>
+                    <div class="asset-button">
+                        <div class="asset-icon">$</div>
+                        <div class="asset-name">Aramid USDC</div>
+                    </div>
+                    <div class="asset-button">
+                        <div class="asset-icon">₿</div>
+                        <div class="asset-name">WBTC</div>
+                    </div>
+                    <div class="asset-button">
+                        <div class="asset-icon">₿</div>
+                        <div class="asset-name">Aramid WBTC</div>
+                    </div>
+                </div>
+                
+                <div class="before-after">
+                    <h4>✅ After (Easy to spot Aramid tokens)</h4>
+                    <div class="asset-button">
+                        <div class="asset-icon">$</div>
+                        <div class="asset-name">USDC</div>
+                    </div>
+                    <div class="asset-button">
+                        <div class="asset-icon">$</div>
+                        <div class="asset-name"><span class="aramid-highlight">Aramid</span> USDC</div>
+                    </div>
+                    <div class="asset-button">
+                        <div class="asset-icon">₿</div>
+                        <div class="asset-name">WBTC</div>
+                    </div>
+                    <div class="asset-button">
+                        <div class="asset-icon">₿</div>
+                        <div class="asset-name"><span class="aramid-highlight">Aramid</span> WBTC</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h3>🌟 All Aramid Tokens with Highlighting</h3>
+            <div class="asset-button">
+                <div class="asset-icon">$</div>
+                <div class="asset-name"><span class="aramid-highlight">Aramid</span> USDC</div>
+            </div>
+            <div class="asset-button">
+                <div class="asset-icon">Ξ</div>
+                <div class="asset-name"><span class="aramid-highlight">Aramid</span> ETH</div>
+            </div>
+            <div class="asset-button">
+                <div class="asset-icon">₿</div>
+                <div class="asset-name"><span class="aramid-highlight">Aramid</span> cbBTC</div>
+            </div>
+            <div class="asset-button">
+                <div class="asset-icon">₿</div>
+                <div class="asset-name"><span class="aramid-highlight">Aramid</span> WBTC</div>
+            </div>
+            <div class="asset-button">
+                <div class="asset-icon">A</div>
+                <div class="asset-name"><span class="aramid-highlight">Aramid</span> ALGO</div>
+            </div>
+            <div class="asset-button">
+                <div class="asset-icon">V</div>
+                <div class="asset-name"><span class="aramid-highlight">Aramid</span> VOI</div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h3>🔧 Technical Implementation</h3>
+            <ul style="color: rgba(255, 255, 255, 0.9); line-height: 1.6;">
+                <li><strong>Detection:</strong> Case-insensitive search for "aramid" in token names</li>
+                <li><strong>Styling:</strong> Bright teal color (#AEEFE1) with text shadow for visibility</li>
+                <li><strong>Coverage:</strong> Works in both AssetButton and DropDown components</li>
+                <li><strong>Consistency:</strong> Maintains existing sanitizeTokenName processing</li>
+            </ul>
+        </div>
+        
+        <a href="/" class="back-link">← Back to Aramid Bridge</a>
+    </div>
+</body>
+</html>

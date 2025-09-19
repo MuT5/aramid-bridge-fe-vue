@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aramid Highlighting Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #2d084e;
+            color: white;
+            padding: 20px;
+        }
+        .test-container {
+            border: 1px solid #47556980;
+            border-radius: 16px;
+            padding: 20px;
+            margin: 10px 0;
+            background: rgba(246, 246, 246, 0.16);
+        }
+        .aramid-highlight {
+            color: #AEEFE1;
+            font-weight: 600;
+            text-shadow: 0 0 8px rgba(174, 239, 225, 0.3);
+        }
+        h2 {
+            color: #AEEFE1;
+        }
+    </style>
+</head>
+<body>
+    <h1>Aramid Text Highlighting Test</h1>
+    
+    <h2>Test Cases:</h2>
+    
+    <div class="test-container">
+        <h3>Regular Token (No Highlighting):</h3>
+        <div>USDC</div>
+        <div>Ethereum</div>
+        <div>Bitcoin</div>
+    </div>
+    
+    <div class="test-container">
+        <h3>Aramid Tokens (With Highlighting):</h3>
+        <div><span class="aramid-highlight">Aramid</span> USDC</div>
+        <div><span class="aramid-highlight">Aramid</span> ETH</div>
+        <div><span class="aramid-highlight">Aramid</span> BTC</div>
+        <div><span class="aramid-highlight">Aramid</span> ALGO</div>
+        <div><span class="aramid-highlight">Aramid</span> VOI</div>
+    </div>
+    
+    <div class="test-container">
+        <h3>Different Cases (Should all work):</h3>
+        <div><span class="aramid-highlight">aramid</span> Token</div>
+        <div><span class="aramid-highlight">ARAMID</span> Token</div>
+        <div><span class="aramid-highlight">ArAmId</span> Token</div>
+    </div>
+    
+    <p><a href="/">← Back to Aramid Bridge</a></p>
+</body>
+</html>
