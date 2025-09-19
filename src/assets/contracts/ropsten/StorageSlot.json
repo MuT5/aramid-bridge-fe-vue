@@ -14,9 +14,7 @@
   "ast": {
     "absolutePath": "@openzeppelin/contracts/utils/StorageSlot.sol",
     "exportedSymbols": {
-      "StorageSlot": [
-        1657
-      ]
+      "StorageSlot": [1657]
     },
     "id": 1658,
     "license": "MIT",
@@ -24,12 +22,7 @@
     "nodes": [
       {
         "id": 1599,
-        "literals": [
-          "solidity",
-          "^",
-          "0.8",
-          ".0"
-        ],
+        "literals": ["solidity", "^", "0.8", ".0"],
         "nodeType": "PragmaDirective",
         "src": "90:23:11"
       },
@@ -47,9 +40,7 @@
         },
         "fullyImplemented": true,
         "id": 1657,
-        "linearizedBaseContracts": [
-          1657
-        ],
+        "linearizedBaseContracts": [1657],
         "name": "StorageSlot",
         "nameLocation": "1272:11:11",
         "nodeType": "ContractDefinition",
@@ -810,9 +801,7 @@
   "legacyAST": {
     "absolutePath": "@openzeppelin/contracts/utils/StorageSlot.sol",
     "exportedSymbols": {
-      "StorageSlot": [
-        1657
-      ]
+      "StorageSlot": [1657]
     },
     "id": 1658,
     "license": "MIT",
@@ -820,12 +809,7 @@
     "nodes": [
       {
         "id": 1599,
-        "literals": [
-          "solidity",
-          "^",
-          "0.8",
-          ".0"
-        ],
+        "literals": ["solidity", "^", "0.8", ".0"],
         "nodeType": "PragmaDirective",
         "src": "90:23:11"
       },
@@ -843,9 +827,7 @@
         },
         "fullyImplemented": true,
         "id": 1657,
-        "linearizedBaseContracts": [
-          1657
-        ],
+        "linearizedBaseContracts": [1657],
         "name": "StorageSlot",
         "nameLocation": "1272:11:11",
         "nodeType": "ContractDefinition",

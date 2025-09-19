@@ -54,12 +54,8 @@
   "ast": {
     "absolutePath": "@openzeppelin/contracts/security/Pausable.sol",
     "exportedSymbols": {
-      "Context": [
-        1597
-      ],
-      "Pausable": [
-        629
-      ]
+      "Context": [1597],
+      "Pausable": [629]
     },
     "id": 630,
     "license": "MIT",
@@ -67,12 +63,7 @@
     "nodes": [
       {
         "id": 539,
-        "literals": [
-          "solidity",
-          "^",
-          "0.8",
-          ".0"
-        ],
+        "literals": ["solidity", "^", "0.8", ".0"],
         "nodeType": "PragmaDirective",
         "src": "90:23:5"
       },
@@ -115,10 +106,7 @@
         },
         "fullyImplemented": true,
         "id": 629,
-        "linearizedBaseContracts": [
-          629,
-          1597
-        ],
+        "linearizedBaseContracts": [629, 1597],
         "name": "Pausable",
         "nameLocation": "605:8:5",
         "nodeType": "ContractDefinition",
@@ -507,10 +495,7 @@
                       "id": 576,
                       "name": "require",
                       "nodeType": "Identifier",
-                      "overloadedDeclarations": [
-                        4294967278,
-                        4294967278
-                      ],
+                      "overloadedDeclarations": [4294967278, 4294967278],
                       "referencedDeclaration": 4294967278,
                       "src": "1403:7:5",
                       "typeDescriptions": {
@@ -634,10 +619,7 @@
                       "id": 588,
                       "name": "require",
                       "nodeType": "Identifier",
-                      "overloadedDeclarations": [
-                        4294967278,
-                        4294967278
-                      ],
+                      "overloadedDeclarations": [4294967278, 4294967278],
                       "referencedDeclaration": 4294967278,
                       "src": "1669:7:5",
                       "typeDescriptions": {
@@ -1044,12 +1026,8 @@
   "legacyAST": {
     "absolutePath": "@openzeppelin/contracts/security/Pausable.sol",
     "exportedSymbols": {
-      "Context": [
-        1597
-      ],
-      "Pausable": [
-        629
-      ]
+      "Context": [1597],
+      "Pausable": [629]
     },
     "id": 630,
     "license": "MIT",
@@ -1057,12 +1035,7 @@
     "nodes": [
       {
         "id": 539,
-        "literals": [
-          "solidity",
-          "^",
-          "0.8",
-          ".0"
-        ],
+        "literals": ["solidity", "^", "0.8", ".0"],
         "nodeType": "PragmaDirective",
         "src": "90:23:5"
       },
@@ -1105,10 +1078,7 @@
         },
         "fullyImplemented": true,
         "id": 629,
-        "linearizedBaseContracts": [
-          629,
-          1597
-        ],
+        "linearizedBaseContracts": [629, 1597],
         "name": "Pausable",
         "nameLocation": "605:8:5",
         "nodeType": "ContractDefinition",
@@ -1497,10 +1467,7 @@
                       "id": 576,
                       "name": "require",
                       "nodeType": "Identifier",
-                      "overloadedDeclarations": [
-                        4294967278,
-                        4294967278
-                      ],
+                      "overloadedDeclarations": [4294967278, 4294967278],
                       "referencedDeclaration": 4294967278,
                       "src": "1403:7:5",
                       "typeDescriptions": {
@@ -1624,10 +1591,7 @@
                       "id": 588,
                       "name": "require",
                       "nodeType": "Identifier",
-                      "overloadedDeclarations": [
-                        4294967278,
-                        4294967278
-                      ],
+                      "overloadedDeclarations": [4294967278, 4294967278],
                       "referencedDeclaration": 4294967278,
                       "src": "1669:7:5",
                       "typeDescriptions": {

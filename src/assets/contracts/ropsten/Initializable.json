@@ -14,12 +14,8 @@
   "ast": {
     "absolutePath": "@openzeppelin/contracts/proxy/utils/Initializable.sol",
     "exportedSymbols": {
-      "Address": [
-        1575
-      ],
-      "Initializable": [
-        537
-      ]
+      "Address": [1575],
+      "Initializable": [537]
     },
     "id": 538,
     "license": "MIT",
@@ -27,12 +23,7 @@
     "nodes": [
       {
         "id": 465,
-        "literals": [
-          "solidity",
-          "^",
-          "0.8",
-          ".0"
-        ],
+        "literals": ["solidity", "^", "0.8", ".0"],
         "nodeType": "PragmaDirective",
         "src": "98:23:4"
       },
@@ -62,9 +53,7 @@
         },
         "fullyImplemented": true,
         "id": 537,
-        "linearizedBaseContracts": [
-          537
-        ],
+        "linearizedBaseContracts": [537],
         "name": "Initializable",
         "nameLocation": "1667:13:4",
         "nodeType": "ContractDefinition",
@@ -257,10 +246,7 @@
                       "id": 476,
                       "name": "require",
                       "nodeType": "Identifier",
-                      "overloadedDeclarations": [
-                        4294967278,
-                        4294967278
-                      ],
+                      "overloadedDeclarations": [4294967278, 4294967278],
                       "referencedDeclaration": 4294967278,
                       "src": "2328:7:4",
                       "typeDescriptions": {
@@ -288,9 +274,7 @@
                   "src": "2328:107:4"
                 },
                 {
-                  "assignments": [
-                    487
-                  ],
+                  "assignments": [487],
                   "declarations": [
                     {
                       "constant": false,
@@ -619,10 +603,7 @@
                       "id": 514,
                       "name": "require",
                       "nodeType": "Identifier",
-                      "overloadedDeclarations": [
-                        4294967278,
-                        4294967278
-                      ],
+                      "overloadedDeclarations": [4294967278, 4294967278],
                       "referencedDeclaration": 4294967278,
                       "src": "2911:7:4",
                       "typeDescriptions": {
@@ -876,12 +857,8 @@
   "legacyAST": {
     "absolutePath": "@openzeppelin/contracts/proxy/utils/Initializable.sol",
     "exportedSymbols": {
-      "Address": [
-        1575
-      ],
-      "Initializable": [
-        537
-      ]
+      "Address": [1575],
+      "Initializable": [537]
     },
     "id": 538,
     "license": "MIT",
@@ -889,12 +866,7 @@
     "nodes": [
       {
         "id": 465,
-        "literals": [
-          "solidity",
-          "^",
-          "0.8",
-          ".0"
-        ],
+        "literals": ["solidity", "^", "0.8", ".0"],
         "nodeType": "PragmaDirective",
         "src": "98:23:4"
       },
@@ -924,9 +896,7 @@
         },
         "fullyImplemented": true,
         "id": 537,
-        "linearizedBaseContracts": [
-          537
-        ],
+        "linearizedBaseContracts": [537],
         "name": "Initializable",
         "nameLocation": "1667:13:4",
         "nodeType": "ContractDefinition",
@@ -1119,10 +1089,7 @@
                       "id": 476,
                       "name": "require",
                       "nodeType": "Identifier",
-                      "overloadedDeclarations": [
-                        4294967278,
-                        4294967278
-                      ],
+                      "overloadedDeclarations": [4294967278, 4294967278],
                       "referencedDeclaration": 4294967278,
                       "src": "2328:7:4",
                       "typeDescriptions": {
@@ -1150,9 +1117,7 @@
                   "src": "2328:107:4"
                 },
                 {
-                  "assignments": [
-                    487
-                  ],
+                  "assignments": [487],
                   "declarations": [
                     {
                       "constant": false,
@@ -1481,10 +1446,7 @@
                       "id": 514,
                       "name": "require",
                       "nodeType": "Identifier",
-                      "overloadedDeclarations": [
-                        4294967278,
-                        4294967278
-                      ],
+                      "overloadedDeclarations": [4294967278, 4294967278],
                       "referencedDeclaration": 4294967278,
                       "src": "2911:7:4",
                       "typeDescriptions": {

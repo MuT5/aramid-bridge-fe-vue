@@ -3654,27 +3654,13 @@
   "ast": {
     "absolutePath": "project:/contracts/BridgeProxy.sol",
     "exportedSymbols": {
-      "Address": [
-        1575
-      ],
-      "BridgeProxy": [
-        2869
-      ],
-      "ERC1967Proxy": [
-        52
-      ],
-      "ERC1967Upgrade": [
-        401
-      ],
-      "IBeacon": [
-        463
-      ],
-      "Proxy": [
-        453
-      ],
-      "StorageSlot": [
-        1657
-      ]
+      "Address": [1575],
+      "BridgeProxy": [2869],
+      "ERC1967Proxy": [52],
+      "ERC1967Upgrade": [401],
+      "IBeacon": [463],
+      "Proxy": [453],
+      "StorageSlot": [1657]
     },
     "id": 2870,
     "license": "MIT",
@@ -3682,12 +3668,7 @@
     "nodes": [
       {
         "id": 2853,
-        "literals": [
-          "solidity",
-          "^",
-          "0.8",
-          ".0"
-        ],
+        "literals": ["solidity", "^", "0.8", ".0"],
         "nodeType": "PragmaDirective",
         "src": "32:23:16"
       },
@@ -3724,12 +3705,7 @@
         "contractKind": "contract",
         "fullyImplemented": true,
         "id": 2869,
-        "linearizedBaseContracts": [
-          2869,
-          52,
-          401,
-          453
-        ],
+        "linearizedBaseContracts": [2869, 52, 401, 453],
         "name": "BridgeProxy",
         "nameLocation": "132:11:16",
         "nodeType": "ContractDefinition",
@@ -3873,27 +3849,13 @@
   "legacyAST": {
     "absolutePath": "project:/contracts/BridgeProxy.sol",
     "exportedSymbols": {
-      "Address": [
-        1575
-      ],
-      "BridgeProxy": [
-        2869
-      ],
-      "ERC1967Proxy": [
-        52
-      ],
-      "ERC1967Upgrade": [
-        401
-      ],
-      "IBeacon": [
-        463
-      ],
-      "Proxy": [
-        453
-      ],
-      "StorageSlot": [
-        1657
-      ]
+      "Address": [1575],
+      "BridgeProxy": [2869],
+      "ERC1967Proxy": [52],
+      "ERC1967Upgrade": [401],
+      "IBeacon": [463],
+      "Proxy": [453],
+      "StorageSlot": [1657]
     },
     "id": 2870,
     "license": "MIT",
@@ -3901,12 +3863,7 @@
     "nodes": [
       {
         "id": 2853,
-        "literals": [
-          "solidity",
-          "^",
-          "0.8",
-          ".0"
-        ],
+        "literals": ["solidity", "^", "0.8", ".0"],
         "nodeType": "PragmaDirective",
         "src": "32:23:16"
       },
@@ -3943,12 +3900,7 @@
         "contractKind": "contract",
         "fullyImplemented": true,
         "id": 2869,
-        "linearizedBaseContracts": [
-          2869,
-          52,
-          401,
-          453
-        ],
+        "linearizedBaseContracts": [2869, 52, 401, 453],
         "name": "BridgeProxy",
         "nameLocation": "132:11:16",
         "nodeType": "ContractDefinition",

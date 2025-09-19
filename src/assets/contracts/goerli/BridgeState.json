@@ -1778,15 +1778,9 @@
   "ast": {
     "absolutePath": "project:/contracts/BridgeState.sol",
     "exportedSymbols": {
-      "BridgeState": [
-        1412
-      ],
-      "Context": [
-        867
-      ],
-      "Ownable": [
-        104
-      ]
+      "BridgeState": [1412],
+      "Context": [867],
+      "Ownable": [104]
     },
     "id": 1413,
     "license": "MIT",
@@ -1794,12 +1788,7 @@
     "nodes": [
       {
         "id": 1265,
-        "literals": [
-          "solidity",
-          "^",
-          "0.8",
-          ".0"
-        ],
+        "literals": ["solidity", "^", "0.8", ".0"],
         "nodeType": "PragmaDirective",
         "src": "32:23:7"
       },
@@ -1836,11 +1825,7 @@
         "contractKind": "contract",
         "fullyImplemented": true,
         "id": 1412,
-        "linearizedBaseContracts": [
-          1412,
-          104,
-          867
-        ],
+        "linearizedBaseContracts": [1412, 104, 867],
         "name": "BridgeState",
         "nameLocation": "119:11:7",
         "nodeType": "ContractDefinition",
@@ -3446,15 +3431,9 @@
   "legacyAST": {
     "absolutePath": "project:/contracts/BridgeState.sol",
     "exportedSymbols": {
-      "BridgeState": [
-        1412
-      ],
-      "Context": [
-        867
-      ],
-      "Ownable": [
-        104
-      ]
+      "BridgeState": [1412],
+      "Context": [867],
+      "Ownable": [104]
     },
     "id": 1413,
     "license": "MIT",
@@ -3462,12 +3441,7 @@
     "nodes": [
       {
         "id": 1265,
-        "literals": [
-          "solidity",
-          "^",
-          "0.8",
-          ".0"
-        ],
+        "literals": ["solidity", "^", "0.8", ".0"],
         "nodeType": "PragmaDirective",
         "src": "32:23:7"
       },
@@ -3504,11 +3478,7 @@
         "contractKind": "contract",
         "fullyImplemented": true,
         "id": 1412,
-        "linearizedBaseContracts": [
-          1412,
-          104,
-          867
-        ],
+        "linearizedBaseContracts": [1412, 104, 867],
         "name": "BridgeState",
         "nameLocation": "119:11:7",
         "nodeType": "ContractDefinition",

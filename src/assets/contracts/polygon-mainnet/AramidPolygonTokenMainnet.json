@@ -5259,24 +5259,12 @@
   "ast": {
     "absolutePath": "project:/contracts/AramidPolygonTokenMainnet.sol",
     "exportedSymbols": {
-      "AramidPolygonTokenMainnet": [
-        1951
-      ],
-      "Context": [
-        1682
-      ],
-      "ERC20": [
-        1262
-      ],
-      "IERC20": [
-        1340
-      ],
-      "IERC20Metadata": [
-        1365
-      ],
-      "WrappedAssetToken": [
-        3353
-      ]
+      "AramidPolygonTokenMainnet": [1951],
+      "Context": [1682],
+      "ERC20": [1262],
+      "IERC20": [1340],
+      "IERC20Metadata": [1365],
+      "WrappedAssetToken": [3353]
     },
     "id": 1952,
     "license": "MIT",
@@ -5284,12 +5272,7 @@
     "nodes": [
       {
         "id": 1934,
-        "literals": [
-          "solidity",
-          "^",
-          "0.8",
-          ".0"
-        ],
+        "literals": ["solidity", "^", "0.8", ".0"],
         "nodeType": "PragmaDirective",
         "src": "32:23:23"
       },
@@ -5338,14 +5321,7 @@
         "contractKind": "contract",
         "fullyImplemented": true,
         "id": 1951,
-        "linearizedBaseContracts": [
-          1951,
-          3353,
-          1262,
-          1365,
-          1340,
-          1682
-        ],
+        "linearizedBaseContracts": [1951, 3353, 1262, 1365, 1340, 1682],
         "name": "AramidPolygonTokenMainnet",
         "nameLocation": "156:25:23",
         "nodeType": "ContractDefinition",
@@ -5498,24 +5474,12 @@
   "legacyAST": {
     "absolutePath": "project:/contracts/AramidPolygonTokenMainnet.sol",
     "exportedSymbols": {
-      "AramidPolygonTokenMainnet": [
-        1951
-      ],
-      "Context": [
-        1682
-      ],
-      "ERC20": [
-        1262
-      ],
-      "IERC20": [
-        1340
-      ],
-      "IERC20Metadata": [
-        1365
-      ],
-      "WrappedAssetToken": [
-        3353
-      ]
+      "AramidPolygonTokenMainnet": [1951],
+      "Context": [1682],
+      "ERC20": [1262],
+      "IERC20": [1340],
+      "IERC20Metadata": [1365],
+      "WrappedAssetToken": [3353]
     },
     "id": 1952,
     "license": "MIT",
@@ -5523,12 +5487,7 @@
     "nodes": [
       {
         "id": 1934,
-        "literals": [
-          "solidity",
-          "^",
-          "0.8",
-          ".0"
-        ],
+        "literals": ["solidity", "^", "0.8", ".0"],
         "nodeType": "PragmaDirective",
         "src": "32:23:23"
       },
@@ -5577,14 +5536,7 @@
         "contractKind": "contract",
         "fullyImplemented": true,
         "id": 1951,
-        "linearizedBaseContracts": [
-          1951,
-          3353,
-          1262,
-          1365,
-          1340,
-          1682
-        ],
+        "linearizedBaseContracts": [1951, 3353, 1262, 1365, 1340, 1682],
         "name": "AramidPolygonTokenMainnet",
         "nameLocation": "156:25:23",
         "nodeType": "ContractDefinition",

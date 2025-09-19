@@ -60,18 +60,10 @@
   "ast": {
     "absolutePath": "@openzeppelin/contracts/proxy/ERC1967/ERC1967Upgrade.sol",
     "exportedSymbols": {
-      "Address": [
-        1575
-      ],
-      "ERC1967Upgrade": [
-        401
-      ],
-      "IBeacon": [
-        463
-      ],
-      "StorageSlot": [
-        1657
-      ]
+      "Address": [1575],
+      "ERC1967Upgrade": [401],
+      "IBeacon": [463],
+      "StorageSlot": [1657]
     },
     "id": 402,
     "license": "MIT",
@@ -79,12 +71,7 @@
     "nodes": [
       {
         "id": 54,
-        "literals": [
-          "solidity",
-          "^",
-          "0.8",
-          ".2"
-        ],
+        "literals": ["solidity", "^", "0.8", ".2"],
         "nodeType": "PragmaDirective",
         "src": "101:23:1"
       },
@@ -138,9 +125,7 @@
         },
         "fullyImplemented": true,
         "id": 401,
-        "linearizedBaseContracts": [
-          401
-        ],
+        "linearizedBaseContracts": [401],
         "name": "ERC1967Upgrade",
         "nameLocation": "486:14:1",
         "nodeType": "ContractDefinition",
@@ -542,10 +527,7 @@
                       "id": 89,
                       "name": "require",
                       "nodeType": "Identifier",
-                      "overloadedDeclarations": [
-                        4294967278,
-                        4294967278
-                      ],
+                      "overloadedDeclarations": [4294967278, 4294967278],
                       "referencedDeclaration": 4294967278,
                       "src": "1544:7:1",
                       "typeDescriptions": {
@@ -1285,9 +1267,7 @@
               "src": "2723:1098:1",
               "statements": [
                 {
-                  "assignments": [
-                    163
-                  ],
+                  "assignments": [163],
                   "declarations": [
                     {
                       "constant": false,
@@ -1592,9 +1572,7 @@
                   }
                 },
                 {
-                  "assignments": [
-                    190
-                  ],
+                  "assignments": [190],
                   "declarations": [
                     {
                       "constant": false,
@@ -2121,10 +2099,7 @@
                             "id": 222,
                             "name": "require",
                             "nodeType": "Identifier",
-                            "overloadedDeclarations": [
-                              4294967278,
-                              4294967278
-                            ],
+                            "overloadedDeclarations": [4294967278, 4294967278],
                             "referencedDeclaration": 4294967278,
                             "src": "3585:7:1",
                             "typeDescriptions": {
@@ -2733,10 +2708,7 @@
                       "id": 267,
                       "name": "require",
                       "nodeType": "Identifier",
-                      "overloadedDeclarations": [
-                        4294967278,
-                        4294967278
-                      ],
+                      "overloadedDeclarations": [4294967278, 4294967278],
                       "referencedDeclaration": 4294967278,
                       "src": "4586:7:1",
                       "typeDescriptions": {
@@ -3496,10 +3468,7 @@
                       "id": 332,
                       "name": "require",
                       "nodeType": "Identifier",
-                      "overloadedDeclarations": [
-                        4294967278,
-                        4294967278
-                      ],
+                      "overloadedDeclarations": [4294967278, 4294967278],
                       "referencedDeclaration": 4294967278,
                       "src": "5770:7:1",
                       "typeDescriptions": {
@@ -3692,10 +3661,7 @@
                       "id": 340,
                       "name": "require",
                       "nodeType": "Identifier",
-                      "overloadedDeclarations": [
-                        4294967278,
-                        4294967278
-                      ],
+                      "overloadedDeclarations": [4294967278, 4294967278],
                       "referencedDeclaration": 4294967278,
                       "src": "5859:7:1",
                       "typeDescriptions": {
@@ -4387,18 +4353,10 @@
   "legacyAST": {
     "absolutePath": "@openzeppelin/contracts/proxy/ERC1967/ERC1967Upgrade.sol",
     "exportedSymbols": {
-      "Address": [
-        1575
-      ],
-      "ERC1967Upgrade": [
-        401
-      ],
-      "IBeacon": [
-        463
-      ],
-      "StorageSlot": [
-        1657
-      ]
+      "Address": [1575],
+      "ERC1967Upgrade": [401],
+      "IBeacon": [463],
+      "StorageSlot": [1657]
     },
     "id": 402,
     "license": "MIT",
@@ -4406,12 +4364,7 @@
     "nodes": [
       {
         "id": 54,
-        "literals": [
-          "solidity",
-          "^",
-          "0.8",
-          ".2"
-        ],
+        "literals": ["solidity", "^", "0.8", ".2"],
         "nodeType": "PragmaDirective",
         "src": "101:23:1"
       },
@@ -4465,9 +4418,7 @@
         },
         "fullyImplemented": true,
         "id": 401,
-        "linearizedBaseContracts": [
-          401
-        ],
+        "linearizedBaseContracts": [401],
         "name": "ERC1967Upgrade",
         "nameLocation": "486:14:1",
         "nodeType": "ContractDefinition",
@@ -4869,10 +4820,7 @@
                       "id": 89,
                       "name": "require",
                       "nodeType": "Identifier",
-                      "overloadedDeclarations": [
-                        4294967278,
-                        4294967278
-                      ],
+                      "overloadedDeclarations": [4294967278, 4294967278],
                       "referencedDeclaration": 4294967278,
                       "src": "1544:7:1",
                       "typeDescriptions": {
@@ -5612,9 +5560,7 @@
               "src": "2723:1098:1",
               "statements": [
                 {
-                  "assignments": [
-                    163
-                  ],
+                  "assignments": [163],
                   "declarations": [
                     {
                       "constant": false,
@@ -5919,9 +5865,7 @@
                   }
                 },
                 {
-                  "assignments": [
-                    190
-                  ],
+                  "assignments": [190],
                   "declarations": [
                     {
                       "constant": false,
@@ -6448,10 +6392,7 @@
                             "id": 222,
                             "name": "require",
                             "nodeType": "Identifier",
-                            "overloadedDeclarations": [
-                              4294967278,
-                              4294967278
-                            ],
+                            "overloadedDeclarations": [4294967278, 4294967278],
                             "referencedDeclaration": 4294967278,
                             "src": "3585:7:1",
                             "typeDescriptions": {
@@ -7060,10 +7001,7 @@
                       "id": 267,
                       "name": "require",
                       "nodeType": "Identifier",
-                      "overloadedDeclarations": [
-                        4294967278,
-                        4294967278
-                      ],
+                      "overloadedDeclarations": [4294967278, 4294967278],
                       "referencedDeclaration": 4294967278,
                       "src": "4586:7:1",
                       "typeDescriptions": {
@@ -7823,10 +7761,7 @@
                       "id": 332,
                       "name": "require",
                       "nodeType": "Identifier",
-                      "overloadedDeclarations": [
-                        4294967278,
-                        4294967278
-                      ],
+                      "overloadedDeclarations": [4294967278, 4294967278],
                       "referencedDeclaration": 4294967278,
                       "src": "5770:7:1",
                       "typeDescriptions": {
@@ -8019,10 +7954,7 @@
                       "id": 340,
                       "name": "require",
                       "nodeType": "Identifier",
-                      "overloadedDeclarations": [
-                        4294967278,
-                        4294967278
-                      ],
+                      "overloadedDeclarations": [4294967278, 4294967278],
                       "referencedDeclaration": 4294967278,
                       "src": "5859:7:1",
                       "typeDescriptions": {

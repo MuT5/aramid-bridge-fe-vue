@@ -5252,24 +5252,12 @@
   "ast": {
     "absolutePath": "project:/contracts/AramidUSDTokenMainnet.sol",
     "exportedSymbols": {
-      "AramidUSDTokenMainnet": [
-        2008
-      ],
-      "Context": [
-        1682
-      ],
-      "ERC20": [
-        1262
-      ],
-      "IERC20": [
-        1340
-      ],
-      "IERC20Metadata": [
-        1365
-      ],
-      "WrappedAssetToken": [
-        3353
-      ]
+      "AramidUSDTokenMainnet": [2008],
+      "Context": [1682],
+      "ERC20": [1262],
+      "IERC20": [1340],
+      "IERC20Metadata": [1365],
+      "WrappedAssetToken": [3353]
     },
     "id": 2009,
     "license": "MIT",
@@ -5277,12 +5265,7 @@
     "nodes": [
       {
         "id": 1991,
-        "literals": [
-          "solidity",
-          "^",
-          "0.8",
-          ".0"
-        ],
+        "literals": ["solidity", "^", "0.8", ".0"],
         "nodeType": "PragmaDirective",
         "src": "32:23:26"
       },
@@ -5331,14 +5314,7 @@
         "contractKind": "contract",
         "fullyImplemented": true,
         "id": 2008,
-        "linearizedBaseContracts": [
-          2008,
-          3353,
-          1262,
-          1365,
-          1340,
-          1682
-        ],
+        "linearizedBaseContracts": [2008, 3353, 1262, 1365, 1340, 1682],
         "name": "AramidUSDTokenMainnet",
         "nameLocation": "156:21:26",
         "nodeType": "ContractDefinition",
@@ -5491,24 +5467,12 @@
   "legacyAST": {
     "absolutePath": "project:/contracts/AramidUSDTokenMainnet.sol",
     "exportedSymbols": {
-      "AramidUSDTokenMainnet": [
-        2008
-      ],
-      "Context": [
-        1682
-      ],
-      "ERC20": [
-        1262
-      ],
-      "IERC20": [
-        1340
-      ],
-      "IERC20Metadata": [
-        1365
-      ],
-      "WrappedAssetToken": [
-        3353
-      ]
+      "AramidUSDTokenMainnet": [2008],
+      "Context": [1682],
+      "ERC20": [1262],
+      "IERC20": [1340],
+      "IERC20Metadata": [1365],
+      "WrappedAssetToken": [3353]
     },
     "id": 2009,
     "license": "MIT",
@@ -5516,12 +5480,7 @@
     "nodes": [
       {
         "id": 1991,
-        "literals": [
-          "solidity",
-          "^",
-          "0.8",
-          ".0"
-        ],
+        "literals": ["solidity", "^", "0.8", ".0"],
         "nodeType": "PragmaDirective",
         "src": "32:23:26"
       },
@@ -5570,14 +5529,7 @@
         "contractKind": "contract",
         "fullyImplemented": true,
         "id": 2008,
-        "linearizedBaseContracts": [
-          2008,
-          3353,
-          1262,
-          1365,
-          1340,
-          1682
-        ],
+        "linearizedBaseContracts": [2008, 3353, 1262, 1365, 1340, 1682],
         "name": "AramidUSDTokenMainnet",
         "nameLocation": "156:21:26",
         "nodeType": "ContractDefinition",

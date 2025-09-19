@@ -3652,24 +3652,12 @@
   "ast": {
     "absolutePath": "@openzeppelin/contracts/proxy/ERC1967/ERC1967Proxy.sol",
     "exportedSymbols": {
-      "Address": [
-        1575
-      ],
-      "ERC1967Proxy": [
-        52
-      ],
-      "ERC1967Upgrade": [
-        401
-      ],
-      "IBeacon": [
-        463
-      ],
-      "Proxy": [
-        453
-      ],
-      "StorageSlot": [
-        1657
-      ]
+      "Address": [1575],
+      "ERC1967Proxy": [52],
+      "ERC1967Upgrade": [401],
+      "IBeacon": [463],
+      "Proxy": [453],
+      "StorageSlot": [1657]
     },
     "id": 53,
     "license": "MIT",
@@ -3677,12 +3665,7 @@
     "nodes": [
       {
         "id": 1,
-        "literals": [
-          "solidity",
-          "^",
-          "0.8",
-          ".0"
-        ],
+        "literals": ["solidity", "^", "0.8", ".0"],
         "nodeType": "PragmaDirective",
         "src": "99:23:0"
       },
@@ -3749,11 +3732,7 @@
         },
         "fullyImplemented": true,
         "id": 52,
-        "linearizedBaseContracts": [
-          52,
-          401,
-          453
-        ],
+        "linearizedBaseContracts": [52, 401, 453],
         "name": "ERC1967Proxy",
         "nameLocation": "561:12:0",
         "nodeType": "ContractDefinition",
@@ -4188,9 +4167,7 @@
             "visibility": "public"
           },
           {
-            "baseFunctions": [
-              418
-            ],
+            "baseFunctions": [418],
             "body": {
               "id": 50,
               "nodeType": "Block",
@@ -4326,24 +4303,12 @@
   "legacyAST": {
     "absolutePath": "@openzeppelin/contracts/proxy/ERC1967/ERC1967Proxy.sol",
     "exportedSymbols": {
-      "Address": [
-        1575
-      ],
-      "ERC1967Proxy": [
-        52
-      ],
-      "ERC1967Upgrade": [
-        401
-      ],
-      "IBeacon": [
-        463
-      ],
-      "Proxy": [
-        453
-      ],
-      "StorageSlot": [
-        1657
-      ]
+      "Address": [1575],
+      "ERC1967Proxy": [52],
+      "ERC1967Upgrade": [401],
+      "IBeacon": [463],
+      "Proxy": [453],
+      "StorageSlot": [1657]
     },
     "id": 53,
     "license": "MIT",
@@ -4351,12 +4316,7 @@
     "nodes": [
       {
         "id": 1,
-        "literals": [
-          "solidity",
-          "^",
-          "0.8",
-          ".0"
-        ],
+        "literals": ["solidity", "^", "0.8", ".0"],
         "nodeType": "PragmaDirective",
         "src": "99:23:0"
       },
@@ -4423,11 +4383,7 @@
         },
         "fullyImplemented": true,
         "id": 52,
-        "linearizedBaseContracts": [
-          52,
-          401,
-          453
-        ],
+        "linearizedBaseContracts": [52, 401, 453],
         "name": "ERC1967Proxy",
         "nameLocation": "561:12:0",
         "nodeType": "ContractDefinition",
@@ -4862,9 +4818,7 @@
             "visibility": "public"
           },
           {
-            "baseFunctions": [
-              418
-            ],
+            "baseFunctions": [418],
             "body": {
               "id": 50,
               "nodeType": "Block",

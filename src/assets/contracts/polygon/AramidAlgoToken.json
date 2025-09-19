@@ -7877,24 +7877,12 @@
   "ast": {
     "absolutePath": "project:/contracts/AramidAlgoToken.sol",
     "exportedSymbols": {
-      "AramidAlgoToken": [
-        1761
-      ],
-      "Context": [
-        1682
-      ],
-      "ERC20": [
-        1262
-      ],
-      "IERC20": [
-        1340
-      ],
-      "IERC20Metadata": [
-        1365
-      ],
-      "WrappedAssetTokenMintable": [
-        3430
-      ]
+      "AramidAlgoToken": [1761],
+      "Context": [1682],
+      "ERC20": [1262],
+      "IERC20": [1340],
+      "IERC20Metadata": [1365],
+      "WrappedAssetTokenMintable": [3430]
     },
     "id": 1762,
     "license": "MIT",
@@ -7902,12 +7890,7 @@
     "nodes": [
       {
         "id": 1744,
-        "literals": [
-          "solidity",
-          "^",
-          "0.8",
-          ".0"
-        ],
+        "literals": ["solidity", "^", "0.8", ".0"],
         "nodeType": "PragmaDirective",
         "src": "32:23:13"
       },
@@ -7956,14 +7939,7 @@
         "contractKind": "contract",
         "fullyImplemented": true,
         "id": 1761,
-        "linearizedBaseContracts": [
-          1761,
-          3430,
-          1262,
-          1365,
-          1340,
-          1682
-        ],
+        "linearizedBaseContracts": [1761, 3430, 1262, 1365, 1340, 1682],
         "name": "AramidAlgoToken",
         "nameLocation": "164:15:13",
         "nodeType": "ContractDefinition",
@@ -8116,24 +8092,12 @@
   "legacyAST": {
     "absolutePath": "project:/contracts/AramidAlgoToken.sol",
     "exportedSymbols": {
-      "AramidAlgoToken": [
-        1761
-      ],
-      "Context": [
-        1682
-      ],
-      "ERC20": [
-        1262
-      ],
-      "IERC20": [
-        1340
-      ],
-      "IERC20Metadata": [
-        1365
-      ],
-      "WrappedAssetTokenMintable": [
-        3430
-      ]
+      "AramidAlgoToken": [1761],
+      "Context": [1682],
+      "ERC20": [1262],
+      "IERC20": [1340],
+      "IERC20Metadata": [1365],
+      "WrappedAssetTokenMintable": [3430]
     },
     "id": 1762,
     "license": "MIT",
@@ -8141,12 +8105,7 @@
     "nodes": [
       {
         "id": 1744,
-        "literals": [
-          "solidity",
-          "^",
-          "0.8",
-          ".0"
-        ],
+        "literals": ["solidity", "^", "0.8", ".0"],
         "nodeType": "PragmaDirective",
         "src": "32:23:13"
       },
@@ -8195,14 +8154,7 @@
         "contractKind": "contract",
         "fullyImplemented": true,
         "id": 1761,
-        "linearizedBaseContracts": [
-          1761,
-          3430,
-          1262,
-          1365,
-          1340,
-          1682
-        ],
+        "linearizedBaseContracts": [1761, 3430, 1262, 1365, 1340, 1682],
         "name": "AramidAlgoToken",
         "nameLocation": "164:15:13",
         "nodeType": "ContractDefinition",

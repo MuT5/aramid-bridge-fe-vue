@@ -5252,24 +5252,12 @@
   "ast": {
     "absolutePath": "project:/contracts/AramidVoiTokenMainnet.sol",
     "exportedSymbols": {
-      "AramidVoiTokenMainnet": [
-        747
-      ],
-      "Context": [
-        710
-      ],
-      "ERC20": [
-        585
-      ],
-      "IERC20": [
-        663
-      ],
-      "IERC20Metadata": [
-        688
-      ],
-      "WrappedAssetToken": [
-        805
-      ]
+      "AramidVoiTokenMainnet": [747],
+      "Context": [710],
+      "ERC20": [585],
+      "IERC20": [663],
+      "IERC20Metadata": [688],
+      "WrappedAssetToken": [805]
     },
     "id": 748,
     "license": "MIT",
@@ -5277,12 +5265,7 @@
     "nodes": [
       {
         "id": 731,
-        "literals": [
-          "solidity",
-          "^",
-          "0.8",
-          ".0"
-        ],
+        "literals": ["solidity", "^", "0.8", ".0"],
         "nodeType": "PragmaDirective",
         "src": "32:23:5"
       },
@@ -5319,14 +5302,7 @@
         "contractKind": "contract",
         "fullyImplemented": true,
         "id": 747,
-        "linearizedBaseContracts": [
-          747,
-          805,
-          585,
-          688,
-          663,
-          710
-        ],
+        "linearizedBaseContracts": [747, 805, 585, 688, 663, 710],
         "name": "AramidVoiTokenMainnet",
         "nameLocation": "100:21:5",
         "nodeType": "ContractDefinition",
@@ -5479,24 +5455,12 @@
   "legacyAST": {
     "absolutePath": "project:/contracts/AramidVoiTokenMainnet.sol",
     "exportedSymbols": {
-      "AramidVoiTokenMainnet": [
-        747
-      ],
-      "Context": [
-        710
-      ],
-      "ERC20": [
-        585
-      ],
-      "IERC20": [
-        663
-      ],
-      "IERC20Metadata": [
-        688
-      ],
-      "WrappedAssetToken": [
-        805
-      ]
+      "AramidVoiTokenMainnet": [747],
+      "Context": [710],
+      "ERC20": [585],
+      "IERC20": [663],
+      "IERC20Metadata": [688],
+      "WrappedAssetToken": [805]
     },
     "id": 748,
     "license": "MIT",
@@ -5504,12 +5468,7 @@
     "nodes": [
       {
         "id": 731,
-        "literals": [
-          "solidity",
-          "^",
-          "0.8",
-          ".0"
-        ],
+        "literals": ["solidity", "^", "0.8", ".0"],
         "nodeType": "PragmaDirective",
         "src": "32:23:5"
       },
@@ -5546,14 +5505,7 @@
         "contractKind": "contract",
         "fullyImplemented": true,
         "id": 747,
-        "linearizedBaseContracts": [
-          747,
-          805,
-          585,
-          688,
-          663,
-          710
-        ],
+        "linearizedBaseContracts": [747, 805, 585, 688, 663, 710],
         "name": "AramidVoiTokenMainnet",
         "nameLocation": "100:21:5",
         "nodeType": "ContractDefinition",

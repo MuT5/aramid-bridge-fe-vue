@@ -28,9 +28,7 @@
   "ast": {
     "absolutePath": "@openzeppelin/contracts/interfaces/draft-IERC1822.sol",
     "exportedSymbols": {
-      "IERC1822Proxiable": [
-        9
-      ]
+      "IERC1822Proxiable": [9]
     },
     "id": 10,
     "license": "MIT",
@@ -38,12 +36,7 @@
     "nodes": [
       {
         "id": 1,
-        "literals": [
-          "solidity",
-          "^",
-          "0.8",
-          ".0"
-        ],
+        "literals": ["solidity", "^", "0.8", ".0"],
         "nodeType": "PragmaDirective",
         "src": "113:23:0"
       },
@@ -61,9 +54,7 @@
         },
         "fullyImplemented": false,
         "id": 9,
-        "linearizedBaseContracts": [
-          9
-        ],
+        "linearizedBaseContracts": [9],
         "name": "IERC1822Proxiable",
         "nameLocation": "352:17:0",
         "nodeType": "ContractDefinition",
@@ -140,9 +131,7 @@
   "legacyAST": {
     "absolutePath": "@openzeppelin/contracts/interfaces/draft-IERC1822.sol",
     "exportedSymbols": {
-      "IERC1822Proxiable": [
-        9
-      ]
+      "IERC1822Proxiable": [9]
     },
     "id": 10,
     "license": "MIT",
@@ -150,12 +139,7 @@
     "nodes": [
       {
         "id": 1,
-        "literals": [
-          "solidity",
-          "^",
-          "0.8",
-          ".0"
-        ],
+        "literals": ["solidity", "^", "0.8", ".0"],
         "nodeType": "PragmaDirective",
         "src": "113:23:0"
       },
@@ -173,9 +157,7 @@
         },
         "fullyImplemented": false,
         "id": 9,
-        "linearizedBaseContracts": [
-          9
-        ],
+        "linearizedBaseContracts": [9],
         "name": "IERC1822Proxiable",
         "nameLocation": "352:17:0",
         "nodeType": "ContractDefinition",

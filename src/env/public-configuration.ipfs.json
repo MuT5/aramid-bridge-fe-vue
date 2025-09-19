@@ -275,9 +275,7 @@
         }
       },
       "logo": "base",
-      "blockExplorers": [
-        "https://basescan.org/tx/"
-      ],
+      "blockExplorers": ["https://basescan.org/tx/"],
       "soldiersByRound": [
         {
           "validFrom": 0,
@@ -543,9 +541,7 @@
         }
       },
       "logo": "arbitrum",
-      "blockExplorers": [
-        "https://arbiscan.io/tx/"
-      ],
+      "blockExplorers": ["https://arbiscan.io/tx/"],
       "soldiersByRound": [
         {
           "validFrom": 0,
@@ -570,9 +566,7 @@
       "tokens": {},
       "address": "ARAMIDFJYV2TOFB5MRNZJIXBSAVZCVAUDAPFGKR5PNX4MTILGAZABBTXQQ",
       "logo": "algo",
-      "blockExplorers": [
-        "https://aramid.algoexplorer.io/tx/"
-      ],
+      "blockExplorers": ["https://aramid.algoexplorer.io/tx/"],
       "soldiersByRound": [
         {
           "validFrom": 0,
@@ -596,9 +590,7 @@
       "folder": "algo",
       "address": "ARAMIDFJYV2TOFB5MRNZJIXBSAVZCVAUDAPFGKR5PNX4MTILGAZABBTXQQ",
       "logo": "algo",
-      "blockExplorers": [
-        "https://allo.info/tx/"
-      ],
+      "blockExplorers": ["https://allo.info/tx/"],
       "tokens": {
         "0": {
           "tokenId": "0",
@@ -864,9 +856,7 @@
       "folder": "algo",
       "address": "ARAMIDFJYV2TOFB5MRNZJIXBSAVZCVAUDAPFGKR5PNX4MTILGAZABBTXQQ",
       "logo": "voi",
-      "blockExplorers": [
-        "https://explorer.voi.network/explorer/transaction/"
-      ],
+      "blockExplorers": ["https://explorer.voi.network/explorer/transaction/"],
       "tokens": {
         "0": {
           "tokenId": "0",
