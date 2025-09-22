@@ -1,5 +1,4 @@
 import { useAppStore } from '@/stores/app'
-import getAlgodClientByChainId from './getAlgodClientByChainId'
 import { executeWithIndexerFailover } from './getIndexerClientByChainIdWithFailover'
 import BigNumber from 'bignumber.js'
 
