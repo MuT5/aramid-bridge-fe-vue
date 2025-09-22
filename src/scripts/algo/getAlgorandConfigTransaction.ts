@@ -1,6 +1,6 @@
 import asyncdelay from '../common/asyncDelay'
 import getLogger from '../common/getLogger'
-import getIndexerClientByChainId from './getIndexerClientByChainId'
+import { executeWithIndexerFailover } from './getIndexerClientByChainIdWithFailover'
 
 /**
  * Loads algorand transaction from the network
@@ -10,14 +10,25 @@ import getIndexerClientByChainId from './getIndexerClientByChainId'
 const getAlgorandConfigTransaction = async (daoToken: number, chainId: number, sender: string) => {
   const logger = await getLogger()
   try {
-    const indexer = await getIndexerClientByChainId(chainId)
-    if (!indexer) throw 'Indexer was not initialized properly'
-    let next = undefined
+    let next: string | undefined = undefined
     let tries = 1000
     while (tries > 0) {
       tries--
       await asyncdelay(200)
-      const txs: any = await indexer.lookupAccountTransactions(sender).limit(1000).nextToken(next).do()
+      
+      const txs: any = await executeWithIndexerFailover(
+        chainId,
+        async (indexer) => {
+          const query = indexer.lookupAccountTransactions(sender).limit(1000)
+          if (next) {
+            return await query.nextToken(next).do()
+          } else {
+            return await query.do()
+          }
+        },
+        `getAlgorandConfigTransaction lookupAccountTransactions for ${sender}`
+      )
+      
       await asyncdelay(100)
       console.log('config transactions:', txs)
       next = txs['next-token']

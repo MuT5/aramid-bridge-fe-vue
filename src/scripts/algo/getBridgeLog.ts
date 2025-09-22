@@ -1,7 +1,7 @@
 import asyncdelay from '../common/asyncDelay'
 import getAppConfiguration from '../common/getAppConfiguration'
 import getPublicConfiguration from '../common/getPublicConfiguration'
-import getIndexerClientByChainId from './getIndexerClientByChainId'
+import { executeWithIndexerFailover } from './getIndexerClientByChainIdWithFailover'
 
 export const getBridgeLog = async () => {
   const appConfiguration = await getAppConfiguration()
@@ -16,8 +16,18 @@ export const getBridgeLog = async () => {
   }
   console.log('bridgelog', appConfiguration, publicConfiguration)
 
-  const indexer = await getIndexerClientByChainId(appConfiguration.mainNetwork)
-  if (!indexer) return
-  await asyncdelay(200)
-  return await indexer.lookupAccountTransactions(publicConfiguration.addresses.claims).do()
+  try {
+    await asyncdelay(200)
+    const result = await executeWithIndexerFailover(
+      appConfiguration.mainNetwork,
+      async (indexer) => {
+        return await indexer.lookupAccountTransactions(publicConfiguration.addresses.claims).do()
+      },
+      'getBridgeLog lookupAccountTransactions'
+    )
+    return result
+  } catch (error) {
+    console.error('Failed to get bridge log:', error)
+    return null
+  }
 }

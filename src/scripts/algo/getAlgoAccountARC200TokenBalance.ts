@@ -11,9 +11,19 @@ const getAlgoAccountTokenBalance = async (chainId: number, accountAddress: strin
     if (!algosdk.isValidAddress(accountAddress)) return new BigNumber('0')
     const secureConfiguration = await getSecureConfiguration()
     if (!secureConfiguration?.chains || !secureConfiguration.chains[chainId]) return null
+    
+    await asyncdelay(200)
+    
+    // For ARC200 we need both algod and indexer clients, but we'll use the first available
+    // since arc200 library expects specific client instances
     const indexerClient = await getIndexerClientByChainId(chainId)
     const algodClient = await getAlgodClientByChainId(chainId)
-    await asyncdelay(200)
+    
+    if (!indexerClient || !algodClient) {
+      console.error('Failed to get algod or indexer client for ARC200')
+      return new BigNumber('0')
+    }
+    
     // balance, how much ARC200 is in the account
     const ci = new arc200(contractId, algodClient, indexerClient)
     const balanceR = await ci.arc200_balanceOf(accountAddress)

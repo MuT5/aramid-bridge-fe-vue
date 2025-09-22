@@ -1,6 +1,6 @@
 import BigNumber from 'bignumber.js'
 import getSecureConfiguration from '../common/getSecureConfiguration'
-import getIndexerClientByChainId from './getIndexerClientByChainId'
+import { executeWithIndexerFailover } from './getIndexerClientByChainIdWithFailover'
 import asyncdelay from '../common/asyncDelay'
 import algosdk from 'algosdk'
 import getAlgodClientByChainId from './getAlgodClientByChainId'
@@ -10,10 +10,16 @@ const getAlgoAccountTokenBalance = async (chainId: number, accountAddress: strin
     if (!algosdk.isValidAddress(accountAddress)) return new BigNumber('0')
     const secureConfiguration = await getSecureConfiguration()
     if (!secureConfiguration?.chains || !secureConfiguration.chains[chainId]) return null
-    const indexer = await getIndexerClientByChainId(chainId)
-    const algod = await getAlgodClientByChainId(chainId)
+    
     await asyncdelay(200)
-    const account = await indexer?.lookupAccountByID(accountAddress).do()
+    const account = await executeWithIndexerFailover(
+      chainId,
+      async (indexer) => {
+        return await indexer.lookupAccountByID(accountAddress).do()
+      },
+      `getAlgoAccountTokenBalance lookupAccountByID(${accountAddress})`
+    )
+    
     //console.log('algo.account', chainId, account)
     if (!account || !account.account) return new BigNumber('0')
     if (asa == 0) {
