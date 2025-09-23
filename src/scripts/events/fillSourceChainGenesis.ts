@@ -1,13 +1,22 @@
 import { useAppStore } from '@/stores/app'
-import getAlgodClientByChainId from '../algo/getAlgodClientByChainId'
+import { executeWithAlgodFailover } from '../algo/getAlgodClientByChainIdWithFailover'
 
 export const fillSourceChainGenesis = async () => {
   const store = useAppStore()
   if (!store.state.sourceChainGenesis) {
     if (store.state.sourceChainConfiguration?.type == 'algo') {
-      const algod = await getAlgodClientByChainId(store.state.sourceChainConfiguration.chainId)
-      const params = await algod?.getTransactionParams().do()
-      store.state.sourceChainGenesis = params?.genesisID
+      try {
+        const params = await executeWithAlgodFailover(
+          store.state.sourceChainConfiguration.chainId,
+          async (algod) => {
+            return await algod.getTransactionParams().do()
+          },
+          'fillSourceChainGenesis getTransactionParams'
+        )
+        store.state.sourceChainGenesis = params?.genesisID
+      } catch (error) {
+        console.error('Failed to get source chain genesis:', error)
+      }
     }
   }
 }
