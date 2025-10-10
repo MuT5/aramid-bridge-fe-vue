@@ -11,6 +11,9 @@ import BigNumber from 'bignumber.js'
 import calculateFeeAndDestinationAmount from '@/scripts/common/calculateFeeAndDestinationAmount'
 import { makeNoteField } from '@/scripts/aramid/makeNoteField'
 import { fillSourceChainConfiguration } from '@/scripts/events/fillSourceChainConfiguration'
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
 const toast = useToast()
 const store = useAppStore()
 
@@ -106,7 +109,7 @@ watch(
 </script>
 <template>
   <div class="flex flex-col w-full">
-    <SimpleLabel class="justify-center md:justify-end lg:justify-end xl:justify-end md:text-right"> Amount to receive </SimpleLabel>
+    <SimpleLabel class="justify-center md:justify-end lg:justify-end xl:justify-end md:text-right"> {{ t('amount.toReceive') }} </SimpleLabel>
     <div
       v-tooltip.top="'This is the amount of assets that will be transferred to the destination address.'"
       class="flex items-center bg-transparent h-[40px] text-2xl font-bold rounded-[2px] focus:outline-none text-center md:text-right justify-center md:justify-end mt-5 md:mt-0"
@@ -120,7 +123,7 @@ watch(
       class="text-white-0.6 my-3 text-center md:text-right md:justify-end w-full text-base 3xl:text-xl 4xl:text-3xl"
       title="Click to refresh source balance"
     >
-      Balance: {{ viewAmount(store.state.destinationAddressBalance, store.state.destinationTokenConfiguration?.decimals) }} {{ store.state.destinationTokenConfiguration.name }}
+      {{ t('common.balance') }}: {{ viewAmount(store.state.destinationAddressBalance, store.state.destinationTokenConfiguration?.decimals) }} {{ store.state.destinationTokenConfiguration.name }}
     </div>
   </div>
 </template>

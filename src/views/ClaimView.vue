@@ -5,6 +5,9 @@ import ClaimPage from '../components/ClaimPage.vue'
 import getPublicConfiguration from '@/scripts/common/getPublicConfiguration'
 import MainBox from '@/components/ui/MainBox.vue'
 import loader from '@/assets/images/loading-buffering.gif'
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
 const state = reactive({
   loaded: false
 })
@@ -21,7 +24,7 @@ onMounted(async () => {
       <ClaimPage></ClaimPage>
     </div>
     <div class="flex flex-col flex-1" v-else>
-      <MainBox><img :src="loader" alt="Loading" height="18" width="18" class="inline-block" /> Loading bridge configuration. Please wait a second please. </MainBox>
+      <MainBox><img :src="loader" alt="Loading" height="18" width="18" class="inline-block" /> {{ t('loading.bridgeConfiguration') }} </MainBox>
     </div>
     <PageFooter />
   </main>
