@@ -8,6 +8,7 @@ import { createPinia } from 'pinia'
 import App from './App.vue'
 import router from './router'
 import PrimeVue from 'primevue/config'
+import i18n from './i18n'
 
 import ToastService from 'primevue/toastservice'
 import Tooltip from 'primevue/tooltip'
@@ -17,6 +18,7 @@ const app = createApp(App)
 
 app.use(createPinia())
 app.use(router)
+app.use(i18n)
 
 app.use(PrimeVue, {
   unstyled: true,
