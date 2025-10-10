@@ -184,9 +184,7 @@ const doValidation = (): boolean => {
       store.state.routeConfig.feeAlternatives[0] &&
       new BigNumber(store.state.sourceAmount).minus(store.state.feeAmount).lt(store.state.routeConfig.feeAlternatives[0].minimumAmount)
     ) {
-      throw Error(
-        t('amount.afterFees', { amount: Number(ethers.formatUnits(store.state.routeConfig.feeAlternatives[0].minimumAmount, store.state.sourceTokenConfiguration.decimals)).toFixed(8) })
-      )
+      throw Error(t('amount.afterFees', { amount: Number(ethers.formatUnits(store.state.routeConfig.feeAlternatives[0].minimumAmount, store.state.sourceTokenConfiguration.decimals)).toFixed(8) }))
     }
     if (
       store.state.routeConfig &&
@@ -346,7 +344,9 @@ watch(
 <template>
   <MainBox>
     <div class="flex flex-row w-full">
-      <div class="text-left font-extrabold text-xl w-full grow flex-1 hidden md:block">{{ t('bridge.title') }} <span class="text-[#FB7EFF]">{{ t('bridge.titleCrossChain') }}</span></div>
+      <div class="text-left font-extrabold text-xl w-full grow flex-1 hidden md:block">
+        {{ t('bridge.title') }} <span class="text-[#FB7EFF]">{{ t('bridge.titleCrossChain') }}</span>
+      </div>
       <img src="../assets/images/aramid-logo.svg" alt="Aramid" width="150" class="align-right text-right self-right" />
     </div>
     <div class="flex flex-col md:flex-row w-full gap-2">

@@ -49,7 +49,11 @@ watch(isOpen, (newValue) => {
 
 <template>
   <div class="language-selector relative">
-    <button @click="toggleDropdown" class="flex items-center gap-2 px-3 py-2 rounded-lg bg-white-rgba hover:bg-white-rgba-hover transition-colors cursor-pointer border border-dark-elevation" type="button">
+    <button
+      @click="toggleDropdown"
+      class="flex items-center gap-2 px-3 py-2 rounded-lg bg-white-rgba hover:bg-white-rgba-hover transition-colors cursor-pointer border border-dark-elevation"
+      type="button"
+    >
       <span class="text-lg">{{ getCurrentLanguage().flag }}</span>
       <span class="text-sm font-medium hidden sm:inline">{{ getCurrentLanguage().name }}</span>
       <svg class="w-4 h-4 transition-transform" :class="{ 'rotate-180': isOpen }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
