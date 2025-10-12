@@ -11,6 +11,9 @@ import { onMounted, reactive } from 'vue'
 import { useToast } from 'primevue/usetoast'
 import { fillSourceChainConfiguration } from '@/scripts/events/fillSourceChainConfiguration'
 import { useRoute } from 'vue-router'
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
 const toast = useToast()
 const store = useAppStore()
 const route = useRoute()
@@ -45,7 +48,7 @@ onMounted(async () => {
 </script>
 <template>
   <div>
-    <SimpleLabel>Origin chain</SimpleLabel>
+    <SimpleLabel>{{ t('chain.origin') }}</SimpleLabel>
     <div class="w-full text-center place-content-center justify-items-center m-auto">
       <DropDown
         v-tooltip.top="'Select the origin blockchain from which you want to bridge your assets.'"

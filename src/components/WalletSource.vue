@@ -21,7 +21,9 @@ import asyncdelay from '@/scripts/common/asyncDelay'
 import getEthAccountTokenBalance from '@/scripts/eth/getEthAccountTokenBalance'
 import WalletAddress from './ui/WalletAddress.vue'
 import BigNumber from 'bignumber.js'
+import { useI18n } from 'vue-i18n'
 
+const { t } = useI18n()
 const { setActiveNetwork, activeWallet, activeAccount } = useWallet()
 
 const toast = useToast()
@@ -288,7 +290,7 @@ const getImageUrl = () => {
 </script>
 <template>
   <div>
-    <SimpleLabel>Origin wallet</SimpleLabel>
+    <SimpleLabel>{{ t('wallet.originWallet') }}</SimpleLabel>
     <RoundButton
       v-tooltip.top="
         'Before proceeding, connect your wallet. Once connected, your origin account will be auto-filled.\n On AVM chains, you can initiate bridging using the QR payment option by entering your account address.'

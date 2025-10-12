@@ -12,6 +12,9 @@ import { resetDestinationTokenIfNotMatched } from '@/scripts/events/resetDestina
 import { fillDestinationTokenConfiguration } from '@/scripts/events/fillDestinationTokenConfiguration'
 import { fillRouteInfo } from '@/scripts/events/fillRouteInfo'
 import { useRoute } from 'vue-router'
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
 const toast = useToast()
 const store = useAppStore()
 const route = useRoute()
@@ -53,7 +56,7 @@ watch(
 </script>
 <template>
   <div>
-    <SimpleLabel>Receive asset</SimpleLabel>
+    <SimpleLabel>{{ t('asset.receive') }}</SimpleLabel>
     <DropDown
       v-tooltip.top="'Select the asset you want to receive on the destination blockchain.'"
       v-if="store.state.destinationTokenConfiguration"

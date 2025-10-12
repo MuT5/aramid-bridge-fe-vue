@@ -25,7 +25,7 @@
   },
   "bridge": {
     "title": "Premostite vaše aktíva",
-    "titleCrossChain": "medzi reťazcami",
+    "titleCrossChain": "medzi blockchainmi",
     "reviewTransaction": "Skontrolujte svoju transakciu",
     "reviewTitle": "Skontrolujte svoju transakciu",
     "signTransaction": "Podpísať bridge transakciu",
