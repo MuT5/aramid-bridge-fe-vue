@@ -13,7 +13,7 @@
     "token": "Token",
     "amount": "Částka",
     "address": "Adresa",
-    "chain": "Řetězec",
+    "chain": "Blockchain",
     "wallet": "Peněženka",
     "cancel": "Zrušit",
     "confirm": "Potvrdit",
@@ -24,14 +24,14 @@
     "tryAgain": "Zkusit znovu"
   },
   "bridge": {
-    "title": "Přemostěte vaše aktiva",
+    "title": "Přeneste vaše aktiva",
     "titleCrossChain": "mezi blockchainy",
     "reviewTransaction": "Zkontrolujte svou transakci",
     "reviewTitle": "Zkontrolujte svou transakci",
     "signTransaction": "Podepsat bridge transakci",
     "switchNetwork": "Přepněte vaši peněženku na {chain}",
     "bridgeNativeToken": "Přemostit nativní token",
-    "selectOriginAddress": "Prosím vyberte adresu, ze které budete přemosťovat aktiva připojením peněženky zdrojového řetězce",
+    "selectOriginAddress": "Prosím vyberte adresu, ze které budete přemosťovat aktiva připojením peněženky zdrojového blockchainu",
     "selectDestinationAddress": "Prosím vyberte adresu, kam chcete poslat aktiva",
     "selectSourceAsset": "Před pokračováním musí být vybráno zdrojové aktivum.",
     "selectDestinationAsset": "Před pokračováním musí být vybráno cílové aktivum.",
@@ -57,13 +57,13 @@
     "connectToChain": "Prosím připojte {chain} ve vaší peněžence"
   },
   "chain": {
-    "source": "Zdrojový řetězec",
-    "destination": "Cílový řetězec",
-    "origin": "Původní řetězec",
-    "originChain": "Původní řetězec",
-    "destinationChain": "Cílový řetězec",
-    "selectSource": "Vyberte zdrojový řetězec",
-    "selectDestination": "Vyberte cílový řetězec",
+    "source": "Zdrojový blockchain",
+    "destination": "Cílový blockchain",
+    "origin": "Původní blockchain",
+    "originChain": "Původní blockchain",
+    "destinationChain": "Cílový blockchain",
+    "selectSource": "Vyberte zdrojový blockchain",
+    "selectDestination": "Vyberte cílový blockchain",
     "switchTo": "Přepnout na {chain}"
   },
   "asset": {

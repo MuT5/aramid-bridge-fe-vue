@@ -55,7 +55,6 @@ watch(isOpen, (newValue) => {
       type="button"
     >
       <span class="text-lg">{{ getCurrentLanguage().flag }}</span>
-      <span class="text-sm font-medium">{{ getCurrentLanguage().name }}</span>
       <svg class="w-4 h-4 transition-transform" :class="{ 'rotate-180': isOpen }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
       </svg>
@@ -63,7 +62,7 @@ watch(isOpen, (newValue) => {
 
     <div
       v-if="isOpen"
-      class="fixed bottom-16 right-4 w-48 rounded-lg shadow-lg bg-[#15002E] border border-dark-elevation overflow-hidden z-50"
+      class="absolute bottom-full right-0 mb-2 w-48 rounded-lg shadow-lg bg-[#15002E] border border-dark-elevation overflow-hidden z-50"
       style="background: rgba(21, 0, 46, 0.95); backdrop-filter: blur(10px)"
     >
       <div class="py-1">
