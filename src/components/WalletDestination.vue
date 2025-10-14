@@ -1,25 +1,24 @@
 <script setup lang="ts">
-import SimpleLabel from './ui/SimpleLabel.vue'
 import SelectDestinationWalletAlgoDialog from './dialogs/SelectDestinationWalletAlgoDialog.vue'
+import SimpleLabel from './ui/SimpleLabel.vue'
 
-import { useAppStore } from '@/stores/app'
-import getPublicConfiguration from '@/scripts/common/getPublicConfiguration'
-import type { PublicConfigurationRoot } from '@/scripts/interface/mapping/PublicConfigurationRoot'
-import { onMounted, reactive, watch } from 'vue'
-import RoundButton from './ui/RoundButton.vue'
-import WalletAddress from './ui/WalletAddress.vue'
-import getAlgoAccountTokenBalance from '@/scripts/algo/getAlgoAccountTokenBalance'
 import getAlgoAccountARC200TokenBalance from '@/scripts/algo/getAlgoAccountARC200TokenBalance'
+import getAlgoAccountTokenBalance from '@/scripts/algo/getAlgoAccountTokenBalance'
 import getAlgoAccountTokenOptedIn from '@/scripts/algo/getAlgoAccountTokenOptedIn'
-import SelectDestinationWalletDialog from './dialogs/SelectDestinationWalletDialog.vue'
+import asyncdelay from '@/scripts/common/asyncDelay'
+import getPublicConfiguration from '@/scripts/common/getPublicConfiguration'
 import getEthAccountTokenBalance from '@/scripts/eth/getEthAccountTokenBalance'
 import getWeb3Modal from '@/scripts/eth/getWeb3Modal'
-import asyncdelay from '@/scripts/common/asyncDelay'
+import type { PublicConfigurationRoot } from '@/scripts/interface/mapping/PublicConfigurationRoot'
+import { useAppStore } from '@/stores/app'
 import { useWeb3ModalAccount } from '@web3modal/ethers/vue'
-import { useToast } from 'primevue/usetoast'
 import { useWallet } from 'avm-wallet-vue'
-import { AlgoConnectorType } from '@/scripts/interface/algo/AlgoConnectorType'
+import { useToast } from 'primevue/usetoast'
+import { onMounted, reactive, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
+import SelectDestinationWalletDialog from './dialogs/SelectDestinationWalletDialog.vue'
+import RoundButton from './ui/RoundButton.vue'
+import WalletAddress from './ui/WalletAddress.vue'
 
 const { t } = useI18n()
 const store = useAppStore()
@@ -272,18 +271,18 @@ watch(
 <template>
   <div>
     <SimpleLabel>{{ t('address.destination') }}</SimpleLabel>
-      v-tooltip.top="t('wallet.tooltipDestination')"
     <RoundButton
       v-if="store.state.destinationTokenConfiguration"
       :img="`logos/tokens/${store.state.destinationTokenConfiguration?.logo}.png`"
       :text="store.state.destinationTokenConfiguration.name"
+      v-tooltip.top="t('wallet.tooltipDestination')"
       @click="buttonClick"
     >
       <img alt="wallet" loading="lazy" width="20" height="20" decoding="async" data-nimg="1" class="3xl:w-14 3xl:h-14" :src="getImageUrl()" style="color: transparent" />
       <div class="mx-auto self-center text-[14px] font-bold text-center 3xl:text-xl 4xl:text-2xl truncate" v-if="state.connected">
         <WalletAddress :address="store.state.destinationAddress"></WalletAddress>
       </div>
-      <div class="mx-auto self-center text-[14px] font-bold text-center 3xl:text-xl 4xl:text-2xl truncate" v-else>Select dest. address</div>
+      <div class="mx-auto self-center text-[14px] font-bold text-center 3xl:text-xl 4xl:text-2xl truncate" v-else>{{ t('wallet.selectDestAddress') }}</div>
     </RoundButton>
     <SelectDestinationWalletDialog></SelectDestinationWalletDialog>
     <SelectDestinationWalletAlgoDialog v-if="store.state.destinationChainConfiguration?.type == 'algo'"></SelectDestinationWalletAlgoDialog>
