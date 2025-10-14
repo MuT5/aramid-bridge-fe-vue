@@ -54,7 +54,11 @@
     "checkWallet": "Proszę sprawdzić swój portfel w celu podpisania transakcji.",
     "checkWalletSwitch": "Proszę sprawdzić swój portfel w celu przełączenia sieci",
     "checkWalletApprove": "Proszę sprawdzić swój portfel w celu zatwierdzenia limitu wydatków i podpisania transakcji.",
-    "connectToChain": "Proszę połączyć {chain} w swoim portfelu"
+    "connectToChain": "Proszę połączyć {chain} w swoim portfelu",
+    "connectOrigin": "Połącz portfel źródłowy",
+    "selectDestAddress": "Wybierz adres docelowy",
+    "tooltipOrigin": "Przed kontynuowaniem połącz swój portfel. Po połączeniu twój adres źródłowy zostanie automatycznie wypełniony.\\n Na blockchainach AVM możesz rozpocząć bridging używając opcji płatności QR poprzez wprowadzenie adresu swojego konta.",
+    "tooltipDestination": "Wybierz adres, który otrzyma aktywa na docelowym blockchainie.\\n Nie musisz posiadać konta. Na blockchainach AVM (Algorand, Voi) adres docelowy musi opt-in do prze bridgowanych aktywów. Na blockchainach EVM portfel docelowy musi być połączony w celu odebrania przebridgowanych aktywów."
   },
   "chain": {
     "source": "Łańcuch źródłowy",
@@ -64,7 +68,9 @@
     "destinationChain": "Łańcuch docelowy",
     "selectSource": "Wybierz łańcuch źródłowy",
     "selectDestination": "Wybierz łańcuch docelowy",
-    "switchTo": "Przełącz na {chain}"
+    "switchTo": "Przełącz na {chain}",
+    "tooltipOrigin": "Wybierz źródłowy blockchain, z którego chcesz przebridgować swoje aktywa.",
+    "tooltipDestination": "Wybierz docelowy blockchain, do którego chcesz przebridgować swoje aktywa."
   },
   "asset": {
     "select": "Wybierz aktywo",
@@ -75,7 +81,8 @@
     "bridge": "Przenieś aktywo",
     "selectTooltip": "Wybierz aktywo, które chcesz otrzymać na docelowym blockchainie.",
     "tokenName": "Nazwa tokena",
-    "tokenId": "ID tokena"
+    "tokenId": "ID tokena",
+    "tooltipSource": "Wybierz aktywo, które chcesz przebridgować do docelowego blockchainu."
   },
   "amount": {
     "toSend": "Kwota do wysłania",
@@ -87,7 +94,9 @@
     "total": "Razem",
     "afterFees": "Kwota aktywów źródłowych po odjęciu opłat powinna wynosić co najmniej {amount}.",
     "lessThan": "Kwota aktywów źródłowych powinna być mniejsza niż {amount}.",
-    "incompatible": "Kwota źródłowa i docelowa ({sourceAmount} - {feeAmount}, {destinationAmount}) nie są kompatybilne, proszę wprowadzić kwotę ponownie."
+    "incompatible": "Kwota źródłowa i docelowa ({sourceAmount} - {feeAmount}, {destinationAmount}) nie są kompatybilne, proszę wprowadzić kwotę ponownie.",
+    "toBridge": "Kwota do bridgowania",
+    "tooltipBridge": "Wybierz ilość aktywów, które chcesz przebridgować z źródłowego blockchainu.\\n Aramid bridge działa prawie w stosunku 1:1, co oznacza, że otrzymasz tę samą kwotę na docelowym blockchainie po potrąceniu małej opłaty za bridging (0,1%)."
   },
   "address": {
     "origin": "Adres pierwotny",

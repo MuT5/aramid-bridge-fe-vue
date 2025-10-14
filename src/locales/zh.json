@@ -54,7 +54,11 @@
     "checkWallet": "请检查您的钱包以签署交易。",
     "checkWalletSwitch": "请检查您的钱包以获取切换网络请求",
     "checkWalletApprove": "请检查您的钱包以批准支出限额并签署交易。",
-    "connectToChain": "请在您的钱包中连接 {chain}"
+    "connectToChain": "请在您的钱包中连接 {chain}",
+    "connectOrigin": "连接源钱包",
+    "selectDestAddress": "选择目标地址",
+    "tooltipOrigin": "在继续之前，请连接您的钱包。连接后，您的源地址将自动填充。\\n在AVM区块链上，您可以通过输入账户地址使用QR支付选项启动跨链。",
+    "tooltipDestination": "选择将在目标区块链上接收资产的地址。\\n您不需要拥有该账户。在AVM区块链（Algorand、Voi）上，目标地址必须选择加入跨链资产。在EVM区块链上，目标钱包必须连接才能领取跨链资产。"
   },
   "chain": {
     "source": "源链",
@@ -64,7 +68,9 @@
     "destinationChain": "目标链",
     "selectSource": "选择源链",
     "selectDestination": "选择目标链",
-    "switchTo": "切换到 {chain}"
+    "switchTo": "切换到 {chain}",
+    "tooltipOrigin": "选择您要从中跨链转移资产的源区块链。",
+    "tooltipDestination": "选择您要向其跨链转移资产的目标区块链。"
   },
   "asset": {
     "select": "选择资产",
@@ -75,7 +81,8 @@
     "bridge": "转移资产",
     "selectTooltip": "选择您想在目标区块链上接收的资产。",
     "tokenName": "代币名称",
-    "tokenId": "代币ID"
+    "tokenId": "代币ID",
+    "tooltipSource": "选择您要跨链转移到目标区块链的资产。"
   },
   "amount": {
     "toSend": "发送数量",
@@ -87,7 +94,9 @@
     "total": "总计",
     "afterFees": "扣除费用后的源资产数量应至少为 {amount}。",
     "lessThan": "源资产数量应小于 {amount}。",
-    "incompatible": "源数量和目标数量 ({sourceAmount} - {feeAmount}, {destinationAmount}) 不兼容，请重新输入数量。"
+    "incompatible": "源数量和目标数量 ({sourceAmount} - {feeAmount}, {destinationAmount}) 不兼容，请重新输入数量。",
+    "toBridge": "跨链数量",
+    "tooltipBridge": "选择您要从源区块链跨链转移的资产数量。\\nAramid桥接以接近1:1的比例运行，这意味着在扣除小额桥接费用（0.1%）后，您将在目标区块链上收到相同数量。"
   },
   "address": {
     "origin": "原始地址",

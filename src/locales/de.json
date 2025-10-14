@@ -54,7 +54,11 @@
     "checkWallet": "Bitte überprüfen Sie Ihr Wallet, um die Transaktion zu signieren.",
     "checkWalletSwitch": "Bitte überprüfen Sie Ihr Wallet für die Netzwerk-Wechselanfrage",
     "checkWalletApprove": "Bitte überprüfen Sie Ihr Wallet, um das Ausgabenlimit zu genehmigen und die Transaktion zu signieren.",
-    "connectToChain": "Bitte verbinden Sie {chain} in Ihrem Wallet"
+    "connectToChain": "Bitte verbinden Sie {chain} in Ihrem Wallet",
+    "connectOrigin": "Quell-Wallet verbinden",
+    "selectDestAddress": "Zieladresse wählen",
+    "tooltipOrigin": "Verbinden Sie Ihre Wallet, bevor Sie fortfahren. Nach der Verbindung wird Ihre Ursprungsadresse automatisch ausgefüllt.\\n Auf AVM-Blockchains können Sie das Bridging mit der QR-Zahlungsoption starten, indem Sie Ihre Kontoadresse eingeben.",
+    "tooltipDestination": "Wählen Sie die Adresse aus, die die Assets auf der Ziel-Blockchain erhalten wird.\\n Sie müssen das Konto nicht besitzen. Auf AVM-Blockchains (Algorand, Voi) muss die Zieladresse opt-in zu den gebrückten Assets durchführen. Auf EVM-Blockchains muss die Ziel-Wallet verbunden sein, um die gebrückten Assets zu beanspruchen."
   },
   "chain": {
     "source": "Quellkette",
@@ -64,7 +68,9 @@
     "destinationChain": "Zielkette",
     "selectSource": "Quellkette auswählen",
     "selectDestination": "Zielkette auswählen",
-    "switchTo": "Zu {chain} wechseln"
+    "switchTo": "Zu {chain} wechseln",
+    "tooltipOrigin": "Wählen Sie die Ursprungs-Blockchain aus, von der Sie Ihre Assets bridgen möchten.",
+    "tooltipDestination": "Wählen Sie die Ziel-Blockchain aus, zu der Sie Ihre Assets bridgen möchten."
   },
   "asset": {
     "select": "Asset auswählen",
@@ -75,7 +81,8 @@
     "bridge": "Asset übertragen",
     "selectTooltip": "Wählen Sie das Asset aus, das Sie auf der Ziel-Blockchain empfangen möchten.",
     "tokenName": "Token-Name",
-    "tokenId": "Token-ID"
+    "tokenId": "Token-ID",
+    "tooltipSource": "Wählen Sie das Asset aus, das Sie zur Ziel-Blockchain bridgen möchten."
   },
   "amount": {
     "toSend": "Zu sendender Betrag",
@@ -87,7 +94,9 @@
     "total": "Gesamt",
     "afterFees": "Der Betrag des Quell-Assets nach Abzug der Gebühren sollte mindestens {amount} betragen.",
     "lessThan": "Der Betrag des Quell-Assets sollte kleiner als {amount} sein.",
-    "incompatible": "Quell- und Zielbetrag ({sourceAmount} - {feeAmount}, {destinationAmount}) sind nicht kompatibel, bitte geben Sie den Betrag erneut ein."
+    "incompatible": "Quell- und Zielbetrag ({sourceAmount} - {feeAmount}, {destinationAmount}) sind nicht kompatibel, bitte geben Sie den Betrag erneut ein.",
+    "toBridge": "Betrag zum Bridgen",
+    "tooltipBridge": "Wählen Sie die Menge der Assets aus, die Sie von der Ursprungs-Blockchain bridgen möchten.\\n Die Aramid-Bridge arbeitet mit einem Verhältnis von fast 1:1, was bedeutet, dass Sie denselben Betrag auf der Ziel-Blockchain erhalten, nachdem eine kleine Bridging-Gebühr (0,1%) abgezogen wurde."
   },
   "address": {
     "origin": "Ursprungsadresse",

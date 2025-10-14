@@ -51,10 +51,14 @@
     "selectWallet": "Vyberte peňaženku",
     "originWallet": "Zdrojová peňaženka",
     "destinationWallet": "Cieľová peňaženka",
+    "connectOrigin": "Pripojiť zdrojovú peňaženku",
+    "selectDestAddress": "Vyberte cieľovú adresu",
     "checkWallet": "Prosím skontrolujte vašu peňaženku na podpísanie transakcie.",
     "checkWalletSwitch": "Prosím skontrolujte vašu peňaženku pre žiadosť o prepnutie siete",
     "checkWalletApprove": "Prosím skontrolujte vašu peňaženku pre schválenie limitu výdavkov a podpísanie transakcie.",
-    "connectToChain": "Prosím pripojte {chain} vo vašej peňaženke"
+    "connectToChain": "Prosím pripojte {chain} vo vašej peňaženke",
+    "tooltipOrigin": "Pred pokračovaním pripojte svoju peňaženku. Po pripojení sa vaša pôvodná adresa automaticky vyplní.\\n Na AVM blockchainoch môžete začať premosťovanie pomocou QR platobnej možnosti zadaním adresy vášho účtu.",
+    "tooltipDestination": "Vyberte adresu, ktorá obdrží aktíva na cieľovom blockchaine.\\n Účet nemusíte vlastniť. Na AVM blockchainoch (Algorand, Voi) musí cieľová adresa opt-in k premosťovaným aktívam. Na EVM blockchainoch musí byť cieľová peňaženka pripojená na nárokovaniepremo premosťovaných aktív."
   },
   "chain": {
     "source": "Zdrojový blockchain",
@@ -64,7 +68,9 @@
     "destinationChain": "Cieľový blockchain",
     "selectSource": "Vyberte zdrojový blockchain",
     "selectDestination": "Vyberte cieľový blockchain",
-    "switchTo": "Prepnúť na {chain}"
+    "switchTo": "Prepnúť na {chain}",
+    "tooltipOrigin": "Vyberte pôvodný blockchain, z ktorého chcete premostiť vaše aktíva.",
+    "tooltipDestination": "Vyberte cieľový blockchain, na ktorý chcete premostiť vaše aktíva."
   },
   "asset": {
     "select": "Vybrať aktívum",
@@ -74,17 +80,20 @@
     "send": "Poslať aktívum",
     "bridge": "Premostiť aktívum",
     "selectTooltip": "Vyberte aktívum, ktoré chcete prijať na cieľovom blockchaine.",
+    "tooltipSource": "Vyberte aktívum, ktoré chcete premostiť na cieľový blockchain.",
     "tokenName": "Názov tokenu",
     "tokenId": "ID tokenu"
   },
   "amount": {
     "toSend": "Suma na odoslanie",
     "toReceive": "Suma na prijatie",
+    "toBridge": "Suma na premostenie",
     "enter": "Zadajte sumu",
     "minimum": "Minimálna suma",
     "maximum": "Maximálna suma",
     "fee": "Poplatok",
     "total": "Celkom",
+    "tooltipBridge": "Vyberte množstvo aktív, ktoré chcete premostiť z pôvodného blockchainu.\\n Aramid bridge funguje takmer v pomere 1:1, čo znamená, že dostanete rovnakú sumu na cieľovom blockchaine po odpočítaní malého poplatku za premostenie (0,1%).",
     "afterFees": "Suma zdrojového aktíva po odpočítaní poplatkov by mala byť aspoň {amount}.",
     "lessThan": "Suma zdrojového aktíva by mala byť menšia ako {amount}.",
     "incompatible": "Zdrojová a cieľová suma ({sourceAmount} - {feeAmount}, {destinationAmount}) nie sú kompatibilné, prosím zadajte sumu znova."

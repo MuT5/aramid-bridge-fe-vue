@@ -54,7 +54,11 @@
     "checkWallet": "Por favor revisa tu billetera para firmar la transacción.",
     "checkWalletSwitch": "Por favor revisa tu billetera para la solicitud de cambio de red",
     "checkWalletApprove": "Por favor revisa tu billetera para aprobar el límite de gastos y firmar la transacción.",
-    "connectToChain": "Por favor conecta {chain} en tu billetera"
+    "connectToChain": "Por favor conecta {chain} en tu billetera",
+    "connectOrigin": "Conectar billetera de origen",
+    "selectDestAddress": "Seleccione dirección de destino",
+    "tooltipOrigin": "Antes de continuar, conecte su billetera. Una vez conectada, su dirección de origen se completará automáticamente.\\n En blockchains AVM, puede iniciar el bridging usando la opción de pago QR ingresando la dirección de su cuenta.",
+    "tooltipDestination": "Seleccione la dirección que recibirá los activos en el blockchain de destino.\\n No necesita ser dueño de la cuenta. En blockchains AVM (Algorand, Voi), la dirección de destino debe opt-in a los activos bridged. En blockchains EVM, la billetera de destino debe estar conectada para reclamar los activos bridged."
   },
   "chain": {
     "source": "Cadena de origen",
@@ -64,7 +68,9 @@
     "destinationChain": "Cadena de destino",
     "selectSource": "Selecciona cadena de origen",
     "selectDestination": "Selecciona cadena de destino",
-    "switchTo": "Cambiar a {chain}"
+    "switchTo": "Cambiar a {chain}",
+    "tooltipOrigin": "Seleccione el blockchain de origen desde el cual desea transferir sus activos.",
+    "tooltipDestination": "Seleccione el blockchain de destino al cual desea transferir sus activos."
   },
   "asset": {
     "select": "Seleccionar activo",
@@ -75,7 +81,8 @@
     "bridge": "Transferir activo",
     "selectTooltip": "Selecciona el activo que quieres recibir en la blockchain de destino.",
     "tokenName": "Nombre del token",
-    "tokenId": "ID del token"
+    "tokenId": "ID del token",
+    "tooltipSource": "Seleccione el activo que desea transferir al blockchain de destino."
   },
   "amount": {
     "toSend": "Cantidad a enviar",
@@ -87,7 +94,9 @@
     "total": "Total",
     "afterFees": "La cantidad del activo de origen después de restar las tarifas debe ser al menos {amount}.",
     "lessThan": "La cantidad del activo de origen debe ser menor que {amount}.",
-    "incompatible": "La cantidad de origen y destino ({sourceAmount} - {feeAmount}, {destinationAmount}) no son compatibles, por favor ingresa la cantidad nuevamente."
+    "incompatible": "La cantidad de origen y destino ({sourceAmount} - {feeAmount}, {destinationAmount}) no son compatibles, por favor ingresa la cantidad nuevamente.",
+    "toBridge": "Cantidad a transferir",
+    "tooltipBridge": "Seleccione la cantidad de activos que desea transferir desde el blockchain de origen.\\n El bridge de Aramid opera en una relación casi 1:1, lo que significa que recibirá la misma cantidad en el blockchain de destino después de deducir una pequeña tarifa de bridging (0.1%)."
   },
   "address": {
     "origin": "Dirección de origen",

@@ -14,7 +14,9 @@ import { useRoute } from 'vue-router'
 import { makeNoteField } from '@/scripts/aramid/makeNoteField'
 import { viewAmount } from '@/scripts/common/viewAmount'
 import { sanitizeTokenName } from '@/scripts/common/sanitizeTokenName'
+import { useI18n } from 'vue-i18n'
 
+const { t } = useI18n()
 const toast = useToast()
 const store = useAppStore()
 const route = useRoute()
