@@ -30,7 +30,9 @@ import getWeb3Modal from '@/scripts/eth/getWeb3Modal'
 import algosdk from 'algosdk'
 import { resetStateSoft } from '@/scripts/common/resetStateSoft'
 import calculateFeeAndDestinationAmount from '@/scripts/common/calculateFeeAndDestinationAmount'
+import { useI18n } from 'vue-i18n'
 
+const { t } = useI18n()
 const store = useAppStore()
 const route = useRoute()
 const router = useRouter()
@@ -107,70 +109,70 @@ const doValidation = (): boolean => {
   // called when the review button is pressed, right after confirmNetworksAndDestinationAddress
   try {
     if (store.state.loadingDestinationAddressBalance) {
-      throw Error('Loading the balance of the destination address, please try again later')
+      throw Error(t('error.loadingBalance', { type: t('address.destination').toLowerCase() }))
     }
     if (store.state.loadingSourceAddressBalance) {
-      throw Error('Loading the balance of the origin address, please try again later')
+      throw Error(t('error.loadingBalance', { type: t('address.origin').toLowerCase() }))
     }
     if (store.state.loadingDestinationEscrowAddressBalance) {
-      throw Error('Loading the balance of the destination escrow address, please try again later')
+      throw Error(t('error.loadingEscrowBalance'))
     }
 
     if (store.state.sourceChainConfiguration?.type == 'algo') {
       if (!algosdk.isValidAddress(store.state.sourceAddress ?? '')) {
-        throw Error('Origin address is in invalid format')
+        throw Error(t('address.invalidOrigin'))
       }
     }
     if (store.state.sourceChainConfiguration?.type == 'eth') {
       if (!ethers.isAddress(store.state.sourceAddress)) {
-        throw Error('Origin address is in invalid format')
+        throw Error(t('address.invalidOrigin'))
       }
     }
 
     if (store.state.destinationChainConfiguration?.type == 'algo') {
       if (!algosdk.isValidAddress(store.state.destinationAddress ?? '')) {
-        throw Error('Destination address is in invalid format')
+        throw Error(t('address.invalidDestination'))
       }
     }
     if (store.state.destinationChainConfiguration?.type == 'eth') {
       if (!ethers.isAddress(store.state.destinationAddress)) {
-        throw Error('Destination address is in invalid format')
+        throw Error(t('address.invalidDestination'))
       }
     }
 
     if (!store.state.sourceAddress) {
-      throw Error('Please select the address from which you will bridge the assets by connecting source chain wallet')
+      throw Error(t('bridge.selectOriginAddress'))
     } else if (
       store.state.sourceChainConfiguration?.type == 'algo' &&
       store.state.sourceAlgoConnectorType !== AlgoConnectorType.QRCode &&
       store.state.sourceAlgoConnectorType !== AlgoConnectorType.UseWallet
     ) {
       console.log('store.state.sourceAlgoConnectorType', store.state.sourceAlgoConnectorType)
-      throw Error('Please select if you want to sign the AVM tx using the QR code or wallet connector')
+      throw Error(t('bridge.selectSignMethod'))
     } else if (!store.state.destinationAddress) {
-      throw Error('Please select the address where you want to send the assets')
+      throw Error(t('bridge.selectDestinationAddress'))
     } else if (!store.state.sourceToken) {
-      throw Error('A source asset must be selected before continuing.')
+      throw Error(t('bridge.selectSourceAsset'))
     } else if (!store.state.destinationToken) {
-      throw Error('A destination asset must be selected before continuing.')
+      throw Error(t('bridge.selectDestinationAsset'))
     } else if (new BigNumber(store.state.sourceAmount).lte(0) || store.state.sourceAmount === 'NaN') {
-      throw Error('Amount entered is near or equal to zero.')
+      throw Error(t('bridge.amountZero'))
     } else if (!store.state.sourceAddressBalance || new BigNumber(store.state.sourceAmount).gt(new BigNumber(store.state.sourceAddressBalance))) {
-      throw Error('Amount requested to bridge is greater than your account balance.')
+      throw Error(t('bridge.amountGreaterThanBalance'))
     } else if (!store.state.sourceTokenConfiguration) {
-      throw Error('sourceTokenConfiguration is empty.')
+      throw Error(t('error.sourceConfigurationMissing'))
     } else if (!store.state.destinationTokenConfiguration) {
-      throw Error('destinationTokenConfiguration is empty.')
+      throw Error(t('error.configurationMissing'))
     }
     // For some reason this fails in dev mode, but not in prod
     else if (!store.state.escrowBalanceIsSufficient) {
-      throw Error('Insufficient liquidity to fulfill bridge request, please try again later.')
+      throw Error(t('bridge.insufficientLiquidity'))
     } else if (!store.state.destinationBridgeBalance || !store.state.destinationAmount || new BigNumber(store.state.destinationBridgeBalance).lt(new BigNumber(store.state.destinationAmount))) {
-      throw Error('Amount requested to bridge is greater than destination bridge account balance.')
+      throw Error(t('bridge.amountGreaterThanBridge'))
     }
     const memoWhiteList = /^[\p{L}\p{N}\s\.,\-_\/@\*\+\$%]*$/u
     if (store.state.memo && !store.state.memo.match(memoWhiteList)) {
-      throw Error('Memo contains invalid characters. Please use alphanumerical characters only please.')
+      throw Error(t('bridge.invalidMemo'))
     }
     // else if (disabled && store.state.destinationChainConfiguration && store.state.destinationChainConfiguration.type == 'near') {
     //   throw Error('Please Pay token storage fee to continue.')
@@ -182,9 +184,7 @@ const doValidation = (): boolean => {
       store.state.routeConfig.feeAlternatives[0] &&
       new BigNumber(store.state.sourceAmount).minus(store.state.feeAmount).lt(store.state.routeConfig.feeAlternatives[0].minimumAmount)
     ) {
-      throw Error(
-        `Source asset amount after fees are substracted should be at least ${Number(ethers.formatUnits(store.state.routeConfig.feeAlternatives[0].minimumAmount, store.state.sourceTokenConfiguration.decimals)).toFixed(8)}.`
-      )
+      throw Error(t('amount.afterFees', { amount: Number(ethers.formatUnits(store.state.routeConfig.feeAlternatives[0].minimumAmount, store.state.sourceTokenConfiguration.decimals)).toFixed(8) }))
     }
     if (
       store.state.routeConfig &&
@@ -192,14 +192,16 @@ const doValidation = (): boolean => {
       store.state.routeConfig.feeAlternatives[0] &&
       new BigNumber(store.state.sourceAmount).gt(store.state.routeConfig.feeAlternatives[0].maximumAmount)
     ) {
-      throw Error(
-        `Source Asset amount should be less than ${Number(ethers.formatUnits(store.state.routeConfig.feeAlternatives[0].maximumAmount, store.state.sourceTokenConfiguration.decimals)).toFixed(2)}.`
-      )
+      throw Error(t('amount.lessThan', { amount: Number(ethers.formatUnits(store.state.routeConfig.feeAlternatives[0].maximumAmount, store.state.sourceTokenConfiguration.decimals)).toFixed(2) }))
     }
 
     if (Math.abs(Number(store.state.sourceAmountFormatted) - Number(store.state.feeAmountFormatted) - Number(store.state.destinationAmountFormatted)) > 0.001) {
       throw Error(
-        `Source and Destination Amount (${store.state.sourceAmountFormatted} - ${store.state.feeAmountFormatted}, ${store.state.destinationAmountFormatted}) are not compatible, Please re-enter the Amount.`
+        t('amount.incompatible', {
+          sourceAmount: store.state.sourceAmountFormatted,
+          feeAmount: store.state.feeAmountFormatted,
+          destinationAmount: store.state.destinationAmountFormatted
+        })
       )
     }
 
@@ -342,7 +344,9 @@ watch(
 <template>
   <MainBox>
     <div class="flex flex-row w-full">
-      <div class="text-left font-extrabold text-xl w-full grow flex-1 hidden md:block">Bridge your assets <span class="text-[#FB7EFF]">cross-chain</span></div>
+      <div class="text-left font-extrabold text-xl w-full grow flex-1 hidden md:block">
+        {{ t('bridge.title') }} <span class="text-[#FB7EFF]">{{ t('bridge.titleCrossChain') }}</span>
+      </div>
       <img src="../assets/images/aramid-logo.svg" alt="Aramid" width="150" class="align-right text-right self-right" />
     </div>
     <div class="flex flex-col md:flex-row w-full gap-2">
@@ -359,13 +363,13 @@ watch(
       <AmountDestination></AmountDestination>
     </div>
     <div class="mt-4 w-full">
-      <SimpleLabel>Cross-chain Note/Memo/Payment reference</SimpleLabel>
+      <SimpleLabel>{{ t('transaction.memo') }}</SimpleLabel>
       <input :maxlength="50" class="bg-white-rgba rounded-[10px] focus:outline-none w-full mt-1 3xl:mt-3 4xl:mt-6 p-1 3xl:p-3 4xl:p-6 text-base w-full" type="text" v-model="store.state.memo" />
     </div>
     <Message severity="error" v-if="state.error" class="mt-4 w-full">{{ state.error }}</Message>
     <Message severity="warn" v-if="store.state.escrowBalanceIsSufficient && !store.state.escrowBalanceIsSufficient10x" class="mt-4 w-full">
-      The bridge balance has less than 10x your transfer amount and your request may potentially not be fulfilled.
+      {{ t('bridge.lowBalanceWarning') }}
     </Message>
-    <MainActionButton @click="reviewButtonClick">Review your transaction</MainActionButton>
+    <MainActionButton @click="reviewButtonClick">{{ t('bridge.reviewTransaction') }}</MainActionButton>
   </MainBox>
 </template>

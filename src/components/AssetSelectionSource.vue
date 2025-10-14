@@ -11,6 +11,9 @@ import { onMounted, reactive, watch } from 'vue'
 import { useToast } from 'primevue/usetoast'
 import { useRoute } from 'vue-router'
 import { fillSourceTokenConfiguration } from '@/scripts/events/fillSourceTokenConfiguration'
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
 const toast = useToast()
 const store = useAppStore()
 const route = useRoute()
@@ -56,9 +59,9 @@ watch(
 </script>
 <template>
   <div>
-    <SimpleLabel>Bridge asset</SimpleLabel>
+    <SimpleLabel>{{ t('asset.bridge') }}</SimpleLabel>
     <DropDown
-      v-tooltip.top="'Select the asset you want to bridge to the destination blockchain.'"
+      v-tooltip.top="t('asset.tooltipSource')"
       v-if="store.state.sourceTokenConfiguration"
       :img="`logos/tokens/${store.state.sourceTokenConfiguration?.logo}.png`"
       :text="store.state.sourceTokenConfiguration.name"

@@ -144,3 +144,63 @@ After making changes, ALWAYS test these scenarios:
 - **State Management**: Complex state for multi-step bridge transactions
 - **Route Structure**: Dynamic routes for different bridge configurations
 - **Asset Management**: Large collection of token logos and contract ABIs
+
+## Internationalization (i18n) Guidelines
+
+### Translation Requirements
+- **All user-facing text must be translated** using vue-i18n `t()` function
+- Translation files are located in `src/locales/` directory
+- Supported languages: English (en), Slovak (sk), Czech (cs), Polish (pl), Spanish (es), German (de), Chinese (zh)
+
+### Terminology Standards
+- **ALWAYS translate "chain" as "blockchain"** in all languages
+  - English: "blockchain" not "chain"
+  - Slovak: "blockchain" not "reťazec"
+  - Czech: "blockchain" not "řetězec"
+- Use "Transfer your assets" instead of "Bridge your assets"
+- Be consistent with blockchain terminology across all translations
+
+### Component Translation Pattern
+When adding/editing Vue components with text:
+
+1. **Import i18n in script section:**
+   ```typescript
+   import { useI18n } from 'vue-i18n'
+   const { t } = useI18n()
+   ```
+
+2. **Use t() for all text in templates:**
+   ```vue
+   <SimpleLabel>{{ t('chain.origin') }}</SimpleLabel>
+   <button>{{ t('common.approve') }}</button>
+   ```
+
+3. **Translate tooltips:**
+   ```vue
+   <div v-tooltip.top="t('wallet.tooltipOrigin')">
+   ```
+
+4. **Add new keys to all locale files** (en, sk, cs, pl, es, de, zh)
+
+### Translation Key Structure
+- `common.*` - Basic UI elements (buttons, labels, states)
+- `bridge.*` - Bridge-specific terminology and messages
+- `wallet.*` - Wallet connection and management
+- `chain.*` - Blockchain selection and display
+- `asset.*` - Asset/token selection and display
+- `amount.*` - Amount inputs and validations
+- `address.*` - Address management and validation
+- `transaction.*` - Transaction states and operations
+- `status.*` - Status indicators
+- `error.*` - Error messages
+- `loading.*` - Loading states
+
+### Checklist for i18n Changes
+- [ ] All hardcoded strings replaced with t() calls
+- [ ] Tooltips and v-tooltip text translated
+- [ ] New keys added to ALL locale files (7 languages)
+- [ ] "chain" replaced with "blockchain" in translations
+- [ ] Consistent terminology across all languages
+- [ ] Component imports useI18n composable
+- [ ] Build and type-check pass
+- [ ] Test in dev server with different languages
