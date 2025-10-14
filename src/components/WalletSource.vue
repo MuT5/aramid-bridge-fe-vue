@@ -292,9 +292,7 @@ const getImageUrl = () => {
   <div>
     <SimpleLabel>{{ t('wallet.originWallet') }}</SimpleLabel>
     <RoundButton
-      v-tooltip.top="
-        'Before proceeding, connect your wallet. Once connected, your origin account will be auto-filled.\n On AVM chains, you can initiate bridging using the QR payment option by entering your account address.'
-      "
+      v-tooltip.top="t('wallet.tooltipOrigin')"
       v-if="store.state.sourceTokenConfiguration"
       :img="`logos/tokens/${store.state.sourceTokenConfiguration?.logo}.png`"
       :text="store.state.sourceTokenConfiguration.name"
@@ -311,7 +309,7 @@ const getImageUrl = () => {
       <div class="mx-auto self-center text-[14px] font-bold text-center 3xl:text-xl 4xl:text-2xl truncate" v-else-if="state.connected">
         <WalletAddress :address="store.state.sourceAddress"></WalletAddress>
       </div>
-      <div class="mx-auto self-center text-[14px] font-bold text-center 3xl:text-xl 4xl:text-2xl truncate" v-else>Connect origin wallet</div>
+      <div class="mx-auto self-center text-[14px] font-bold text-center 3xl:text-xl 4xl:text-2xl truncate" v-else>{{ t('wallet.connectOrigin') }}</div>
     </RoundButton>
     <SelectSourceWalletAlgoDialog v-if="store.state.sourceChainConfiguration?.type == 'algo'"></SelectSourceWalletAlgoDialog>
   </div>

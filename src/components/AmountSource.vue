@@ -114,12 +114,10 @@ const setMax = () => {
 </script>
 <template>
   <div class="flex flex-col w-full">
-    <SimpleLabel class="justify-center md:justify-end lg:justify-end xl:justify-end md:text-right"> Amount to bridge </SimpleLabel>
+    <SimpleLabel class="justify-center md:justify-end lg:justify-end xl:justify-end md:text-right"> {{ t('amount.toBridge') }} </SimpleLabel>
     <div class="flex flex-col md:flex-row justify-center md:justify-end lg:justify-end xl:justify-end">
       <input
-        v-tooltip.focus.top="
-          'Select the amount of assets you want to bridge from the origin blockchain.\n The Aramid bridge operates at nearly a 1:1 ratio, meaning you will receive the same amount on the destination chain after a small bridging fee (0.1%) is deducted.'
-        "
+        v-tooltip.focus.top="t('amount.tooltipBridge')"
         type="number"
         min="0"
         placeholder="0.0"

@@ -11,6 +11,9 @@ import { onMounted, reactive, watch } from 'vue'
 import { useToast } from 'primevue/usetoast'
 import { fillDestinationChainConfiguration } from '@/scripts/events/fillDestinationChainConfiguration'
 import { useRoute } from 'vue-router'
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
 const toast = useToast()
 const store = useAppStore()
 const route = useRoute()
@@ -53,9 +56,9 @@ watch(
 </script>
 <template>
   <div>
-    <SimpleLabel>Destination chain</SimpleLabel>
+    <SimpleLabel>{{ t('chain.destinationChain') }}</SimpleLabel>
     <DropDown
-      v-tooltip.top="'Select the destination blockchain to which you want to bridge your assets.'"
+      v-tooltip.top="t('chain.tooltipDestination')"
       v-if="store.state.destinationChainConfiguration"
       :img="`logos/chains/${store.state.destinationChainConfiguration?.logo}.png`"
       :text="store.state.destinationChainConfiguration.name"

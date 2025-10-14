@@ -19,6 +19,9 @@ import { useWeb3ModalAccount } from '@web3modal/ethers/vue'
 import { useToast } from 'primevue/usetoast'
 import { useWallet } from 'avm-wallet-vue'
 import { AlgoConnectorType } from '@/scripts/interface/algo/AlgoConnectorType'
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
 const store = useAppStore()
 const toast = useToast()
 const { setActiveNetwork, avmActiveWallet, activeAccount } = useWallet()
@@ -268,11 +271,9 @@ watch(
 </script>
 <template>
   <div>
-    <SimpleLabel>Destination address</SimpleLabel>
+    <SimpleLabel>{{ t('address.destination') }}</SimpleLabel>
+      v-tooltip.top="t('wallet.tooltipDestination')"
     <RoundButton
-      v-tooltip.top="
-        'Select the address that will receive the assets on the destination blockchain.\n You don’t need to own the account. On AVM chains (Algorand, Voi), the destination address must opt-in to the bridged assets. On EVM chains, the destination wallet must be connected to claim the bridged assets.'
-      "
       v-if="store.state.destinationTokenConfiguration"
       :img="`logos/tokens/${store.state.destinationTokenConfiguration?.logo}.png`"
       :text="store.state.destinationTokenConfiguration.name"
