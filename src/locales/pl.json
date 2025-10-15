@@ -57,8 +57,8 @@
     "connectToChain": "Połącz się z siecią {chain} w swoim portfelu.",
     "connectOrigin": "Połącz portfel źródłowy",
     "selectDestAddress": "Wybierz adres docelowy",
-    "tooltipOrigin": "Połącz portfel, aby kontynuować. Po połączeniu adres źródłowy uzupełni się automatycznie.\Na AVM możesz zacząć przenoszenie przez most, skanując kod QR i podając adres swojego konta.",
-    "tooltipDestination": "Wybierz adres, który otrzyma aktywa w łańcuchu docelowym.\AVM: AVM: wymagany wcześniejszy opt-in na aktywo. (w przeciwnym razie przelew nie dojdzie).\EVM: połącz portfel. Token pojawi się po odbiorze (w razie potrzeby dodaj go w portfelu, aby go wyświetlić)."
+    "tooltipOrigin": "Połącz portfel, aby kontynuować. Po połączeniu adres źródłowy uzupełni się automatycznie.\\nNa AVM możesz zacząć przenoszenie przez most, skanując kod QR i podając adres swojego konta.",
+    "tooltipDestination": "Wybierz adres, który otrzyma aktywa w łańcuchu docelowym.\\nAVM: AVM: wymagany wcześniejszy opt-in na aktywo. (w przeciwnym razie przelew nie dojdzie).\\nEVM: połącz portfel. Token pojawi się po odbiorze (w razie potrzeby dodaj go w portfelu, aby go wyświetlić)."
   },
   "chain": {
     "source": "Łańcuch źródłowy",
@@ -96,7 +96,7 @@
     "lessThan": "Kwota aktywów źródłowych powinna być mniejsza niż {amount}.",
     "incompatible": "Kwoty źródłowa i docelowa ({sourceAmount} − {feeAmount}, {destinationAmount}) są niezgodne. Wprowadź kwotę ponownie.",
     "toBridge": "Kwota do przeniesienia",
-    "tooltipBridge": "Wybierz kwotę aktywów do przeniesienia z łańcucha źródłowego.\Most Aramid działa niemal 1:1 — otrzymasz tę samą kwotę w łańcuchu docelowym po potrąceniu niewielkiej opłaty (0,1%)."
+    "tooltipBridge": "Wybierz kwotę aktywów do przeniesienia z łańcucha źródłowego.\\nMost Aramid działa niemal 1:1 — otrzymasz tę samą kwotę w łańcuchu docelowym po potrąceniu niewielkiej opłaty (0,1%)."
   },
   "address": {
     "origin": "Adres źródłowy",
