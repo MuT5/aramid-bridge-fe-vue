@@ -58,7 +58,7 @@
     "connectOrigin": "Połącz portfel źródłowy",
     "selectDestAddress": "Wybierz adres docelowy",
     "tooltipOrigin": "Połącz portfel, aby kontynuować. Po połączeniu adres źródłowy uzupełni się automatycznie.\\nNa AVM możesz zacząć przenoszenie przez most, skanując kod QR i podając adres swojego konta.",
-    "tooltipDestination": "Wybierz adres, który otrzyma aktywa w łańcuchu docelowym.\\nAVM: wymagany wcześniejszy opt-in na aktywo. (w przeciwnym razie przelew nie dojdzie).\\nEVM: połącz portfel. Token pojawi się po odbiorze (w razie potrzeby dodaj go w portfelu, aby go wyświetlić)."
+    "tooltipDestination": "Wybierz adres, który otrzyma aktywa w łańcuchu docelowym.\\nAVM: wymagany wcześniejszy opt-in na aktywo. W przeciwnym razie przelew nie dojdzie.\\nEVM: połącz portfel. Token pojawi się po odbiorze (w razie potrzeby dodaj go w portfelu, aby go wyświetlić)."
   },
   "chain": {
     "source": "Łańcuch źródłowy",
