@@ -28,49 +28,49 @@
     "titleCrossChain": "między łańcuchami",
     "reviewTransaction": "Sprawdź swoją transakcję",
     "reviewTitle": "Sprawdź swoją transakcję",
-    "signTransaction": "Podpisz transakcję bridge",
+    "signTransaction": "Podpisz transakcję mostu",
     "switchNetwork": "Przełącz portfel na {chain}",
     "bridgeNativeToken": "Przenieś natywny token",
-    "selectOriginAddress": "Proszę wybrać adres, z którego będą przesyłane aktywa poprzez połączenie portfela łańcucha źródłowego",
-    "selectDestinationAddress": "Proszę wybrać adres, na który chcesz wysłać aktywa",
-    "selectSourceAsset": "Przed kontynuacją należy wybrać aktywo źródłowe.",
-    "selectDestinationAsset": "Przed kontynuacją należy wybrać aktywo docelowe.",
-    "amountZero": "Wprowadzona kwota jest bliska zeru lub równa zero.",
-    "amountGreaterThanBalance": "Żądana kwota do przeniesienia jest większa niż saldo na Twoim koncie.",
-    "insufficientLiquidity": "Niewystarczająca płynność do realizacji żądania przeniesienia, spróbuj ponownie później.",
-    "amountGreaterThanBridge": "Żądana kwota do przeniesienia jest większa niż saldo na docelowym koncie bridge.",
-    "invalidMemo": "Memo zawiera nieprawidłowe znaki. Proszę używać tylko znaków alfanumerycznych.",
-    "lowBalanceWarning": "Saldo bridge ma mniej niż 10-krotność Twojej kwoty przelewu i Twoje żądanie może nie zostać zrealizowane.",
-    "selectSignMethod": "Proszę wybrać, czy chcesz podpisać transakcję AVM za pomocą kodu QR czy konektora portfela"
+    "selectOriginAddress": "Wybierz adres, z którego wyślesz aktywa (połącz portfel łańcucha źródłowego).",
+    "selectDestinationAddress": "Wybierz adres, na który chcesz otrzymać aktywa.",
+    "selectSourceAsset": "Przed kontynuacją wybierz aktywo źródłowe.",
+    "selectDestinationAsset": "Przed kontynuacją wybierz aktywo docelowe.",
+    "amountZero": "Wprowadzona kwota jest równa 0 lub zbyt mała.",
+    "amountGreaterThanBalance": "Żądana kwota jest większa niż Twoje saldo.",
+    "insufficientLiquidity": "Niewystarczająca płynność, spróbuj ponownie później.",
+    "amountGreaterThanBridge": "Żądana kwota jest większa niż saldo na docelowym koncie mostu.",
+    "invalidMemo": "Pole „memo” zawiera nieprawidłowe znaki. Używaj wyłącznie znaków alfanumerycznych.",
+    "lowBalanceWarning": "Saldo mostu jest mniejsze niż 10× Twoja kwota przelewu — operacja może nie zostać zrealizowana.",
+    "selectSignMethod": "Wybierz, czy podpisać transakcję AVM bezpośrednio w portfelu, czy skanując kod QR."
   },
   "wallet": {
-    "connect": "Podłącz portfel",
+    "connect": "Połącz portfel",
     "disconnect": "Odłącz",
     "connected": "Połączono",
     "notConnected": "Nie połączono",
     "selectWallet": "Wybierz portfel",
     "originWallet": "Portfel źródłowy",
     "destinationWallet": "Portfel docelowy",
-    "checkWallet": "Proszę sprawdzić swój portfel w celu podpisania transakcji.",
-    "checkWalletSwitch": "Proszę sprawdzić swój portfel w celu przełączenia sieci",
-    "checkWalletApprove": "Proszę sprawdzić swój portfel w celu zatwierdzenia limitu wydatków i podpisania transakcji.",
-    "connectToChain": "Proszę połączyć {chain} w swoim portfelu",
+    "checkWallet": "Sprawdź portfel, aby podpisać transakcję.",
+    "checkWalletSwitch": "Sprawdź portfel, aby przełączyć sieć.",
+    "checkWalletApprove": "Sprawdź portfel, aby zatwierdzić limit wydatków i podpisać transakcję.",
+    "connectToChain": "Połącz się z siecią {chain} w swoim portfelu.",
     "connectOrigin": "Połącz portfel źródłowy",
     "selectDestAddress": "Wybierz adres docelowy",
-    "tooltipOrigin": "Przed kontynuowaniem połącz swój portfel. Po połączeniu twój adres źródłowy zostanie automatycznie wypełniony.\\n Na blockchainach AVM możesz rozpocząć bridging używając opcji płatności QR poprzez wprowadzenie adresu swojego konta.",
-    "tooltipDestination": "Wybierz adres, który otrzyma aktywa na docelowym blockchainie.\\n Nie musisz posiadać konta. Na blockchainach AVM (Algorand, Voi) adres docelowy musi opt-in do prze bridgowanych aktywów. Na blockchainach EVM portfel docelowy musi być połączony w celu odebrania przebridgowanych aktywów."
+    "tooltipOrigin": "Połącz portfel, aby kontynuować. Po połączeniu adres źródłowy uzupełni się automatycznie.\Na AVM możesz zacząć przenoszenie przez most, skanując kod QR i podając adres swojego konta.",
+    "tooltipDestination": "Wybierz adres, który otrzyma aktywa w łańcuchu docelowym.\AVM: AVM: wymagany wcześniejszy opt-in na aktywo. (w przeciwnym razie przelew nie dojdzie).\EVM: połącz portfel. Token pojawi się po odbiorze (w razie potrzeby dodaj go w portfelu, aby go wyświetlić)."
   },
   "chain": {
     "source": "Łańcuch źródłowy",
     "destination": "Łańcuch docelowy",
-    "origin": "Łańcuch pierwotny",
-    "originChain": "Łańcuch pierwotny",
+    "origin": "Łańcuch źródłowy",
+    "originChain": "Łańcuch źródłowy",
     "destinationChain": "Łańcuch docelowy",
     "selectSource": "Wybierz łańcuch źródłowy",
     "selectDestination": "Wybierz łańcuch docelowy",
     "switchTo": "Przełącz na {chain}",
-    "tooltipOrigin": "Wybierz źródłowy blockchain, z którego chcesz przebridgować swoje aktywa.",
-    "tooltipDestination": "Wybierz docelowy blockchain, do którego chcesz przebridgować swoje aktywa."
+    "tooltipOrigin": "Wybierz łańcuch źródłowy, z którego chcesz przenieść aktywa przez most.",
+    "tooltipDestination": "Wybierz łańcuch docelowy, do którego chcesz przenieść aktywa przez most."
   },
   "asset": {
     "select": "Wybierz aktywo",
@@ -79,10 +79,10 @@
     "receive": "Otrzymaj aktywo",
     "send": "Wyślij aktywo",
     "bridge": "Przenieś aktywo",
-    "selectTooltip": "Wybierz aktywo, które chcesz otrzymać na docelowym blockchainie.",
+    "selectTooltip": "Wybierz aktywo, które chcesz otrzymać w łańcuchu docelowym.",
     "tokenName": "Nazwa tokena",
     "tokenId": "ID tokena",
-    "tooltipSource": "Wybierz aktywo, które chcesz przebridgować do docelowego blockchainu."
+    "tooltipSource": "Wybierz aktywo, które chcesz przenieść przez most do łańcucha docelowego."
   },
   "amount": {
     "toSend": "Kwota do wysłania",
@@ -94,38 +94,38 @@
     "total": "Razem",
     "afterFees": "Kwota aktywów źródłowych po odjęciu opłat powinna wynosić co najmniej {amount}.",
     "lessThan": "Kwota aktywów źródłowych powinna być mniejsza niż {amount}.",
-    "incompatible": "Kwota źródłowa i docelowa ({sourceAmount} - {feeAmount}, {destinationAmount}) nie są kompatybilne, proszę wprowadzić kwotę ponownie.",
-    "toBridge": "Kwota do bridgowania",
-    "tooltipBridge": "Wybierz ilość aktywów, które chcesz przebridgować z źródłowego blockchainu.\\n Aramid bridge działa prawie w stosunku 1:1, co oznacza, że otrzymasz tę samą kwotę na docelowym blockchainie po potrąceniu małej opłaty za bridging (0,1%)."
+    "incompatible": "Kwoty źródłowa i docelowa ({sourceAmount} − {feeAmount}, {destinationAmount}) są niezgodne. Wprowadź kwotę ponownie.",
+    "toBridge": "Kwota do przeniesienia",
+    "tooltipBridge": "Wybierz kwotę aktywów do przeniesienia z łańcucha źródłowego.\Most Aramid działa niemal 1:1 — otrzymasz tę samą kwotę w łańcuchu docelowym po potrąceniu niewielkiej opłaty (0,1%)."
   },
   "address": {
-    "origin": "Adres pierwotny",
+    "origin": "Adres źródłowy",
     "destination": "Adres docelowy",
-    "bridge": "Adres bridge",
+    "bridge": "Adres mostu",
     "invalid": "Adres ma nieprawidłowy format",
-    "invalidOrigin": "Adres pierwotny ma nieprawidłowy format",
+    "invalidOrigin": "Adres źródłowy ma nieprawidłowy format",
     "invalidDestination": "Adres docelowy ma nieprawidłowy format",
-    "copyOrigin": "Kopiuj adres pierwotny: {address}",
+    "copyOrigin": "Kopiuj adres źródłowy: {address}",
     "copyDestination": "Kopiuj adres docelowy: {address}",
     "copyToken": "Kopiuj ID tokena: {tokenId}",
-    "copyBridgeSource": "Kopiuj adres bridge łańcucha źródłowego: {address}",
-    "copyBridgeDestination": "Kopiuj adres bridge łańcucha docelowego: {address}",
-    "copyMemo": "Kopiuj adres pierwotny: {memo}"
+    "copyBridgeSource": "Kopiuj adres mostu w łańcuchu źródłowym: {address}",
+    "copyBridgeDestination": "Kopiuj adres mostu w łańcuchu docelowym: {address}",
+    "copyMemo": "Kopiuj memo: {memo}"
   },
   "transaction": {
     "review": "Sprawdź swoją transakcję",
     "sign": "Podpisz",
     "approve": "Zatwierdź",
     "send": "Wyślij",
-    "pending": "Transakcja oczekuje",
+    "pending": "Transakcja w toku",
     "confirmed": "Transakcja potwierdzona",
     "failed": "Transakcja nieudana",
     "hash": "Hash transakcji",
-    "submitting": "Twoja transakcja bridge jest wysyłana do {chain}",
-    "submittingApproval": "Twoja transakcja zatwierdzenia jest wysyłana do {chain}",
+    "submitting": "Twoja transakcja mostu jest wysyłana do {chain}.",
+    "submittingApproval": "Transakcja zatwierdzenia jest wysyłana do {chain}.",
     "notFound": "Nie znaleziono transakcji.",
-    "dataTransfer": "Transfer danych",
-    "memo": "Międzyłańcuchowa notatka/Memo/Referencja płatności"
+    "dataTransfer": "Przesyłanie danych",
+    "memo": "Międzyłańcuchowa notatka (memo) / referencja płatności"
   },
   "status": {
     "bridging": "Przenoszenie",
@@ -135,14 +135,14 @@
     "failed": "Nieudane"
   },
   "error": {
-    "loadingBalance": "Ładowanie salda adresu {type}, spróbuj ponownie później",
-    "loadingEscrowBalance": "Ładowanie salda docelowego adresu escrow, spróbuj ponownie później",
-    "configurationMissing": "Brakuje konfiguracji",
-    "sourceConfigurationMissing": "Brakuje konfiguracji łańcucha źródłowego",
-    "accountNotOptedIn": "Konto nie ma jeszcze opt-in dla aktywa {assetId}"
+    "loadingBalance": "Ładowanie salda adresu {type} — spróbuj ponownie później.",
+    "loadingEscrowBalance": "Ładowanie salda adresu escrow w łańcuchu docelowym — spróbuj ponownie później.",
+    "configurationMissing": "Brakuje konfiguracji.",
+    "sourceConfigurationMissing": "Brakuje konfiguracji łańcucha źródłowego.",
+    "accountNotOptedIn": "Konto nie wykonało jeszcze opt-in dla aktywa {assetId}."
   },
   "loading": {
-    "bridgeConfiguration": "Ładowanie konfiguracji bridge. Proszę czekać.",
+    "bridgeConfiguration": "Ładowanie konfiguracji mostu. Proszę czekać.",
     "balance": "Ładowanie salda",
     "transaction": "Ładowanie transakcji"
   },
@@ -155,12 +155,12 @@
     "claimTokens": "Odbierz swoje tokeny"
   },
   "optin": {
-    "title": "Wymagany Opt-in",
-    "description": "Musisz się zapisać, aby otrzymać to aktywo",
-    "scanQR": "Zeskanuj kod QR dla opt-in",
-    "useWallet": "Użyj portfela dla opt-in",
+    "title": "Wymagany opt-in",
+    "description": "Musisz wykonać opt-in, aby otrzymać to aktywo.",
+    "scanQR": "Zeskanuj kod QR, aby wykonać opt-in",
+    "useWallet": "Użyj portfela, aby wykonać opt-in",
     "checking": "Sprawdzanie statusu opt-in",
-    "success": "Pomyślnie zapisano",
-    "checkOptin": "Sprawdź, czy zapisano"
+    "success": "Pomyślnie wykonano opt-in",
+    "checkOptin": "Sprawdź status opt-in"
   }
 }
